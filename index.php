@@ -24,9 +24,9 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <?php include("php/includes/header.html"); ?>
+        <?php include("php/includes/header.php"); ?>
         <main></main>
-        <?php include("php/includes/footer.html"); ?>
+        <?php include("php/includes/footer.php"); ?>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
