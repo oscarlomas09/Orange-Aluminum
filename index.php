@@ -12,10 +12,8 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-        <!-- My Files -->
-        <link href="css/main.css" rel="stylesheet" >
+        <link href="_dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="_dist/css/bootstrap-theme.min.css" rel="stylesheet">
         
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/respond-1.4.2.min.js"></script>
@@ -30,7 +28,7 @@
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <!-- Include all compiled plugins (below), or  individual files as needed -->
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
 
@@ -42,6 +40,16 @@
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        
+        <script>
+            //perform design and functionality changes depending on the screen size
+            $(window).resize(function(e){
+                //if the width of the window is > 712px, then hide the #user-options container as well as the mobile search box
+                if($(window).width() > 712){ 
+                    $("#user-options, #search-mobile").collapse('hide');
+                }
+            });
         </script>
     </body>
 </html>
