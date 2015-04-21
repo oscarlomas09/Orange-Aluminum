@@ -52,18 +52,22 @@
                 collapsable();
             });
             
+            //show or hide mobile menu on click
             $(".mobile-menu-close").click(function(){
                 mobileMenu();
             });
+            //show a second level of the mobile navigation depending on the tab clicked
             $(".mobile-li").click(function(){
                 $(".second-level").css({left:"-100%"});
                 var target_menu = $(this).data("target");
                 $("#"+target_menu).css({left:0});
             });
+            //hide second level mobile navigation when the "Return" tab is clicked
             $(".mobile-back").click(function(){
                 $(".second-level").css({left:"-100%"});
             });
             
+            //Collapse or show items
             function collapsable(){                
                 //check the window width to hide or show certain elements
                 var win_w = $(window).width();
@@ -72,12 +76,14 @@
                 }
                 
                 if(win_w >= 768){      
-                    $("#footer .nav").collapse('show'); //
+                    $("#footer .nav").collapse('show'); //Show footer nav links if there is room for them
                 }
                 else{
-                    $("#footer .nav").collapse('hide');
+                    $("#footer .nav").collapse('hide'); //Collapse footer nav links if there is no room for them
                 }
             }
+            
+            //Show or Hide Mobile Navigation
             function mobileMenu(){
                 if($("#mobile-navbar").hasClass("mobile-visible")){
                     $("#mobile-navbar-screen").css({zIndex:0, opacity:0, left:"-110%"});
