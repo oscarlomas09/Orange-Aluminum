@@ -12,9 +12,9 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <!-- Bootstrap -->
-        <link href="_dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="_dist/css/bootstrap-theme.min.css" rel="stylesheet">
-        <link href="_dist/css/icons.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="css/icons.css" rel="stylesheet">
         
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/respond-1.4.2.min.js"></script>
