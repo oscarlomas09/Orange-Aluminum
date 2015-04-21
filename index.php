@@ -14,6 +14,7 @@
         <!-- Bootstrap -->
         <link href="_dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="_dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="_dist/css/icons.css" rel="stylesheet">
         
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/respond-1.4.2.min.js"></script>
@@ -23,6 +24,8 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <?php include("php/includes/header.php"); ?>
+        <?php include("php/includes/navbar.php"); ?>
+        <?php include("php/includes/mobile-navigation.php"); ?>
         <?php include("php/includes/carousel.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         
@@ -44,12 +47,48 @@
         
         <script>
             //perform design and functionality changes depending on the screen size
+            collapsable();
             $(window).resize(function(e){
-                //if the width of the window is > 712px, then hide the #user-options container as well as the mobile search box
-                if($(window).width() > 712){ 
-                    $("#user-options, #search-mobile").collapse('hide');
-                }
+                collapsable();
             });
+            
+            $(".mobile-menu-close").click(function(){
+                mobileMenu();
+            });
+            $(".mobile-li").click(function(){
+                $(".second-level").css({left:"-100%"});
+                var target_menu = $(this).data("target");
+                $("#"+target_menu).css({left:0});
+            });
+            $(".mobile-back").click(function(){
+                $(".second-level").css({left:"-100%"});
+            });
+            
+            function collapsable(){                
+                //check the window width to hide or show certain elements
+                var win_w = $(window).width();
+                if(win_w > 712){
+                    $("#user-options, #search-mobile").collapse('hide'); //hide user options and mobile search box in HEADER SECTION        
+                }
+                
+                if(win_w >= 768){      
+                    $("#footer .nav").collapse('show'); //
+                }
+                else{
+                    $("#footer .nav").collapse('hide');
+                }
+            }
+            function mobileMenu(){
+                if($("#mobile-navbar").hasClass("mobile-visible")){
+                    $("#mobile-navbar-screen").css({zIndex:0, opacity:0, left:"-110%"});
+                    $("#mobile-navbar").css("left","-110%").removeClass("mobile-visible");
+                    $(".second-level").css({left:"-100%"});
+                }
+                else{
+                    $("#mobile-navbar-screen").css({zIndex:1000, opacity:0.5, left: 0});
+                    $("#mobile-navbar").css("left","0%").addClass("mobile-visible");
+                }
+            }
         </script>
     </body>
 </html>
