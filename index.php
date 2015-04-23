@@ -27,6 +27,7 @@
         <?php include("php/includes/navbar.php"); ?>
         <?php include("php/includes/mobile-navigation.php"); ?>
         <?php include("php/includes/carousel.php"); ?>
+        <?php include("php/includes/chat.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -114,6 +115,23 @@
                 placement:'bottom'
             });
 
+            //Live Chat Form
+            var $chat = $("#chat"); //cache the chat element
+            $("#chat-header").click(function(e){
+                //if the chat form is hidden then animate it in
+                if($chat.hasClass("chat-hidden")){
+                    $chat.animate({bottom: 0}, 500).removeClass("chat-hidden");
+                }
+            });
+            $("#chat-close").click(function(e){
+                //Close the chat form
+                $chat.animate({bottom: "-" + $chat.children("#chat-content").outerHeight() + "px"}, 500, function(){
+                    //set a timeout so that the chat form does not re-apear after closing it
+                    setTimeout(function(){
+                        $chat.addClass("chat-hidden")
+                    },1000);
+                });
+            });
         </script>
     </body>
 </html>
