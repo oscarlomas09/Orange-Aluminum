@@ -4,8 +4,8 @@
             <div class="col-lg-12">
                 <div class="col-sm-3">
                     <h4>Contact Us</h4>
-                    <section>
-                        Orange Aluminum <br>
+                    <address>
+                        <strong>Orange Aluminum</strong><br>
                         P.O. Box 5961 <br>
                         Orange, CA 92863-5961 <br><br>
 
@@ -14,7 +14,7 @@
                         Fax:(714) 771-1221 <br><br>
 
                         <b>orders@orangealuminum.com</b>
-                    </section>
+                    </address>
                 </div>
                 <div class="col-sm-2">
                     <h4><a data-toggle="collapse" href="#footer-about" aria-expanded="true" aria-controls="footer-about">About Us</a></h4>

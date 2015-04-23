@@ -95,6 +95,25 @@
                     $("#mobile-navbar").css("left","0%").addClass("mobile-visible");
                 }
             }
+            
+            //Shopping Cart Items Popover
+            var cart_empty = true; //is the shopping cart empty? Default to Yes
+            var cart_popover = "Your Cart Is Empty"; //initiate popover element
+            var cart_html = false;
+            //if the cart is not epmty
+            if(!cart_empty){
+                cart_popover = $("#cart-popover").html(); //get the template html of the popoverh
+                cart_html = true; //set the popover html value to true to insert html
+            }
+                
+            $('.shopping-cart').popover({
+                title: "Recently Added Items",
+                trigger: "hover click",
+                html: cart_html,
+                content: cart_popover,
+                placement:'bottom'
+            });
+
         </script>
     </body>
 </html>

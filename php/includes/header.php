@@ -22,7 +22,7 @@
                     <input type="text" placeholder="Search">
                     <button type="submit">Find</button>
                 </form>
-                <div class="shopping-cart navbar-right">
+                <div class="shopping-cart navbar-right" data-toggle="popover" data-placement="bottom" data-content="">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
                     <span>Cart</span> 
                     <span class="amount">0</span>
@@ -39,7 +39,7 @@
                 <div class="member">
                     <a data-toggle="collapse" href="#user-options" aria-expanded="false" aria-controls="user-options"><span class="glyphicon glyphicon-user"></span></a>
                 </div>
-                <div class="shopping-cart">
+                <div class="shopping-cart"  data-toggle="popover" data-placement="bottom" data-content="">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
                     <span class="amount">0</span>
                 </div>
@@ -58,6 +58,27 @@
     </div>
     <form id="search-mobile" class="clearfix collapse">
         <input type="text" placeholder="Search">
-        <button type="" class="btn ">Find</button>
+        <button type="" class="btn">Find</button>
     </form>
 </header>
+
+<!-- Shopping Cart Popover -->
+<div id="cart-popover" style="display:none;position:absolute;top: -9999px;">
+    <div class="container" style="width:100% !important;">
+        <div class="row">
+            <div class="col-lg-4"><img src="img/logo-icon.png" style="display:block;height:auto;width:auto;max-width:100%;max-height: 100px;margin:auto;"/></div>
+            <div class="col-lg-8" style="color:black;">
+                <b>Flat Bar: 5mm x 2mm</b><br>
+                <span>Price: $0.89</span><br>
+                <span>Qty: 5</span><br>
+                <a href="" class="popover-link">Add Item</a><span style="margin:0px 3px;color:#ed6531;">|</span><a href="" class="popover-link">Remove Item</a>
+            </div>
+        </div>
+        <div class="row text-center"><h3>Cart Subtotal: $4.45</h3></div>
+        <div class="row" style="padding: 5px;">
+            <a class="nav-left left col-sm-6 popover-link" style="padding: 5px 8px;">Shopping Cart</a>
+            <a class="nav-right btn btn-warning col-sm-6">Checkout</a>
+        </div>
+    </div>
+</div>
+
