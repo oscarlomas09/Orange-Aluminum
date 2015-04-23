@@ -1,6 +1,6 @@
 <div class="container-fluid" id="carousel-container">
     <div class="row">
-        <div id="home-carousel" class="carousel slide col-md-9" data-ride="carousel">
+        <div id="home-carousel" class="carousel slide col-md-9 visible-sm visible-md visible-lg" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
@@ -47,7 +47,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="col-md-3 visible-md visible-lg">
+        <div class="col-md-3">
             <div class="wide-tile"><span class="icon-expert"></span>OEM + Custom Extrusion Experts</div>
             <div class="wide-tile"><span class="icon-forklift"></span>Ask About Volume Pricing</div>
             <div class="wide-tile"><span class="icon-saw"></span>Custom Lengths Available</div>

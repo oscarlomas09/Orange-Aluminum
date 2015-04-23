@@ -2,19 +2,24 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                <div id="social-menu" class="col-sm-1">
+                    <a><span class="icon-facebook"></span></a>
+                    <a><span class="icon-instagram"></span></a>
+                    <a><span class="icon-twitter"></span></a>
+                    <a><span class="icon-pinterest"></span></a>
+                </div> 
                 <div class="col-sm-3">
                     <h4>Contact Us</h4>
-                    <address>
-                        <strong>Orange Aluminum</strong><br>
+                    <strong>Orange Aluminum</strong><br>
+                    <address class="hidden-xs hidden-sm">
                         P.O. Box 5961 <br>
-                        Orange, CA 92863-5961 <br><br>
-
-                        Local:(714) 464-2181 <br>
-                        Toll Free:(877) 464-2181 <br>
-                        Fax:(714) 771-1221 <br><br>
-
-                        <b>orders@orangealuminum.com</b>
+                        Orange, CA 92863-5961 <br>
                     </address>
+                    Local:(714) 464-2181 <br>
+                    Toll Free:(877) 464-2181 <br>
+                    Fax:(714) 771-1221 <br><br>
+
+                    <b>orders@orangealuminum.com</b>
                 </div>
                 <div class="col-sm-2">
                     <h4><a data-toggle="collapse" href="#footer-about" aria-expanded="true" aria-controls="footer-about">About Us</a></h4>
@@ -51,12 +56,6 @@
                         <li><a href="#">Site Map</a></li>
                     </ul>
                 </div>  
-                <div id="social-menu" class="col-sm-1">
-                    <a><span class="icon-facebook"></span></a>
-                    <a><span class="icon-instagram"></span></a>
-                    <a><span class="icon-twitter"></span></a>
-                    <a><span class="icon-pinterest"></span></a>
-                </div> 
             </div>
         </div>
         <div class="row hidden-xs" id="lower-footer">
