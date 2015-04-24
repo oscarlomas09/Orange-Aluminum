@@ -15,6 +15,7 @@
     <ul id="bar-stock-menu" class="second-level" role="menu">
         <li class="mobile-back"><a href="#"><b>Return </b></a><span class="glyphicon glyphicon-menu-right"></span></li>
         <li><a href="#"><span class="icon-angle"></span>Angles</a></li>
+        <li><a href="#"><span class="icon-channel"></span>Channels</a></li>
         <li><a href="#"><span class="icon-flat"></span>Flat Bars</a></li>
         <li><a href="#"><span class="icon-flat-radiused"></span>Flat Bars: Radiused</a></li>
         <li><a href="#"><span class="icon-h-section"></span>H Sections</a></li>

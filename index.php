@@ -12,7 +12,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="_dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="css/icons.css" rel="stylesheet">
         
@@ -27,6 +27,7 @@
         <?php include("php/includes/navbar.php"); ?>
         <?php include("php/includes/mobile-navigation.php"); ?>
         <?php include("php/includes/carousel.php"); ?>
+        <?php include("php/includes/home-content.php"); ?>
         <?php include("php/includes/chat.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         

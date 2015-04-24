@@ -24,211 +24,215 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-recycle:before {
-	content: "\e626";
-}
-
-.icon-secure:before {
-	content: "\e627";
-}
-
-.icon-expert:before {
-	content: "\e628";
-}
-
-.icon-forklift:before {
-	content: "\e629";
-}
-
-.icon-saw:before {
-	content: "\e62a";
-}
-
-.icon-truck:before {
-	content: "\e62b";
-}
-
-.icon-mastercard:before {
-	content: "\e62c";
-}
-
-.icon-visa:before {
-	content: "\e62d";
-}
-
-.icon-amex:before {
-	content: "\e62e";
-}
-
-.icon-discover:before {
-	content: "\e62f";
-}
-
-.icon-facebook:before {
-	content: "\e630";
-}
-
-.icon-instagram:before {
-	content: "\e631";
-}
-
-.icon-pinterest:before {
-	content: "\e632";
-}
-
-.icon-twitter:before {
-	content: "\e633";
-}
-
-.icon-angle:before {
+.icon-channel:before {
 	content: "\e600";
 }
 
-.icon-flat:before {
+.icon-angle:before {
 	content: "\e601";
 }
 
-.icon-flat-radiused:before {
+.icon-flat:before {
 	content: "\e602";
 }
 
-.icon-h-section:before {
+.icon-flat-radiused:before {
 	content: "\e603";
 }
 
-.icon-half-round:before {
+.icon-h-section:before {
 	content: "\e604";
 }
 
-.icon-hex:before {
+.icon-half-round:before {
 	content: "\e605";
 }
 
-.icon-hex-hollow:before {
+.icon-hex:before {
 	content: "\e606";
 }
 
-.icon-round-rod:before {
+.icon-hex-hollow:before {
 	content: "\e607";
 }
 
-.icon-round-tube:before {
+.icon-round-rod:before {
 	content: "\e608";
 }
 
-.icon-square-hollow:before {
+.icon-round-tube:before {
 	content: "\e609";
 }
 
-.icon-tee-bar:before {
+.icon-square-hollow:before {
 	content: "\e60a";
 }
 
-.icon-z-bar:before {
+.icon-tee-bar:before {
 	content: "\e60b";
 }
 
-.icon-cabinet:before {
+.icon-z-bar:before {
 	content: "\e60c";
 }
 
-.icon-case:before {
+.icon-cabinet:before {
 	content: "\e60d";
 }
 
-.icon-closet:before {
+.icon-case:before {
 	content: "\e60e";
 }
 
-.icon-pulls:before {
+.icon-closet:before {
 	content: "\e60f";
 }
 
-.icon-rails:before {
+.icon-pulls:before {
 	content: "\e610";
 }
 
-.icon-tracks:before {
+.icon-rails:before {
 	content: "\e611";
 }
 
-.icon-corners:before {
+.icon-tracks:before {
 	content: "\e612";
 }
 
-.icon-divider:before {
+.icon-corners:before {
 	content: "\e613";
 }
 
-.icon-j-cap:before {
+.icon-divider:before {
 	content: "\e614";
 }
 
-.icon-clip-hd:before {
+.icon-j-cap:before {
 	content: "\e615";
 }
 
-.icon-clip-one:before {
+.icon-clip-hd:before {
 	content: "\e616";
 }
 
-.icon-clip-two:before {
+.icon-clip-one:before {
 	content: "\e617";
 }
 
-.icon-clip-xl:before {
+.icon-clip-two:before {
 	content: "\e618";
 }
 
-.icon-z-hanger:before {
+.icon-clip-xl:before {
 	content: "\e619";
 }
 
-.icon-ez:before {
+.icon-z-hanger:before {
 	content: "\e61a";
 }
 
-.icon-slatwall-panel:before {
+.icon-ez:before {
 	content: "\e61b";
 }
 
-.icon-price-tag:before {
+.icon-slatwall-panel:before {
 	content: "\e61c";
 }
 
-.icon-slatwall:before {
+.icon-price-tag:before {
 	content: "\e61d";
 }
 
-.icon-snap-frame:before {
+.icon-slatwall:before {
 	content: "\e61e";
 }
 
-.icon-trim-grooved:before {
+.icon-snap-frame:before {
 	content: "\e61f";
 }
 
-.icon-trim-heavy:before {
+.icon-trim-grooved:before {
 	content: "\e620";
 }
 
-.icon-trim-round:before {
+.icon-trim-heavy:before {
 	content: "\e621";
 }
 
-.icon-trim-rounded:before {
+.icon-trim-round:before {
 	content: "\e622";
 }
 
-.icon-trim:before {
+.icon-trim-rounded:before {
 	content: "\e623";
 }
 
-.icon-quad:before {
+.icon-trim:before {
 	content: "\e624";
 }
 
-.icon-t-track:before {
+.icon-quad:before {
 	content: "\e625";
+}
+
+.icon-t-track:before {
+	content: "\e626";
+}
+
+.icon-recycle:before {
+	content: "\e627";
+}
+
+.icon-secure:before {
+	content: "\e628";
+}
+
+.icon-expert:before {
+	content: "\e629";
+}
+
+.icon-forklift:before {
+	content: "\e62a";
+}
+
+.icon-saw:before {
+	content: "\e62b";
+}
+
+.icon-truck:before {
+	content: "\e62c";
+}
+
+.icon-mastercard:before {
+	content: "\e62d";
+}
+
+.icon-visa:before {
+	content: "\e62e";
+}
+
+.icon-amex:before {
+	content: "\e62f";
+}
+
+.icon-discover:before {
+	content: "\e630";
+}
+
+.icon-facebook:before {
+	content: "\e631";
+}
+
+.icon-instagram:before {
+	content: "\e632";
+}
+
+.icon-pinterest:before {
+	content: "\e633";
+}
+
+.icon-twitter:before {
+	content: "\e634";
 }
 
