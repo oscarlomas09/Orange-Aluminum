@@ -12,7 +12,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <!-- Bootstrap -->
-        <link href="_dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="css/icons.css" rel="stylesheet">
         
