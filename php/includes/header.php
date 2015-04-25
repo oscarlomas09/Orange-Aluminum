@@ -3,7 +3,7 @@
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <img src="img/logo-icon.png" alt="Orange Aluminum Logo" class="">
                     <div class="title">
                         <h2>Orange Aluminum</h2>
