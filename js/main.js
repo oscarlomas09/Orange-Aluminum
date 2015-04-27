@@ -12,6 +12,7 @@ function collapsable(){
 
     if(win_w >= 768){      
         $("#footer .nav").collapse('show'); //Show footer nav links if there is room for them
+        $("#filters").collapse('show'); //Show Filters if the width is greater than 768px
     }
     else{
         $("#footer .nav").collapse('hide'); //Collapse footer nav links if there is no room for them
@@ -54,7 +55,7 @@ $(".mobile-back").click(function(){
 
 
 //Shopping Cart Items Popover
-var cart_empty = true; //is the shopping cart empty? Default to Yes
+var cart_empty = false; //is the shopping cart empty? Default to Yes
 var cart_popover = "Your Cart Is Empty"; //initiate popover element
 var cart_html = false;
 //if the cart is not epmty
@@ -65,7 +66,7 @@ if(!cart_empty){
 
 $('.shopping-cart').popover({
     title: "Recently Added Items",
-    trigger: "hover click",
+    trigger: "click",
     html: cart_html,
     content: cart_popover,
     placement:'bottom'
@@ -85,6 +86,58 @@ $("#chat-close").click(function(e){
         //set a timeout so that the chat form does not re-apear after closing it
         setTimeout(function(){
             $chat.addClass("chat-hidden")
-        },1000);
+        },2500);
     });
 });
+
+//Filter Functionality
+$('input[type=radio]').change(function() { //when the user selects a filter option
+    var filters = "";
+    //GO trough each radio button
+    $('input[type=radio]').each(function () {
+       filter = (this.checked ? $(this).val() : "");
+        if(filter == "fixed"){ //if this radio option has the value "fixed" then this filter cannot be changed
+            filter = "";
+        }
+        else{
+            filters += " " + filter;
+        }
+    });
+    filters = $.trim(filters).split(/[ ,]+/); //Trim white spaces and replace any other space with commas
+    
+    //first hide all products and loop through each one
+    $(".accordion-toggle").each(function(){
+        $(this).removeClass("filter-hidden").show(); //Show the item again
+        $(".panel-default").show(); //show the parent panel
+        var hasAll = true; //initiate hasAll variable
+        for(var i=0; i < filters.length; i++){
+            //loop through each filter and check if this row has all the desired qualities
+            if(!$(this).hasClass(filters[i])){
+                hasAll = false; //it did not have this class, so it failed the test
+                break;
+            }
+        }
+        if(!hasAll){
+            $(this).addClass("filter-hidden").fadeOut();    //if it doesnt have all requested filters, then hide it
+        }
+    });
+    
+    //if the parent container isn't showing any elements, then hide it
+    $('.panel-default').each(function(){
+        if($(this).find(".accordion-toggle").length == $(this).find(".filter-hidden").length){
+            $(this).hide();
+        }
+    });
+});
+//Filter Reset Button
+$("#reset-btn").click(function(){
+    //reset every filter option to not-checked
+    $('input[type=radio]').each(function () {
+        if($(this).val() == "fixed"){ //if it is a fixed filter, then check it
+            return;
+        }
+        $(this).prop('checked', false); 
+    });
+    $(".panel-default, .accordion-toggle").show(); //show all products and its parent containers
+});
+
