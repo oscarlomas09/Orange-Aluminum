@@ -108,7 +108,7 @@
                                </form>
                             </div>
                             <div class="alloy filter-type">
-                               <span class="filter-title">Ticket Size</span>
+                               <span class="filter-title">Material Size</span>
                                <form id="material-size">
                                    <div class="filter-option">
                                        <input type="radio" id="material-three-quarter" name="material" value="material-three-quarter"/>
