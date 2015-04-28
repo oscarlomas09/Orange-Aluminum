@@ -1,3 +1,213 @@
+<?php
+    $base_url = "http://localhost/Orange-Aluminum/";
+    function newPanel($product){
+        $models = $product["Models"];
+        $alterations = newModel($models, $product["offset"], $product["drop"]);
+        $panel = '<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">'.$product["Title"].'</h3>
+                    </div>
+                    <div class="panel-default container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
+                            </div>
+                            <div class="col-xs-12 col-md-10 visible-md visible-lg">
+                              <p>'.$product["Description"].'</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-hover" style="width:100%;">
+                              <thead>
+                                <tr>
+                                  <th>Offset (A) x Drop (B)</th>
+                                  <th>Cut Length</th>
+                                  <th>SKU</th>
+                                  <th>Each</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                    '.$alterations.'
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> ';
+        return $panel;
+    }
+  function newModel($alteration, $offset, $drop){
+      $row = '';
+      foreach($alteration as $item => $value){
+        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
+                  <th scope="row">'.$offset.'" x '.$drop.'"</th>
+                  <td>'.$value["cut"].'</td>
+                  <td>'.$item.'</td>
+                  <td>$'.$value["price"].'</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="hiddenRow">
+                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
+                            <h4 class="text-">'.$value["title"].'</h4>
+                            <form style="width:100%;margin:0px auto;">
+                               <a href="product.php?p_id='.$item.'" class="product-link">
+                                   Product View<span class="glyphicon glyphicon-share"></span>
+                                </a>
+                                <div class="add-cart ">                         
+                                  <label class="sr-only">Quantity</label>    
+                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
+                                  <button type="submit">
+                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                  </button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>';
+      }
+      return $row;
+    }
+
+    $panels = '';
+    $OA5337 = array( 
+        "Description" => 'Mill Finish Aluminum Panel Rails and Clips, Style 1, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for  Wall Panels, Partitions, and Signs. Lift-off Clearance of 5/8" Required for Installation and Removal. Overall Height when Mounted is 3-1/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.) ',
+        "Title" => "Panel Rail and Clip Style 1",
+        "Models" => array(
+            "OA5337-CB" => array(
+                "title" => "Panel Rail and Clip, Style 1: Bag of 20",
+                "cut" => "Clips (20)",
+                "price" => 9.06,
+                "classes" => "offset-three-sixteen drop-five-eight clips-twenty"
+            ),
+            "OA5337-6" => array(
+                "title" => "Panel Rail and Clip, Style 1: 6 Feet",
+                "cut" => "6'",
+                "price" => 9.36,
+                "classes" => "offset-three-sixteen drop-five-eight clips-six"
+            ),
+            "OA5337-12" => array(
+                "title" => "Panel Rail and Clip, Style 1: 12 Feet",
+                "cut" => "12'",
+                "price" => 18.72,
+                "classes" => "offset-three-sixteen drop-five-eight clips-twelve"
+            )
+        ),
+        "img" => $base_url."img/products/clips/style-1-aside.png",
+        "img_alt" => "Panel Rails and Clips: Style 1",
+        "offset" => "3/16",	    
+        "drop" => "5/8");
+    $panels .= newPanel($OA5337);
+    
+    $OA5403 = array( 
+        "Description" => 'Mill Finish Aluminum Panel Rails and Clips, Style 2, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off clearance of 3/8" Required for Installation and Removal. Overall Height when Mounted is 2-3/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.)',
+        "Title" => "Panel Rail and Clip Style 2",
+        "Models" => array(
+            "OA5403-CB" => array(
+                "title" => "Panel Rail and Clip, Style 2: Bag of 20",
+                "cut" => "Clips (20)",
+                "price" => 9.68,
+                "classes" => "offset-quarter drop-three-eight clips-twenty"
+            ),
+            "OA5403-6" => array(
+                "title" => "Panel Rail and Clip, Style 2: 6 Feet",
+                "cut" => "6'",
+                "price" => 9.98,
+                "classes" => "offset-quarter drop-three-eight clips-six"
+            ),
+            "OA5403-12" => array(
+                "title" => "Panel Rail and Clip, Style 2: 12 Feet",
+                "cut" => "12'",
+                "price" => 19.96,
+                "classes" => "offset-quarter drop-three-eight clips-twelve"
+            )
+        ),
+        "img" => $base_url."img/products/clips/style-2-aside.png",
+        "img_alt" => "Panel Rails and Clips: Style 2",
+        "offset" => "1/4",	    
+        "drop" => "3/8"	    );
+    $panels .= newPanel($OA5403);
+
+    $OA9548 = array( 
+        "Description" => 'Infamous Z Hanger for Mirrors and Picture Frames, this Z hanger style is lighter then our other Panel Rails and Clips providing less in strength but more in savings. Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off Clearance of 45/64" (.704") is Required for Installation and Removal. Overall Height when Mounted is 1-3/4".',
+        "Title" => "Z Hanger",
+        "Models" => array(
+            "OA9548-6" => array(
+                "title" => "Z Hanger: Light Duty",    
+                "cut" => "6'",
+                "price" => 7.99,
+                "classes" => "offset-seven drop-forty clips-six"
+            ),
+            "OA9548-12" => array(
+                "title" => "Z Hanger: Light Duty",
+                "cut" => "12'",
+                "price" => 15.98,
+                "classes" => "offset-seven drop-forty clips-twelve"
+            )
+        ),
+        "img" => $base_url."img/products/clips/z-hanger-aside.png",
+        "img_alt" => "Panel Rails and Clips: Style 2",
+        "offset" => "7/32",	    
+        "drop" => "45/64");
+    $panels .= newPanel($OA9548);
+
+    $OA8142 = array( 
+        "Description" => 'Mill Finish Aluminum Panel Rails and Clips, MEDIUM to HEAVY DUTY Z CLIP APPLICATION, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off clearance of 7/16" Required for Installation and Removal. Overall Height when Mounted is 3-1/16" and offset from wall is 1/4"',
+        "Title" => "HD Panel Rail and Clip",
+        "Models" => array(
+            "OA8142-CB" => array(
+                "title" => "HD Panel Rail and Clips: Bag of 10",    
+                "cut" => "Clips (10)",
+                "price" => 26.50,
+                "classes" => "offset-quarter drop-seven clips-ten"
+            ),
+            "OA8142-6" => array(
+                "title" => "HD Panel Rail and Clip: 6 Feet",    
+                "cut" => "6'",
+                "price" => 15.92,
+                "classes" => "offset-quarter drop-seven clips-six"
+            ),
+            "OA8142-12" => array(
+                "title" => "HD Panel Rail and Clip: 12 Feet",
+                "cut" => "12'",
+                "price" => 31.84,
+                "classes" => "offset-quarter drop-seven clips-twelve"
+            )
+        ),
+        "img" => $base_url."img/products/clips/hd-aside.png",
+        "img_alt" => "HD Panel Rail and Clip",
+        "offset" => "1/4",	    
+        "drop" => "7/16");
+    $panels .= newPanel($OA8142);
+
+    $OA7919 = array( 
+        "Description" => 'Overkill? Perhaps, but what project doesn’t need a little overkill?The biggest, baddest clip to ever leave our R&D Department, the XL Style 4 Clip was designed to wedge two buildings together in order to create the most secure lock imaginable. Comes unpunched. Lift-off clearance of 3/4” required for installation and removal.Overall height when mounted is 4.00” And offset from wall is 3/8”.Remember, though, with great power comes great responsibility."',
+        "Title" => "XL Panel Rail and Clip",
+        "Models" => array(
+            "OA7919-CB" => array(
+                "title" => "XL Panel Rail and Clips: Bag of 10",    
+                "cut" => "Clips (10)",
+                "price" => 29.20,
+                "classes" => "offset-three-eight drop-seven clips-ten"
+            ),
+            "OA7919-6" => array(
+                "title" => "XL Panel Rail and Clip: 6 Feet",    
+                "cut" => "6'",
+                "price" => 28.27,
+                "classes" => "offset-three-eight drop-seven clips-six"
+            ),
+            "OA7919-12" => array(
+                "title" => "XL Panel Rail and Clip: 12 Feet",
+                "cut" => "12'",
+                "price" => 56.54,
+                "classes" => "offset-three-eight drop-seven clips-twelve"
+            )
+        ),
+        "img" => $base_url."img/products/clips/xl-aside.png",
+        "img_alt" => "XL Panel Rail and Clip",
+        "offset" => "3/8",	    
+        "drop" => "7/16");
+    $panels .= newPanel($OA7919);
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -28,7 +238,7 @@
         <?php include("php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="img/jumbotron/Assembled_2.jpg" alt=""></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/panel-rails.jpg" alt=""></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
@@ -55,7 +265,7 @@
                         <h3>Panel Rails & Clips <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
                             <span class="filter-title">Dimensions</span>
-                            <div class="pic"><img src="img/logo-icon.png" /></div>
+                            <div class="pic"><img src="<?php echo BASE_URL;?>img/products/clips/diagram.png" /></div>
                             <div class="dimensions filter-type clearfix">
                                 <div class="filter-section">
                                    <span class="filter-title">Offset A</span>                                    
@@ -187,510 +397,11 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="col-md-4 visible-md visible-lg"><img class="img-tall" alt="" src="img/tile-tall.jpg"/></div>
+                                <div class="col-md-4 visible-md visible-lg"><img class="img-tall" alt="" src="<?php echo BASE_URL;?>img/products/clips/panel-rails-content.jpg"/></div>
                             </div>
                         </div>
                     </div>
-                    <!-- OA5337 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Panel Rail and Clip Style 1</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>Mill Finish Aluminum Panel Rails and Clips, Style 1, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for  Wall Panels, Partitions, and Signs. Lift-off Clearance of 5/8" Required for Installation and Removal. Overall Height when Mounted is 3-1/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.) </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Offset (A) x Drop (B)</th>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5337-CB" class="accordion-toggle offset-three-sixteen drop-five-eight clips-twenty">
-                                      <th scope="row">3/16" x 5/8"</th>
-                                      <td>Clips (20)</td>
-                                      <td>OA5337-CB</td>
-                                      <td>$9.06</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5337-CB" style="padding:8px 13px;">
-                                                <h4 class="text-center">Panel Rail and Clip, Style 1: Bag of 20</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5337-CB-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5337-6" class="accordion-toggle offset-three-sixteen drop-five-eight clips-six">
-                                      <th scope="row">3/16" x 5/8"</th>
-                                      <td>6'</td>
-                                      <td>OA5337-6</td>
-                                      <td>$9.36</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5337-6" style="padding:8px 13px;">
-                                                <h4 class="text-center">Panel Rail and Clip, Style 1: 6 Feet</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5337-6-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5337-12" class="accordion-toggle offset-three-sixteen drop-five-eight clips-twelve">
-                                      <th scope="row">3/16" x 5/8"</th>
-                                      <td>12'</td>
-                                      <td>OA5337-12</td>
-                                      <td>$18.72</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5337-12" style="padding:8px 13px;">
-                                                <h4 class="text-center">Panel Rail and Clip, Style 1: 12 Feet</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5337-12-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- OA5403 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Panel Rail and Clip Style 2</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                    <p>Mill Finish Aluminum Panel Rails and Clips, Style 2, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off clearance of 3/8" Required for Installation and Removal. Overall Height when Mounted is 2-3/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.) </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Offset (A) x Drop (B)</th>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5403-CB" class="accordion-toggle offset-quarter drop-three-eight clips-twenty">
-                                      <th scope="row">1/4" x 3/8"</th>
-                                      <td>Clips (20)</td>
-                                      <td>OA5403-CB</td>
-                                      <td>$9.68</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5403-CB" style="padding:8px 13px;">
-                                                <h4 class="text-center">Panel Rail and Clip, Style 2: Bag of 20</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5403-CB-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5403-6" class="accordion-toggle offset-quarter drop-three-eight clips-six">
-                                      <th scope="row">1/4" x 3/8"</th>
-                                      <td>6'</td>
-                                      <td>OA5403-6</td>
-                                      <td>$9.98</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5403-6" style="padding:8px 13px;">
-                                                <h4 class="text-center">Panel Rail and Clip, Style 1: 6 Feet</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5403-6-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5403-12" class="accordion-toggle offset-quarter drop-three-eight clips-twelve">
-                                      <th scope="row">1/4" x 3/8"</th>
-                                      <td>12'</td>
-                                      <td>OA5403-12</td>
-                                      <td>$19.96</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5403-12" style="padding:8px 13px;">
-                                                <h4 class="text-center">Panel Rail and Clip, Style 1: 12 Feet</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5403-12-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- OA9548 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Z Hanger</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                    <p>Infamous Z Hanger for Mirrors and Picture Frames, this Z hanger style is lighter then our other Panel Rails and Clips providing less in strength but more in savings. Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off Clearance of 45/64" (.704") is Required for Installation and Removal. Overall Height when Mounted is 1-3/4". </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Offset (A) x Drop (B)</th>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA9548-6" class="accordion-toggle offset-seven drop-forty clips-six">
-                                      <th scope="row">7/32" x 45/64"</th>
-                                      <td>6'</td>
-                                      <td>OA9548-6</td>
-                                      <td>$7.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA9548-6" style="padding:8px 13px;">
-                                                <h4 class="text-center">Z Hanger: Light Duty</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA9548-6-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA9548-12" class="accordion-toggle offset-seven drop-forty clips-twleve">
-                                      <th scope="row">7/32" x 45/64"</th>
-                                      <td>12'</td>
-                                      <td>OA9548-12</td>
-                                      <td>$15.98</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA9548-12" style="padding:8px 13px;">
-                                                <h4 class="text-center">Z Hanger: Light Duty</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA9548-12-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- OA8142 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">HD Panel Rail and Clip</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                    <p>Mill Finish Aluminum Panel Rails and Clips, MEDIUM to HEAVY DUTY Z CLIP APPLICATION, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off clearance of 7/16" Required for Installation and Removal. Overall Height when Mounted is 3-1/16" and offset from wall is 1/4" </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Offset (A) x Drop (B)</th>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA8142-CB" class="accordion-toggle offset-quarter drop-seven clips-ten">
-                                      <th scope="row">1/4" x 7/16"</th>
-                                      <td>Clips (10)</td>
-                                      <td>OA8142-CB</td>
-                                      <td>$26.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA8142-CB" style="padding:8px 13px;">
-                                                <h4 class="text-center">HD Panel Rail and Clip</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA8142-CB-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA8142-6" class="accordion-toggle offset-quarter drop-seven clips-six">
-                                      <th scope="row">1/4" x 7/16"</th>
-                                      <td>6'</td>
-                                      <td>OA8142-6</td>
-                                      <td>$15.92</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA8142-6" style="padding:8px 13px;">
-                                                <h4 class="text-center">HD Panel Rail and Clip</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA8142-6-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA8142-12" class="accordion-toggle offset-quarter drop-seven clips-twelve">
-                                      <th scope="row">1/4" x 7/16"</th>
-                                      <td>12'</td>
-                                      <td>OA8142-12</td>
-                                      <td>$31.84</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA8142-12" style="padding:8px 13px;">
-                                                <h4 class="text-center">HD Panel Rail and Clip</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA8142-12-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- OA7919 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">XL Panel Rail and Clip</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                    <p>Overkill? Perhaps, but what project doesn’t need a little overkill?The biggest, baddest clip to ever leave our R&D Department, the XL Style 4 Clip was designed to wedge two buildings together in order to create the most secure lock imaginable. Comes unpunched. Lift-off clearance of 3/4” required for installation and removal.Overall height when mounted is 4.00” And offset from wall is 3/8”.Remember, though, with great power comes great responsibility.</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Offset (A) x Drop (B)</th>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7919-CB" class="accordion-toggle offset-three-eight drop-seven clips-ten">
-                                      <th scope="row">3/8" x 7/16"</th>
-                                      <td>Clips (10)</td>
-                                      <td>OA7919-CB</td>
-                                      <td>$29.20</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7919-CB" style="padding:8px 13px;">
-                                                <h4 class="text-center">XL Panel Rail and Clip</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7919-CB-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7919-6" class="accordion-toggle offset-three-eight drop-seven clips-six">
-                                      <th scope="row">3/8" x 7/16"</th>
-                                      <td>6'</td>
-                                      <td>OA7919-6</td>
-                                      <td>$15.92</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7919-6" style="padding:8px 13px;">
-                                                <h4 class="text-center">XL Panel Rail and Clip</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7919-6-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7919-12" class="accordion-toggle offset-three-eight drop-seven clips-twelve">
-                                      <th scope="row">3/8" x 7/16"</th>
-                                      <td>12'</td>
-                                      <td>OA7919-12</td>
-                                      <td>$31.84</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7919-12" style="padding:8px 13px;">
-                                                <h4 class="text-center">XL Panel Rail and Clip</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7919-12-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo $panels; ?>
                 </div>
         </main>
         
