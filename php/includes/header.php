@@ -4,7 +4,7 @@
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="index.php" class="navbar-brand">
+                <a href="<?php echo BASE_URL; ?>" class="navbar-brand">
                     <img src="<?php echo BASE_URL; ?>img/logo-icon.png" alt="Orange Aluminum Logo" class="">
                     <div class="title">
                         <h2>Orange Aluminum</h2>

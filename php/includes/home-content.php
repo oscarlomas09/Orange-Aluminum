@@ -101,7 +101,7 @@
                     <a href="<?php echo BASE_URL; ?>fixturing-and-storefront/snap-frames.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail"></a>
                 </div><br>
                 <div class="row">
-                    <h2><a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers.php">Caps, Corners, Coves and Dividers</a></h2>
+                    <h2><a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/index.php">Caps, Corners, Coves and Dividers</a></h2>
                     <p>Wall paneling extrusion profiles, extending, trimming, joining and finishing interior paneled spaces</p>
                     <hr>
                     <p>                        
@@ -114,7 +114,7 @@
                     <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/j-cap.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/dividers/j-cap.jpg" alt="J-Cap" class="img-thumbnail"></a>
                 </div><br>
                 <div class="row">
-                    <h2><a href="<?php echo BASE_URL; ?>cabinet-and-closet.php">Cabinet, Case and Closet</a></h2>
+                    <h2><a href="<?php echo BASE_URL; ?>cabinet-and-closet/index.php">Cabinet, Case and Closet</a></h2>
                     <p>Everything from doors to drawers, profiles to build flight cases  extrusions for hanging sliding doors.</p>
                     <hr>
                     <p>                        
@@ -133,7 +133,7 @@
                     <a href="<?php echo BASE_URL; ?>cabinet-and-closet/road-case-sections.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/case.jpg" alt="Road Case Sections" class="img-thumbnail"></a>
                 </div><br>
                 <div class="row">
-                    <h2><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trim.php">Tee Molding and Edge Trims</a></h2>
+                    <h2><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/index.php">Tee Molding and Edge Trims</a></h2>
                     <p>Table and countertop edge finishing, from nostalgic scalloped 50's style push in tee molds to modern smooth screw mounted edge trims.</p>
                     <hr>
                     <p>                        
@@ -152,7 +152,7 @@
                     <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/tee-molding.jpg" alt="Tee Molding" class="img-thumbnail"></a>
                 </div><br>
                 <div class="row">
-                    <h2>T Slot Framing Systems and Tracks</h2>
+                    <h2><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/index.php">T Slot Framing Systems and Tracks</a></h2>
                     <p>Heavy duty modular T slot framing extrusions - and T-track - are used to build custom fixtures, structures, cases, and more.</p>
                     <hr>
                     <p>                        
