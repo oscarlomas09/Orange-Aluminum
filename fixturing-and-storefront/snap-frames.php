@@ -31,8 +31,8 @@
         <div class="jumbotron"><img src="../img/jumbotron/Assembled_2.jpg" alt=""></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
-              <li><a href="../index.php">Home</a></li>
-              <li><a href="../fixturing-and-storefront.php">Fixturing and Storefront</a></li>
+              <li><a href="<?php echo BASE_URL;?>">Home</a></li>
+              <li><a href="index.php">Fixturing and Storefront</a></li>
               <li>Snap Frames</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->

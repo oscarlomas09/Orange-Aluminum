@@ -31,8 +31,8 @@
         <div class="jumbotron"><img src="../img/jumbotron/Assembled_2.jpg" alt=""></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
-              <li><a href="../index.php">Home</a></li>
-              <li><a href="../fixturing-and-storefront.php">Fixturing and Storefront</a></li>
+              <li><a href="<?php echo BASE_URL;?>">Home</a></li>
+              <li><a href="index.php">Fixturing and Storefront</a></li>
               <li>EZ Slatwall System</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
@@ -41,7 +41,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-../title" id="myMod../alLabel">Standard System of Measurement Inch Material</h4>
+                           s <h4 class="modal-../title" id="myMod../alLabel">Standard System of Measurement Inch Material</h4>
                         </div>
                         <div class="modal-body">
                             <img src="../img/tolerance.jpg" alt="Tolerance Table" style="max-width:100%;"/>

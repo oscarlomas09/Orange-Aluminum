@@ -32,7 +32,7 @@
                 <div class="nav navbar-nav navbar-right">
                     <div class="nav-links">
                         <a href=""><span class="glyphicon glyphicon-earphone"></span>(877) 464-2181</a>
-                        <a href=""><span class="glyphicon glyphicon-envelope"></span>Contact Us</a>
+                        <a href=""><span class="glyphicon -envelope"></span>Contact Us</a>
                     </div>
                 </div>
             </div>
