@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Fixturing and Storefront</title>
+        <title>Cabinet, Case and Closet</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -34,25 +34,33 @@
                         <div class="row">
                             <ol class="breadcrumb">
                               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-                              <li>Fixturing and Storefront</li>
+                              <li>Cabinet, Case and Closet</li>
                             </ol>
-                            <h2>Fixturing and Storefront</h2>
+                            <h2>Cabinet, Case and Closet</h2>
                             <hr>
-                            <a href="ez-slatwall-system.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/ez-slatwall.jpg" alt="EZ Slatwall" class="img-thumbnail">
-                                <span>EZ Slatwall System</span>
+                            <a href="closet-rods.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/cabinet/closet.jpg" alt="Closet" class="img-thumbnail">
+                                <span>Closet Rods</span>
                             </a>
-                            <a href="price-tag-moldings.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/price-tag.jpg" alt="Price Tag Molding" class="img-thumbnail">
-                                <span>Price Tag Moldings</span>
+                            <a href="door-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/cabinet/tracks.jpg" alt="Door Tracks" class="img-thumbnail">
+                                <span>Door Tracks</span>
                             </a>
-                            <a href="slatwall-systems.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/slatwall.jpg" alt="Slatwall Systems" class="img-thumbnail">
-                                <span>Slatwall Systems</span>
+                            <a href="file-hanging-rail.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/cabinet/rails.jpg" alt="File Hanging Rails" class="img-thumbnail">
+                                <span>File Hanging Rails</span>
                             </a>
-                            <a href="snap-.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail">
-                                <span>Snap Frames</span>
+                            <a href="garage-cabinet-trim.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/cabinet/cabinet-trim.jpg" alt="Garage Cabinet Trim" class="img-thumbnail">
+                                <span>Garage Cabinet Trim</span>
+                            </a>
+                            <a href="pulls=and-handles.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/cabinet/pulls.jpg" alt="Pulls and Handles" class="img-thumbnail">
+                                <span>Pulls and Handles</span>
+                            </a>
+                            <a href="road-case-sections.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/cabinet/case.jpg" alt="Road Case Sections" class="img-thumbnail">
+                                <span>Road Case Sections</span>
                             </a>
                         </div><br>
                     </div>

@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Fixturing and Storefront</title>
+        <title>Caps, Corners, Coves, and Dividers</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -34,25 +34,21 @@
                         <div class="row">
                             <ol class="breadcrumb">
                               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-                              <li>Fixturing and Storefront</li>
+                              <li>Caps, Corners, Coves, and Dividers</li>
                             </ol>
-                            <h2>Fixturing and Storefront</h2>
+                            <h2>Caps, Corners, Coves, and </h2>
                             <hr>
-                            <a href="ez-slatwall-system.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/ez-slatwall.jpg" alt="EZ Slatwall" class="img-thumbnail">
-                                <span>EZ Slatwall System</span>
+                            <a href="corners.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/dividers/corners.jpg" alt="Corners" class="img-thumbnail">
+                                <span>Corners</span>
                             </a>
-                            <a href="price-tag-moldings.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/price-tag.jpg" alt="Price Tag Molding" class="img-thumbnail">
-                                <span>Price Tag Moldings</span>
+                            <a href="divider-bar.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/dividers/divider.jpg" alt="Divider Bars" class="img-thumbnail">
+                                <span>Divider Bar</span>
                             </a>
-                            <a href="slatwall-systems.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/slatwall.jpg" alt="Slatwall Systems" class="img-thumbnail">
-                                <span>Slatwall Systems</span>
-                            </a>
-                            <a href="snap-.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail">
-                                <span>Snap Frames</span>
+                            <a href="j-cap.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/dividers/j-cap.jpg" alt="J-Cap Edge Trim" class="img-thumbnail">
+                                <span>J Cap Edge Trim</span>
                             </a>
                         </div><br>
                     </div>

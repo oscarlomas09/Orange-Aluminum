@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Fixturing and Storefront</title>
+        <title>T Slot Framing Systems and Tracks</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -34,25 +34,17 @@
                         <div class="row">
                             <ol class="breadcrumb">
                               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-                              <li>Fixturing and Storefront</li>
+                              <li>T Slot Framing Systems and Tracks</li>
                             </ol>
-                            <h2>Fixturing and Storefront</h2>
+                            <h2>T Slot Framing Systems and Tracks</h2>
                             <hr>
-                            <a href="ez-slatwall-system.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/ez-slatwall.jpg" alt="EZ Slatwall" class="img-thumbnail">
-                                <span>EZ Slatwall System</span>
+                            <a href="edge-trim.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/t-slot/quad-track.jpg" alt="Quad Tracks" class="img-thumbnail">
+                                <span>T Slot Framing: Quad Tracks</span>
                             </a>
-                            <a href="price-tag-moldings.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/price-tag.jpg" alt="Price Tag Molding" class="img-thumbnail">
-                                <span>Price Tag Moldings</span>
-                            </a>
-                            <a href="slatwall-systems.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/slatwall.jpg" alt="Slatwall Systems" class="img-thumbnail">
-                                <span>Slatwall Systems</span>
-                            </a>
-                            <a href="snap-.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail">
-                                <span>Snap Frames</span>
+                            <a href="tee-moulding.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="<?php echo BASE_URL;?>img/products/t-slot/t-track.jpg" alt="T-Tracks" class="img-thumbnail">
+                                <span>T-Tracks</span>
                             </a>
                         </div><br>
                     </div>
