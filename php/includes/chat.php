@@ -1,5 +1,5 @@
 <section id="chat" class="hidden-xs hidden-sm chat-hidden">
-    <img src="img/chat.png"/>
+    <img src="<?php echo BASE_URL; ?>img/chat.png"/>
     <div id="chat-header">
         <span>Chat Online</span>
         <span class="glyphicon glyphicon-remove" id="chat-close"></span>

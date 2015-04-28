@@ -1,10 +1,11 @@
+<?php define('BASE_URL', 'http://localhost/Orange-Aluminum/'); ?>
 <header>
     <h5 class="promo">Free Ground Shipping on Orders of $200+</h5>
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="index.php" class="navbar-brand">
-                    <img src="img/logo-icon.png" alt="Orange Aluminum Logo" class="">
+                    <img src="<?php echo BASE_URL; ?>img/logo-icon.png" alt="Orange Aluminum Logo" class="">
                     <div class="title">
                         <h2>Orange Aluminum</h2>
                         <h3>Architectural and Structural Aluminum</h3>
@@ -66,7 +67,7 @@
 <div id="cart-popover" style="display:none;position:absolute;top: -9999px;">
     <div class="container" style="width:100% !important;">
         <div class="row">
-            <div class="col-lg-4"><img src="img/logo-icon.png" style="display:block;height:auto;width:auto;max-width:100%;max-height: 100px;margin:auto;"/></div>
+            <div class="col-lg-4"><img src="<?php echo BASE_URL; ?>img/logo-icon.png" style="display:block;height:auto;width:auto;max-width:100%;max-height: 100px;margin:auto;"/></div>
             <div class="col-lg-8" style="color:black;">
                 <b>Flat Bar: 5mm x 2mm</b><br>
                 <span>Price: $0.89</span><br>
