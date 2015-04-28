@@ -109,6 +109,7 @@ $('input[type=radio]').change(function() { //when the user selects a filter opti
     $(".accordion-toggle").each(function(){
         $(this).removeClass("filter-hidden").show(); //Show the item again
         $(".panel-default").show(); //show the parent panel
+        $(".accordion-body").collapse("hide"); //collapse all product shopping cart
         var hasAll = true; //initiate hasAll variable
         for(var i=0; i < filters.length; i++){
             //loop through each filter and check if this row has all the desired qualities
