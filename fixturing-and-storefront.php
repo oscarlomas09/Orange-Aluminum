@@ -38,19 +38,19 @@
                             </ol>
                             <h2>Fixturing and Storefront</h2>
                             <hr>
-                            <a href="" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="fixturing-and-storefront/ez-slatwall-system.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="img/logo-icon.png" alt="" class="img-thumbnail">
                                 <span>EZ Slatwall System</span>
                             </a>
-                            <a href="" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="fixturing-and-storefront/price-tag-moldings.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="img/logo-icon.png" alt="" class="img-thumbnail">
                                 <span>Price Tag Moldings</span>
                             </a>
-                            <a href="" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="fixturing-and-storefront/slatwall-systems.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="img/logo-icon.png" alt="" class="img-thumbnail">
                                 <span>Slatwall Systems</span>
                             </a>
-                            <a href="" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="fixturing-and-storefront/snap-frames.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="img/logo-icon.png" alt="" class="img-thumbnail">
                                 <span>Snap Frames</span>
                             </a>

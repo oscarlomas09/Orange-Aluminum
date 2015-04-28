@@ -53,7 +53,7 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>Price Tag Moldings <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>Slatwall System<span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
                             <div class="cut filter-type">
                                <span class="filter-title">Cut Length</span>
