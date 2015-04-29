@@ -50,7 +50,7 @@
                                 <img src="<?php echo BASE_URL;?>img/products/fixturing/slatwall.jpg" alt="Slatwall Systems" class="img-thumbnail">
                                 <span>Slatwall Systems</span>
                             </a>
-                            <a href="snap-.php" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="snap-frames.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="<?php echo BASE_URL;?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail">
                                 <span>Snap Frames</span>
                             </a>

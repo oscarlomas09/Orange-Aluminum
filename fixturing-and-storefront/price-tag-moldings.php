@@ -1,3 +1,141 @@
+<?php
+    $base_url = "http://localhost/Orange-Aluminum/";
+    function newPanel($product){
+        $models = $product["Models"];
+        $alterations = newModel($models);
+        $panel = '<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">'.$product["Title"].'</h3>
+                    </div>
+                    <div class="panel-default container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-10 visible-md visible-lg">
+                              <p>'.$product["Description"].'</p>
+                            </div>
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-hover" style="width:100%;">
+                              <thead>
+                                <tr>
+                                  <th>SKU</th>
+                                  <th>Material Size</th>
+                                  <th>Ticket Size</th>
+                                  <th>Each</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                    '.$alterations.'
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> ';
+        return $panel;
+    }
+  function newModel($alteration){
+      $row = '';
+      foreach($alteration as $item => $value){
+        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
+                  <th scope="row">'.$item.'</td>
+                  <td>'.$value["ticket"].'"</th>
+                  <td>'.$value["material"].'"</td>
+                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="hiddenRow">
+                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
+                            <h4 class="text-">'.$value["title"].'</h4>
+                            <form style="width:100%;margin:0px auto;">
+                               <a href="product.php?p_id='.$item.'" class="product-link">
+                                   Product View<span class="glyphicon glyphicon-share"></span>
+                                </a>
+                                <div class="add-cart ">                         
+                                  <label class="sr-only">Quantity</label>    
+                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
+                                  <button type="submit">
+                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                  </button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>';
+      }
+      return $row;
+    }
+
+    $panels = '';
+    $fluted = array( 
+        "Description" => 'Punched holes 6” on Center to Accommodate #5 Screws. <br>
+• For Use with material thickness of 3/4”.<br>
+• Designed to Mount Atop Material via a 1/8” Routed <br>
+• Available in 3/4” (0.750”) Width; 1-3/8” Tall (1.375”)',
+        "Title" => "FLUTED PRICE TAG MOLDING",
+        "Models" => array(
+            "OA7900" => array(
+                "title" => "FLUTED PRICE TAG MOLDING",
+                "price" => 9.96,
+                "classes" => "ticket-five-eight material-three-quarter",
+                "ticket" => "5/8",	    
+                "material" => "3/4"
+            ),
+            "OA7899" => array(
+                "title" => "FLUTED PRICE TAG MOLDING",
+                "price" => 10.85,
+                "classes" => "ticket-seven-eight material-one-one-eight",
+                "ticket" => "7/8",	    
+                "material" => "1-1/8"
+            ),
+            "OA6387" => array(
+                "title" => "FLUTED PRICE TAG MOLDING",
+                "price" => 11.17,
+                "classes" => "ticket-one-seven-sixtyfour material-one-fifteen-thirtytwo",
+                "ticket" => "1-7/64",	    
+                "material" => "1-15/32"
+            ),
+        ),
+        "img" => $base_url."img/products/fixturing/price-tag-fluted.png",
+        "img_alt" => "FLUTED PRICE TAG MOLDING"
+    );
+    $panels .= newPanel($fluted);
+
+    $concave = array( 
+        "Description" => "",
+        "Title" => "CONCAVE PRICE TAG MOLDING",
+        "Models" => array(
+            "OA7898" => array(
+                "title" => "CONCAVE PRICE TAG MOLDING",
+                "price" => 9.06,
+                "classes" => "ticket-one-nine-sixtyfour material-one-quarter",
+                "ticket" => "1-9/64",	    
+                "material" => "1-1/4"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/price-tag-concave.png",
+        "img_alt" => "CONCAVE PRICE TAG MOLDING"
+    );
+    $panels .= newPanel($concave);
+
+    $universal = array( 
+        "Description" => "",
+        "Title" => "UNIVERSAL PRICE TAG MOLDING",
+        "Models" => array(
+            "OA7898" => array(
+                "title" => "UNIVERSAL PRICE TAG MOLDING",
+                "price" => 21.78,
+                "classes" => "ticket-all material-three",
+                "ticket" => "All Of the Above ",	    
+                "material" => "3-25/41"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/price-tag-universal.png",
+        "img_alt" => "UNIVERSAL PRICE TAG MOLDING"
+    );
+    $panels .= newPanel($universal);
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -28,7 +166,7 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="../img/jumbotron/Assembled_2.jpg" alt=""></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/price-tag.jpg" alt="Price Tag"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
@@ -178,225 +316,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- FLUTED PRICE TAG MOLDING -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">FLUTED PRICE TAG MOLDING</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>Punched holes 6” on Center to Accommodate #5 Screws. <br>
-• For Use with material thickness of 3/4”.<br>
-• Designed to Mount Atop Material via a 1/8” Routed <br>
-• Available in 3/4” (0.750”) Width; 1-3/8” Tall (1.375”)</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>SKU</th>
-                                      <th>Ticket Size</th>
-                                      <th>Material Size</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7900" class="accordion-toggle ticket-five-eight material-three-quarter">
-                                      <th scope="row">OA7900</td>
-                                      <td>5/8"</td>
-                                      <td>3/4"</td>
-                                      <td>$9.96</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7900" style="padding:8px 13px;">
-                                                <h4 class="text-center">FLUTED PRICE TAG MOLDING</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7900-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>                                   
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7899" class="accordion-toggle ticket-seven-eight material-one-one-eight">
-                                      <th scope="row">OA7899</td>
-                                      <td>7/8"</td>
-                                      <td>1-1/8</td>
-                                      <td>$10.85</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7899" style="padding:8px 13px;">
-                                                <h4 class="text-center">FLUTED PRICE TAG MOLDING</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7899-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>                              
-                                    <tr data-toggle="collapse" data-target="#collapse-OA6387" class="accordion-toggle ticket-one-seven-sixtyfour material-one-fifteen-thirtytwo">
-                                      <th scope="row">OA6387</td>
-                                      <td>1-7/64"</td>
-                                      <td>1-15/32"</td>
-                                      <td>$11.17</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA6387" style="padding:8px 13px;">
-                                                <h4 class="text-center">FLUTED PRICE TAG MOLDING</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA6387-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- CONCAVE PRICE TAG MOLDING -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">CONCAVE PRICE TAG MOLDING</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>SKU</th>
-                                      <th>Ticket Size</th>
-                                      <th>Material Size</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7898" class="accordion-toggle ticket-one-nine-sixtyfour material-one-quarter">
-                                      <th scope="row">OA7898</td>
-                                      <td>1-9/64"</td>
-                                      <td>1-1/4"</td>
-                                      <td>$9.06</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7898" style="padding:8px 13px;">
-                                                <h4 class="text-center">CONCAVE PRICE TAG MOLDING</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7898-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>                                   
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- CONCAVE PRICE TAG MOLDING -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">UNIVERSAL PRICE TAG MOLDING</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>This versatile price tag molding not only adds function and style to your display but allows you to work with any size tag for your product info. <br>
-• For Use with material thickness of 3/4”. <br>
-• Designed to Mount Atop Material via a 1/8” Routed <br>
-• Available in 3/4” (0.750”) Width; 1-3/8” Tall (1.375”)</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>SKU</th>
-                                      <th>Ticket Size</th>
-                                      <th>Material Size</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7897" class="accordion-toggle ticket-all material-three">
-                                      <th scope="row">OA7897</td>
-                                      <td>All of the Above</td>
-                                      <td>3-25/41"</td>
-                                      <td>$21.78</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7897" style="padding:8px 13px;">
-                                                <h4 class="text-center">UNIVERSAL PRICE TAG MOLDING</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7897-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>                                   
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo $panels; ?>
                 </div>
         </main>
         

@@ -28,7 +28,7 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="../img/jumbotron/Assembled_2.jpg" alt=""></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/snap-frame.jpg" alt="Snap Frames"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
@@ -136,12 +136,12 @@
                         </div>
                         <div class="panel-body container-fluid">
                             <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
                                 <div class="col-xs-12 col-md-10 visible-md visible-lg">
                                   <p>Clear Anodized Aluminum Snap Frame Cover Cap, engineered to easily hinge atop our Base Extrusion with precise accuracy. Sold in long lengths to allow you to meet the variety of printed advertisements your project may require.
 4 Corner brackets and 4 Spring Steels Included with every 8 foot pairing lengths</p>
+                                </div>
+                                <div class="col-xs-12 col-md-2">
+                                    <img class="img-tall" alt="Snap Frame: Cover" src="<?php echo BASE_URL;?>img/products/fixturing/snap-cover-aside.png"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -192,12 +192,12 @@
                         </div>
                         <div class="panel-body container-fluid">
                             <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
                                 <div class="col-xs-12 col-md-10 visible-md visible-lg">
                                   <p>Clear Anodized Aluminum Snap Frame Base Plate, designed to easily work perfectly with our Cap profile, while engineered with the bottom mount T Track to allow for easier assembly and accommodation for our flush hanger. The OA9410 Hanger Extrusion quickly mounts to the wall while providing a functional tongue that serves as the hanging rail for the base to slide easily into. Sold in long lengths to allow you to meet the variety of printed advertisements your project may require.
 4 Corner brackets and 4 Spring Steels Included with every 8 foot pairing lengths</p>
+                                </div>
+                               <div class="col-xs-12 col-md-2">
+                                    <img class="img-tall" alt="Snap Frame: Base" src="<?php echo BASE_URL;?>img/products/fixturing/snap-base-aside.png"/>
                                 </div>
                             </div>
                             <div class="row">

@@ -1,3 +1,138 @@
+<?php
+    $base_url = "http://localhost/Orange-Aluminum/";
+    function newPanel($product){
+        $models = $product["Models"];
+        $alterations = newModel($models);
+        $panel = '<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">'.$product["Title"].'</h3>
+                    </div>
+                    <div class="panel-default container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
+                            </div>
+                            <div class="col-xs-12 col-md-10 visible-md visible-lg">
+                              <p>'.$product["Description"].'</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-hover" style="width:100%;">
+                              <thead>
+                                <tr>
+                                  <th>SKU</th>
+                                  <th>Cut Length</th>
+                                  <th>Each</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                    '.$alterations.'
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> ';
+        return $panel;
+    }
+  function newModel($alteration){
+      $row = '';
+      foreach($alteration as $item => $value){
+        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
+                  <td>'.$item.'</td>
+                  <td>'.$value["cut"].'</td>
+                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="hiddenRow">
+                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
+                            <h4 class="text-">'.$value["title"].'</h4>
+                            <form style="width:100%;margin:0px auto;">
+                               <a href="product.php?p_id='.$item.'" class="product-link">
+                                   Product View<span class="glyphicon glyphicon-share"></span>
+                                </a>
+                                <div class="add-cart ">                         
+                                  <label class="sr-only">Quantity</label>    
+                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
+                                  <button type="submit">
+                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                  </button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>';
+      }
+      return $row;
+    }
+
+    $panels = '';
+    $OA7389 = array( 
+        "Description" => 'EZ Slatwall Systems : Aluminum Stackable Track to be Used as the Main Joining Extrusion to Build the Height and Add the T Slot Functionality. EZ Slatwall System Track is Used in Between the 1/8” Material to Desired Height. This Piece is the Section in which the Wall Panel System’s Height is Grown and Determined. Designed to be Fastened with Screws to the Wall, Stacked Atop a Panel with Top Tab Fastened to a Wall and Repeated Until your Desired Height is reached. This Section is to be Used in Conjunction with the EZ Slatwall System Trim OA7587 and 1/8” Thick Panels (OA125P, Not included).',
+        "Title" => "EZ SLATWALL TRACK",
+        "Models" => array(
+            "OA7389-4" => array(
+                "title" => "EZ SLATWALL TRACK: 4 Feet",
+                "cut" => "4'",
+                "price" => 9.48,
+                "classes" => "cut-four"
+            ),
+            "OA7389-8" => array(
+                "title" => "EZ SLATWALL TRACK: 8 Feet",
+                "cut" => "8'",
+                "price" => 18.96,
+                "classes" => "cut-eight"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/ez-slatwall-track.png",
+        "img_alt" => "EZ Slatwall Track"
+    );
+    $panels .= newPanel($OA7389);
+
+    $OA7587 = array( 
+        "Description" => 'EZ Slatwall Systems : Aluminum Trim to be Used as Both the Top and Bottom Trim for the EZ Slatwall System, Designed to be Used with any 1/8” Material. This Piece is the Section in which the Wall Panel System Starts and Terminates. Designed to be Fastened with Screws to the Wall in Bottom Trim Application, Top Trim Application can Either be Left Atop the Rigid 1/8” Panel you Insert or Adhered to the Wall with any Type of Industrial Adhesive. This Section is to be Used in Conjunction with the EZ Slatwall System Track OA7389 and 1/8” Thick Panels (OA125P, Not included).',
+        "Title" => "EZ SLATWALL TRIM - TOP/BOTTOM",
+        "Models" => array(
+            "OA7587-4" => array(
+                "title" => "EZ SLATWALL TRIM - TOP/BOTTOM: 4 Feet",
+                "cut" => "4'",
+                "price" => 5.27,
+                "classes" => "cut-four"
+            ),
+            "OA7587-8" => array(
+                "title" => "EZ SLATWALL TRIM - TOP/BOTTOM: 8 Feet",
+                "cut" => "8'",
+                "price" => 10.54,
+                "classes" => "cut-eight"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/ez-slatwall-trim.png",
+        "img_alt" => "EZ Slatwall Trim"
+    );
+    $panels .= newPanel($OA7587);
+
+    $OA7589 = array( 
+        "Description" => 'Our solution for exact finishing off of the edges of your EZ slatwall panel project, the perfect trim at the perfect size to make your finished product look perfect.',
+        "Title" => "EZ SLATWALL FINISHING ANGLE",
+        "Models" => array(
+            "OA7589-4" => array(
+                "title" => "EZ SLATWALL FINISHING ANGLE: 4 Feet",
+                "cut" => "4'",
+                "price" => 3.75,
+                "classes" => "cut-four"
+            ),
+            "OA7589-8" => array(
+                "title" => "EZ SLATWALL FINISHING ANGLE: 8 Feet",
+                "cut" => "8'",
+                "price" => 7.50,
+                "classes" => "cut-eight"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/ez-slatwall-angle.png",
+        "img_alt" => "EZ Slatwall Trim"
+    );
+    $panels .= newPanel($OA7589);
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -9,7 +144,7 @@
         <title>EZ Slatwall System</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="../-touch-icon.png">
         
         <!-- Bootstrap -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +163,7 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="../img/jumbotron/Assembled_2.jpg" alt=""></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/ez-slatwall.jpg" alt="EZ Slatwall"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
@@ -138,237 +273,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- OA7389 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">EZ SLATWALL TRACK</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>EZ Slatwall Systems : Aluminum Stackable Track to be Used as the Main Joining Extrusion to Build the Height and Add the T Slot Functionality. EZ Slatwall System Track is Used in Between the 1/8” Material to Desired Height. This Piece is the Section in which the Wall Panel System’s Height is Grown and Determined. Designed to be Fastened with Screws to the Wall, Stacked Atop a Panel with Top Tab Fastened to a Wall and Repeated Until your Desired Height is reached. This Section is to be Used in Conjunction with the EZ Slatwall System Trim OA7587 and 1/8” Thick Panels (OA125P, Not included).</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7389-4" class="accordion-toggle cut-four">
-                                      <th scope="row">4'</td>
-                                      <td>OA7389-4</td>
-                                      <td>$9.48</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7389-4" style="padding:8px 13px;">
-                                                <h4 class="text-center">EZ SLATWALL TRACK</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7389-4-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7389-8" class="accordion-toggle cut-eight">
-                                      <th scope="row">8'</th>
-                                      <td>OA7389-8</td>
-                                      <td>$18.96</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7389-8" style="padding:8px 13px;">
-                                                <h4 class="text-center">EZ SLATWALL TRACK</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7389-8-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- OA7587 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">EZ SLATWALL TRIM - TOP/BOTTOM</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>EZ Slatwall Systems : Aluminum Trim to be Used as Both the Top and Bottom Trim for the EZ Slatwall System, Designed to be Used with any 1/8” Material. This Piece is the Section in which the Wall Panel System Starts and Terminates. Designed to be Fastened with Screws to the Wall in Bottom Trim Application, Top Trim Application can Either be Left Atop the Rigid 1/8” Panel you Insert or Adhered to the Wall with any Type of Industrial Adhesive. This Section is to be Used in Conjunction with the EZ Slatwall System Track OA7389 and 1/8” Thick Panels (OA125P, Not included).</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7587-4" class="accordion-toggle cut-four">
-                                      <th scope="row">4'</td>
-                                      <td>OA7587-4</td>
-                                      <td>$5.27</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7587-4" style="padding:8px 13px;">
-                                                <h4 class="text-center">EZ SLATWALL TRIM - TOP/BOTTOM</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7587-4-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7587-8" class="accordion-toggle cut-eight">
-                                      <th scope="row">8'</th>
-                                      <td>OA7587-8</td>
-                                      <td>$10.54</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7587-8" style="padding:8px 13px;">
-                                                <h4 class="text-center">EZ SLATWALL TRIM - TOP/BOTTOM</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7587-8-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- OA7589 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">EZ SLATWALL FINISHING ANGLE</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>Our solution for exact finishing off of the edges of your EZ slatwall panel project, the perfect trim at the perfect size to make your finished product look perfect.</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>Cut Length</th>
-                                      <th>SKU</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7589-4" class="accordion-toggle cut-four">
-                                      <th scope="row">4'</td>
-                                      <td>OA7589-4</td>
-                                      <td>$3.75</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7589-4" style="padding:8px 13px;">
-                                                <h4 class="text-center">EZ SLATWALL FINISHING ANGLE</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7589-4-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA7589-8" class="accordion-toggle cut-eight">
-                                      <th scope="row">8'</th>
-                                      <td>OA7589-8</td>
-                                      <td>$7.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA7589-8" style="padding:8px 13px;">
-                                                <h4 class="text-center">EZ SLATWALL FINISHING ANGLE</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA7589-8-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                   <?php echo $panels; ?>
                 </div>
         </main>
         

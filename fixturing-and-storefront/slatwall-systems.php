@@ -1,3 +1,113 @@
+<?php
+    $base_url = "http://localhost/Orange-Aluminum/";
+    function newPanel($product){
+        $models = $product["Models"];
+        $alterations = newModel($models);
+        $panel = '<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">'.$product["Title"].'</h3>
+                    </div>
+                    <div class="panel-default container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-10 visible-md visible-lg">
+                              <p>'.$product["Description"].'</p>
+                            </div>
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-hover" style="width:100%;">
+                              <thead>
+                                <tr>
+                                  <th>SKU</th>
+                                  <th>Cut Length</th>
+                                  <th>Each</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                    '.$alterations.'
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> ';
+        return $panel;
+    }
+  function newModel($alteration){
+      $row = '';
+      foreach($alteration as $item => $value){
+        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
+                  <th scope="row">'.$item.'</td>
+                  <td>'.$value["cut"].'</td>
+                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="hiddenRow">
+                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
+                            <h4 class="text-">'.$value["title"].'</h4>
+                            <form style="width:100%;margin:0px auto;">
+                               <a href="product.php?p_id='.$item.'" class="product-link">
+                                   Product View<span class="glyphicon glyphicon-share"></span>
+                                </a>
+                                <div class="add-cart ">                         
+                                  <label class="sr-only">Quantity</label>    
+                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
+                                  <button type="submit">
+                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                  </button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>';
+      }
+      return $row;
+    }
+
+    $panels = '';
+    $OA5022 = array( 
+        "Description" => '',
+        "Title" => "Slatwall Insert",
+        "Models" => array(
+            "OA5022" => array(
+                "title" => "Slatwall Insert",
+                "cut" => "8'",
+                "price" => 11.61,
+                "classes" => "cut-eight"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/slatwall-aside.png",
+        "img_alt" => "Slatwall Insert"
+    );
+    $panels .= newPanel($OA5022);
+
+    $OA8524 = array( 
+        "Description" => 'Interlocking Aluminum Slatwall Panel, Stack it as high as you want! These self mating aluminum slatwall strips are perfect for your cubicle millwork projects or retail spaces alike... The material comes mill finish... ready for you to paint or keep mill. Section allows your functional slatwall spacing to be fixed at exactly 1.610” (1-5/8”.) <br>
+• Available in 5 and 10 foot Lengths <br>
+• 1-5/8” (1.610”) On Center Slats <br>
+• Mill Finish, Ready for Paint <br>
+• 6063-T5 Aluminum',
+        "Title" => "Interlocking Slatwall Panel",
+        "Models" => array(
+            "OA8524" => array(
+                "title" => "Interlocking Slatwall Panel: 5 Feet",
+                "cut" => "5'",
+                "price" => 32.24,
+                "classes" => "cut-five"
+            ),
+            "OA8524-10" => array(
+                "title" => "Interlocking Slatwall Panel: 10 Feet",
+                "cut" => "10'",
+                "price" => 64.48,
+                "classes" => "cut-ten"
+            )
+        ),
+        "img" => $base_url."img/products/fixturing/slatwall-panel-aside.png",
+        "img_alt" => "Interlocking Slatwall Panel"
+    );
+    $panels .= newPanel($OA8524);
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -28,7 +138,7 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="../img/jumbotron/Assembled_2.jpg" alt=""></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/slatwall.jpg" alt="Slatwall Systems"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
@@ -137,43 +247,40 @@
                             </div>
                         </div>
                     </div>
-                    <!-- OA5022 -->
+                    <?php echo $panels; ?>
+                    <h3>Slatwall Accessories</h3><hr>
+                    <!-- BASE -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Slatwall Insert</h3>
+                            <h3 class="panel-title">Router Bit</h3>
                         </div>
                         <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                            </div>
                             <div class="row">
                                 <table class="table table-hover" style="width:100%;">
                                   <thead>
                                     <tr>
+                                      <th>Name</th>
                                       <th>SKU</th>
-                                      <th>Cut Length</th>
                                       <th>Each</th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA5022" class="accordion-toggle cut-eight">
-                                      <th scope="row">OA5022</td>
-                                      <td>8'</td>
-                                      <td>$11.61</td>
+                                    <tr data-toggle="collapse" data-target="#collapse-OA5022-USA" class="accordion-toggle cut-five cut-eight cut-ten">
+                                      <th scope="row">Router Bit: American Made</td>
+                                      <td>OA5022-USA</td>
+                                      <td>$85.80</td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA5022" style="padding:8px 13px;">
-                                                <h4 class="text-center">Slatwall Insert</h4>
+                                            <div class="accordion-body collapse" id="collapse-OA5022-USA" style="padding:8px 13px;">
+                                                <h4 class="text-center">Router Bit: American Made</h4>
                                                 <form style="width:100%;margin:0px auto;">
                                                    <a href="#" class="product-link">
                                                        Product View<span class="glyphicon glyphicon-share"></span>
                                                     </a>
                                                     <div class="add-cart clearfix">                         
                                                       <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA5022-qty" min="0" value="1">
+                                                      <input type="number" id="OA5022-USA-qty" min="0" value="1">
                                                       <button type="submit">
                                                           <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
                                                       </button>
@@ -181,56 +288,23 @@
                                                 </form>
                                             </div>
                                         </td>
-                                    </tr>                                   
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Interlocking Slatwall Panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Interlocking Slatwall Panel</h3>
-                        </div>
-                        <div class="panel-body container-fluid">
-                            <div class="row">
-                               <div class="col-xs-12 col-md-2">
-                                    <img class="img-tall" alt="" src="img/tile-tall.jpg"/>
-                                </div>
-                                <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                                  <p>Interlocking Aluminum Slatwall Panel, Stack it as high as you want! These self mating aluminum slatwall strips are perfect for your cubicle millwork projects or retail spaces alike... The material comes mill finish... ready for you to paint or keep mill. Section allows your functional slatwall spacing to be fixed at exactly 1.610” (1-5/8”.) <br>
-• Available in 5 and 10 foot Lengths <br>
-• 1-5/8” (1.610”) On Center Slats <br>
-• Mill Finish, Ready for Paint <br>
-• 6063-T5 Aluminum</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-hover" style="width:100%;">
-                                  <thead>
-                                    <tr>
-                                      <th>SKU</th>
-                                      <th>Cut Length</th>
-                                      <th>Each</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA8524" class="accordion-toggle cut-five">
-                                      <th scope="row">OA8524</td>
-                                      <td>5'</td>
-                                      <td>$32.24</td>
+                                     </tr> 
+                                     <tr data-toggle="collapse" data-target="#collapse-OA5022-RTRBIT" class="accordion-toggle cut-five cut-eight cut-ten">
+                                      <th scope="row">Router Bit: Made in China</td>
+                                      <td>OA5022-RTRBIT</td>
+                                      <td>$32.99</td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA8524" style="padding:8px 13px;">
-                                                <h4 class="text-center">Interlocking Slatwall Panel</h4>
+                                            <div class="accordion-body collapse" id="collapse-OA5022-RTRBIT" style="padding:8px 13px;">
+                                                <h4 class="text-center">Router Bit: Made in China</h4>
                                                 <form style="width:100%;margin:0px auto;">
                                                    <a href="#" class="product-link">
                                                        Product View<span class="glyphicon glyphicon-share"></span>
                                                     </a>
                                                     <div class="add-cart clearfix">                         
                                                       <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA8524-qty" min="0" value="1">
+                                                      <input type="number" id="OA5022-RTRBIT-qty" min="0" value="1">
                                                       <button type="submit">
                                                           <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
                                                       </button>
@@ -238,31 +312,7 @@
                                                 </form>
                                             </div>
                                         </td>
-                                    </tr>          
-                                    <tr data-toggle="collapse" data-target="#collapse-OA8524-10" class="accordion-toggle cut-ten">
-                                      <th scope="row">OA8524-10</td>
-                                      <td>10'</td>
-                                      <td>$64.48</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA8524-10" style="padding:8px 13px;">
-                                                <h4 class="text-center">Interlocking Slatwall Panel</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA8524-10-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>       
+                                    </tr>                   
                                   </tbody>
                                 </table>
                             </div>

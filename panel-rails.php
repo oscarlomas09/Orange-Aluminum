@@ -42,7 +42,7 @@
                   <th scope="row">'.$offset.'" x '.$drop.'"</th>
                   <td>'.$value["cut"].'</td>
                   <td>'.$item.'</td>
-                  <td>$'.$value["price"].'</td>
+                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
                 </tr>
                 <tr>
                     <td colspan="4" class="hiddenRow">
