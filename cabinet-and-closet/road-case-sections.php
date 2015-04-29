@@ -9,11 +9,11 @@
                     </div>
                     <div class="panel-default container-fluid">
                         <div class="row">
-                           <div class="col-xs-12 col-md-2">
-                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
-                            </div>
                             <div class="col-xs-12 col-md-10 visible-md visible-lg">
                               <p>'.$product["Description"].'</p>
+                            </div>
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
                             </div>
                         </div>
                         <div class="row">
@@ -21,6 +21,7 @@
                               <thead>
                                 <tr>
                                   <th>SKU</th>
+                                  <th>Cut</th>
                                   <th>Fits</th>
                                   <th>Each</th>
                                 </tr>
@@ -38,7 +39,8 @@
       $row = '';
       foreach($alteration as $item => $value){
         $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <td>'.$item.'</td>
+                  <th scope="row">'.$item.'</td>
+                  <td>'.$value["cut"].'</td>
                   <td>'.$value["fits"].'"</td>
                   <td>$'.number_format($value["price"], 2, '.', '').'</td>
                 </tr>
@@ -67,81 +69,82 @@
 
     $panels = '';
 
-    $outside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Outside Corner ',
-        "Title" => "Outside Corner",
+    $apart = array( 
+        "Description" => 'This Break Apart Valance - Tongue and Groove Extrusion, Fits your 1/4", 3/8", and 1/2" Material, is Perfect for Lid Enclosures for all your Road or Flight Cases. The design allows material to be Extruded as one Piece, then Breaks Apart into Two Separate Aluminum Extrusions, Male and Female. The pieces are designed for each piece to have an exposed 1" Leg, while the 9/16" (.550") Channel is more then enough room to accommodate your 1/4" Plywood or ABS Laminate. ',
+        "Title" => "Break Apart Valances",
         "Models" => array(
-            "OA7889" => array(
-                "title" => "Outside Corner",
+            "OA3316" => array(
+                "title" => "Break Apart Valances",
+                "cut" => "6'",
                 "fits" => "1/4",
-                "price" => 9.98,
-                "classes" => "fits-quarter polished"
+                "price" => 12.48,
+                "classes" => "fits-quarter"
             ),
-            "OA7249" => array(
-                "title" => "Outside Corner",
-                "fits" => "19/64",
-                "price" => 14.10,
-                "classes" => "fits-nineteen-sixtyfour clear polished"
+            "OA2374" => array(
+                "title" => "Break Apart Valances",
+                "cut" => "6'",
+                "fits" => "3/8",
+                "price" => 12.76,
+                "classes" => "fits-three-eight"
             ),
-            "OA7891" => array(
-                "title" => "Outside Corner",
+            "OA4429" => array(
+                "title" => "Break Apart Valancesd",
+                "cut" => "6'",
                 "fits" => "1/2",
-                "price" => 11.03,
-                "classes" => "fits-half polished"
+                "price" => 17.45,
+                "classes" => "fits-half"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-outside-aside.png",
-        "img_alt" => "Outside Corner"
+        "img" => $base_url."img/products/cabinet/break-apart.png",
+        "img_alt" => "Break Apart Valances"
     );
-    $panels .= newPanel($outside);
+    $panels .= newPanel($apart);
 
-    $inside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Inside Corner',
-        "Title" => "Inside Corner",
+    $single = array( 
+        "Description" => 'The Single Angle Profile is commonly used to finish off the 90 Degree Edge of Cases. Legs are Punched 3” OC with 3/16” holes',
+        "Title" => "Single Angle Edge",
         "Models" => array(
-            "OA7890" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/4",
-                "price" => 10.18,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA7892" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/2",
-                "price" => 11.33,
-                "classes" => "fits-half polished"
+            "OA3316" => array(
+                "title" => "Single Angle Edge",
+                "cut" => "6'",
+                "fits" => "Variable ",
+                "price" => 9.06,
+                "classes" => ""
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-inside-aside.png",
-        "img_alt" => "Inside Corner"
+        "img" => $base_url."img/products/cabinet/single-angle-edge.jpg",
+        "img_alt" => "Single Angle Edge"
     );
-    $panels .= newPanel($inside);
+    $panels .= newPanel($single);
 
     $double = array( 
         "Description" => 'The Double Angle Enclosure Extrusion is the easiest way to join your 90 degree corners for all your Road or Flight Cases. The design allows you to easily join all your material at those 90 degree corners, while also providing easier assembly and protecting your cases… adding longer product life in addition to higher quality.',
-        "Title" => "Double Corner",
+        "Title" => "Double Angle Edge",
         "Models" => array(
             "OA3860" => array(
-                "title" => "Double Corner",
+                "title" => "Double Angle Edge",
+                "cut" => "6'",
                 "fits" => "1/4",
                 "price" => 8.45,
-                "classes" => "fits-quarter polished"
+                "classes" => "fits-quarter"
             ),
             "OA3980" => array(
-                "title" => "Double Corner",
+                "title" => "Double Angle Edge",
+                "cut" => "6'",
                 "fits" => "3/8",
                 "price" => 9.95,
-                "classes" => "fits-three-eight polished"
+                "classes" => "fits-three-eight"
             ),
             "OA3931" => array(
-                "title" => "Double Corner",
+                "title" => "Double Angle Edge",
+                "cut" => "6'",
                 "fits" => "1/2",
                 "price" => 10.97,
-                "classes" => "fits-half polished"
+                "classes" => "fits-half"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-double-aside.png",
-        "img_alt" => "Double Corner"
+        "img" => $base_url."img/products/cabinet/double-angle-edge.png",
+        "img_alt" => "Double Angle Edge"
     );
     $panels .= newPanel($double);
 ?>
@@ -176,12 +179,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/corners.jpg" alt="Corners"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/road-case.jpg" alt="Road Case Sections"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-              <li><a href="index.php">Caps, Corners, Coves, and Dividers</a></li>
-              <li>Corners</li>
+              <li><a href="index.php">Cabinet, Case and Closet</a></li>
+              <li>Road Case Sections</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -201,53 +204,45 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>Corners <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>Road Case Sections <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
-                            <div class="cut filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
+                               <form>
                                    <div class="filter-option">
                                        <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
                                        <label for="cut-six"><span></span>6'</label>
                                    </div>
                                </form>
                             </div>
-                            <div class="finish filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
+                               <form>
                                    <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="polished" name="finish" value="polished"/>
-                                       <label for="polished"><span></span>Mechanical Polished</label>
+                                       <input type="radio" id="mill" name="finish" value="fixed" checked/>
+                                       <label for="mill"><span></span>Mill Finish</label>
                                    </div>
                                </form>
                             </div>
-                            <div class="alloy filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
+                               <form>
                                    <div class="filter-option">
                                        <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
                                        <label for="alloy"><span></span>6063-T5</label>
                                    </div>
                                </form>
                             </div>
-                            <div class="alloy filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Fits</span>
-                               <form id="clips-alloy-form">
+                               <form>
                                    <div class="filter-option">
                                        <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
                                        <label for="fits-quarter"><span></span>1/4"</label>
                                    </div>
                                    <div class="filter-option">
-                                       <input type="radio" id="fits-nineteen-sixtyfour" name="fits" value="fits-nineteen-sixtyfour"/>
-                                       <label for="fits-nineteen-sixtyfour"><span></span>19/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-three-eight"><span></span>3/8"</label>
+                                       <input type="radio" id="fits-eight" name="fits" value="fits-three-eight"/>
+                                       <label for="fits-eight"><span></span>3/8"</label>
                                    </div>
                                    <div class="filter-option">
                                        <input type="radio" id="fits-half" name="fits" value="fits-half"/>
@@ -267,8 +262,8 @@
                         </div>
                         <div class="panel-body container-fluid">
                             <div class="row">
-                               <div class="col-xs-12">
-                                    <p>Create cleaner corner transitions for your wall and wall paneling projects with our inside/ outside corner extrusions. Orange Aluminum’s corner extrusions will advance installation time and improve the overall look of your wall project. Protective Edge Molding Designed to Join Material at 90 Degrees for Outside and Inside Corners</p>
+                               <div class="col-xs-12 col-md-8">
+                                    <p>Our aluminum case extrusions are used to fasten the panels together in 90 Degree corners, in addition to providing that perfect tongue and groove enclosure. These sections will not only add to the quality of your case, but also reduce the manufacturing time and increase your product life These sections come mill finish, and as the rest of our products... are manufactured in the USA! </p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -279,13 +274,12 @@
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanical Polished</a><br>
-                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a> selectively available
+                                                <a data-toggle="tooltip" title="The natural/raw appearance of the aluminum as it is extruded. No secondary process, may show heavy production lines.">Mill Finish</a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">6' Cut Lengths</td>
+                                            <td style="width:75%;">6 Foot Cut Length; Longer Stocked Lengths Available</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>
@@ -301,6 +295,7 @@
                                         </tr>
                                     </table>
                                 </div>
+                                <div class="col-md-4 visible-md visible-lg"><img class="img-tall" alt="" src="<?php echo BASE_URL;?>img/products/clips/panel-rails-content.jpg"/></div>
                             </div>
                         </div>
                     </div>

@@ -3,17 +3,14 @@
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
-        $panel = '<div class="panel panel-default">
-                    <div class="panel-heading">
+        $panel = '<div class="panel panel-default col-xs-12 col-md-4" style="">
+                    <div class="panel-heading" style="color:#ED6531;background:none;">
                         <h3 class="panel-title">'.$product["Title"].'</h3>
                     </div>
                     <div class="panel-default container-fluid">
                         <div class="row">
-                           <div class="col-xs-12 col-md-2">
-                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
-                            </div>
-                            <div class="col-xs-12 col-md-10 visible-md visible-lg">
-                              <p>'.$product["Description"].'</p>
+                           <div class="col-xs-12" style="padding:0;">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'" style="width:100%;"/>
                             </div>
                         </div>
                         <div class="row">
@@ -21,7 +18,7 @@
                               <thead>
                                 <tr>
                                   <th>SKU</th>
-                                  <th>Fits</th>
+                                  <th>Cut Length</th>
                                   <th>Each</th>
                                 </tr>
                               </thead>
@@ -38,8 +35,8 @@
       $row = '';
       foreach($alteration as $item => $value){
         $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <td>'.$item.'</td>
-                  <td>'.$value["fits"].'"</td>
+                  <th scope="row">'.$item.'</td>
+                  <td>'.$value["cut"].'</td>
                   <td>$'.number_format($value["price"], 2, '.', '').'</td>
                 </tr>
                 <tr>
@@ -66,86 +63,54 @@
     }
 
     $panels = '';
-
-    $outside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Outside Corner ',
-        "Title" => "Outside Corner",
+    $OA9028 = array( 
+        "Description" => '',
+        "Title" => "Single Door Track",
         "Models" => array(
-            "OA7889" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/4",
-                "price" => 9.98,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA7249" => array(
-                "title" => "Outside Corner",
-                "fits" => "19/64",
-                "price" => 14.10,
-                "classes" => "fits-nineteen-sixtyfour clear polished"
-            ),
-            "OA7891" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/2",
-                "price" => 11.03,
-                "classes" => "fits-half polished"
+            "OA9028" => array(
+                "title" => "Single Door Track",
+                "cut" => "8'",
+                "price" => 26.34,
+                "classes" => "cut-eight"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-outside-aside.png",
-        "img_alt" => "Outside Corner"
+        "img" => $base_url."img/products/cabinet/track-single.jpg",
+        "img_alt" => "Single Door Track"
     );
-    $panels .= newPanel($outside);
+    $panels .= newPanel($OA9028);
 
-    $inside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Inside Corner',
-        "Title" => "Inside Corner",
+    $OA9029 = array( 
+        "Description" => '',
+        "Title" => "Dual Door Track",
         "Models" => array(
-            "OA7890" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/4",
-                "price" => 10.18,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA7892" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/2",
-                "price" => 11.33,
-                "classes" => "fits-half polished"
+            "OA9029" => array(
+                "title" => "Dual Door Track",
+                "cut" => "8'",
+                "price" => 31.68,
+                "classes" => "cut-eight"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-inside-aside.png",
-        "img_alt" => "Inside Corner"
+        "img" => $base_url."img/products/cabinet/track-dual.jpg",
+        "img_alt" => "Dual Door Track"
     );
-    $panels .= newPanel($inside);
+    $panels .= newPanel($OA9029);
 
-    $double = array( 
-        "Description" => 'The Double Angle Enclosure Extrusion is the easiest way to join your 90 degree corners for all your Road or Flight Cases. The design allows you to easily join all your material at those 90 degree corners, while also providing easier assembly and protecting your cases… adding longer product life in addition to higher quality.',
-        "Title" => "Double Corner",
+    $OA9143 = array( 
+        "Description" => '',
+        "Title" => "Closed Door Track",
         "Models" => array(
-            "OA3860" => array(
-                "title" => "Double Corner",
-                "fits" => "1/4",
-                "price" => 8.45,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA3980" => array(
-                "title" => "Double Corner",
-                "fits" => "3/8",
-                "price" => 9.95,
-                "classes" => "fits-three-eight polished"
-            ),
-            "OA3931" => array(
-                "title" => "Double Corner",
-                "fits" => "1/2",
-                "price" => 10.97,
-                "classes" => "fits-half polished"
+            "OA9143" => array(
+                "title" => "Closed Door Track",
+                "cut" => "8'",
+                "price" => 22.03,
+                "classes" => "cut-eight"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-double-aside.png",
-        "img_alt" => "Double Corner"
+        "img" => $base_url."img/products/cabinet/track-closed.jpg",
+        "img_alt" => "Closed Door Track"
     );
-    $panels .= newPanel($double);
+    $panels .= newPanel($OA9143);
 ?>
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -154,10 +119,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>EZ Slatwall System</title>
+        <title>Slatwall Systems</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="../-touch-icon.png">
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
         
         <!-- Bootstrap -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -176,14 +141,13 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/corners.jpg" alt="Corners"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/door-tracks.jpg" alt="Door Tracks"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-              <li><a href="index.php">Caps, Corners, Coves, and Dividers</a></li>
-              <li>Corners</li>
-            </ol>
-            <!-- Modal Window for Tolerance Table-->
+              <li><a href="index.php">Cabinet, Case and Closet</a></li>
+              <li>Door Tracks</li>
+            </ol><!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -201,14 +165,14 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>Corners <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>Slatwall System<span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
                             <div class="cut filter-type">
                                <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
+                               <form id="cut-form">
                                    <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-six"><span></span>6'</label>
+                                       <input type="radio" id="cut-eight" name="cut-length" value="fixed" checked/>
+                                       <label for="cut-eight"><span></span>8'</label>
                                    </div>
                                </form>
                             </div>
@@ -216,12 +180,8 @@
                                <span class="filter-title">Finish</span>
                                <form id="clips-finish-form">
                                    <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="polished" name="finish" value="polished"/>
-                                       <label for="polished"><span></span>Mechanical Polished</label>
+                                       <input type="radio" id="mill" name="finish" value="fixed" checked/>
+                                       <label for="mill"><span></span>Mill Finish</label>
                                    </div>
                                </form>
                             </div>
@@ -231,27 +191,6 @@
                                    <div class="filter-option">
                                        <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
                                        <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Fits</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
-                                       <label for="fits-quarter"><span></span>1/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-nineteen-sixtyfour" name="fits" value="fits-nineteen-sixtyfour"/>
-                                       <label for="fits-nineteen-sixtyfour"><span></span>19/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-three-eight"><span></span>3/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-half" name="fits" value="fits-half"/>
-                                       <label for="fits-half"><span></span>1/2"</label>
                                    </div>
                                </form>
                             </div>
@@ -268,7 +207,7 @@
                         <div class="panel-body container-fluid">
                             <div class="row">
                                <div class="col-xs-12">
-                                    <p>Create cleaner corner transitions for your wall and wall paneling projects with our inside/ outside corner extrusions. Orange Aluminum’s corner extrusions will advance installation time and improve the overall look of your wall project. Protective Edge Molding Designed to Join Material at 90 Degrees for Outside and Inside Corners</p>
+                                    <p>Sliding door tracks are great for residential or commercial interiors. These modern sliding door tracks offer a series of sophisticated design solutions for dividing space–as room dividers, closet doors, sliding doors or pocket doors. The minimalist top hung design eliminates obtrusive floor tracks and creates a simple, minimalist design that meets the specifications of architects, decorators and engineers around the world.</p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -279,13 +218,11 @@
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanical Polished</a><br>
-                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a> selectively available
-                                            </td>
+                                                <a data-toggle="tooltip" title="The natural/raw appearance of the aluminum as it is extruded. No secondary process, may show heavy production lines.">Mill Finish</a></td>
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">6' Cut Lengths</td>
+                                            <td style="width:75%;">8' Cut Lengths</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>
@@ -304,7 +241,12 @@
                             </div>
                         </div>
                     </div>
-                   <?php echo $panels; ?>
+                    <div class="container-fluid">
+                        <div class="row">                            
+                            <?php echo $panels; ?>
+                        </div>
+                    </div>
+                    <h3>Door Track Hardware</h3><hr>
                 </div>
         </main>
         

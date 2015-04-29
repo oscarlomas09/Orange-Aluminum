@@ -105,11 +105,11 @@
                     <p>Wall paneling extrusion profiles, extending, trimming, joining and finishing interior paneled spaces</p>
                     <hr>
                     <p>                        
-                        <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/dividers.php">Divider Bar</a><span class="divider">|</span>
+                        <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/divider-bar.php">Divider Bar</a><span class="divider">|</span>
                         <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/corners.php">Corners</a><span class="divider">|</span>
                         <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/j-cap.php">J Cap Edge Trim</a>
                     </p>
-                    <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/dividers.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/dividers/divider.jpg" alt="Divider Bar" class="img-thumbnail"></a>
+                    <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/divider-bar.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/dividers/divider.jpg" alt="Divider Bar" class="img-thumbnail"></a>
                     <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/corners.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/dividers/corners.jpg" alt="Corners" class="img-thumbnail"></a>
                     <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/j-cap.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/dividers/j-cap.jpg" alt="J-Cap" class="img-thumbnail"></a>
                 </div><br>
@@ -121,14 +121,14 @@
                         <a href="<?php echo BASE_URL; ?>cabinet-and-closet/closet-rods.php">Closet Rods</a><span class="divider">|</span>
                         <a href="<?php echo BASE_URL; ?>cabinet-and-closet/door-tracks.php">Door Tracks</a><span class="divider">|</span>
                         <a href="<?php echo BASE_URL; ?>cabinet-and-closet/file-hanging-rail.php">File Hanging Rail</a><span class="divider">|</span>
-                        <a href="<?php echo BASE_URL; ?>cabinet-and-closet/cabinet-edge-trim.php">Cabinet Edge Trim</a><span class="divider">|</span>
+                        <a href="<?php echo BASE_URL; ?>cabinet-and-closet/cabinet-trim.php">Cabinet Edge Trim</a><span class="divider">|</span>
                         <a href="<?php echo BASE_URL; ?>cabinet-and-closet/pulls-and-handles.php">Pulls & Handles</a><span class="divider">|</span>
                         <a href="<?php echo BASE_URL; ?>cabinet-and-closet/road-case-sections.php">Road Case Sections</a>
                     </p>
                     <a href="<?php echo BASE_URL; ?>cabinet-and-closet/closet-rods.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/closet.jpg" alt="Closet Rods" class="img-thumbnail"></a>
                     <a href="<?php echo BASE_URL; ?>cabinet-and-closet/door-tracks.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/tracks.jpg" alt="Door Tracks" class="img-thumbnail"></a>
                     <a href="<?php echo BASE_URL; ?>cabinet-and-closet/file-hanging-rail.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/rails.jpg" alt="File Hanging Rails" class="img-thumbnail"></a>
-                    <a href="<?php echo BASE_URL; ?>cabinet-and-closet/cabinet-edge-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/cabinet-trim.jpg" alt="Cabinet Edge Trims" class="img-thumbnail"></a>
+                    <a href="<?php echo BASE_URL; ?>cabinet-and-closet/cabinet-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/cabinet-trim.jpg" alt="Cabinet Edge Trims" class="img-thumbnail"></a>
                     <a href="<?php echo BASE_URL; ?>cabinet-and-closet/pulls-and-handles.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/pulls.jpg" alt="Pulls and Handles" class="img-thumbnail"></a>
                     <a href="<?php echo BASE_URL; ?>cabinet-and-closet/road-case-sections.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/case.jpg" alt="Road Case Sections" class="img-thumbnail"></a>
                 </div><br>

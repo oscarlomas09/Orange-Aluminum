@@ -144,17 +144,16 @@
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
               <li><a href="index.php">Fixturing and Storefront</a></li>
               <li>Slatwall Systems</li>
-            </ol>
-            <!-- Modal Window for Tolerance Table-->
+            </ol><!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-../title" id="myMod../alLabel">Standard System of Measurement Inch Material</h4>
+                            <h4 class="modal-title" id="myModalLabel">Standard System of Measurement Inch Material</h4>
                         </div>
                         <div class="modal-body">
-                            <img src="../img/tolerance.jpg" alt="Tolerance Table" style="max-width:100%;"/>
+                            <img src="<?php echo BASE_URL;?>img/tolerance.jpg" alt="Tolerance Table" style="max-width:100%;"/>
                         </div>
                     </div>
                 </div>

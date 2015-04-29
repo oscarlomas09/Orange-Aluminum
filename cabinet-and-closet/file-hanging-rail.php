@@ -9,19 +9,20 @@
                     </div>
                     <div class="panel-default container-fluid">
                         <div class="row">
-                           <div class="col-xs-12 col-md-2">
-                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
-                            </div>
                             <div class="col-xs-12 col-md-10 visible-md visible-lg">
                               <p>'.$product["Description"].'</p>
+                            </div>
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
                             </div>
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
                               <thead>
                                 <tr>
+                                  <th>Finish</th>
+                                  <th>Width x Thickness</th>
                                   <th>SKU</th>
-                                  <th>Fits</th>
                                   <th>Each</th>
                                 </tr>
                               </thead>
@@ -38,8 +39,9 @@
       $row = '';
       foreach($alteration as $item => $value){
         $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
+                  <th scope="row">'.$value["finish"].'</td>
+                  <td>'.$value["width"].'" x '.$value["thickness"].'"</td>
                   <td>'.$item.'</td>
-                  <td>'.$value["fits"].'"</td>
                   <td>$'.number_format($value["price"], 2, '.', '').'</td>
                 </tr>
                 <tr>
@@ -67,83 +69,98 @@
 
     $panels = '';
 
-    $outside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Outside Corner ',
-        "Title" => "Outside Corner",
+    $rails = array( 
+        "Description" => 'Aluminum File Hanging Rail 3/4" Tall x 1/8" Thick, Pendaflex Rails are Used as Cross-Section in which the Files Rest Atop within a Drawers Structure. Available in Black Anodize Finish ',
+        "Title" => "Pendaflex File Hanging Rails",
         "Models" => array(
-            "OA7889" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/4",
-                "price" => 9.98,
-                "classes" => "fits-quarter polished"
+            "OA1058-8B" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Black Anodized",
+                "cut" => "8'",
+                "width" => "1/2",
+                "thickness" => "1/8",
+                "price" => 6.86,
+                "classes" => "black width-half cut-eight"
             ),
-            "OA7249" => array(
-                "title" => "Outside Corner",
-                "fits" => "19/64",
-                "price" => 14.10,
-                "classes" => "fits-nineteen-sixtyfour clear polished"
+            "OA2126-8B" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Black Anodized",
+                "cut" => "8'",
+                "width" => "3/4",
+                "thickness" => "1/8",
+                "price" => 9.46,
+                "classes" => "black width-three-quarter cut-eight"
             ),
-            "OA7891" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/2",
-                "price" => 11.03,
-                "classes" => "fits-half polished"
+            "OA1058-8" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Mill Finish",
+                "cut" => "8'",
+                "width" => "1/2",
+                "thickness" => "1/8",
+                "price" => 4.80,
+                "classes" => "mill width-half cut-eight"
+            ),
+            "OA2126-8" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Mill Finish",
+                "cut" => "8'",
+                "width" => "3/4",
+                "thickness" => "1/8",
+                "price" => 7.46,
+                "classes" => "mill width-three-quarter cut-eight"
+            ),
+            "OA1058-8" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Mill Finish",
+                "cut" => "8'",
+                "width" => "1/2",
+                "thickness" => "1/8",
+                "price" => 4.80,
+                "classes" => "mill width-half cut-eight"
+            ),
+            "OA1058-12A" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Clear Anodized",
+                "cut" => "12'",
+                "width" => "1/2",
+                "thickness" => "1/8",
+                "price" => 13.72,
+                "classes" => "clear width-thalf cut-twelve"
+            ),
+            "OA2126-12A" => array(
+                "title" => "Pendaflex File Hanging Rails",
+                "finish" => "Clear Anodized",
+                "cut" => "12'",
+                "width" => "3/4",
+                "thickness" => "1/8",
+                "price" => 18.92,
+                "classes" => "clear width-three-quarter cut-twelve"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-outside-aside.png",
-        "img_alt" => "Outside Corner"
+        "img" => $base_url."img/products/cabinet/hanging-rail-aside.png",
+        "img_alt" => "Pendaflex Hanging Rail"
     );
-    $panels .= newPanel($outside);
+    $panels .= newPanel($rails);
 
-    $inside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Inside Corner',
-        "Title" => "Inside Corner",
+    $press = array( 
+        "Description" => '• Press Fit File Hanging Rail sits atop ½” material, leaving a generous 5/16” (.325”) lip for the files to slide along<br>
+• 7/8” Total Height x ½” Wide x 3/64” Wall (.875” x .550” x .040”)',
+        "Title" => "Press Fit File Rail",
         "Models" => array(
-            "OA7890" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/4",
-                "price" => 10.18,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA7892" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/2",
-                "price" => 11.33,
-                "classes" => "fits-half polished"
+            "OAO5593" => array(
+                "title" => "Press Fit File Rail",
+                "finish" => "Black Anodized",
+                "cut" => "8'",
+                "width" => "1/2",
+                "thickness" => "1/8",
+                "price" => 6.86,
+                "classes" => "mill width-half cut-eight"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-inside-aside.png",
-        "img_alt" => "Inside Corner"
+        "img" => $base_url."img/products/cabinet/press-rail-aside.png",
+        "img_alt" => "Press Fit File Rail"
     );
-    $panels .= newPanel($inside);
-
-    $double = array( 
-        "Description" => 'The Double Angle Enclosure Extrusion is the easiest way to join your 90 degree corners for all your Road or Flight Cases. The design allows you to easily join all your material at those 90 degree corners, while also providing easier assembly and protecting your cases… adding longer product life in addition to higher quality.',
-        "Title" => "Double Corner",
-        "Models" => array(
-            "OA3860" => array(
-                "title" => "Double Corner",
-                "fits" => "1/4",
-                "price" => 8.45,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA3980" => array(
-                "title" => "Double Corner",
-                "fits" => "3/8",
-                "price" => 9.95,
-                "classes" => "fits-three-eight polished"
-            ),
-            "OA3931" => array(
-                "title" => "Double Corner",
-                "fits" => "1/2",
-                "price" => 10.97,
-                "classes" => "fits-half polished"
-            )
-        ),
-        "img" => $base_url."img/products/dividers/corner-double-aside.png",
-        "img_alt" => "Double Corner"
-    );
-    $panels .= newPanel($double);
+    $panels .= newPanel($press);
 ?>
 
 <!doctype html>
@@ -176,12 +193,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/corners.jpg" alt="Corners"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/rails.jpg" alt="File Hanging Rails"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-              <li><a href="index.php">Caps, Corners, Coves, and Dividers</a></li>
-              <li>Corners</li>
+              <li><a href="index.php">Cabinet, Case and Closet</a></li>
+              <li>File Hanging Rails</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -201,14 +218,18 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>Corners <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>File Hanging Rails <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
                             <div class="cut filter-type">
                                <span class="filter-title">Cut Length</span>
                                <form id="clips-cut-form">
                                    <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-six"><span></span>6'</label>
+                                       <input type="radio" id="cut-eight" name="cut-length" value="cut-eight"/>
+                                       <label for="cut-eight"><span></span>8'</label>
+                                   </div>
+                                   <div class="filter-option">
+                                       <input type="radio" id="cut-twelve" name="cut-length" value="cut-twelve"/>
+                                       <label for="cut-twelve"><span></span>12'</label>
                                    </div>
                                </form>
                             </div>
@@ -220,8 +241,12 @@
                                        <label for="clear"><span></span>Clear Anodized</label>
                                    </div>
                                    <div class="filter-option">
-                                       <input type="radio" id="polished" name="finish" value="polished"/>
-                                       <label for="polished"><span></span>Mechanical Polished</label>
+                                       <input type="radio" id="black" name="finish" value="black"/>
+                                       <label for="black"><span></span>Black Anodized</label>
+                                   </div>
+                                   <div class="filter-option">
+                                       <input type="radio" id="mill" name="finish" value="mill"/>
+                                       <label for="mill"><span></span>Mill Finish</label>
                                    </div>
                                </form>
                             </div>
@@ -234,25 +259,28 @@
                                    </div>
                                </form>
                             </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Fits</span>
-                               <form id="clips-alloy-form">
+                            <div class="clearfix"></div>
+                            <div class="filter-section">
+                               <span class="filter-title">Width</span>
+                               <form>
                                    <div class="filter-option">
-                                       <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
-                                       <label for="fits-quarter"><span></span>1/4"</label>
+                                       <input type="radio" id="width-half" name="width" value="width-half"/>
+                                       <label for="width-half"><span></span>1/2"</label>
                                    </div>
                                    <div class="filter-option">
-                                       <input type="radio" id="fits-nineteen-sixtyfour" name="fits" value="fits-nineteen-sixtyfour"/>
-                                       <label for="fits-nineteen-sixtyfour"><span></span>19/64"</label>
+                                       <input type="radio" id="width-three-quarter" name="width" value="width-three-quarter"/>
+                                       <label for="width-three-quarter"><span></span>3/4"</label>
                                    </div>
+                               </form>
+                            </div>
+                            <div class="filter-section">
+                               <span class="filter-title">Thickness</span>
+                               <form>
                                    <div class="filter-option">
-                                       <input type="radio" id="fits-three-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-three-eight"><span></span>3/8"</label>
+                                       <input type="radio" id="thickness-eight" name="thickness" value="fixed" checked/>
+                                       <label for="thickness-eight"><span></span>1/8"</label>
                                    </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-half" name="fits" value="fits-half"/>
-                                       <label for="fits-half"><span></span>1/2"</label>
-                                   </div>
+                                   <div class="filter-option">&nbsp;</div>
                                </form>
                             </div>
                             <div class="clearfix"></div>
@@ -268,7 +296,7 @@
                         <div class="panel-body container-fluid">
                             <div class="row">
                                <div class="col-xs-12">
-                                    <p>Create cleaner corner transitions for your wall and wall paneling projects with our inside/ outside corner extrusions. Orange Aluminum’s corner extrusions will advance installation time and improve the overall look of your wall project. Protective Edge Molding Designed to Join Material at 90 Degrees for Outside and Inside Corners</p>
+                                    <p>Files need filing, and Orange Aluminum has the hanging file folder molding that you have been looking for. American Made and well priced makes Orange Aluminum Desk File Rails the best value in the market.</p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -279,13 +307,14 @@
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanical Polished</a><br>
-                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a> selectively available
+                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a>,
+                                                <a data-toggle="tooltip" title="Black Anodized">Black Anodized</a>, and
+                                                <a data-toggle="tooltip" title="he natural/raw appearance of the aluminum as it is extruded. No secondary process, may show heavy production lines">Mill Finish</a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">6' Cut Lengths</td>
+                                            <td style="width:75%;">8' Cut Lengths</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>

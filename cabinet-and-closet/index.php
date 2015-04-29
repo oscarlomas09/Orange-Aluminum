@@ -50,7 +50,7 @@
                                 <img src="<?php echo BASE_URL;?>img/products/cabinet/rails.jpg" alt="File Hanging Rails" class="img-thumbnail">
                                 <span>File Hanging Rails</span>
                             </a>
-                            <a href="garage-cabinet-trim.php" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="cabinet-trim.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="<?php echo BASE_URL;?>img/products/cabinet/cabinet-trim.jpg" alt="Garage Cabinet Trim" class="img-thumbnail">
                                 <span>Garage Cabinet Trim</span>
                             </a>

@@ -176,10 +176,10 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                           s <h4 class="modal-../title" id="myMod../alLabel">Standard System of Measurement Inch Material</h4>
+                            <h4 class="modal-title" id="myModalLabel">Standard System of Measurement Inch Material</h4>
                         </div>
                         <div class="modal-body">
-                            <img src="../img/tolerance.jpg" alt="Tolerance Table" style="max-width:100%;"/>
+                            <img src="<?php echo BASE_URL;?>img/tolerance.jpg" alt="Tolerance Table" style="max-width:100%;"/>
                         </div>
                     </div>
                 </div>

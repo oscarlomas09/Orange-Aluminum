@@ -21,7 +21,7 @@
                               <thead>
                                 <tr>
                                   <th>SKU</th>
-                                  <th>Fits</th>
+                                  <th>Finish</th>
                                   <th>Each</th>
                                 </tr>
                               </thead>
@@ -38,8 +38,8 @@
       $row = '';
       foreach($alteration as $item => $value){
         $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <td>'.$item.'</td>
-                  <td>'.$value["fits"].'"</td>
+                  <th scope="row">'.$item.'</td>
+                  <td>'.$value["finish"].'</td>
                   <td>$'.number_format($value["price"], 2, '.', '').'</td>
                 </tr>
                 <tr>
@@ -67,83 +67,61 @@
 
     $panels = '';
 
-    $outside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Outside Corner ',
-        "Title" => "Outside Corner",
+    $round = array( 
+        "Description" => 'Premium Grade Round Closet Rod is Heavy enough for any expansion or application, and is the true quality of what American Manufacturing represents. With a 1-5/16" OD and a .079" Wall Thickness, it is no wonder our Rod is the choice for most of the high end closet manufacturers.',
+        "Title" => "Round Closet Rod",
         "Models" => array(
-            "OA7889" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/4",
-                "price" => 9.98,
-                "classes" => "fits-quarter polished"
+            "OA7749-GA" => array(
+                "title" => "Round Closet Rod: Gold Anodized",
+                "finish" => "Gold Anodized",
+                "price" => 11.58,
+                "classes" => "gold"
             ),
-            "OA7249" => array(
-                "title" => "Outside Corner",
-                "fits" => "19/64",
-                "price" => 14.10,
-                "classes" => "fits-nineteen-sixtyfour clear polished"
+            "OA7749-OB" => array(
+                "title" => "Round Closet Rod: Bronze",
+                "finish" => "Oil-Rubbed Bronze",
+                "price" => 11.58,
+                "classes" => "bronze"
             ),
-            "OA7891" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/2",
-                "price" => 11.03,
-                "classes" => "fits-half polished"
+            "OA7749-CA" => array(
+                "title" => "Round Closet Rod: Clear Anodized",
+                "finish" => "Clear Anodized",
+                "price" => 11.58,
+                "classes" => "clear"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-outside-aside.png",
-        "img_alt" => "Outside Corner"
+        "img" => $base_url."img/products/cabinet/closet-round-aside.png",
+        "img_alt" => "Round Closet Rod"
     );
-    $panels .= newPanel($outside);
-
-    $inside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Inside Corner',
-        "Title" => "Inside Corner",
+    $panels .= newPanel($round);
+    
+    $oval = array( 
+        "Description" => 'Premium Grade Oval Closet Rod is Heavy enough for any expansion or application, and is the true quality of what American Manufacturing represents. With its Standard Oval Design of 1-3/16" High and 19/32" Width and a .060" Wall Thickness, it is no wonder our Rod is the choice for most of the high end closet manufacturers.',
+        "Title" => "Oval Closet Rod",
         "Models" => array(
-            "OA7890" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/4",
-                "price" => 10.18,
-                "classes" => "fits-quarter polished"
+            "OA8443-GA" => array(
+                "title" => "Oval Closet Rod: Gold Anodized",
+                "finish" => "Gold Anodized",
+                "price" => 15.42,
+                "classes" => "gold"
             ),
-            "OA7892" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/2",
-                "price" => 11.33,
-                "classes" => "fits-half polished"
+            "OA8443-OB" => array(
+                "title" => "Oval Closet Rod: Bronze",
+                "finish" => "Oil-Rubbed Bronze",
+                "price" => 15.42,
+                "classes" => "bronze"
+            ),
+            "OA8443-CA" => array(
+                "title" => "Oval Closet Rod: Clear Anodized",
+                "finish" => "Clear Anodized",
+                "price" => 15.42,
+                "classes" => "clear"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-inside-aside.png",
-        "img_alt" => "Inside Corner"
+        "img" => $base_url."img/products/cabinet/closet-oval-aside.png",
+        "img_alt" => "Oval Closet Rod"
     );
-    $panels .= newPanel($inside);
-
-    $double = array( 
-        "Description" => 'The Double Angle Enclosure Extrusion is the easiest way to join your 90 degree corners for all your Road or Flight Cases. The design allows you to easily join all your material at those 90 degree corners, while also providing easier assembly and protecting your cases… adding longer product life in addition to higher quality.',
-        "Title" => "Double Corner",
-        "Models" => array(
-            "OA3860" => array(
-                "title" => "Double Corner",
-                "fits" => "1/4",
-                "price" => 8.45,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA3980" => array(
-                "title" => "Double Corner",
-                "fits" => "3/8",
-                "price" => 9.95,
-                "classes" => "fits-three-eight polished"
-            ),
-            "OA3931" => array(
-                "title" => "Double Corner",
-                "fits" => "1/2",
-                "price" => 10.97,
-                "classes" => "fits-half polished"
-            )
-        ),
-        "img" => $base_url."img/products/dividers/corner-double-aside.png",
-        "img_alt" => "Double Corner"
-    );
-    $panels .= newPanel($double);
+    $panels .= newPanel($oval);
 ?>
 
 <!doctype html>
@@ -176,12 +154,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/corners.jpg" alt="Corners"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/closet.jpg" alt="Closet Rods"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-              <li><a href="index.php">Caps, Corners, Coves, and Dividers</a></li>
-              <li>Corners</li>
+              <li><a href="index.php">Cabinet, Case and Closet</a></li>
+              <li>Closet Rods</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -201,7 +179,7 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>Corners <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>Closet Rods <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
                             <div class="cut filter-type">
                                <span class="filter-title">Cut Length</span>
@@ -220,8 +198,12 @@
                                        <label for="clear"><span></span>Clear Anodized</label>
                                    </div>
                                    <div class="filter-option">
-                                       <input type="radio" id="polished" name="finish" value="polished"/>
-                                       <label for="polished"><span></span>Mechanical Polished</label>
+                                       <input type="radio" id="gold" name="finish" value="gold"/>
+                                       <label for="gold"><span></span>Gold Anodized</label>
+                                   </div>
+                                   <div class="filter-option">
+                                       <input type="radio" id="bronze" name="finish" value="bronze"/>
+                                       <label for="bronze"><span></span>Oil-Rubbed Bronze</label>
                                    </div>
                                </form>
                             </div>
@@ -231,27 +213,6 @@
                                    <div class="filter-option">
                                        <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
                                        <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Fits</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
-                                       <label for="fits-quarter"><span></span>1/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-nineteen-sixtyfour" name="fits" value="fits-nineteen-sixtyfour"/>
-                                       <label for="fits-nineteen-sixtyfour"><span></span>19/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-three-eight"><span></span>3/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-half" name="fits" value="fits-half"/>
-                                       <label for="fits-half"><span></span>1/2"</label>
                                    </div>
                                </form>
                             </div>
@@ -268,7 +229,7 @@
                         <div class="panel-body container-fluid">
                             <div class="row">
                                <div class="col-xs-12">
-                                    <p>Create cleaner corner transitions for your wall and wall paneling projects with our inside/ outside corner extrusions. Orange Aluminum’s corner extrusions will advance installation time and improve the overall look of your wall project. Protective Edge Molding Designed to Join Material at 90 Degrees for Outside and Inside Corners</p>
+                                    <p>Dress up your closets with Orange Aluminum’s Premium Closet Rods. Our system has a generous wall thickness that provides top-rated load bearing. Our closet rods not only look great, but boast the quality of American made products.</p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -279,8 +240,9 @@
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanical Polished</a><br>
-                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a> selectively available
+                                                <a data-toggle="tooltip" title="Anodizing is an electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear</a>,
+                                                <a data-toggle="tooltip" title="This piece is Gold Anodized">Gold</a>, and
+                                                <a data-toggle="tooltip" title="This piece is anodized in an oil-rubbed bronze color:.">Oil-Rubbed Bronze</a> Anodized Finishes.
                                             </td>
                                         </tr>
                                         <tr>

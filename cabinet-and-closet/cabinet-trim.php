@@ -9,11 +9,11 @@
                     </div>
                     <div class="panel-default container-fluid">
                         <div class="row">
-                           <div class="col-xs-12 col-md-2">
-                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
-                            </div>
                             <div class="col-xs-12 col-md-10 visible-md visible-lg">
                               <p>'.$product["Description"].'</p>
+                            </div>
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
                             </div>
                         </div>
                         <div class="row">
@@ -21,6 +21,7 @@
                               <thead>
                                 <tr>
                                   <th>SKU</th>
+                                  <th>Finish</th>
                                   <th>Fits</th>
                                   <th>Each</th>
                                 </tr>
@@ -38,7 +39,8 @@
       $row = '';
       foreach($alteration as $item => $value){
         $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <td>'.$item.'</td>
+                  <th scope="row">'.$item.'</td>
+                  <td>'.$value["finish"].'</td>
                   <td>'.$value["fits"].'"</td>
                   <td>$'.number_format($value["price"], 2, '.', '').'</td>
                 </tr>
@@ -67,83 +69,79 @@
 
     $panels = '';
 
-    $outside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Outside Corner ',
-        "Title" => "Outside Corner",
+    $rails = array( 
+        "Description" => '• For push fit on material withthicknesses of 3/4” and 1”.<br>
+• Ideal for correcting and preventing sagging shelves in garage cabinets, pantries, and closets.<br>
+• Popularly used in combination with OA6920 Pressure Fit Continuous Pull',
+        "Title" => "Shelf Stiffener",
         "Models" => array(
-            "OA7889" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/4",
-                "price" => 9.98,
-                "classes" => "fits-quarter polished"
+            "OA5479-CA" => array(
+                "title" => "Shelf Stiffener",
+                "finish" => "Clear Anodized",
+                "fits" => "3/4",
+                "price" => 15.53,
+                "classes" => "clear fits-three-quarter"
             ),
-            "OA7249" => array(
-                "title" => "Outside Corner",
-                "fits" => "19/64",
-                "price" => 14.10,
-                "classes" => "fits-nineteen-sixtyfour clear polished"
+            "OA5479-WP" => array(
+                "title" => "Shelf Stiffener",
+                "finish" => "White Powder Coat",
+                "fits" => "3/4",
+                "price" => 17.53,
+                "classes" => "white fits-three-quarter"
             ),
-            "OA7891" => array(
-                "title" => "Outside Corner",
-                "fits" => "1/2",
-                "price" => 11.03,
-                "classes" => "fits-half polished"
+            "OA5479-BP" => array(
+                "title" => "Shelf Stiffener",
+                "finish" => "Black Powder Coat",
+                "fits" => "3/4",
+                "price" => 17.53,
+                "classes" => "black fits-three-quarter"
+            ),
+            "OA7697" => array(
+                "title" => "Shelf Stiffener",
+                "finish" => "Clear Anodized",
+                "fits" => "1",
+                "price" => 19.33,
+                "classes" => "clear fits-one"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-outside-aside.png",
-        "img_alt" => "Outside Corner"
+        "img" => $base_url."img/products/cabinet/shelf-aside.png",
+        "img_alt" => "Shelf Stiffener"
     );
-    $panels .= newPanel($outside);
+    $panels .= newPanel($rails);
 
-    $inside = array( 
-        "Description" => 'Mechanically Polished Aluminum Protective Edge Molding Designed to Join 1/4" Material at 90 Degrees for an Inside Corner',
-        "Title" => "Inside Corner",
+    $rails = array( 
+        "Description" => '• For push fit on material with thickness of 3/4”. Ideal for both vertical and horizontal applications, to run entire length of door or drawer.<br>
+• Popularly used in combination with OA5479 Pressure Fit Shelf Stiffener.<br>
+• Available in 3/4” (.750”) Width; 1-27/32” Tall (1.837”)<br>
+• 8’ Length',
+        "Title" => "Continuous Pull",
         "Models" => array(
-            "OA7890" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/4",
-                "price" => 10.18,
-                "classes" => "fits-quarter polished"
+            "OA6920-CA" => array(
+                "title" => "Continuous Pull",
+                "finish" => "Clear Anodized",
+                "fits" => "3/4",
+                "price" => 20.13,
+                "classes" => "clear fits-three-quarter"
             ),
-            "OA7892" => array(
-                "title" => "Inside Corner",
-                "fits" => "1/2",
-                "price" => 11.33,
-                "classes" => "fits-half polished"
+            "OA6920-WP" => array(
+                "title" => "Continuous Pull",
+                "finish" => "White Powder Coat",
+                "fits" => "3/4",
+                "price" => 22.13,
+                "classes" => "white fits-three-quarter"
+            ),
+            "OA6920-BP" => array(
+                "title" => "Continuous Pull",
+                "finish" => "Black Powder Coat",
+                "fits" => "3/4",
+                "price" => 22.13,
+                "classes" => "black fits-three-quarter"
             )
         ),
-        "img" => $base_url."img/products/dividers/corner-inside-aside.png",
-        "img_alt" => "Inside Corner"
+        "img" => $base_url."img/products/cabinet/pull-aside.png",
+        "img_alt" => "Continuous Pullr"
     );
-    $panels .= newPanel($inside);
-
-    $double = array( 
-        "Description" => 'The Double Angle Enclosure Extrusion is the easiest way to join your 90 degree corners for all your Road or Flight Cases. The design allows you to easily join all your material at those 90 degree corners, while also providing easier assembly and protecting your cases… adding longer product life in addition to higher quality.',
-        "Title" => "Double Corner",
-        "Models" => array(
-            "OA3860" => array(
-                "title" => "Double Corner",
-                "fits" => "1/4",
-                "price" => 8.45,
-                "classes" => "fits-quarter polished"
-            ),
-            "OA3980" => array(
-                "title" => "Double Corner",
-                "fits" => "3/8",
-                "price" => 9.95,
-                "classes" => "fits-three-eight polished"
-            ),
-            "OA3931" => array(
-                "title" => "Double Corner",
-                "fits" => "1/2",
-                "price" => 10.97,
-                "classes" => "fits-half polished"
-            )
-        ),
-        "img" => $base_url."img/products/dividers/corner-double-aside.png",
-        "img_alt" => "Double Corner"
-    );
-    $panels .= newPanel($double);
+    $panels .= newPanel($rails);
 ?>
 
 <!doctype html>
@@ -176,12 +174,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/corners.jpg" alt="Corners"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/rails.jpg" alt="Closet Rods"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-              <li><a href="index.php">Caps, Corners, Coves, and Dividers</a></li>
-              <li>Corners</li>
+              <li><a href="index.php">Cabinet, Case and Closet</a></li>
+              <li>File Hanging Rails</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -201,57 +199,53 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>Corners <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>File Hanging Rails <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
-                            <div class="cut filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
+                               <form>
                                    <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-six"><span></span>6'</label>
+                                       <input type="radio" id="cut-eight" name="cut-length" value="fixed" checked/>
+                                       <label for="cut-eight"><span></span>8'</label>
                                    </div>
                                </form>
                             </div>
-                            <div class="finish filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
+                               <form>
                                    <div class="filter-option">
                                        <input type="radio" id="clear" name="finish" value="clear"/>
                                        <label for="clear"><span></span>Clear Anodized</label>
                                    </div>
                                    <div class="filter-option">
-                                       <input type="radio" id="polished" name="finish" value="polished"/>
-                                       <label for="polished"><span></span>Mechanical Polished</label>
+                                       <input type="radio" id="black" name="finish" value="black"/>
+                                       <label for="black"><span></span>Black Powder Coat</label>
+                                   </div>
+                                   <div class="filter-option">
+                                       <input type="radio" id="white" name="finish" value="white"/>
+                                       <label for="white"><span></span>White Powder Coat</label>
                                    </div>
                                </form>
                             </div>
-                            <div class="alloy filter-type">
+                            <div class="ilter-type">
                                <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
+                               <form>
                                    <div class="filter-option">
                                        <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
                                        <label for="alloy"><span></span>6063-T5</label>
                                    </div>
                                </form>
                             </div>
-                            <div class="alloy filter-type">
+                            <div class="filter-type">
                                <span class="filter-title">Fits</span>
-                               <form id="clips-alloy-form">
+                               <form>
                                    <div class="filter-option">
-                                       <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
-                                       <label for="fits-quarter"><span></span>1/4"</label>
+                                       <input type="radio" id="fits-three-quarter" name="fits" value="fits-three-quarter"/>
+                                       <label for="fits-three-quarter"><span></span>3/4"</label>
                                    </div>
                                    <div class="filter-option">
-                                       <input type="radio" id="fits-nineteen-sixtyfour" name="fits" value="fits-nineteen-sixtyfour"/>
-                                       <label for="fits-nineteen-sixtyfour"><span></span>19/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-three-eight"><span></span>3/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-half" name="fits" value="fits-half"/>
-                                       <label for="fits-half"><span></span>1/2"</label>
+                                       <input type="radio" id="fits-one" name="fits" value="fits-one"/>
+                                       <label for="fits-one"><span></span>1"</label>
                                    </div>
                                </form>
                             </div>
@@ -268,7 +262,7 @@
                         <div class="panel-body container-fluid">
                             <div class="row">
                                <div class="col-xs-12">
-                                    <p>Create cleaner corner transitions for your wall and wall paneling projects with our inside/ outside corner extrusions. Orange Aluminum’s corner extrusions will advance installation time and improve the overall look of your wall project. Protective Edge Molding Designed to Join Material at 90 Degrees for Outside and Inside Corners</p>
+                                    <p>Use our premium aluminum clear anodized handles to finish off your cabinets. The combination of the shelf stiffener and the continuous pull adds both function and style to any color cabinets. These sections are specially engineered to pressure fit onto melamine boards. The shelf stiffener will snap any shelf straight and maintain shelves’ rigidity over time from excessive poundage and use. The continuous pull is cheaper than some regular steel handles on the market and provides a far more sleek and attractive means to open cabinets, while contributing to a flush sleek cabinet installation. With a premium look and the multiple advantages of using aluminum, there is no better way to customize your cabinets today.</p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -279,13 +273,14 @@
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanical Polished</a><br>
-                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a> selectively available
+                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a>,
+                                                <a data-toggle="tooltip" title="Electrostatically applied black powder paint provides a .001-.003” ‘skin’ like surface over the metal that is both decorative and protective">Black Powder Coat</a>, and
+                                                <a data-toggle="tooltip" title="lectrostatically applied white powder paint provides a .001-.003” ‘skin’ like surface over the metal that is both decorative and protective">White Powder Coat</a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">6' Cut Lengths</td>
+                                            <td style="width:75%;">8' Cut Lengths</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>
