@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="social-menu" class="col-sm-1">
-                    <a href="https://www.facebook.com/OrangeAluminum"><span class="icon-facebook"></span></a>
-                    <a href="https://instagram.com/orangealuminum/"><span class="icon-instagram"></span></a>
-                    <a href="https://twitter.com/OrangeAluminum"><span class="icon-twitter"></span></a>
-                    <a href="https://www.pinterest.com/orangealuminum/"><span class="icon-pinterest"></span></a>
+                    <a href="https://www.facebook.com/OrangeAluminum" target="_blank"><span class="icon-facebook"></span></a>
+                    <a href="https://instagram.com/orangealuminum/" target="_blank"><span class="icon-instagram"></span></a>
+                    <a href="https://twitter.com/OrangeAluminum" target="_blank"><span class="icon-twitter"></span></a>
+                    <a href="https://www.pinterest.com/orangealuminum/" target="_blank"><span class="icon-pinterest"></span></a>
                 </div> 
                 <div class="col-sm-3">
                     <h4>Contact Us</h4>
