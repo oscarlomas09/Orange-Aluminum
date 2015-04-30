@@ -12,7 +12,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <!-- Bootstrap -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../_dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="../css/icons.css" rel="stylesheet">
         
@@ -78,7 +78,7 @@
                         <div class="col-xs-12 col-sm-4">
                             <h4>Using Promotional Code?</h4><hr style="margin-top:0;">
                             <label>Enter your coupon code if you have one*</label>
-                            <input type="text" />
+                            <input type="text" /><br><br>
                             <button class="btn btn-warning">Apply</button>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-sm-pull-8">
