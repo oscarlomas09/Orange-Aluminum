@@ -105,7 +105,7 @@ Same Day Shipping is for the greater Los Angeles and Orange Counties.  Orders mu
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+            ga('create','UA-7566341-1','auto');ga('send','pageview');
         </script>
     </body>
 </html>
