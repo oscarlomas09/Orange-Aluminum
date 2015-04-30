@@ -1,7 +1,7 @@
 <main class="container-fluid common-container">
     <div class="row">
         <aside class="visible-md visible-lg col-md-3">
-            <ul style="">
+            <ul class="side-navigation">
                 <li><a href=""><span class="icon-angle"></span>Angles</a></li>
                 <li><a href=""><span class="icon-channel"></span>Channels</a></li>
                 <li><a href=""><span class="icon-closet"></span>Closet Rods</a></li>
