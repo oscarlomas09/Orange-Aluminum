@@ -72,6 +72,53 @@
                     <strong>What is the shipping time to ____ ?</strong>
                     <p>We use FedEx for ground, express and freight shipments. Their transit map will give you an idea of ground shipping times.</p>
                     <br>
+                    
+                    <strong>How soon will my order ship out?</strong>
+                    <p>Most orders ship within 24 hours. Although we make our best efforts not to, from time to time we do run low on our stocked items. We can generally replenish our stock within 1 week and will notify you immediately if this happens.</p>
+                    <br>
+                    
+                    <strong>What is the difference between mill finish, powder coat, clear anodized, and mechanically polished?</strong>
+                    <ul>
+                        <li>Mill – The natural/raw appearance of the aluminum as it is extruded. No secondary process, may show heavy production lines.</li>
+                        <li>Anodizing – Electrochemical process that is corrosion resistant and protects the material from oxidizing. We offer clear anodizing, which creates a matte finish, and brite-dip anodizing that creates a shiny, shimmery finish.</li>
+                        <li>Powder Coat – Electrostatically applied powder paint provides a .001-.003” ‘skin’ like surface over the metal that is both decorative and protective.</li>
+                        <li>Mechanical Polish – Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing.</li>
+                    </ul>
+                    <br>
+                    
+                    <strong>What is the difference between 6061-T6, 6063-T5, and 6463-T5?</strong>
+                    <p>This represents the alloy and temper of the material. The first four digits are the alloy followed by the temper.<br><i>Alloy</i> – This is the metal grade, in the case of our aluminum we offer three grades; 6061, 6063, and 6463</p>
+                    <ul>
+                        <li>6061 – Considered a structural alloy ideal for strength based applications or machining.</li>
+                        <li>6063 – Considered an architectural alloy that is ideal for visual and aestheticapplications, and still provides a little over half the strength as 6061.</li>
+                        <li>6463 – Considered a brite dip alloy, specially engineered for brite anodize finishes.</li>
+                    </ul>
+                    <p><i>Temper</i> – Represents the rigidity of the extrusion as it has been heat treated. <br>Material rigidity can range from pliable (T1 – low heat treat that is naturally aged) to rigid (T5 – cooled from an elevated temperature and artificially aged).</p>
+                    <br>
+                    
+                    <strong>Do you have certificates of conformance available?</strong>
+                    <p>We are more than happy to provide certificates of conformance for any of our material upon request. Please note that we do not certify T6 material, as it is a best-attempt at T6 temper.</p>
+                    <br>
+                    
+                    <strong>Do you have certificates of conformance available?</strong>
+                    <p>We are more than happy to provide certificates of conformance for any of our material upon request. Please note that we do not certify T6 material, as it is a best-attempt at T6 temper.</p>
+                    <br>
+                    
+                    <strong>Is there a minimum order required?</strong>
+                    <p>None! You can order any amount from our website without fear of minimum charges.</p>
+                    <br>
+                    
+                    <strong>What is the minimum amount needed to receive a discount?</strong>
+                    <p>This depends greatly on the part, finish and length that you are looking for. Unfortunately, there is no one answer. <a>Contact Us</a> for any special or large orders.</p>
+                    <br>
+                    
+                    <strong>Can the material be made flexible enough to bend around corners?</strong>
+                    <p>Absolutely! We can have material created in a custom soft temper that will leave it malleable enough to be bent around any shape--table tops, mirrors, and frames to name a few. As material hardens over time, we cannot stock soft temper material and can only create it per order. Contact us for more info.</p>
+                    <br>
+                    
+                    <strong>How do you install panel rails and clips?</strong>
+                    <p>You clip the back one in, you clip the front one in and you raise it all about. Our handy video installation guide is coming soon!</p>
+                    <br>
                 </div>
                 <div class="hidden-xs col-sm-3">
                     <?php include("php/includes/side-content.php"); ?>
