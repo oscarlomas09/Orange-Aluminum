@@ -466,7 +466,7 @@ header .navbar-right{
     transition: left 0.3s ease-in;
 }
 .screen{
-    position: absolute;
+    position: fixed;
     left: -110%;
     top: 0;
     width: 100%;
@@ -784,15 +784,23 @@ input[type="radio"]:checked + label span {
     
     .side-navigation{
         list-style: none;
-        background-color: @gray-lighter;
+        background-color: #333333;
         border-radius: 3px;
         overflow: hidden;
         padding: 0;
         
         li{
             padding: 8px 13px;
-            border-bottom: 1px solid @main-gray;
-            border-top: 1px solid white;
+            border-bottom: 1px solid #111111;
+            border-top: 1px solid #555555;
+            
+            a{
+                color: white;
+            }
+            
+            &:hover{
+                background-color: @orange;
+            }
         }
     }
     

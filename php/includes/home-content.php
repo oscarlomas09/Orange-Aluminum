@@ -21,14 +21,14 @@
                 <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/price-tag-moldings.php"><span class="icon-price-tag"></span>Price Tag Moldings</a></li>
                 <li><a href="<?php echo BASE_URL; ?>cabinet-and-closet/pulls-and-handles.php"><span class="icon-pulls"></span>Pulls and Handles</a></li>
                 <li><a href="<?php echo BASE_URL; ?>cabinet-and-closet/road-case-sections.php"><span class="icon-case"></span>Road Case Sections</a></li>
-                <li><a href="<?php echo BASE_URL; ?>bar-stock/round-tube.php"></span>Round Tubes</a></li>
-                <li><a href="<?php echo BASE_URL; ?>bar-stock/round-rod.php"></span>Round Rod</a></li>
+                <li><a href="<?php echo BASE_URL; ?>bar-stock/round-tube.php"><span class="icon-round-tube"></span>Round Tubes</a></li>
+                <li><a href="<?php echo BASE_URL; ?>bar-stock/round-rod.php"><span class="icon-round-rod"></span>Round Rod</a></li>
                 <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/slatwall-systems.php"><span class="icon-slatwall"></span>Slatwall Systems</a></li>
                 <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/snap-frames.php"><span class="icon-snap-frame"></span>Snap Frames</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/square-tubes.php"><span class="icon-square-hollow"></span>Square Tubes</a></li>
                 <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
                 <li><a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Track</a></li>
-                <li><a href="<?php echo BASE_URL; ?>bar-stock/tee-bars.php"></span>Tee Bars</a></li>
+                <li><a href="<?php echo BASE_URL; ?>bar-stock/tee-bars.php"><span class="icon-tee-bar"></span>Tee Bars</a></li>
                 <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/z-bars.php"><span class="icon-z-bar"></span>Z Bars</a></li>
             </ul>
