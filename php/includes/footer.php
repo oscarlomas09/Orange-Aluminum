@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="social-menu" class="col-sm-1">
-                    <a><span class="icon-facebook"></span></a>
-                    <a><span class="icon-instagram"></span></a>
-                    <a><span class="icon-twitter"></span></a>
-                    <a><span class="icon-pinterest"></span></a>
+                    <a href="https://www.facebook.com/OrangeAluminum"><span class="icon-facebook"></span></a>
+                    <a href="https://instagram.com/orangealuminum/"><span class="icon-instagram"></span></a>
+                    <a href="https://twitter.com/OrangeAluminum"><span class="icon-twitter"></span></a>
+                    <a href="https://www.pinterest.com/orangealuminum/"><span class="icon-pinterest"></span></a>
                 </div> 
                 <div class="col-sm-3">
                     <h4>Contact Us</h4>
@@ -24,16 +24,16 @@
                 <div class="col-sm-2">
                     <h4><a data-toggle="collapse" href="#footer-about" aria-expanded="true" aria-controls="footer-about">About Us</a></h4>
                     <ul class="nav collapse" id="footer-about">
-                        <li><a href="#">Company Info</a></li>
-                        <li><a href="#">Company News</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="about.php">Company Info</a></li>
+                        <li><a href="news.php">Company News</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-2">
                     <h4><a data-toggle="collapse" href="#footer-help" aria-expanded="true" aria-controls="footer-help">Help</a></h4>
                     <ul class="nav collapse" id="footer-help">
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Price Match Guarantee</a></li>          
+                        <li><a href="faq.php">FAQs</a></li>
+                        <li><a href="policy.php">Price Match Guarantee</a></li>          
                         <li><a href="#">My Account</a></li>          
                         <li><a href="#">NET30 Application</a></li>          
                     </ul>
@@ -41,17 +41,17 @@
                 <div class="col-sm-2">
                     <h4><a data-toggle="collapse" href="#footer-shop" aria-expanded="true" aria-controls="footer-shop">Shop</a></h4>
                     <ul class="nav collapse" id="footer-shop">
-                        <li><a href="#">Custom Extrusions</a></li>
-                        <li><a href="#">Stocking Program</a></li>
-                        <li><a href="#">Cut to Length</a></li>
-                        <li><a href="#">Volume Pricing</a></li>
+                        <li><a href="custom-oem-extrusions.php">Custom Extrusions</a></li>
+                        <li><a href="stocking-program.php">Stocking Program</a></li>
+                        <li><a href="cut-to-length.php">Cut to Length</a></li>
+                        <li><a href="volume-pricing.php">Volume Pricing</a></li>
                         <li><a href="#">Advanced Search</a></li>
                     </ul>
                 </div>  
                 <div class="col-sm-2">
                    <h4><a data-toggle="collapse" href="#footer-info" aria-expanded="true" aria-controls="footer-info">Site Info</a></h4>
                     <ul class="nav collapse" id="footer-info">
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.php">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Site Map</a></li>
                     </ul>
