@@ -48,10 +48,10 @@
             </a>
         </div>
         <div class="col-md-3">
-            <div class="wide-tile"><span class="icon-expert"></span>OEM + Custom Extrusion Experts</div>
-            <div class="wide-tile"><span class="icon-forklift"></span>Ask About Volume Pricing</div>
-            <div class="wide-tile"><span class="icon-saw"></span>Custom Lengths Available</div>
-            <div class="wide-tile"><span class="icon-truck"></span>Same Day Shipping</div>
+            <div class="wide-tile"><a href="custom-oem-extrusions.php"><span class="icon-expert"></span>OEM + Custom Extrusion Experts</a></div>
+            <div class="wide-tile"><a href="volume-pricing.php"><span class="icon-forklift"></span>Ask About Volume Pricing</a></div>
+            <div class="wide-tile"><a href="cut-to-length.php"><span class="icon-saw"></span>Custom Lengths Available</a></div>
+            <div class="wide-tile"><a href="local-delivery.php"><span class="icon-truck"></span>Same Day Shipping</a></div>
         </div>
     </div>
 </div>

@@ -29,19 +29,23 @@
         <div class="common-container container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
+                    <a class="btn btn-warning" href="index.php"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
                     <h2>15 Day Best Price Guarantee</h2><hr>
                     <div class="jumbotron">
                         <img src="img/policy-banner.jpg" alt="Our Policy"/>
+                    </div>                    
+                    <div class="static-container">
+                        <p>Part of our founding principles of our business was our understanding of the partnership that Orange shares in our customers business, and that the price and delivery of our product is the difference between you making your product, shipping your order, and getting the bid for the job.<br><br>
+
+    It is for this reason that Orange can confidentaly stand behind a 15 DAY Best Price Guarantee.  We know we are the best, but to help put your mind at ease and let you order the products you need now, delivered today, and shop price later - we are offering the 15 day promise to let you shop with confidence.  If you find a lower advertised price on another website, or have been quoted, we want to know about it.  Bring it to our attention and we will gladly match their price - sometimes even beat it. <br><br>
+
+    Simply put, if you see a lower advertised price within 15 days of purchase, we will refund the difference...</p><br><br>
+
+                       <img src="img/best-price.png" alt="Best Price" style="max-width:200px;float:left;"/>
+                       <h4>*Best Price Guarantee policy subject to change without notice.</h4>
+                       <h4>** Best Price Guarantee cannot be used in conjunction with any promotional codes or coupons. Price match policy does not apply to auctions. Price match policy is for material only, it does not include shipping cost.  Pricing offered through bid is subject to verification.</h4>
+                       <div class="clearfix"><br></div>
                     </div>
-                    <p>Part of our founding principles of our business was our understanding of the partnership that Orange shares in our customers business, and that the price and delivery of our product is the difference between you making your product, shipping your order, and getting the bid for the job.<br><br>
-
-It is for this reason that Orange can confidentaly stand behind a 15 DAY Best Price Guarantee.  We know we are the best, but to help put your mind at ease and let you order the products you need now, delivered today, and shop price later - we are offering the 15 day promise to let you shop with confidence.  If you find a lower advertised price on another website, or have been quoted, we want to know about it.  Bring it to our attention and we will gladly match their price - sometimes even beat it. <br><br>
-
-Simply put, if you see a lower advertised price within 15 days of purchase, we will refund the difference...</p><br><br>
-               
-                   <img src="img/best-price.png" alt="Best Price" style="max-width:200px;float:left;"/>
-                   <h4>*Best Price Guarantee policy subject to change without notice.</h4>
-                   <h4>** Best Price Guarantee cannot be used in conjunction with any promotional codes or coupons. Price match policy does not apply to auctions. Price match policy is for material only, it does not include shipping cost.  Pricing offered through bid is subject to verification.</h4>
                 </div>
                 <div class="hidden-xs col-sm-3">
                     <?php include("php/includes/side-content.php"); ?>

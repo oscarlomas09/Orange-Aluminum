@@ -29,19 +29,22 @@
         <div class="common-container container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
+                    <a class="btn btn-warning" href="index.php"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
                     <h2>Stocking Program</h2><hr>
                     <div class="jumbotron">
                         <img src="img/stocking-banner.jpg" alt="Stocking"/>
                     </div>
-                    <p>Everyone promises quality, but do they back that up with action?<br><br>
+                    <div class="static-container">
+                        <p>Everyone promises quality, but do they back that up with action?<br><br>
 
-At Orange Aluminum, we are relentless in our pursuit for flawless work and 100% customer satisfaction. This vision is reflected in everything we do. <br><br>
+    At Orange Aluminum, we are relentless in our pursuit for flawless work and 100% customer satisfaction. This vision is reflected in everything we do. <br><br>
 
-Orange Aluminum offers customized aluminum stocking programs to meet your individual needs. At Orange, we specialize in fabrication, finishing, polishing, and design of aluminum extruded products. Our network of quality extruders offers a wide range of custom and standard architectural and structural shapes. We deal directly with service centers and mills. This enables us to pass on the material savings onto our customers. <br><br>
+    Orange Aluminum offers customized aluminum stocking programs to meet your individual needs. At Orange, we specialize in fabrication, finishing, polishing, and design of aluminum extruded products. Our network of quality extruders offers a wide range of custom and standard architectural and structural shapes. We deal directly with service centers and mills. This enables us to pass on the material savings onto our customers. <br><br>
 
-Our technical team has over half a century of aluminum extrusion and fabrication experience. Our staff is experienced, flexible, and dedicated to ensuring your needs are met.  <br><br>
+    Our technical team has over half a century of aluminum extrusion and fabrication experience. Our staff is experienced, flexible, and dedicated to ensuring your needs are met.  <br><br>
 
-<a href="contact.php">Contact Us</a> today to Talk about your project.</p>
+    <a href="contact.php">Contact Us</a> today to Talk about your project.</p>
+                   </div>
                 </div>
                 <div class="hidden-xs col-sm-3">
                     <?php include("php/includes/side-content.php"); ?>

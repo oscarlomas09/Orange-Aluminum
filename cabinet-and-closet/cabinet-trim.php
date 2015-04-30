@@ -174,12 +174,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/rails.jpg" alt="Closet Rods"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/cabinet-trim.jpg" alt="Cabinet Trim"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
               <li><a href="index.php">Cabinet, Case and Closet</a></li>
-              <li>File Hanging Rails</li>
+              <li>Garage Cabinet Trim</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -199,7 +199,7 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <div class="filter clearfix" id="filters">
-                        <h3>File Hanging Rails <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
+                        <h3>Garage Cabinet Trim<span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
                         <section class="filter-content">
                             <div class="filter-type">
                                <span class="filter-title">Cut Length</span>

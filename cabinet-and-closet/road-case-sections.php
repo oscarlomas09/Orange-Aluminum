@@ -262,7 +262,7 @@
                         </div>
                         <div class="panel-body container-fluid">
                             <div class="row">
-                               <div class="col-xs-12 col-md-8">
+                               <div class="col-xs-12">
                                     <p>Our aluminum case extrusions are used to fasten the panels together in 90 Degree corners, in addition to providing that perfect tongue and groove enclosure. These sections will not only add to the quality of your case, but also reduce the manufacturing time and increase your product life These sections come mill finish, and as the rest of our products... are manufactured in the USA! </p>
                                     <table style="width:100%;">
                                         <tr>
@@ -295,7 +295,6 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="col-md-4 visible-md visible-lg"><img class="img-tall" alt="" src="<?php echo BASE_URL;?>img/products/clips/panel-rails-content.jpg"/></div>
                             </div>
                         </div>
                     </div>

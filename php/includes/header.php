@@ -14,8 +14,8 @@
             </div>  
             <div class="long-header">
                 <div class="nav navbar-tabs navbar-right">
-                    <div class="nav-tab"><a href=""><span class="glyphicon glyphicon-comment"></span>Live Chat</a></div>
-                    <div class="nav-tab"><a href=""><span class="glyphicon glyphicon-user"></span>Log-In</a></div>
+                    <div class="nav-tab" id="chat-btn"><a><span class="glyphicon glyphicon-comment"></span>Live Chat</a></div>
+                    <div class="nav-tab"><a href="<?php echo BASE_URL; ?>account/login/"><span class="glyphicon glyphicon-user"></span>Log-In</a></div>
                 </div>
                 <div class="clearfix"></div><br>   
                 <form class="search-form navbar-right" role="search">
@@ -32,7 +32,7 @@
                 <div class="nav navbar-nav navbar-right">
                     <div class="nav-links">
                         <a href=""><span class="glyphicon glyphicon-earphone"></span>(877) 464-2181</a>
-                        <a href=""><span class="glyphicon -envelope"></span>Contact Us</a>
+                        <a href="<?php echo BASE_URL; ?>contact.php"><span class="glyphicon glyphicon-envelope"></span>Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -53,9 +53,9 @@
         </div>
     </nav>
     <div id="user-options" class="nav-links clearfix collapse">
-        <a href=""><span class="glyphicon glyphicon-user"></span>Log-In</a>
+        <a href="<?php echo BASE_URL; ?>account/login/"><span class="glyphicon glyphicon-user"></span>Log-In</a>
         <a href=""><span class="glyphicon glyphicon-earphone"></span>(877) 464-2181</a>
-        <a href=""><span class="glyphicon glyphicon-envelope"></span>Contact Us</a>
+        <a href="<?php echo BASE_URL; ?>contact.php"><span class="glyphicon glyphicon-envelope"></span>Contact Us</a>
     </div>
     <form id="search-mobile" class="clearfix collapse">
         <input type="text" placeholder="Search">
@@ -77,8 +77,8 @@
         </div>
         <div class="row text-center"><h3>Cart Subtotal: $4.45</h3></div>
         <div class="row" style="padding: 5px;">
-            <a class="nav-left left col-sm-6 popover-link" style="padding: 5px 8px;">Shopping Cart</a>
-            <a class="nav-right btn btn-warning col-sm-6">Checkout</a>
+            <a href="<?php echo BASE_URL; ?>cart/" class="nav-left left col-sm-6 popover-link" style="padding: 5px 8px;">Shopping Cart</a>
+            <a href="<?php echo BASE_URL; ?>checkout/" class="nav-right btn btn-warning col-sm-6">Checkout</a>
         </div>
     </div>
 </div>

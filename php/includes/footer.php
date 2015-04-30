@@ -53,7 +53,6 @@
                     <ul class="nav collapse" id="footer-info">
                         <li><a href="terms.php">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Site Map</a></li>
                     </ul>
                 </div>  
             </div>

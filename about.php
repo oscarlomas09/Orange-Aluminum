@@ -29,6 +29,7 @@
         <div class="common-container container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
+                    <a class="btn btn-warning" href="index.php"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
                     <h2>Orange Aluminum – Architectural and Structural Aluminum Supplier</h2><hr>
                     <img src="img/logo-icon.png" style="float:left;max-width:150px;"/>
                     <p>Orange Aluminum was started in 2006 with the vision of offering the industries most dynamic selection of stocked aluminum extrusions online, with no minimums, and unparralled customer support.   This started with a focus on the customers demand in todays market place, bypresenting the products in the most simplest/understandable means, and offering the flexability the market demands.  We have over 50 years of collective experience in the Aluminum industry, there is no competitor online that  that can tout that knowledge and understanding - with this knowledge we have leveraged our product offering, services, and solutions to our customers.  </p>

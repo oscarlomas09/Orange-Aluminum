@@ -54,7 +54,7 @@
                                 <img src="<?php echo BASE_URL;?>img/products/cabinet/cabinet-trim.jpg" alt="Garage Cabinet Trim" class="img-thumbnail">
                                 <span>Garage Cabinet Trim</span>
                             </a>
-                            <a href="pulls=and-handles.php" class="col-xs-6 col-sm-3 col-md-2">
+                            <a href="pulls-and-handles.php" class="col-xs-6 col-sm-3 col-md-2">
                                 <img src="<?php echo BASE_URL;?>img/products/cabinet/pulls.jpg" alt="Pulls and Handles" class="img-thumbnail">
                                 <span>Pulls and Handles</span>
                             </a>

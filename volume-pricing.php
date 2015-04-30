@@ -29,7 +29,8 @@
         <div class="common-container container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
-                    <h2>Cut to Length</h2><hr>
+                    <a class="btn btn-warning" href="index.php"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
+                    <h2>Volume Pricing</h2><hr>
                     <img class="hidden-xs hidden-sm" src="img/volume-banner.php" alt="Volume Pricing" style="max-width:280px;float:left;margin-right:10px;"/>
                     <p>We understand the importance of value, and that getting the right price can be the difference in you getting the job or the sale.<br><br>
 

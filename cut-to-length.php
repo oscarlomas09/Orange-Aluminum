@@ -29,6 +29,7 @@
         <div class="common-container container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
+                    <a class="btn btn-warning" href="index.php"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
                     <h2>Cut to Length</h2><hr>
                     <img class="hidden-xs hidden-sm" src="img/custom-cut-banner.jpg" alt="Custom Cut" style="max-width:280px;float:left;margin-right:10px;"/>
                     <p>Find yourself constantly let down by standard cut lengths… that’s fair, but to be fair to us we are trying to appeal to the masses…However, have no fear… Orange is here.  You want 1/2" lengths along with some longer 14” pieces, we can take care of that.  <br><br>
