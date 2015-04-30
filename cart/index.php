@@ -6,24 +6,24 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Orange Aluminum</title>
+        <title>Shopping Cart</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-        <link href="css/icons.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../css/icons.css" rel="stylesheet">
         
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="js/vendor/respond-1.4.2.min.js"></script>
+        <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="../js/vendor/respond-1.4.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <?php include("php/includes/header.php"); ?>
+        <?php include("../php/includes/header.php"); ?>
         <div id="product-container" class="container-fluid common-container">
            <h1 style="color:#999999;"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Your Shopping Cart</h1>
             <div class="row">
@@ -45,7 +45,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img class="tiny-img" src="img/products/clips/5337_6.jpg"/></td>
+                                <td><img class="tiny-img hidden-xs" src="../img/products/clips/5337_6.jpg"/></td>
                                 <td>
                                     <h4>Panel Rail and Clip, Style 1</h4>
                                     <strong>Cut Length</strong><br>
@@ -56,17 +56,17 @@
                                 <td style="text-align:center;"><input type="number" min="1" max="9999" name="" id="" value="1"/></td>
                                 <td>$9.36</td>
                                 <td>
-                                    <a class="cart-link"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove<br></a>
-                                    <a class="cart-link"><span class="glyphicon glyphicon-plus"></span>&nbsp;Wishlist</a>
+                                    <a class="cart-link remove-item"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove<br></a>
+                                    <a class="cart-link add-wishlist"><span class="glyphicon glyphicon-plus"></span>&nbsp;Wishlist</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div id="shopping-cart-buttons">
+                    <div id="shopping-cart-buttons" class="clearfix">
                         <button class="shopping-btn"><span class="glyphicon glyphicon-trash"></span>&nbsp;Clear Cart</button>
                         <button class="shopping-btn"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Update Cart</button>
                     </div>
-                    <div class="container-fluid">
+                    <div id="shoppping-options-container" class="container-fluid">
                         <div class="col-xs-12 col-sm-4 col-sm-push-8">
                             <table style="float:right;text-align:right;">
                                 <tr><td style="padding-right:13px;">Subtotal</td><td>$9.36</td></tr>
@@ -159,17 +159,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden-xs col-sm-3"><?php include("php/includes/side-content.php") ?></div>
+                <div class="hidden-xs col-sm-3"><?php include("../php/includes/side-content.php") ?></div>
             </div>
         </div>
-        <?php include("php/includes/chat.php"); ?>
-        <?php include("php/includes/footer.php"); ?>
+        <?php include("../php/includes/chat.php"); ?>
+        <?php include("../php/includes/footer.php"); ?>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <!-- Include all compiled plugins (below), or  individual files as needed -->
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="../js/vendor/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

@@ -1,3 +1,4 @@
+
 //******************************     HEADER     *********************************//
 header .navbar-right{
     margin-right: 0px;
@@ -361,6 +362,11 @@ header .navbar-right{
     color: white;
     font-size: 1em;
     display: inline-block;
+    
+    a{
+        text-decoration: none;
+        color: white;
+    }
 }
 //--------MEDIA QUERIES--------//
 @media (min-width: 480px) {
@@ -832,7 +838,7 @@ input[type="radio"]:checked + label span {
     max-width: 1200px;
     background-color: transparent !important;
     margin: 15px auto;
-    padding: 0;
+    padding: 0 !important;
     
     img{
         max-width: 100%;
@@ -931,6 +937,26 @@ input[type="radio"]:checked + label span {
     font-weight: bold;
     margin: 0;
 }
+.static-container{
+    padding: 0px;
+    border-radius: 0px;
+    border:  none;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0);
+    
+    a{
+        color: @orange;
+    }
+}
+@media (min-width: 768px) {
+    .static-container{
+        padding: 8px;
+        border-radius: 0px 0px 3px 3px;
+        border:  2px solid @orange;
+        border-top: none;
+        box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+        margin-top: -15px;
+    }
+}
 //******************************   END COMMON CLASSES   *********************************//
 
 //******************************     PRODUCT PAGE     *********************************//
@@ -971,3 +997,58 @@ input[type="radio"]:checked + label span {
     cursor: pointer;
 }
 //******************************   END PRODUCT PAGE   *********************************//
+
+//******************************     SHOPPING CART AND CHECKOUT     *********************************//
+#shopping-cart-panel{
+    border: 2px solid @main-gray;
+    border-radius: 3px 3px 0px 0px;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+    
+    thead{
+        background-color: @main-gray;
+        color: white;
+        font-weight: bold;
+        
+        th{
+            padding: 8px 5px;        
+        }
+    }
+    
+    td{
+        padding: 5px;
+    }
+}
+#shopping-cart-buttons{
+    background-color: @main-gray;
+    padding: 5px 13px;
+}
+.shopping-btn{
+    background-color: @green;
+    color: white;
+    padding: 5px 13px;
+    border-radius: 3px;
+    border: none;
+    border-top: 0px solid @green;
+    border-bottom: 3px solid darken(@green, 10%);
+    float: right;
+    margin-left: 8px;
+    
+    &:active{
+        border-top: 2px solid @green;
+        border-bottom: 1px solid darken(@green, 10%);
+    }
+}
+#shoppping-options-container{
+    padding: 8px;
+    border: 2px solid @main-gray;
+    border-radius: 0px 0px 3px 3px;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+    
+    input, select{
+        padding: 5px 8px;
+        border: 2px solid @main-gray;
+        outline: none;
+        border-radius: 3px;
+    }
+}
+//******************************   END SHOPPING CART AND CHECKOUT   *********************************//
