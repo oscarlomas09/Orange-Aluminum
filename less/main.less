@@ -757,6 +757,21 @@ footer{
 //******************************   END FILTER   *********************************//
 
 //******************************     COMMON CLASSES     *********************************//
+.btn-press{
+    border-top: 0px solid transparent;
+    border-bottom: 3px solid darken(@main-gray, 10%);
+    font-weight:bold;
+    color: white !important;
+    outline: none !important;
+    
+    &:active{
+          border-top-width:2px;
+          border-bottom-width: 1px;
+     }
+    &:hover{
+        color: white;
+    }
+}
 input[type="radio"] {
     display:none;
 }
@@ -1033,61 +1048,229 @@ input[type="radio"]:checked + label span {
 //******************************   END PRODUCT PAGE   *********************************//
 
 //******************************     SHOPPING CART AND CHECKOUT     *********************************//
-#shopping-cart-panel, .form-panel{
-    border: 2px solid @main-gray;
-    border-radius: 3px 3px 0px 0px;
-    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+#cart-table{
+    width:100%;
+    table-layout: fixed;
+    border-radius:5px;
+    border: 2px solid @dark-blue;
+    margin-bottom: 8px;
+    
+    img{
+        max-width:100%;
+        width:100%;
+        height:auto;
+    }
     
     thead{
-        background-color: @main-gray;
-        color: white;
-        font-weight: bold;
-        
+        background-color: @dark-blue;
         th{
-            padding: 8px 5px;        
+            color: white !important;
         }
     }
-    
-    td{
-        padding: 5px;
+    tbody{
+        tr{
+            border-bottom: 1px solid @main-gray;
+
+            &:hover{
+                background-color: #FCFCFC;
+            }
+        }
+    }
+    td, th{
+        text-align:center;
+        vertical-align:middle;
+        padding: 8px 5px;
+
+        input{
+            width: 100%;
+            max-width: 55px;
+            text-align: center;
+        }
     }
 }
-#shopping-cart-buttons{
-    background-color: @main-gray;
-    padding: 5px 13px;
-}
-.shopping-btn{
-    background-color: @green;
-    color: white;
-    padding: 5px 13px;
-    border-radius: 3px;
-    border: none;
-    border-top: 0px solid @green;
-    border-bottom: 3px solid darken(@green, 10%);
-    float: right;
-    margin-left: 8px;
+.remove-col{
+    width: 8mm;
+    font-size: 5mm;
+    color: @main-gray;
+    background-color: transparent;
     
-    &:active{
-        border-top: 2px solid @green;
-        border-bottom: 1px solid darken(@green, 10%);
+    &:hover, &:active{
+        background-color: #EE4433;
+        color: white;
+    }
+    
+    span{
+        cursor:pointer;
     }
 }
-#shoppping-options-container, .form-panel{
-    padding: 8px;
-    border: 2px solid @main-gray;
-    border-radius: 0px 0px 3px 3px;
-    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+.img-col{
+    width:100px;
+}
+.info-col{
+    text-align: left !important;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 8px;
     
-    input, select, textarea{
-        padding: 5px 8px;
-        border: 2px solid @main-gray;
-        outline: none;
+    h3{
+        margin:0;
+        color: @charcoal;
+    }
+    
+    .info-option{
+        font-size:small;
+        padding-left: 5px;
+        color: @main-gray;
+    }
+}
+.price-col, .qty-col, .total-col{
+    width: 20%;
+    color: @charcoal;
+}
+.total-col, .img-col{
+    display: none;
+}
+
+.coupon-container, .btn-container, .shipping-container, .totals-container{
+    display: inline-block;
+    vertical-align: top;
+    width:100%;
+    margin-bottom: 8px;
+    
+    input{
+        width: 62%;
+        padding: 8px 13px;
+        border: 1px solid @main-gray;
         border-radius: 3px;
-        width: 100%;
+        float: left;
     }
-    
-    div{
+}
+#apply-coupon{
+    background-color: @orange;
+    border-bottom-color: darken(@orange, 10%);
+    width: 34%;
+    float:right;
+}
+#clear{
+    width: 48%;
+    background-color: @main-gray;
+    border-bottom-color: darken(@main-gray, 10%);
+    margin-right: 8px;
+    float: left;
+}
+#update{
+    width: 48%;
+    background-color: @dark-blue;
+    border-bottom-color: darken(@dark-blue, 10%);
+    float: right;
+}
+.shipping-container{    
+    input, select{
+        display:block;
+        width: 100%;
+        padding: 8px 5px;
+        margin-top: 3px;
         margin-bottom: 13px;
+        border-radius: 5px;
+        border: 1px solid @main-gray;
+        float: none;
+    }
+}
+.shipping-section{
+    display:inline-block;
+    width:48%;
+    float:left;
+    margin-right: 2%;
+}
+#shipping-btn{
+    display:block;
+    float:right;
+    width:100%;
+    margin-top: 3px;
+    margin-bottom: 8px;
+    background-color: @orange;
+    color: white !important;
+}
+#shipping-methods{
+    display:none;
+}
+#totals-table{
+    width:100%;
+    color: @charcoal;
+    margin: 13px auto;
+    max-width: 100%;f
+    float:right;
+    
+    tr{
+        border-bottom: 1px solid @main-gray;
+    }
+    td{
+        padding: 8px 3px;
+        text-align: center;
+    }
+    td:first-child{
+        font-weight: bold;
+    }
+}
+#checkout-btn{
+    position: relative;
+    width: 96%;
+    background-color: @green;
+    border-bottom-color: darken(@green, 13%);
+    margin: 2%;
+    padding-right: 48px;
+    overflow: hidden;
+    
+    span{
+        position: absolute;
+        top:0;
+        right: 0;
+        background-color: darken(@green, 5%);
+        padding:13px 8px;
+    }
+}
+@media (min-width: 520px) {
+    .total-col, .img-col{
+        display:table-cell;
+    }
+    .coupon-container, .shipping-container{
+        width:55%;
+    }
+    .btn-container, .totals-container{
+        width:44%;
+    }
+    .shipping-section{
+        width: 98%;
+    }
+    #shipping-btn{
+        width: auto;
+        margin-bottom: 0px;
+        margin-top: -55px;
+    }
+    .shipping-container{    
+        input, select{
+            width: auto;
+        }
+    }
+    #totals-table{
+        max-width: 320px;
+        float: right;
+        
+        tr{
+            border-bottom: none;
+        }
+        td{
+            text-align: right;
+            padding: 5px 3px;
+        }
+    }
+    #update, #clear, #checkout-btn{
+        width: auto;
+        float:right;
+    }
+    #checkout-btn{
+        margin: 0;
     }
 }
 //******************************   END SHOPPING CART AND CHECKOUT   *********************************//

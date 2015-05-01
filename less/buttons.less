@@ -17,6 +17,7 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
+  color: white;
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
   .user-select(none);
 
@@ -32,7 +33,7 @@
   &:hover,
   &:focus,
   &.focus {
-    color: @btn-default-color;
+    color: inherit;
     text-decoration: none;
   }
 
@@ -40,7 +41,6 @@
   &.active {
     outline: 0;
     background-image: none;
-    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
   }
 
   &.disabled,
