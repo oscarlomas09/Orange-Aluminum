@@ -1,12 +1,15 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 //Collapse or show items
 function collapsable(){                
     //check the window width to hide or show certain elements
     var win_w = $(window).width();
-    if(win_w > 712){
+    if(win_w < 712){
+        $("#user-options").collapse("show");
+    }
+    else{
         $("#user-options, #search-mobile").collapse('hide'); //hide user options and mobile search box in HEADER SECTION        
     }
 
