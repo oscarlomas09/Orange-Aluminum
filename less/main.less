@@ -674,6 +674,9 @@ footer{
 //******************************     FILTER     *********************************//
 .filter{
     width: 100%;
+    margin: 0px auto;
+    padding-bottom: 5px;
+    border-radius: 3px;
     background-color: white;
     box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.3);
     z-index: 1001;
@@ -682,48 +685,141 @@ footer{
         max-width: 100%;
     }
     
-    .filter-content{
-        padding: 5px 8px;
-        
-        > div{
-            margin-bottom: 8px;
-        }
-    }
-    
-    form{
-        padding-left: 8px;
-    }
-    
-    h3{
-        color: white;
-        background-color: @orange;
-        text-align: center;
-        position: relative;
-        padding: 8px 13px;
+    h4 {
         margin: 0;
-    }
-    .filter-type{
-        float: left;
-        margin-right: 8px;
-    }
-    .filter-title{
-        font-weight: bold;
+        margin-top: 5px;
+        padding: 5px 8px;
+        font-weight: 700;
+        font-size: 1.1em;
         text-transform: uppercase;
     }
-    
-    .filter-section{
-        float: left;
-        margin-right: 13px;
-    }
-    
-    .filter-close{
-        background-color: darken(@orange, 8%);
-        position: absolute;
-        cursor: pointer;
-        padding: 8px;
-        right: 0px;
-        top: 0px;
-    }
+}
+.filter .title {
+    color: white;
+    background-color: @orange;
+    border-radius: 3px 3px 0 0;
+    text-align: center;
+    position: relative;
+    padding: 8px 13px;
+    margin: 0;
+}
+.filter .filter-name {
+    color: @charcoal;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid #FCFCFC;
+}
+.filter .filter-name:hover {
+    background-color: #F5F5F5;
+}
+/* Plus Icon */
+.filter .filter-name.active:after {
+    height: 3px;
+    width: 3px;
+    right: 14px;
+    margin-top: -1.5px;
+    background-color: @charcoal;
+}
+.filter .filter-name:before, .filter .filter-name:after {
+    content: "";
+    position: absolute;
+    border-radius: 1px;
+    background-color: @charcoal;
+    transition: linear 0.2s all;
+}
+.filter .filter-name:before {
+    height: 3px;
+    width: 13px;
+    top: 50%;
+    right: 9px;
+    margin-top: -1.5px;
+}
+.filter .filter-name:after {
+    height: 13px;
+    width: 3px;
+    top: 50%;
+    right: 14px;
+    margin-top: -6.5px;
+}
+/* End Plus Icon */
+.filter input[type="radio"] {
+    display: none;
+}
+.filter ul {
+    position: relative;
+    transition-property: all;
+    transition-timing-function: linear;
+    background-color: #FEFEFE;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.filter ul li {
+    position: relative;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    color: @orange;
+    background-color: transparent;
+    transition: linear 0.2s all;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0px 13px;
+}
+.filter ul li:nth-child(odd) {
+    height: 0;
+    left: -150px;
+}
+.filter ul li:nth-child(even) {
+    height: 0;
+    left: 150px;
+}
+.filter ul li.visible {
+    height: 2em;
+    opacity: 1;
+    left: 0;
+}
+.filter ul li:last-child label {
+    border-bottom: none;
+}
+.filter label {
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    padding-left: 1.8em;
+    display: block;
+    cursor: pointer;
+    color: #555555;
+}
+.filter label:before, .filter label:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1.5em;
+    width: 1.5em;
+    margin-top: -0.75em;
+    border: 2px solid #CCCCCC;
+    background-color: transparent;
+    border-radius: 2px;
+    color: transparent;
+    font-family: 'Glyphicons Halflings';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+}
+.filter label:after {
+    content: "\e013";
+    color: @green;
+    font-size: 1.2em;
+    border-color: transparent;
+    opacity: 0;
+}
+.filter input[type="radio"]:checked + label:after {
+    opacity: 1;
+}
+.filter input[type="radio"]:checked + label:before {
+    border-color: @green;
 }
 #filter-btn, #reset-btn{
     background-color: @orange;
@@ -732,7 +828,7 @@ footer{
     width: 100%;
     padding: 8px 13px;
     color: white;
-    margin-bottom: 5px;
+    margin: 8px auto 5px auto;
     text-transform: uppercase;
     font-size: 1.2em;
     text-align: center;
@@ -748,138 +844,8 @@ footer{
         font-size: 1.1em;
     }
 }
-@media (min-width: 768px) {
-    .filter .filter-type{
-        float: none;
-        margin-right: 0;
-    }
-}
-@media (min-width: 992px) {
-    .filter .filter-section{
-        display: inline-block;
-        float: none;
-        margin: 0;
-        width: 48%;
-    }
-}
-
-.filter{
-    width: 100%;
-    max-width: 320px;
-    margin: 0px auto;
-}
-.filter h4 {
-    margin: 0;
-    padding: 5px 8px;
-    font-weight: 300;
-}
-.filter .title {
-    color: white;
-    background-color: @orange;
-    border-radius: 3px 3px 0 0;
-}
-.filter .filter-name {
-    color: @charcoal;
-    cursor: pointer;
-    position: relative;
-    border-bottom: 1px solid @orange;
-}
-.filter .filter-name:hover {
-    background-color: #F5F5F5;
-}
-.filter .filter-name.active:after {
-    height: 5px;
-    width: 5px;
-    right: 14px;
-    margin-top: -2.5px;
-    background-color: @charcoal;
-}
-.filter .filter-name:before, .filter .filter-name:after {
-    content: "";
-    position: absolute;
-    border-radius: 3px;
-    background-color: @charcoal;
-    transition: linear 0.3s all;
-}
-.filter .filter-name:before {
-    height: 5px;
-    width: 13px;
-    top: 50%;
-    right: 10px;
-    margin-top: -2.5px;
-}
-.filter .filter-name:after {
-    height: 13px;
-    width: 5px;
-    top: 50%;
-    right: 14px;
-    margin-top: -6.5px;
-    background-color: @charcoal;
-}
-.filter ul {
-    transition-property: all;
-    transition-timing-function: linear;
-    background-color: #FEFEFE;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.filter ul li {
-    height: 0;
-    opacity: 0;
-    padding: 0;
-    margin: 0;
-    color: @orange;
-    background-color: #FEFEFE;
-    transition: linear 0.3s all;
-    font-weight: bold;
-    font-size: 1em;
-}
-.filter ul li:nth-child(odd) {
-    transform: scale(0.5) translateX(-150px);
-}
-.filter ul li:nth-child(even) {
-    transform: scale(0.5) translateX(150px);
-}
-.filter ul li.visible {
-    height: 36px;
-    opacity: 1;
-    transform: scale(1) translateX(0);
-}
-.filter ul li:last-child label {
-    border-bottom: none;
-}
-.filter input[type="radio"] {
-    display: none;
-}
-.filter label {
-    position: relative;
-    margin: 0;
-    padding: 5px;
-    padding-left: 1.3em;
-    display: block;
-    cursor: pointer;
-    border-bottom: 1px solid @charcoal;
-}
-.filter label:before, .filter label:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: 1em;
-    width: 1em;
-    margin-top: -0.5em;
-    border: 3px solid @orange;
-    background-color: transparent;
-    border-radius: 50%;
-}
-.filter label:after {
-    background-color: @orange;
-    border: none;
-    opacity: 0;
-}
-.filter input[type="radio"]:checked + label:after {
-    opacity: 1;
+#reset-btn{
+    width: 89%;
 }
 //******************************   END FILTER   *********************************//
 
@@ -898,26 +864,6 @@ footer{
     &:hover{
         color: white;
     }
-}
-input[type="radio"] {
-    display:none;
-}
-label{
-    font-weight: normal;
-}
-input[type="radio"] + label span {
-    display:inline-block;
-    width:1em;
-    height:1em;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;
-    background-color: white;
-    border: 1px solid @gray-light;
-    border-radius: 1px;
-    cursor:pointer;
-}
-input[type="radio"]:checked + label span {
-    background-color: @green;
 }
 .common-container{
     max-width: 1200px;

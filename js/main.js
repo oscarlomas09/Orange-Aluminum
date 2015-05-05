@@ -17,6 +17,18 @@ function collapsable(){
     else{
         $("#footer .nav").collapse('hide'); //Collapse footer nav links if there is no room for them
     }
+    
+    //collapse filters
+    if(win_w < 768){
+        $(".filter").children(".filter-name").each(function(){
+            collapseFilters($(this), true);            
+        });
+    }
+    else{
+        $(".filter").children(".filter-name").each(function(){
+            collapseFilters($(this), false);            
+        });
+    }
 }
 
 //Show or Hide Mobile Navigation
@@ -141,26 +153,43 @@ $("#reset-btn").click(function(){
     });
     $(".panel-default, .accordion-toggle").show(); //show all products and its parent containers
 });
-
-
-//Animate the Filters and Home Navigation
-transition_timeout = 40;
     
 $('.filter-name').click(function(){
-    //current item to animate
-    current_item = $(this).next().find('li');
+    //If the filter options are visible, then hide them, else show them
+    if($(this).hasClass('active')){        
+        collapseFilters($(this), true);
+    }
+    else{
+        collapseFilters($(this), false);    
+    }
+});
 
-    $(this).toggleClass('active');
-    current_item.toggleClass('visible');
-
-    if ($(this).hasClass('active')) {
+function collapseFilters($filter, collapse){
+    //Animate the Filters and Home Navigation
+    transition_timeout = 20;
+    var current_item = $filter.next().find('li'); //get every filter option
+    
+    if(collapse){
+        $filter.removeClass('active');
+        current_item.removeClass('visible');
+        
+        //animate the filter option, but add a delay depending on the order of it
+        for (i = current_item.length, j = -1; i >= 0; i--, j++){ 
+            $(current_item[i]).css('transition-delay', '0ms');
+        }
+    }
+    else{
+        $filter.addClass('active');
+        current_item.addClass('visible');
+        //hide every filter option
         for (i = 0; i <= current_item.length; i++){
             $(current_item[i]).css('transition-delay', transition_timeout * i + 'ms');
         }
-    } 
-    else {
-        for (i = current_item.length, j = -1; i >= 0; i--, j++){
-            $(current_item[i]).css('transition-delay', transition_timeout * j + 'ms');
-        }
+    }
+}
+$(".filter a").click(function(e){
+    //prevent any invisible link on the filter container from being clicked
+    if(!$(this).parent("li").hasClass("visible")){
+        e.preventDefault();
     }
 });
