@@ -1,4 +1,4 @@
-<nav role="navigation" class="navbar" id="navbar">
+<nav role="navigation" class="navbar navbar-inverse" id="navbar">
     <div class="navbar-collapse collapse">
         <ul class="nav nav-justified">
             <li>

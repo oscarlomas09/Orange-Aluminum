@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="<?php echo BASE_URL; ?>apple-touch-icon.png">
 
 <!-- Bootstrap -->
-<link href="<?php echo BASE_URL; ?>_dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo BASE_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo BASE_URL; ?>css/bootstrap-theme.min.css" rel="stylesheet">
 <link href="<?php echo BASE_URL; ?>css/icons.css" rel="stylesheet">
 

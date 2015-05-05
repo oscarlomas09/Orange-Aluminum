@@ -165,7 +165,7 @@
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
     $options .= newFilter($wall);
-    $filter = '<div class="filter"><h3 class="title">Filter</h3>'.$options.'</div>';
+    $filter = '<div class="filter"><h3 class="title">Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -211,8 +211,6 @@
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <?php echo $filter; ?>
-                    <div class="clearfix"></div>
-                    <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
                     <div class="panel panel-primary">

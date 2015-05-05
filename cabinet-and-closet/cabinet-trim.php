@@ -35,7 +35,7 @@
                 </div> ';
         return $panel;
     }
-  function newModel($alteration){
+    function newModel($alteration){
       $row = '';
       foreach($alteration as $item => $value){
         $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
@@ -80,28 +80,28 @@
                 "finish" => "Clear Anodized",
                 "fits" => "3/4",
                 "price" => 15.53,
-                "classes" => "clear fits-three-quarter"
+                "classes" => "finish-clear fits-three-quarter"
             ),
             "OA5479-WP" => array(
                 "title" => "Shelf Stiffener",
                 "finish" => "White Powder Coat",
                 "fits" => "3/4",
                 "price" => 17.53,
-                "classes" => "white fits-three-quarter"
+                "classes" => "finish-white fits-three-quarter"
             ),
             "OA5479-BP" => array(
                 "title" => "Shelf Stiffener",
                 "finish" => "Black Powder Coat",
                 "fits" => "3/4",
                 "price" => 17.53,
-                "classes" => "black fits-three-quarter"
+                "classes" => "finish-black fits-three-quarter"
             ),
             "OA7697" => array(
                 "title" => "Shelf Stiffener",
                 "finish" => "Clear Anodized",
                 "fits" => "1",
                 "price" => 19.33,
-                "classes" => "clear fits-one"
+                "classes" => "finish-clear fits-one"
             )
         ),
         "img" => $base_url."img/products/cabinet/shelf-aside.png",
@@ -121,27 +121,106 @@
                 "finish" => "Clear Anodized",
                 "fits" => "3/4",
                 "price" => 20.13,
-                "classes" => "clear fits-three-quarter"
+                "classes" => "finish-clear fits-three-quarter"
             ),
             "OA6920-WP" => array(
                 "title" => "Continuous Pull",
                 "finish" => "White Powder Coat",
                 "fits" => "3/4",
                 "price" => 22.13,
-                "classes" => "white fits-three-quarter"
+                "classes" => "finish-white fits-three-quarter"
             ),
             "OA6920-BP" => array(
                 "title" => "Continuous Pull",
                 "finish" => "Black Powder Coat",
                 "fits" => "3/4",
                 "price" => 22.13,
-                "classes" => "black fits-three-quarter"
+                "classes" => "finish-black fits-three-quarter"
             )
         ),
         "img" => $base_url."img/products/cabinet/pull-aside.png",
         "img_alt" => "Continuous Pullr"
     );
     $panels .= newPanel($rails);
+
+    //Filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "eight" => array(
+                "name" => "fixed",
+                "title" => "8'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "clear" => array(
+                "name" => "finish-clear",
+                "title" => "Clear Anodized",
+                "group" => "finish"
+            ),
+            "black" => array(
+                "name" => "finish-black",
+                "title" => "Black Powder Coat",
+                "group" => "finish"
+            ),    
+            "white" => array(
+                "name" => "finish-white",
+                "title" => "White Powder Coat",
+                "group" => "finish"
+            )        
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $fits = array( 
+        "title" => "Wall Thickness",
+        "options" => array(
+            "fits-three-quarter" => array(
+                "name" => "fits-three-quarter",
+                "title" => '3/4"',
+                "group" => "fits"
+            ),
+            "fits-one" => array(
+                "name" => "fits-one",
+                "title" => '1"',
+                "group" => "fits"
+            )
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($fits);
+    $filter = '<div class="filter"><h3 class="title">Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -187,61 +266,7 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Garage Cabinet Trim<span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-eight" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-eight"><span></span>8'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="black" name="finish" value="black"/>
-                                       <label for="black"><span></span>Black Powder Coat</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="white" name="finish" value="white"/>
-                                       <label for="white"><span></span>White Powder Coat</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="ilter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Fits</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-quarter" name="fits" value="fits-three-quarter"/>
-                                       <label for="fits-three-quarter"><span></span>3/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-one" name="fits" value="fits-one"/>
-                                       <label for="fits-one"><span></span>1"</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
                     <div class="panel panel-primary">
