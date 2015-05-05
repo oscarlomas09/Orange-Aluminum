@@ -1,4 +1,3 @@
-<?php define('BASE_URL', 'http://localhost/Orange-Aluminum/'); ?>
 <header>
     <h5 class="promo">Free Ground Shipping on Orders of $200+</h5>
     <nav class="navbar">
