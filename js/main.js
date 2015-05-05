@@ -113,12 +113,12 @@ $('input[type=radio]').change(function() { //when the user selects a filter opti
         var hasAll = true; //initiate hasAll variable
         for(var i=0; i < filters.length; i++){
             //loop through each filter and check if this row has all the desired qualities
-            if(!$(this).hasClass(filters[i])){
+            if(!$(this).hasClass(filters[i])){                
                 hasAll = false; //it did not have this class, so it failed the test
                 break;
             }
         }
-        if(!hasAll){
+        if(!hasAll && !$(this).hasClass("filter-fixed")){
             $(this).addClass("filter-hidden").fadeOut();    //if it doesnt have all requested filters, then hide it
         }
     });
@@ -142,3 +142,25 @@ $("#reset-btn").click(function(){
     $(".panel-default, .accordion-toggle").show(); //show all products and its parent containers
 });
 
+
+//Animate the Filters and Home Navigation
+transition_timeout = 40;
+    
+$('.filter-name').click(function(){
+    //current item to animate
+    current_item = $(this).next().find('li');
+
+    $(this).toggleClass('active');
+    current_item.toggleClass('visible');
+
+    if ($(this).hasClass('active')) {
+        for (i = 0; i <= current_item.length; i++){
+            $(current_item[i]).css('transition-delay', transition_timeout * i + 'ms');
+        }
+    } 
+    else {
+        for (i = current_item.length, j = -1; i >= 0; i--, j++){
+            $(current_item[i]).css('transition-delay', transition_timeout * j + 'ms');
+        }
+    }
+});
