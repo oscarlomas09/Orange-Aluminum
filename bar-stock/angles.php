@@ -113,7 +113,7 @@
         "title" => "Alloy & Temper",
         "options" => array(
             "alloy" => array(
-                "name" => "alloy",
+                "name" => "fixed",
                 "title" => "6063-T5",
                 "group" => "alloy"
             ),
@@ -145,14 +145,15 @@
         )
     );
 
-    $filters = '<div class="filter"><h3 class="title">Angles</h3>';
+    
+    $options = "";
     function newFilter($arr){
-        $filter = '<h4 class="filter-name">'.$arr["title"].'</h4><ul>';    
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
         $filter_group = $arr["options"];
         $filter_count = count($filter_group);
         foreach($filter_group as $item => $value){
             $lonely = $filter_count == 1 ? "checked" : "";
-            $filter .= '<li>
+            $filter .= '<li class="visible">
                     <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
                     <label for="'.$value["name"].'">'.$value["title"].'</label>
                 </li>';
@@ -160,10 +161,11 @@
         $filter .= "</ul>";
         return $filter;
     }
-    $filters .= newFilter($cuts);
-    $filters .= newFilter($finish);
-    $filters .= newFilter($alloy);
-    $filters .= newFilter($wall);
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($wall);
+    $filter = '<div class="filter"><h3 class="title">Filter</h3>'.$options.'</div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -208,7 +210,7 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <?php echo $filters; ?>
+                    <?php echo $filter; ?>
                     <div class="clearfix"></div>
                     <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
                 </aside>
