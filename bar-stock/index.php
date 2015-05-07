@@ -6,7 +6,7 @@
     <head>
         <title>Bar Stock</title>
         <meta name="description" content="">
-        <?php include("php/includes/header-files.php"); ?>
+        <?php include("../php/includes/header-files.php"); ?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -42,7 +42,7 @@
                             </a>
                             <a href="<?php echo BASE_URL;?>bar-stock/flat-bars-radiused.php" class="col-xs-4 col-sm-2">
                                 <img src="<?php echo BASE_URL;?>/img/products/bars/flat-radiused.jpg" alt="Flat Bars: Radiused" class="img-thumbnail">
-                                <span>Flat Bars: Radiused</span>
+                                <span>Radiused</span>
                             </a>
                             <a href="<?php echo BASE_URL;?>bar-stock/h-sections.php" class="col-xs-4 col-sm-2">
                                 <img src="<?php echo BASE_URL;?>/img/products/bars/h-bar.jpg" alt="H-Sections" class="img-thumbnail">

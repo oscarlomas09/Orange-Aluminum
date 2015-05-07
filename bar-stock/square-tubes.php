@@ -2,10 +2,10 @@
     $base_url = "http://localhost/Orange-Aluminum/";
     $row = 0;
     $wall_thickness = "";
-    $name = "Angle";
+    $name = "Square Tube";
     $mill_panel = '<div class="panel panel-default panel-fluid">
     <div class="panel-heading">
-        <h3 class="panel-title">Angles: Mill Finish</h3>
+        <h3 class="panel-title">Square Tubes</h3>
     </div>
     <div class="panel-default container-fluid">
         <div class="row"><table class="table table-hover" style="width:100%;margin-bottom:0;">';
@@ -56,25 +56,15 @@
 
     $cuts = array( 
         "title" => "Cut Length",
-        "options" => array(
-            "three" => array(
-                "name" => "cut-three",
-                "title" => "3'",
-                "group" => "cut"
-            ),            
-            "six" => array(
-                "name" => "cut-six",
-                "title" => "6'",
+        "options" => array(     
+            "five" => array(
+                "name" => "cut-fove",
+                "title" => "5'",
                 "group" => "cut"
             ),            
             "eight" => array(
                 "name" => "cut-eight",
                 "title" => "8'",
-                "group" => "cut"
-            ),            
-            "twelve" => array(
-                "name" => "cut-twelve",
-                "title" => "12'",
                 "group" => "cut"
             )
         )
@@ -83,13 +73,8 @@
         "title" => "Finish",
         "options" => array(
             "mill" => array(
-                "name" => "finish-mill",
+                "name" => "fixed",
                 "title" => "Mill Finish",
-                "group" => "finish"
-            ),            
-            "clear" => array(
-                "name" => "finish-clear",
-                "title" => "Clear Anodized",
                 "group" => "finish"
             )
         )
@@ -107,25 +92,35 @@
     $wall = array( 
         "title" => "Wall Thickness",
         "options" => array(
-            "one-sixteen" => array(
-                "name" => "wall-one-sixteen",
-                "title" => '1/16"',
-                "group" => "wall"
-            ),
-            "one-eight" => array(
-                "name" => "wall-one-eight",
-                "title" => '1/8"',
-                "group" => "wall"
-            ),
-            "three-sixteen" => array(
-                "name" => "wall-three-sixteen",
+            "wall" => array(
+                "name" => "fixed",
                 "title" => '3/16"',
                 "group" => "wall"
+            )
+        )
+    );
+    $od = array( 
+        "title" => "OD (inches)",
+        "options" => array(
+            "od-half" => array(
+                "name" => "od-half",
+                "title" => '1/2"',
+                "group" => "od"
             ),
-            "three-quarter" => array(
-                "name" => "wall-quarter",
-                "title" => '1/4"',
-                "group" => "wall"
+            "od-three-quarter" => array(
+                "name" => "od-three-quarter",
+                "title" => '3/4"',
+                "group" => "od"
+            ),
+            "od-one" => array(
+                "name" => "od-one",
+                "title" => '1"',
+                "group" => "od"
+            ),
+            "od-two" => array(
+                "name" => "od-two",
+                "title" => '2"',
+                "group" => "od"
             )
         )
     );
@@ -150,7 +145,8 @@
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
     $options .= newFilter($wall);
-    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Angles Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/angle-diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $options .= newFilter($od);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Square Tubes Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/square-diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -158,7 +154,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
-        <title>Angles</title>
+        <title>Square Tubes</title>
         <meta name="description" content="">
         <?php include("../php/includes/header-files.php"); ?>
     </head>
@@ -171,12 +167,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/angles.jpg" alt="Angles"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/square.jpg" alt="Square Tubes"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
               <li><a href="index.php">Bar Stock</a></li>
-              <li>Angles</li>
+              <li>Square Tubes</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -195,7 +191,7 @@
             <table class="filter-table">
                 <tr>
                     <td><div id="filter-btn" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;Filter</div></td>
-                    <td style="width: 150px;"><img src="<?php echo BASE_URL;?>img/products/bars/angle-diagram.png" alt="Diagram" style="max-height: 89px; width: auto;float:right;"/></td>
+                    <td style="width: 150px;"><img src="<?php echo BASE_URL;?>img/products/bars/square-diagram.png" alt="Diagram" style="max-height: 89px; width: auto;float:right;"/></td>
                 </tr>
             </table>
             <div class="row">
@@ -210,7 +206,6 @@
                         <div class="panel-body container-fluid">
                             <div class="row">
                                <div class="col-xs-12 col-sm-9">
-                                   <p><h4>90 Degree Angle Corner Type Square</h4></p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -226,7 +221,7 @@
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">3', 6', 8' and 12' Cut Lengths</td>
+                                            <td style="width:75%;">8' Cut Lengths</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>
@@ -243,7 +238,7 @@
                                     </table>
                                 </div>
                                <div class="col-sm-3 hidden-xs">
-                                   <img src="<?php echo BASE_URL;?>img/products/bars/angle-aside.png" alt="Angles" />
+                                   <img src="<?php echo BASE_URL;?>img/products/bars/square-aside.png" alt="Square Tubes" />
                                </div>
                             </div>
                         </div>

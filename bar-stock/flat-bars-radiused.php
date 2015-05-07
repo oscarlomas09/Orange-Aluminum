@@ -2,10 +2,10 @@
     $base_url = "http://localhost/Orange-Aluminum/";
     $row = 0;
     $wall_thickness = "";
-    $name = "Angle";
-    $mill_panel = '<div class="panel panel-default panel-fluid">
+    $name = "Flat Bars";
+    $mill_panel = '<div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Angles: Mill Finish</h3>
+        <h3 class="panel-title">Radiused Flat Bar</h3>
     </div>
     <div class="panel-default container-fluid">
         <div class="row"><table class="table table-hover" style="width:100%;margin-bottom:0;">';
@@ -56,22 +56,12 @@
 
     $cuts = array( 
         "title" => "Cut Length",
-        "options" => array(
-            "three" => array(
-                "name" => "cut-three",
-                "title" => "3'",
-                "group" => "cut"
-            ),            
+        "options" => array(           
             "six" => array(
                 "name" => "cut-six",
                 "title" => "6'",
                 "group" => "cut"
-            ),            
-            "eight" => array(
-                "name" => "cut-eight",
-                "title" => "8'",
-                "group" => "cut"
-            ),            
+            ),                  
             "twelve" => array(
                 "name" => "cut-twelve",
                 "title" => "12'",
@@ -117,7 +107,7 @@
                 "title" => '1/8"',
                 "group" => "wall"
             ),
-            "three-sixteen" => array(
+            "three-three-sixteen" => array(
                 "name" => "wall-three-sixteen",
                 "title" => '3/16"',
                 "group" => "wall"
@@ -150,7 +140,7 @@
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
     $options .= newFilter($wall);
-    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Angles Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/angle-diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Flat-Bars Radiused</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/flat-radiused-diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -158,7 +148,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
-        <title>Angles</title>
+        <title>Radiused Flat Bars</title>
         <meta name="description" content="">
         <?php include("../php/includes/header-files.php"); ?>
     </head>
@@ -171,12 +161,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/angles.jpg" alt="Angles"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/flat-radiused.jpg" alt="Flat Bars: Radiused"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
               <li><a href="index.php">Bar Stock</a></li>
-              <li>Angles</li>
+              <li>Flat Bars: Radiused</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -195,7 +185,7 @@
             <table class="filter-table">
                 <tr>
                     <td><div id="filter-btn" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;Filter</div></td>
-                    <td style="width: 150px;"><img src="<?php echo BASE_URL;?>img/products/bars/angle-diagram.png" alt="Diagram" style="max-height: 89px; width: auto;float:right;"/></td>
+                    <td style="width: 150px;"><img src="<?php echo BASE_URL;?>img/products/bars/flat-radiused-diagram.png" alt="Diagram" style="max-height: 89px; width: auto;float:right;"/></td>
                 </tr>
             </table>
             <div class="row">
@@ -210,7 +200,7 @@
                         <div class="panel-body container-fluid">
                             <div class="row">
                                <div class="col-xs-12 col-sm-9">
-                                   <p><h4>90 Degree Angle Corner Type Square</h4></p>
+                                   <p><h4>Rectangular and Square Bar Stock</h4></p>
                                     <table style="width:100%;">
                                         <tr>
                                             <td><b>Alloy</b></td>
@@ -226,7 +216,7 @@
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">3', 6', 8' and 12' Cut Lengths</td>
+                                            <td style="width:75%;">6' and 12' Cut Lengths</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>
@@ -243,7 +233,7 @@
                                     </table>
                                 </div>
                                <div class="col-sm-3 hidden-xs">
-                                   <img src="<?php echo BASE_URL;?>img/products/bars/angle-aside.png" alt="Angles" />
+                                   <img src="<?php echo BASE_URL;?>img/products/bars/flat-aside.png" alt="Flat Bars" />
                                </div>
                             </div>
                         </div>
