@@ -18,14 +18,13 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>Cut</th>
-                                  <th>Fits x Reveal</th>
-                                  <th>SKU</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th>Fits x Reveal</th>
+                                    <th class="text-center hidden-xs">Cut</th>
+                                    <th class="text-center hidden-xs">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -36,32 +35,15 @@
         return $panel;
     }
   function newModel($alteration){
+      global $base_url;
       $row = '';
       foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$value["cut"].'</td>
-                  <td>'.$value["fits"].'" x '.$value["reveal"].'"</td>
-                  <td>'.$item.'</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-dimensions">'.$value["fits"].'" x '.$value["reveal"].'"</td>
+                    <td class="text-center hidden-xs">'.$value["cut"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
       }
       return $row;
@@ -256,6 +238,195 @@
         "img_alt" => "J Cap Edge Trim"
     );
     $panels .= newPanel($pinch);
+
+    //Filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "three" => array(
+                "name" => "cut-three",
+                "title" => "3'",
+                "group" => "cut"
+            ),
+            "six" => array(
+                "name" => "cut-six",
+                "title" => "6'",
+                "group" => "cut"
+            ),
+            "twelve" => array(
+                "name" => "cut-twelve",
+                "title" => "12'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "clear" => array(
+                "name" => "finish-clear",
+                "title" => "Clear Anodized",
+                "group" => "finish"
+            ),
+            "brite" => array(
+                "name" => "finish-brite",
+                "title" => "Brite-Dip Anodized",
+                "group" => "finish"
+            )      
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy-6063" => array(
+                "name" => "alloy-6063",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+            "alloy-6463" => array(
+                "name" => "alloy-6463",
+                "title" => "6463-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $fits = array( 
+        "title" => "Fits",
+        "options" => array(
+            "fits-one-sixteen" => array(
+                "name" => "fits-one-sixteen",
+                "title" => '1/16"',
+                "group" => "fits"
+            ),
+            "fits-three-thirtytwo" => array(
+                "name" => "fits-three-thirtytwo",
+                "title" => '3/32"',
+                "group" => "fits"
+            ),
+            "fits-seven-sixtyfour" => array(
+                "name" => "fits-seven-sixtyfour",
+                "title" => '7/64"',
+                "group" => "fits"
+            ),
+            "fits-one-eight" => array(
+                "name" => "fits-one-eight",
+                "title" => '1/8"',
+                "group" => "fits"
+            ),
+            "fits-five-thirtytwo" => array(
+                "name" => "fits-five-thirtytwo",
+                "title" => '5/32"',
+                "group" => "fits"
+            ),
+            "fits-three-sixteen" => array(
+                "name" => "fits-three-sixteen",
+                "title" => '3/16"',
+                "group" => "fits"
+            ),
+            "fits-quarter" => array(
+                "name" => "fits-quarter",
+                "title" => '1/4"',
+                "group" => "fits"
+            ),
+            "fits-nineteen-sixtyfour" => array(
+                "name" => "fits-nineteen-sixtyfour",
+                "title" => '19/64"',
+                "group" => "fits"
+            ),
+            "fits-five-sixteen" => array(
+                "name" => "fits-five-sixteen",
+                "title" => '5/16"',
+                "group" => "fits"
+            ),
+            "fits-three-eight" => array(
+                "name" => "fits-three-eight",
+                "title" => '3/8"',
+                "group" => "fits"
+            ),
+            "fits-one" => array(
+                "name" => "fits-half",
+                "title" => '1/2"',
+                "group" => "fits"
+            )
+        ));
+    $reveal = array( 
+        "title" => "Reveal",
+        "options" => array(
+            "reveal-three-thirtytwo" => array(
+                "name" => "reveal-three-thirtytwo",
+                "title" => '3/32"',
+                "group" => "reveal"
+            ),
+            "reveal-three-sixteen" => array(
+                "name" => "reveal-three-sixteen",
+                "title" => '3/16"',
+                "group" => "reveal"
+            ),
+            "reveal-thirteen-sixtyseven" => array(
+                "name" => "reveal-thirteen-sixtyseven",
+                "title" => '13/67"',
+                "group" => "reveal"
+            ),
+            "reveal-quarter" => array(
+                "name" => "reveal-quarter",
+                "title" => '1/4"',
+                "group" => "reveal"
+            ),
+            "reveal-nine-thirtytwo" => array(
+                "name" => "reveal-nine-thirtytwo",
+                "title" => '9/32"',
+                "group" => "reveal"
+            ),
+            "reveal-five-sixteen" => array(
+                "name" => "reveal-five-sixteen",
+                "title" => '5/16"',
+                "group" => "reveal"
+            ),
+            "reveal-three-eight" => array(
+                "name" => "reveal-three-eight",
+                "title" => '3/8"',
+                "group" => "reveal"
+            ),
+            "reveal-nine-sixteen" => array(
+                "name" => "reveal-nine-sixteen",
+                "title" => '9/16"',
+                "group" => "reveal"
+            ),
+            "reveal-five-eight" => array(
+                "name" => "reveal-five-eight",
+                "title" => '5/8"',
+                "group" => "reveal"
+            ),
+            "reveal-twentyone-thirtytwo" => array(
+                "name" => "reveal-twentyone-thirtytwo",
+                "title" => '21/32"',
+                "group" => "reveal"
+            )
+        ));
+
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($fits);
+    $options .= newFilter($reveal);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Corners Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -301,156 +472,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>J-Cap <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <div class="pic"><img src="<?php echo BASE_URL;?>img/products/dividers/j-cap-diagram.png" /></div>
-                        <section class="filter-content">
-                            <div class="ilter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-three" name="cut-length" value="cut-three"/>
-                                       <label for="cut-three"><span></span>3'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="cut-six"/>
-                                       <label for="cut-six"><span></span>6'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-twelve" name="cut-length" value="cut-twelve"/>
-                                       <label for="cut-twelve"><span></span>12'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="brite" name="finish" value="brite"/>
-                                       <label for="brite"><span></span>Brite-Dip Anodized</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy-6063" name="alloy" value="alloy-6063"/>
-                                       <label for="alloy-6063"><span></span>6063-T5</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy-6463" name="alloy" value="alloy-6463"/>
-                                       <label for="alloy-6463"><span></span>6463-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="filter-section">
-                               <span class="filter-title">Fits</span>
-                               <form id="fits-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-one-sixteen" name="fits" value="fits-one-sixteen"/>
-                                       <label for="fits-one-sixteen"><span></span>1/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-thirtytwo" name="fits" value="fits-three-thirtytwo"/>
-                                       <label for="fits-three-thirtytwo"><span></span>3/32"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-seven-sixtyfour" name="fits" value="fits-seven-sixtyfour"/>
-                                       <label for="fits-seven-sixtyfour"><span></span>7/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-one-eight" name="fits" value="fits-one-eight"/>
-                                       <label for="fits-one-eight"><span></span>1/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-five-thirtytwo" name="fits" value="fits-five-thirtytwo"/>
-                                       <label for="fits-five-thirtytwo"><span></span>5/32"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-sixteen" name="fits" value="fits-three-sixteen"/>
-                                       <label for="fits-three-sixteen"><span></span>3/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
-                                       <label for="fits-quarter"><span></span>1/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-nineteen-sixtyfour" name="fits" value="fits-nineteen-sixtyfour"/>
-                                       <label for="fits-nineteen-sixtyfour"><span></span>19/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-five-sixteen" name="fits" value="fits-five-sixteen"/>
-                                       <label for="fits-five-sixteen"><span></span>5/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-three-eight"><span></span>3/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-half" name="fits" value="fits-half"/>
-                                       <label for="fits-half"><span></span>1/2"</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-section">
-                               <span class="filter-title">Reveal</span>
-                               <form id="reveal-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-three-thirtytwo" name="reveal" value="reveal-three-thirtytwo"/>
-                                       <label for="reveal-three-thirtytwo"><span></span>3/32"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-three-sixteen" name="reveal" value="reveal-three-sixteen"/>
-                                       <label for="reveal-three-sixteen"><span></span>3/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-thirteen-sixtyseven" name="reveal" value="reveal-thirteen-sixtyseven"/>
-                                       <label for="reveal-thirteen-sixtyseven"><span></span>13/67"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-quarter" name="reveal" value="reveal-quarter"/>
-                                       <label for="reveal-quarter"><span></span>1/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-nine-thirtytwo" name="reveal" value="reveal-nine-thirtytwo"/>
-                                       <label for="reveal-nine-thirtytwo"><span></span>9/32"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-five-sixteen" name="reveal" value="reveal-five-sixteen"/>
-                                       <label for="reveal-five-sixteen"><span></span>5/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-three-eight" name="reveal" value="reveal-three-eight"/>
-                                       <label for="reveal-three-eight"><span></span>3/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-nine-sixteen" name="reveal" value="reveal-nine-sixteen"/>
-                                       <label for="reveal-nine-sixteen"><span></span>9/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-five-eight" name="reveal" value="reveal-five-eight"/>
-                                       <label for="reveal-five-eight"><span></span>5/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="reveal-twentyone-thirtytwo" name="reveal" value="reveal-twentyone-thirtytwo"/>
-                                       <label for="reveal-twentyone-thirtytwo"><span></span>21/32"</label>
-                                   </div>
-                                   <div class="filter-option">&nbsp;</div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -497,7 +522,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>          
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>
