@@ -1,5 +1,6 @@
 <?php
     $base_url = "http://localhost/Orange-Aluminum/";
+    global $base_url;
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models, $product["offset"], $product["drop"]);
@@ -18,14 +19,13 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>Offset (A) x Drop (B)</th>
-                                  <th>Cut Length</th>
-                                  <th>SKU</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th>Offset (A) x Drop (B)</th>
+                                    <th class="text-center">Cut</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -36,35 +36,18 @@
         return $panel;
     }
   function newModel($alteration, $offset, $drop){
-      $row = '';
-      foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$offset.'" x '.$drop.'"</th>
-                  <td>'.$value["cut"].'</td>
-                  <td>'.$item.'</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+        global $base_url;
+        $row = '';
+        foreach($alteration as $item => $value){
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-dimensions">'.$offset.'" x '.$drop.'"</td>
+                    <td class="item-cut text-center">'.$value["cut"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
-      }
-      return $row;
+        }
+        return $row;
     }
 
     $panels = '';
@@ -76,19 +59,19 @@
                 "title" => "Panel Rail and Clip, Style 1: Bag of 20",
                 "cut" => "Clips (20)",
                 "price" => 9.06,
-                "classes" => "offset-three-sixteen drop-five-eight clips-twenty"
+                "classes" => "offset-three-sixteen drop-five-eight cut-twenty"
             ),
             "OA5337-6" => array(
                 "title" => "Panel Rail and Clip, Style 1: 6 Feet",
                 "cut" => "6'",
                 "price" => 9.36,
-                "classes" => "offset-three-sixteen drop-five-eight clips-six"
+                "classes" => "offset-three-sixteen drop-five-eight cut-six"
             ),
             "OA5337-12" => array(
                 "title" => "Panel Rail and Clip, Style 1: 12 Feet",
                 "cut" => "12'",
                 "price" => 18.72,
-                "classes" => "offset-three-sixteen drop-five-eight clips-twelve"
+                "classes" => "offset-three-sixteen drop-five-eight cut-twelve"
             )
         ),
         "img" => $base_url."img/products/clips/style-1-aside.png",
@@ -105,19 +88,19 @@
                 "title" => "Panel Rail and Clip, Style 2: Bag of 20",
                 "cut" => "Clips (20)",
                 "price" => 9.68,
-                "classes" => "offset-quarter drop-three-eight clips-twenty"
+                "classes" => "offset-quarter drop-three-eight cut-twenty"
             ),
             "OA5403-6" => array(
                 "title" => "Panel Rail and Clip, Style 2: 6 Feet",
                 "cut" => "6'",
                 "price" => 9.98,
-                "classes" => "offset-quarter drop-three-eight clips-six"
+                "classes" => "offset-quarter drop-three-eight cut-six"
             ),
             "OA5403-12" => array(
                 "title" => "Panel Rail and Clip, Style 2: 12 Feet",
                 "cut" => "12'",
                 "price" => 19.96,
-                "classes" => "offset-quarter drop-three-eight clips-twelve"
+                "classes" => "offset-quarter drop-three-eight cut-twelve"
             )
         ),
         "img" => $base_url."img/products/clips/style-2-aside.png",
@@ -134,13 +117,13 @@
                 "title" => "Z Hanger: Light Duty",    
                 "cut" => "6'",
                 "price" => 7.99,
-                "classes" => "offset-seven drop-forty clips-six"
+                "classes" => "offset-seven-thirtytwo drop-fortyfive-sixtyfour cut-six"
             ),
             "OA9548-12" => array(
                 "title" => "Z Hanger: Light Duty",
                 "cut" => "12'",
                 "price" => 15.98,
-                "classes" => "offset-seven drop-forty clips-twelve"
+                "classes" => "offset-seven-thirtytwo-thirtytwo drop-fortyfive-sixtyfour cut-twelve"
             )
         ),
         "img" => $base_url."img/products/clips/z-hanger-aside.png",
@@ -157,19 +140,19 @@
                 "title" => "HD Panel Rail and Clips: Bag of 10",    
                 "cut" => "Clips (10)",
                 "price" => 26.50,
-                "classes" => "offset-quarter drop-seven clips-ten"
+                "classes" => "offset-quarter drop-seven-sixteen cut-ten"
             ),
             "OA8142-6" => array(
                 "title" => "HD Panel Rail and Clip: 6 Feet",    
                 "cut" => "6'",
                 "price" => 15.92,
-                "classes" => "offset-quarter drop-seven clips-six"
+                "classes" => "offset-quarter drop-seven-sixteen cut-six"
             ),
             "OA8142-12" => array(
                 "title" => "HD Panel Rail and Clip: 12 Feet",
                 "cut" => "12'",
                 "price" => 31.84,
-                "classes" => "offset-quarter drop-seven clips-twelve"
+                "classes" => "offset-quarter drop-seven-sixteen cut-twelve"
             )
         ),
         "img" => $base_url."img/products/clips/hd-aside.png",
@@ -186,19 +169,19 @@
                 "title" => "XL Panel Rail and Clips: Bag of 10",    
                 "cut" => "Clips (10)",
                 "price" => 29.20,
-                "classes" => "offset-three-eight drop-seven clips-ten"
+                "classes" => "offset-three-eight drop-seven-sixteen cut-ten"
             ),
             "OA7919-6" => array(
                 "title" => "XL Panel Rail and Clip: 6 Feet",    
                 "cut" => "6'",
                 "price" => 28.27,
-                "classes" => "offset-three-eight drop-seven clips-six"
+                "classes" => "offset-three-eight drop-seven-sixteen cut-six"
             ),
             "OA7919-12" => array(
                 "title" => "XL Panel Rail and Clip: 12 Feet",
                 "cut" => "12'",
                 "price" => 56.54,
-                "classes" => "offset-three-eight drop-seven clips-twelve"
+                "classes" => "offset-three-eight drop-seven-sixteen cut-twelve"
             )
         ),
         "img" => $base_url."img/products/clips/xl-aside.png",
@@ -206,6 +189,126 @@
         "offset" => "3/8",	    
         "drop" => "7/16");
     $panels .= newPanel($OA7919);
+
+    //filter
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(
+            "clips-ten" => array(
+                "name" => "cut-ten",
+                "title" => "Clips (10pcs)",
+                "group" => "cut"
+            ), 
+            "clips-twenty" => array(
+                "name" => "cut-twenty",
+                "title" => "Clips (20pcs)",
+                "group" => "cut"
+            ),   
+            "six" => array(
+                "name" => "cut-six",
+                "title" => "6'",
+                "group" => "cut"
+            ),              
+            "twelve" => array(
+                "name" => "cut-twelve",
+                "title" => "12'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "mill" => array(
+                "name" => "fixed",
+                "title" => "Mill Finish",
+                "group" => "finish"
+            )
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $offset = array( 
+        "title" => "Offset (A)",
+        "options" => array(
+            "three-sixteen" => array(
+                "name" => "offset-three-sixteen",
+                "title" => '3/16"',
+                "group" => "offset"
+            ),
+            "three-eight" => array(
+                "name" => "offset-three-eight",
+                "title" => '3/8"',
+                "group" => "offset"
+            ),
+            "seven-thirtytwo" => array(
+                "name" => "offset-seven-thirtytwo",
+                "title" => '7/32"',
+                "group" => "offset"
+            ),
+            "three-quarter" => array(
+                "name" => "offset-quarter",
+                "title" => '1/4"',
+                "group" => "offset"
+            )
+        )
+    );
+    $drop = array( 
+        "title" => "Drop (A)",
+        "options" => array(
+            "three-eight" => array(
+                "name" => "drop-three-eight",
+                "title" => '3/8"',
+                "group" => "drop"
+            ),
+            "seven-sixteen" => array(
+                "name" => "drop-seven-sixteen",
+                "title" => '7/16"',
+                "group" => "drop"
+            ),
+            "five-eight" => array(
+                "name" => "drop-five-eight",
+                "title" => '5/8"',
+                "group" => "drop"
+            ),
+            "three-fortyfive-sixtyfour" => array(
+                "name" => "drop-fortyfive-sixtyfour",
+                "title" => '45/64"',
+                "group" => "drop"
+            )
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($offset);
+    $options .= newFilter($drop);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Angles Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/clips/diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -247,104 +350,18 @@
                     </div>
                 </div>
             </div>
-            <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
+            <table class="filter-table">
+                <tr>
+                    <td><div id="filter-btn" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;Filter</div></td>
+                    <td style="width: 150px;"><img src="<?php echo BASE_URL;?>img/products/clips/diagram.png" alt="Diagram" style="max-height: 89px; width: auto;float:right;"/></td>
+                </tr>
+            </table>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Panel Rails & Clips <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <span class="filter-title">Dimensions</span>
-                            <div class="pic"><img src="<?php echo BASE_URL;?>img/products/clips/diagram.png" /></div>
-                            <div class="dimensions filter-type clearfix">
-                                <div class="filter-section">
-                                   <span class="filter-title">Offset A</span>                                    
-                                   <form id="clips-alloy-form">
-                                       <div class="filter-option">
-                                           <input type="radio" id="offset-three-sixteen" name="clips-offset" value="offset-three-sixteen"/>
-                                           <label for="offset-three-sixteen"><span></span>3/16"</label>
-                                       </div>
-                                       <div class="filter-option">
-                                           <input type="radio" id="offset-three-eight" name="clips-offset" value="offset-three-eight"/>
-                                           <label for="offset-three-eight"><span></span>3/8"</label>
-                                       </div>
-                                       <div class="filter-option">
-                                           <input type="radio" id="offset-seven" name="clips-offset" value="offset-seven"/>
-                                           <label for="offset-seven"><span></span>7/32"</label>
-                                       </div>
-                                       <div class="filter-option">
-                                           <input type="radio" id="offset-quarter" name="clips-offset" value="offset-quarter"/>
-                                           <label for="offset-quarter"><span></span>1/4"</label>
-                                       </div>
-                                   </form>
-                                </div>
-                                <div class="filter-section">
-                                   <span class="filter-title">Drop B</span>                                    
-                                   <form id="clips-alloy-form">
-                                       <div class="filter-option">
-                                           <input type="radio" id="drop-three-eight" name="clips-drop" value="drop-three-eight"/>
-                                           <label for="drop-three-eight"><span></span>3/8"</label>
-                                       </div>
-                                       <div class="filter-option">
-                                           <input type="radio" id="drop-seven" name="clips-drop" value="drop-seven"/>
-                                           <label for="drop-seven"><span></span>7/16"</label>
-                                       </div>
-                                       <div class="filter-option">
-                                           <input type="radio" id="drop-five-eight" name="clips-drop" value="drop-five-eight"/>
-                                           <label for="drop-five-eight"><span></span>5/8"</label>
-                                       </div>
-                                       <div class="filter-option">
-                                           <input type="radio" id="drop-forty" name="clips-drop" value="drop-forty"/>
-                                           <label for="drop-forty"><span></span>45/64"</label>
-                                       </div>
-                                   </form>
-                                </div>
-                            </div>
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-ten" name="clips-length" value="clips-ten"/>
-                                       <label for="clips-ten"><span></span>Clips (10pcs)</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-twenty" name="clips-length"  value="clips-twenty"/>
-                                       <label for="clips-twenty"><span></span>Clips (20pcs)</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-six" name="clips-length"  value="clips-six"/>
-                                       <label for="clips-six"><span></span>6'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-twelve" name="clips-length"  value="clips-twelve"/>
-                                       <label for="clips-twelve"><span></span>12'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-mill" name="clips-finish" value="fixed" checked/>
-                                       <label for="clips-mill"><span></span>Mill Finish</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-alloy" name="clips-alloy" value="fixed" checked/>
-                                       <label for="clips-alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -393,7 +410,7 @@
                     <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("php/includes/cart.php"); ?>           
         <?php include("php/includes/chat.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         <?php include("php/includes/script-js.php"); ?>
