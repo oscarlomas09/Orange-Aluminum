@@ -212,7 +212,7 @@
             "height-one-eight" => array(
                 "name" => "fixed",
                 "title" => '1/8"',
-                "group" => "width"
+                "group" => "height"
             )
         )
     );
