@@ -369,7 +369,7 @@ header .navbar-right{
     
     a{
         text-decoration: none;
-        color: white;
+        color: white !important;
     }
 }
 //--------MEDIA QUERIES--------//
@@ -442,7 +442,7 @@ header .navbar-right{
 						
 						-webkit-radial-gradient(	50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);					
 }
-.metal.radial:before, .metal.radial:after {
+.radial:before, radial:after {
 	content: "";
 	top: 0;
 	left: 0;
@@ -457,8 +457,8 @@ header .navbar-right{
 						-webkit-radial-gradient(   0%  50%, 50% 10%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
 						-webkit-radial-gradient( 100%  50%, 50% 06%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%);
 }
-.metal.radial:before {transform: rotate( 65deg); }
-.metal.radial:after {transform: rotate(-65deg); 
+.radial:before {transform: rotate( 65deg); }
+.radial:after {transform: rotate(-65deg); 
 }
 //******************************   END CAROUSEL   *********************************//
 
@@ -764,7 +764,10 @@ footer{
     z-index: 1001;
     
     img{
-        max-width: 100%;
+        width: 200px !important;
+        height: auto;
+        display: block;
+        margin: 3px auto;
     }
     
     h4 {
@@ -929,6 +932,10 @@ footer{
 #reset-btn{
     width: 89%;
 }
+.filter-table{
+    width:100%;
+    display: table;
+}
 //******************************   END FILTER   *********************************//
 
 //******************************     COMMON CLASSES     *********************************//
@@ -945,6 +952,46 @@ footer{
      }
     &:hover{
         color: white;
+        border-top-width:1px;
+        border-bottom-width: 2px;
+    }
+}
+.icon-btn{
+    display: block;
+    margin: 5px auto;
+    width: 100%;
+    padding: 0;
+    background-color: @charcoal;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+    font-size: 1.2em;
+    border-top: 0px solid transparent;
+    border-bottom: 3px solid darken(@charcoal, 13%);
+    
+    span{
+        background-color: darken(@charcoal, 8%);
+        padding: 13px;
+        float: left;
+    }
+    strong{
+        padding: 13px 21px;
+        float: left;
+        font-family: sans-serif;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px darken(@charcoal, 8%);
+    }
+}
+.icon-btn.mobile-menu-close{
+    background-color: @orange;
+    border-bottom-color:  darken(@orange, 13%);
+    
+    span{
+        background-color: darken(@orange, 8%);    
+    }
+    strong{
+        text-shadow: 1px 1px 0px darken(@orange, 8%);  
     }
 }
 .common-container{
@@ -1052,6 +1099,9 @@ footer{
 @media (min-width: 768px) {
     .panel-fluid{
         width: 48%;
+    }
+    .filter-table{
+        display: none;
     }
 }
 .img-tall{

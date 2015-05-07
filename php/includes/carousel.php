@@ -1,6 +1,6 @@
 <div class="container-fluid" id="carousel-container">
     <div class="row">
-        <div id="home-carousel" class="carousel slide col-md-12 visible-sm visible-md visible-lg" data-ride="carousel">
+        <div id="home-carousel" class="carousel slide col-md-12 hidden-xs" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
@@ -50,16 +50,29 @@
     </div>
     <div class="row visible-xs">
         <div class="col-xs-12">
+            <button class="icon-btn btn-press clearfix mobile-menu-close">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                <strong>Navigate</strong>
+            </button>
+        </div> 
+        <div class="col-xs-12">
+            <button class="icon-btn btn-press clearfix">
+                <span class="glyphicon glyphicon-camera"></span>
+                <strong>Get a Quote</strong>
+            </button>
+        </div>  
+        <div class="col-xs-12">
             <div id="camera-btn">
                 <button class="metal radial"><span class="glyphicon glyphicon-camera"></span></button>
-                <h2>Get a Quote</div>
+                <h2>Get a Quote</h2>
             </div>
-        </div>        
+        </div>  
     </div>
     <div class="row hidden-xs">
         <div class="col-sm-3 first-col"><div class="wide-tile"><a href="custom-oem-extrusions.php"><span class="icon-expert"></span>Extrusion Experts</a></div></div>
         <div class="col-sm-3"><div class="wide-tile"><a href="volume-pricing.php"><span class="icon-forklift"></span>Volume Pricing</a></div></div>
         <div class="col-sm-3"><div class="wide-tile"><a href="cut-to-length.php"><span class="icon-saw"></span>Custom Lengths</a></div></div>
         <div class="col-sm-3 last-col"><div class="wide-tile"><a href="local-delivery.php"><span class="icon-truck"></span>Same-Day Shipping</a></div></div>
+    </div>
     </div>
 </div>

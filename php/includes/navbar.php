@@ -1,4 +1,4 @@
-<nav role="navigation" class="navbar navbar-inverse" id="navbar">
+<nav role="navigation" class="navbar navbar-inverse hidden-xs" id="navbar">
     <div class="navbar-collapse collapse">
         <ul class="nav nav-justified">
             <li>
@@ -6,7 +6,7 @@
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo BASE_URL; ?>bar-stock/angles.php"><span class="icon-angle"></span>Angles</a></li>
                     <li><a href="<?php echo BASE_URL; ?>bar-stock/channels.php"><span class="icon-channel"></span>Channels</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>bar-stock/flat-bars/php"><span class="icon-flat"></span>Flat Bars</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>bar-stock/flat-bars.php"><span class="icon-flat"></span>Flat Bars</a></li>
                     <li><a href="<?php echo BASE_URL; ?>bar-stock/flat-bars-radiused.php"><span class="icon-flat-radiused"></span>Flat Bars: Radiused</a></li>
                     <li><a href="<?php echo BASE_URL; ?>bar-stock/h-sections.php"><span class="icon-h-section"></span>H Sections</a></li>
                     <li><a href="<?php echo BASE_URL; ?>bar-stock/half-rounds.php"><span class="icon-half-round"></span>Half Rounds</a></li>
