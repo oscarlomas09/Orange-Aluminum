@@ -22,7 +22,6 @@
                               <thead><tr>
                                     <th>SKU</th>
                                     <th>Covers</th>
-                                    <th class="hidden-xs text-center">Finish</th>
                                     <th class="hidden-xs text-center">Price</th>
                                     <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
                               </tr></thead>
@@ -47,7 +46,6 @@
         $row .= '<tr class="filter-row '.$value["classes"].'">
                     <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
                     <td class="item-dimensions">'.$value["covers"].'"</td>
-                    <td class="item-finish hidden-xs text-center">'.$value["finish"].'</td>
                     <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
                     <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
@@ -56,63 +54,88 @@
     }
 
     $panels = '';
-    $edge = array( 
-        "Description" => 'Brite-Dip and Clear Anodized Aluminum Edge Molding, also Known as Overlapping Face Molding',
-        "Title" => "Edge Trim",
+    $smooth = array( 
+        "Description" => 'Mechanically Polished Aluminum Edge Molding, Smooth Modern Face Asthetic . Designed to Mount to Material via a 1/10" Routed Saw Kerf',
+        "Title" => "Smooth Push In Edge Trim",
         "Models" => array(
-            "OA7429-3" => array(
-                "title" => "Edge Trim",
-                "cut" => "3'",
-                "covers" => "1/2",
-                "price" => 6.36,
-                "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-half finish-brite alloy-6463"
-            ),
-            "OA7428-3" => array(
-                "title" => "Edge Trim",
+            "OA6028-3" => array(
+                "title" => "Smooth Push In Edge Trim",
                 "cut" => "3'",
                 "covers" => "3/4",
-                "price" => 7.03,
-                "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-three-quarter finish-brite alloy-6463"
+                "price" => 3.79,
+                "classes" => "cut-three covers-three-quarter"
             ),
-            "OA7432-3" => array(
-                "title" => "Edge Trim",
-                "cut" => "3'",
-                "covers" => "7/8",
-                "price" => 7.54,
-                "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-seven-eight finish-brite alloy-6463"
-            ),
-            "OA7430-3" => array(
-                "title" => "Edge Trim",
-                "cut" => "3'",
-                "covers" => "1-1/16",
-                "price" => 8.36,
-                "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-one-one-sixteen finish-brite alloy-6463"
-            ),
-            "OA7431-3" => array(
-                "title" => "Edge Trim",
+            "OA5688-3" => array(
+                "title" => "Smooth Push In Edge Trim",
                 "cut" => "3'",
                 "covers" => "1-1/4",
-                "price" => 8.93,
-                "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-one-one-quarter finish-brite alloy-6463"
+                "price" => 7,
+                "classes" => "cut-three covers-one-one-quarter"
             ),
-            "OA7429-6" => array(
-                "title" => "Edge Trim",
+            "OA6028-6" => array(
+                "title" => "Smooth Push In Edge Trim",
                 "cut" => "6'",
-                "covers" => "1/2",
-                "price" => 11.13,
-                "finish" => "Brite-Dip Finish",
-                "classes" => "cut-six covers-half finish-brite alloy-6463"
+                "covers" => "3/4",
+                "price" => 6.63,
+                "classes" => "cut-six covers-three-quarter"
+            ),
+            "OA5688-6" => array(
+                "title" => "Smooth Push In Edge Trim",
+                "cut" => "6'",
+                "covers" => "1-1/4",
+                "price" => 12.25,
+                "classes" => "cut-six covers-one-one-quarter"
             )
         ),
-        "img" => $base_url."img/products/trims/edge-trim-aside.png",
-        "img_alt" => "Edge Trim"
+        "img" => $base_url."img/products/trims/smooth-trim-diagram.png",
+        "img_alt" => "Smooth Trim"
     );
-    $panels .= newPanel($edge);
+    $panels .= newPanel($smooth);
+
+    $flutted = array( 
+        "Description" => "Mechanically Polished Aluminum Edge Molding, Face has Fluted 50's Retro Diner Asthetic Detail. Designed to Mount to Material via a 1/8\" Routed Saw Kerf",
+        "Title" => "Fluted Push In Edge Trim",
+        "Models" => array(
+            "OA5532-3" => array(
+                "title" => "Fluted Push In Edge Trim",
+                "cut" => "3'",
+                "covers" => "1-1/4",
+                "price" => 4.87,
+                "classes" => "cut-three covers-one-one-quarter"
+            ),
+            "OA5239-3" => array(
+                "title" => "Fluted Push In Edge Trim",
+                "cut" => "3'",
+                "covers" => "1-1/2",
+                "price" => 7.08,
+                "classes" => "cut-three covers-one-one-half"
+            ),
+            "OA5532-6" => array(
+                "title" => "Fluted Push In Edge Trim",
+                "cut" => "6'",
+                "covers" => "1-1/4",
+                "price" => 8.53,
+                "classes" => "cut-six covers-one-one-quarter"
+            ),
+            "OA5239-6" => array(
+                "title" => "Fluted Push In Edge Trim",
+                "cut" => "6'",
+                "covers" => "1-1/2",
+                "price" => 12.39,
+                "classes" => "cut-six covers-one-one-half"
+            ),
+            "OA5239-12" => array(
+                "title" => "Fluted Push In Edge Trim",
+                "cut" => "12'",
+                "covers" => "1-1/2",
+                "price" => 24.78,
+                "classes" => "cut-twelve covers-one-one-half"
+            ),
+        ),
+        "img" => $base_url."img/products/trims/smooth-trim-diagram.png",
+        "img_alt" => "Smooth Trim"
+    );
+    $panels .= newPanel($flutted);
 
     //Filters
     $cuts = array( 
@@ -137,19 +160,9 @@
     );
     $finish = array( 
         "title" => "Finish",
-        "options" => array(
-            "clear" => array(
-                "name" => "finish-clear",
-                "title" => "Clear Anodized",
-                "group" => "finish"
-            ),
-            "brite" => array(
-                "name" => "finish-brite",
-                "title" => "Brite-Dip Anodized",
-                "group" => "finish"
-            ),    
+        "options" => array(    
             "polished" => array(
-                "name" => "finish-polished",
+                "name" => "fixed",
                 "title" => "Mechanically Polished",
                 "group" => "finish"
             )        
@@ -158,13 +171,8 @@
     $alloy = array( 
         "title" => "Alloy & Temper",
         "options" => array(
-            "alloy-6463" => array(
-                "name" => "alloy-6463",
-                "title" => "6463-T5",
-                "group" => "alloy"
-            ),
             "alloy-6063" => array(
-                "name" => "alloy-6063",
+                "name" => "fixed",
                 "title" => "6063-T5",
                 "group" => "alloy"
             )
@@ -173,44 +181,9 @@
     $covers = array( 
         "title" => "Covers",
         "options" => array(
-            "covers-three-eight" => array(
-                "name" => "covers-three-eight",
-                "title" => '3/8"',
-                "group" => "covers"
-            ),
-            "covers-half" => array(
-                "name" => "covers-half",
-                "title" => '1/2"',
-                "group" => "covers"
-            ),
             "covers-three-quarter" => array(
                 "name" => "covers-three-quarter",
                 "title" => '3/4"',
-                "group" => "covers"
-            ),
-            "covers-thirteen-sixteen" => array(
-                "name" => "covers-thirteen-sixteen",
-                "title" => '13/16"',
-                "group" => "covers"
-            ),
-            "covers-seven-eight" => array(
-                "name" => "covers-seven-eight",
-                "title" => '7/8"',
-                "group" => "covers"
-            ),
-            "covers-sixtythree-sixtyfour" => array(
-                "name" => "covers-sixtythree-sixtyfour",
-                "title" => '63/64"',
-                "group" => "covers"
-            ),
-            "covers-one" => array(
-                "name" => "covers-one",
-                "title" => '1"',
-                "group" => "covers"
-            ),
-            "covers-one-one-sixteen" => array(
-                "name" => "covers-one-one-sixteen",
-                "title" => '1-1/16"',
                 "group" => "covers"
             ),
             "covers-one-one-quarter" => array(
@@ -222,17 +195,7 @@
                 "name" => "covers-one-one-half",
                 "title" => '1-1/2"',
                 "group" => "covers"
-            ),
-            "covers-one-five-eight" => array(
-                "name" => "covers-one-five-eight",
-                "title" => '1-5/8"',
-                "group" => "covers"
-            ),
-            "covers-two" => array(
-                "name" => "covers-two",
-                "title" => '2"',
-                "group" => "covers"
-            ),
+            )
         )
     );
 
@@ -256,7 +219,7 @@
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
     $options .= newFilter($covers);
-    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Trim Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Tee Moulding</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -264,7 +227,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
-        <title>Edge Trims</title>
+        <title>Tee Moulding</title>
         <meta name="description" content="">
         <?php include("../php/includes/header-files.php"); ?>
     </head>
@@ -277,12 +240,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/trims.jpg" alt=""></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/tee-molding.jpg" alt="Tee Moulding"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
               <li><a href="index.php">Tee Molding & Edge Trims</a></li>
-              <li>Edge Trims</li>
+              <li>Tee Moulding</li>
             </ol>
             <!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -316,16 +279,13 @@
                                         <tr>
                                             <td><b>Alloy</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Ultra-Corrosive Resistant Architectural Grade Alloy">(CA) 6063-T5</a><br>
-                                                <a data-toggle="tooltip" title="Considered a Brite-Dip alloy, specially engineered for brite anodize finishes">(BD) 6463-T5</a>
+                                                <a data-toggle="tooltip" title="Ultra-Corrosive Resistant Architectural Grade Alloy">(CA) 6063-T5</a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing.">Clear Anodized</a>, 
-                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanically Polished</a> and    
-                                                <a data-toggle="tooltip" title="A shiny finish that is corrosion resistant and protects the material from oxidizing.">Brite Dip Anodized</a>
+                                                <a data-toggle="tooltip" title="Process that buffs out the surface finish to create a smooth, mirror-ish appearance. Does not protect the material from oxidizing">Mechanically Polished</a>
                                             </td>
                                         </tr>
                                         <tr>

@@ -29,7 +29,7 @@
                 <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
                 <li><a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Track</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/tee-bars.php"><span class="icon-tee-bar"></span>Tee Bars</a></li>
-                <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
+                <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/z-bars.php"><span class="icon-z-bar"></span>Z Bars</a></li>
             </ul>
         </aside>
@@ -229,14 +229,14 @@
                             <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php">Edge Trim: Grooved</a><span class="divider">|</span>
                             <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php">Edge Trim: Round</a><span class="divider">|</span>
                             <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php">Edge Trim: Rounded</a><span class="divider">|</span>
-                            <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php">Tee Molding</a>
+                            <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php">Tee Moulding</a>
                         </p>
                         <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/edge-trim.jpg" alt="Edge Trim" class="img-thumbnail"></a>
                         <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/heavy-lip.jpg" alt="Heavy Lip" class="img-thumbnail"></a>
                         <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/grooved.jpg" alt="Grooved Edge Trim" class="img-thumbnail"></a>
                         <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/round.jpg" alt="Round Edge Trim" class="img-thumbnail"></a>
                         <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/rounded.jpg" alt="Rounded Edge Trim" class="img-thumbnail"></a>
-                        <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/tee-molding.jpg" alt="Tee Molding" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/tee-molding.jpg" alt="Tee Moulding" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
                         <div class="filter">
@@ -248,7 +248,7 @@
                                 <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-grooved"></span>Grooved Edge Trim</a></li>
                                 <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-round"></span>Round Edge Trim</a></li>
                                 <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-rounded"></span>Rounded Edge Trim</a></li>
-                                <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php"><span class="icon-trim-grooved"></span>Tee Molding</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
                             </ul>
                         </div>
                         <hr>

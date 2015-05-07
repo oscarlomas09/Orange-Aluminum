@@ -8,7 +8,7 @@
         <li class="mobile-li" data-target="fixturing-menu"><span class="glyphicon glyphicon-menu-right"></span> Fixturing & Storefront</li>
         <li class="mobile-li" data-target="caps-menu"><span class="glyphicon glyphicon-menu-right"></span> Caps, Corners, Coves & Dividers</li>
         <li class="mobile-li" data-target="cabinet-menu"><span class="glyphicon glyphicon-menu-right"></span> Cabinet, Case & Closet</li>
-        <li class="mobile-li" data-target="trims-menu"><span class="glyphicon glyphicon-menu-right"></span> Tee Molding & Edge Trims</li>
+        <li class="mobile-li" data-target="trims-menu"><span class="glyphicon glyphicon-menu-right"></span> Tee Moulding & Edge Trims</li>
         <li class="mobile-li" data-target="t-slot-menu"><span class="glyphicon glyphicon-menu-right"></span> T-Slot Framing</li>
         <li class="mobile-menu-close"><span class="glyphicon glyphicon-remove"></span><b> Close</b></li>
     </ul>
@@ -65,7 +65,7 @@
         <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-grooved"></span>Grooved Edge Trim</a></li>
         <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-round"></span>Round Edge Trim</a></li>
         <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-rounded"></span>Rounded Edge Trim</a></li>
-        <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php"><span class="icon-trim-grooved"></span>Tee Molding</a></li>
+        <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
     </ul>
     <ul id="t-slot-menu" class="second-level" role="menu">
         <li class="mobile-back"><a href="#"><b>Return </b></a><span class="glyphicon glyphicon-share-alt"></span></li>

@@ -58,14 +58,14 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tee Molding & Edge Trims</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tee Moulding & Edge Trims</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim"></span>Edge Trim</a></li>
                     <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-heavy"></span>Edge Trim Heavy Lip</a></li>
                     <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-grooved"></span>Grooved Edge Trim</a></li>
                     <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-round"></span>Round Edge Trim</a></li>
                     <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/edge-trim.php"><span class="icon-trim-rounded"></span>Rounded Edge Trim</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-molding.php"><span class="icon-trim-grooved"></span>Tee Molding</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
                 </ul>
             </li>
             <li class="dropdown">
