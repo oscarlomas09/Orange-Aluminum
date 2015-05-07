@@ -384,6 +384,82 @@ header .navbar-right{
         font-size: 1.2em;
     }
 }
+// Camera Button //
+#camera-btn{
+    width: 100%;
+    cursor: pointer;
+}
+#camera-btn > h2{
+    position:relative;
+    background-color: @charcoal;
+    color: white;
+    float: left;
+    width: 75%;
+    padding: 8px 13px;
+    font-size: 21px;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 0px 5px 5px 0px;
+    margin-left: -13px;
+    top: -8px;
+    z-index: 0;
+}
+/* Metal ------------------------- */
+.metal {
+    position: relative;
+    float: left;
+    margin: 5px;
+    text-align: center;
+    color: @charcoal;
+    border: none;
+    border-bottom: 2px solid lighten(@charcoal, 50%);
+    box-shadow: 0px 0px 0px 5px @charcoal;
+    cursor: pointer;
+    outline: none;
+    width: 55px;
+    height: 55px;
+    font-size: 34px;
+    line-height: 34px;
+    border-radius: 50%;
+    opacity: 1;
+    z-index: 1;
+}
+.metal:active{
+    border-bottom: none;
+    border-top: 2px solid darken(@charcoal, 50%);
+    box-shadow: 0px 0px 0px 5px @charcoal, inset 0px 0px 2px 0px black;
+}
+/* Radial ------------------------- */
+.radial{
+	background-image:	-webkit-radial-gradient(  50%   0%,  8% 50%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+						-webkit-radial-gradient(  50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%),
+						-webkit-radial-gradient(   0%  50%, 50%  7%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+						-webkit-radial-gradient( 100%  50%, 50%  5%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+						
+						-webkit-repeating-radial-gradient(	50% 50%, 100% 100%, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   3%, hsla(0,0%,  0%,.1) 3.5%),
+						-webkit-repeating-radial-gradient(	50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%,.1) 7.5%),
+						-webkit-repeating-radial-gradient(	50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.2) 2.2%),
+						
+						-webkit-radial-gradient(	50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);					
+}
+.metal.radial:before, .metal.radial:after {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+	
+	/* fake conical gradients */
+	background-image: 	-webkit-radial-gradient(  50%   0%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+						-webkit-radial-gradient(  50% 100%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+						-webkit-radial-gradient(   0%  50%, 50% 10%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+						-webkit-radial-gradient( 100%  50%, 50% 06%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%);
+}
+.metal.radial:before {transform: rotate( 65deg); }
+.metal.radial:after {transform: rotate(-65deg); 
+}
 //******************************   END CAROUSEL   *********************************//
 
 //******************************     NAVBAR     *********************************//
@@ -953,10 +1029,31 @@ footer{
     .panel-heading{
         background-image: none !important;
         background-color: @dark-blue;
-    }
-    
+    }    
 }
-
+.panel-default{
+    .panel-heading{
+        background-image: none !important;
+        background-color: @charcoal;    
+        color: white;
+    }
+    .panel-title , a{
+        font-weight: bold;
+    }
+}
+.panel-fluid{
+    display: inline-block;
+    width: 98%;
+}
+.filter-fixed{
+    background-color: @gray-lighter;
+    color: @charcoal;
+}
+@media (min-width: 768px) {
+    .panel-fluid{
+        width: 48%;
+    }
+}
 .img-tall{
     height: auto;
     width:auto;
@@ -981,44 +1078,6 @@ footer{
     
     .glyphicon{
         margin-left: 5px;
-    }
-}
-
-.add-cart{
-    width: 100%;
-    max-width: 320px;
-    box-sizing: border-box;
-    border: 1px solid #EEEEEE;
-    margin-bottom: 8px;
-    font-size: 1.1em;
-    float: right;
-    
-    input{
-        width: 25%;
-        margin: 0;
-        padding: 8px 13px;
-        border-radius: 3px 0px 0px 3px;
-        border: none;
-        outline: none;
-        float: left;
-        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
-    }
-    button{
-        background-color: @orange;
-        color: white;
-        width: 75%;
-        cursor: pointer;
-        padding: 8px 13px;
-        border: none;
-        margin: 0;
-        border-radius: 0px 3px 3px 0px;
-        float: left;
-        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
-        
-        .glyphicon{
-            color: darken(@orange, 15%);
-            margin-right: 5px;
-        }
     }
 }
 .side-panel{
@@ -1353,5 +1412,210 @@ footer{
     #checkout-btn{
         margin: 0;
     }
+}
+#add-product{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display: none;
+    z-index: 1003;
+}
+#product-screen{
+    position:absolute;
+    top:0px;
+    left: 0px;
+    width:100%;
+    height:100%;
+    background-color: black;
+    transition: opacity 0.3s;
+    opacity:0.8;
+}
+//Add Cart Btn
+.add-cart{
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    border: 1px solid #EEEEEE;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    float: right;
+    
+    input{
+        width: 25%;
+        margin: 0;
+        padding: 8px 13px;
+        border-radius: 3px 0px 0px 3px;
+        border: none;
+        outline: none;
+        float: left;
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
+    }
+    button{
+        background-color: @orange;
+        color: white;
+        width: 75%;
+        cursor: pointer;
+        padding: 8px 13px;
+        border: none;
+        margin: 0;
+        border-radius: 0px 3px 3px 0px;
+        float: left;
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
+        
+        .glyphicon{
+            color: darken(@orange, 15%);
+            margin-right: 5px;
+        }
+    }
+}
+
+.cart-product{
+    position:absolute;
+    top:50%;
+    left:-100%;
+    max-width:310px;
+    min-width: 275px;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s;
+
+    h3{
+        margin: 0;
+        margin-bottom: -5px;
+        border-radius:3px 3px 0px 0px;
+        background-color: white;
+        padding: 8px 13px;
+        color: @charcoal;
+        font-weight: 500;
+        box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    }
+
+    img{
+        max-width:100%;
+        width:100%;
+        height:auto;
+    }
+    
+    .shopping-close{
+        position: absolute;
+        top: -4mm;
+        right: -4mm;
+        background-color: #F9F9F9;
+        color: @charcoal;
+        border-radius: 50%;
+        padding: 0;
+        box-shadow: -1px 1px 2px 0px rgba(0,0,0,0.3);
+        cursor: pointer;
+        font-size: 8mm;
+    }
+}
+.cart-img{
+    margin:0;
+}
+.cart-content{
+    background-color: #F9F9F9;
+    padding:13px 8px;
+    margin:0;
+    margin-top: -5px;
+    border-radius: 0px 0px 3px 3px;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
+}
+.cart-totals{
+    width:100%;
+    margin: 8px auto 5px auto;
+    clear:both;
+
+    >div{
+        display:inline-block;
+        vertical-align:middle;
+        width:48%;
+    }
+}
+.cart-amount{
+    float:left;
+
+    .price{
+        display: block;
+        font-size: 1.2em;
+        color: #333333;
+    }
+    .total{
+        font-size: 0.8em;
+        color: @green;
+    }
+}
+.cart-qty{
+    float: right;
+
+    &:after{
+        content: "QTY:";
+        opacity: 0.3;
+        font-size: 0.8em;
+        font-weight:bold;          
+        margin-top: 1em;
+        margin-right: 5px;
+        float:right;
+    }
+
+    input{
+        font-size: 1.5em;
+        border-radius: 3px;
+        padding: 0.25em 13px;
+        text-align:center;
+        border:none;
+        width: 70%;
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+        float:right;
+    }
+}
+#add-item{
+    margin-top: 21px;
+    background-color: @green;
+    border-top: 0px solid @green;
+    border-bottom: 5px solid darken(@green, 10%);
+    width: 100%;
+    font-size: 1.2em;
+    color: white;
+
+    &:hover{
+        color: white;
+        border-top-width:1px;
+        border-bottom-width: 4px;
+    }
+    &:active{
+        border-top-width:3px;
+        border-bottom-width: 2px;
+    }
+}
+#cart-object{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10000;
+    display: none;
+    
+    span{
+        position: relative;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-radius: 50%;
+        border: 2px solid @green;
+        color: @green;
+        font-weight: 600;
+        text-align: center;
+        font-size: 21px;
+        line-height: 50px;
+        transition: all 0.2s;
+    }
+}
+.cart-col{
+    background-color: @orange;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 10%;
+    min-width: 5mm;
 }
 //******************************   END SHOPPING CART AND CHECKOUT   *********************************//

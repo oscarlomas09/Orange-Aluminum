@@ -1,3 +1,15 @@
+//Format Currency
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -26,11 +38,13 @@ function collapsable(){
         $(".filter").children(".filter-name").each(function(){
             collapseFilters($(this), true);            
         });
+        $(".filter").collapse("hide");
     }
     else{
         $(".filter").children(".filter-name").each(function(){
             collapseFilters($(this), false);            
         });
+        $(".filter").collapse("show");
     }
 }
 
@@ -121,10 +135,9 @@ $('input[type=radio]').change(function() { //when the user selects a filter opti
     filters = $.trim(filters).split(/[ ,]+/); //Trim white spaces and replace any other space with commas
     
     //first hide all products and loop through each one
-    $(".accordion-toggle").each(function(){
-        $(this).removeClass("filter-hidden").show(); //Show the item again
+    $(".filter-row").each(function(){
         $(".panel-default").show(); //show the parent panel
-        $(".accordion-body").collapse("hide"); //collapse all product shopping cart
+        $(this).removeClass("filter-hidden").show(); //Show the item again
         var hasAll = true; //initiate hasAll variable
         for(var i=0; i < filters.length; i++){
             //loop through each filter and check if this row has all the desired qualities
@@ -134,13 +147,13 @@ $('input[type=radio]').change(function() { //when the user selects a filter opti
             }
         }
         if(!hasAll && !$(this).hasClass("filter-fixed")){
-            $(this).addClass("filter-hidden").fadeOut();    //if it doesnt have all requested filters, then hide it
+            $(this).addClass("filter-hidden").hide();    //if it doesnt have all requested filters, then hide it
         }
     });
     
     //if the parent container isn't showing any elements, then hide it
     $('.panel-default').each(function(){
-        if($(this).find(".accordion-toggle").length == $(this).find(".filter-hidden").length){
+        if($(this).find(".filter-row").length == $(this).find(".filter-hidden").length){
             $(this).hide();
         }
     });
@@ -154,7 +167,7 @@ $("#reset-btn").click(function(){
         }
         $(this).prop('checked', false); 
     });
-    $(".panel-default, .accordion-toggle").show(); //show all products and its parent containers
+    $(".panel-default, .filter-row").show(); //show all products and its parent containers
 });
     
 $('.filter-name').click(function(){
@@ -195,4 +208,56 @@ $(".filter a").click(function(e){
     if(!$(this).parent("li").hasClass("visible")){
         e.preventDefault();
     }
+});
+
+// Shopping 
+$(".cart-col").click(function(){
+    var $product = $(this).parent("tr");
+    
+    var name = $product.children(".item-sku").data("name") + ": " + $product.children(".item-dimensions").text();    
+    $(".cart-title").text(name);
+    $(".cart-amount .price").text($product.children(".item-price").text());
+    $(".cart-amount .price").data("price",$product.children(".item-price").data("price"));
+    $(".cart-amount .total").text("("+ $product.children(".item-price").text() + " TOTAL)");
+    $("#cart-sku").val($product.children(".item-sku").text());
+    $("#cart-qty input").val(1);
+    
+    $("#add-product").show();
+     setTimeout(function(){
+     	$("#add-product .cart-product").css("left", "50%");          
+     },200);
+});
+$("#cart-qty").on('change', 'input', function() {
+     var total_amount =($(".cart-amount .price").data("price")*$(this).val()).formatMoney(2, '.', ',');
+     $(".cart-amount .total").text("($"+ total_amount + " TOTAL)");
+});
+$("#add-item").click(function(){    
+    $('#cart-object').children("span").text($("#cart-qty input").val());
+    var new_amount = parseInt($(".shopping-cart .amount").data("amount")) + parseInt($("#cart-qty input").val());
+    $(".shopping-cart .amount").data("amount",new_amount);
+    $(".shopping-cart .amount").text(new_amount);
+    
+    var cart_qty = document.getElementById("cart-qty"),
+    elemRect = cart_qty.getBoundingClientRect(),
+    shoppingCart = $(".shopping-cart:visible")[0],
+    shoppingRect = shoppingCart.getBoundingClientRect();
+    $('#cart-object span').animate({width:55, height: 55},100);
+    $('#cart-object').css({
+        top: elemRect.top+ "px",
+        left: (elemRect.left + (cart_qty.offsetWidth/2)) + "px"
+    }).show().delay(300).animate({
+        top: shoppingRect.top,
+        left: shoppingRect.left + (shoppingCart.offsetWidth/2)
+    },300).fadeOut("fast");
+    
+    setTimeout(function(){
+        $("#add-product .cart-product").css("left", "-100%");
+        $("#add-product").fadeOut();    
+        $('#cart-object span').css({width:0, height: 0}); 
+    },1000);
+});
+$(".shopping-close").click(function(){
+    $("#add-product .cart-product").css("left", "-100%");
+    $("#add-product").fadeOut();    
+    $('#cart-object span').css({width:0, height: 0});     
 });

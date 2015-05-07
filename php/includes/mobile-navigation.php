@@ -1,5 +1,5 @@
 <div id="mobile-navbar-screen" class="screen mobile-menu-close visible-xs-block"></div>
-<div id="navbar-btn" class="mobile-menu-close visible-xs-block"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+<div id="navbar-btn" class="mobile-menu-close visible-xs-block"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;Navigate</div>
 <nav role="navigation" id="mobile-navbar" class="visible-xs-block">
     <ul class="first-level" role="menu">
         <li><h2>Aluminum</h2></li>

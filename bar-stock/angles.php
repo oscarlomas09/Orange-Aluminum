@@ -1,12 +1,14 @@
 <?php 
+    $base_url = "http://localhost/Orange-Aluminum/";
     $row = 0;
     $wall_thickness = "";
-    $mill_panel = '<div class="panel panel-default" style="width:48%;">
+    $name = "Angle";
+    $mill_panel = '<div class="panel panel-default panel-fluid">
     <div class="panel-heading">
         <h3 class="panel-title">Angles: Mill Finish</h3>
     </div>
     <div class="panel-default container-fluid">
-        <div class="row"><table class="table table-hover" style="width:100%;">';
+        <div class="row"><table class="table table-hover" style="width:100%;margin-bottom:0;">';
 
     if (($handle = fopen("../docs/angles.csv", "r")) !== FALSE) {
         /***** CSV FILE STRUCTURE *******/
@@ -25,43 +27,26 @@
             //skip the first row
             if($row < 1){
                 $mill_panel .= '<thead><tr>
-                    <th class="item-dimensions">'.$dimensions.'</th>
-                    <th class="item-cut">'.$cut.'</th>
-                    <th class="item-sku">'.$sku.'</th>
-                    <th class="item-price">'.$price.'</th>
+                    <th>'.$sku.'</th>
+                    <th>'.$dimensions.'</th>
+                    <th class="hidden-xs hidden-sm text-center">'.$cut.'</th>
+                    <th class="hidden-xs hidden-sm text-center">'.$price.'</th>
+                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
                 </tr></thead>';
                 $row++;
                 continue;
             }
             
             if($data[4] != $wall_thickness){
-                $mill_panel .= '<tr class="accordion-toggle filter-fixed"><td colspan="4"><b>'.$data[4].' Wall Thickness</b></td></tr>';
+                $mill_panel .= '<tr class="filter-fixed filter-row"><td colspan="5"><b>'.$data[4].' Wall Thickness</b></td></tr>';
                 $wall_thickness = $data[4];
             }
-            $mill_panel .= '<tr data-toggle="collapse" data-target="#collapse-'.$sku.'" class="accordion-toggle '.$classes.'">
-                <td>'.$dimensions.'</td>
-                <td>'.$cut.'</td>
-                <td>'.$sku.'</td>
-                <td>$'.number_format($price, 2, '.', '').'</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="hiddenRow">
-                    <div class="accordion-body collapse" id="collapse-'.$sku.'" style="padding:8px 13px;">
-                        <h4 class="text-">Angle: '.$dimensions.'</h4>
-                        <form style="width:100%;margin:0px auto;">
-                           <a href="product.php?p_id='.$sku.'" class="product-link">
-                               Product View<span class="glyphicon glyphicon-share"></span>
-                            </a>
-                            <div class="add-cart ">                         
-                              <label class="sr-only">Quantity</label>    
-                              <input type="number" id="'.$sku.'-qty" min="0" value="1">
-                              <button type="submit">
-                                  <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                              </button>
-                            </div>
-                        </form>
-                    </div>
-                </td>
+            $mill_panel .= '<tr class="filter-row '.$classes.'">
+                <td class="item-sku" data-name="'.$name.'"><a href="'.$base_url.'product.php">'.$sku.'</a></td>
+                <td class="item-dimensions">'.$dimensions.'</td>
+                <td class="hidden-xs hidden-sm text-center">'.$cut.'</td>
+                <td class="item-price hidden-xs hidden-sm text-center" data-price="'.$price.'">$'.number_format($price, 2, '.', '').'</td>
+                <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
             </tr>';
             $row++;  
         }
@@ -165,7 +150,7 @@
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
     $options .= newFilter($wall);
-    $filter = '<div class="filter"><h3 class="title">Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Angles Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -207,7 +192,7 @@
                     </div>
                 </div>
             </div>
-            <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
+            <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
                     <?php echo $filter; ?>
@@ -261,11 +246,9 @@
                    <?php echo $mill_panel; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>        
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>
     </body>
 </html>
-
-?>

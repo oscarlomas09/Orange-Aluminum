@@ -25,7 +25,7 @@
                 <div class="shopping-cart navbar-right" data-toggle="popover" data-placement="bottom" data-content="">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
                     <span>Cart</span> 
-                    <span class="amount">0</span>
+                    <span class="amount" data-amount="0">0</span>
                 </div>
                 <div class="clearfix"></div>         
                 <div class="nav navbar-nav navbar-right">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="shopping-cart"  data-toggle="popover" data-placement="bottom" data-content="">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
-                    <span class="amount">0</span>
+                    <span class="amount" data-amount="0">0</span>
                 </div>
                 <form class="search-form navbar-right" role="search">
                     <a data-toggle="collapse" href="#search-mobile" aria-expanded="false" aria-controls="search-mobile"><span class="glyphicon glyphicon-search"></span></a>

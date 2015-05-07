@@ -48,7 +48,15 @@
             </a>
         </div>
     </div>
-    <div class="row">
+    <div class="row visible-xs">
+        <div class="col-xs-12">
+            <div id="camera-btn">
+                <button class="metal radial"><span class="glyphicon glyphicon-camera"></span></button>
+                <h2>Get a Quote</div>
+            </div>
+        </div>        
+    </div>
+    <div class="row hidden-xs">
         <div class="col-sm-3 first-col"><div class="wide-tile"><a href="custom-oem-extrusions.php"><span class="icon-expert"></span>Extrusion Experts</a></div></div>
         <div class="col-sm-3"><div class="wide-tile"><a href="volume-pricing.php"><span class="icon-forklift"></span>Volume Pricing</a></div></div>
         <div class="col-sm-3"><div class="wide-tile"><a href="cut-to-length.php"><span class="icon-saw"></span>Custom Lengths</a></div></div>

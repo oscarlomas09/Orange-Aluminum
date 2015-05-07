@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-8">
+                <div class="col-xs-12 col-sm-8 hidden-xs">
                     <h3>Product Description</h3><hr>
                     <p>Mill Finish Aluminum Panel Rails and Clips, Style 1, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off Clearance of 5/8" Required for Installation and Removal. Overall Height when Mounted is 3-1/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.)</p>
                     <ul>
