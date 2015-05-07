@@ -26,8 +26,8 @@
                 <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/slatwall-systems.php"><span class="icon-slatwall"></span>Slatwall Systems</a></li>
                 <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/snap-frames.php"><span class="icon-snap-frame"></span>Snap Frames</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/square-tubes.php"><span class="icon-square-hollow"></span>Square Tubes</a></li>
-                <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
-                <li><a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Track</a></li>
+                <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
+                <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Track</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/tee-bars.php"><span class="icon-tee-bar"></span>Tee Bars</a></li>
                 <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/z-bars.php"><span class="icon-z-bar"></span>Z Bars</a></li>
@@ -260,19 +260,19 @@
                     <div class="navigation-large hidden-xs">
                         <hr>
                         <p>                        
-                            <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php">Quad Tracks</a><span class="divider">|</span>
-                            <a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php">T-Track</a>
+                            <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/quad-tracks.php">Quad Tracks</a><span class="divider">|</span>
+                            <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php">T-Track</a>
                         </p>
-                        <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/t-slot/quad-track.jpg" alt="Quad Tracks" class="img-thumbnail"></a>
-                        <a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/t-slot/t-track.jpg" alt="T-Tracks" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/quad-tracks.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/t-slot/quad-track.jpg" alt="Quad Tracks" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/t-slot/t-track.jpg" alt="T-Tracks" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
                         <div class="filter">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>                                
-                                <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
-                                <li><a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Tracks</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Tracks</a></li>
                             </ul>
                         </div>
                     </div>

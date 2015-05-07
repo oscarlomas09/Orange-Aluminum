@@ -71,8 +71,8 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">T-Slot Framing</a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Tracks</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Tracks</a></li>
                 </ul>
             </li>
         </ul>

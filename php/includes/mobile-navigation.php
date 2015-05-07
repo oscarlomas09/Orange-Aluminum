@@ -69,7 +69,7 @@
     </ul>
     <ul id="t-slot-menu" class="second-level" role="menu">
         <li class="mobile-back"><a href="#"><b>Return </b></a><span class="glyphicon glyphicon-share-alt"></span></li>
-        <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-slot-framing-quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
-        <li><a href="<?php echo BASE_URL; ?>t-slot-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Tracks</a></li>
+        <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/quad-tracks.php"><span class="icon-quad"></span>Quad Tracks</a></li>
+        <li><a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php"><span class="icon-t-track"></span>T-Tracks</a></li>
     </ul>
 </nav>
