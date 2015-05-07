@@ -21,8 +21,10 @@
                               <thead>
                                 <tr>
                                   <th>SKU</th>
-                                  <th>Cut Length</th>
-                                  <th>Each</th>
+                                  <th>Cut</th>
+                                  <th class="text-center hidden-xs">Alloy & Temper</th>
+                                  <th class="text-center">Price</th>
+                                  <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -34,35 +36,19 @@
                 </div> ';
         return $panel;
     }
-  function newModel($alteration){
-      $row = '';
-      foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$item.'</td>
-                  <td>'.$value["cut"].'</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+    function newModel($alteration){
+        global $base_url;
+        $row = '';
+        foreach($alteration as $item => $value){
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-cut">'.$value["cut"].'</td>
+                    <td class="item-price hidden-xs text-center">'.$value["alloy"].'</td>
+                    <td class="item-price text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
-      }
-      return $row;
+        }
+        return $row;
     }
 
     $panels = '';
@@ -74,7 +60,8 @@
                 "title" => "Slatwall Insert",
                 "cut" => "8'",
                 "price" => 11.61,
-                "classes" => "cut-eight"
+                "classes" => "cut-eight",
+                "alloy" => "6063-T5"
             )
         ),
         "img" => $base_url."img/products/fixturing/slatwall-aside.png",
@@ -94,19 +81,84 @@
                 "title" => "Interlocking Slatwall Panel: 5 Feet",
                 "cut" => "5'",
                 "price" => 32.24,
-                "classes" => "cut-five"
+                "classes" => "cut-five",
+                "alloy" => "6063-T5"
             ),
             "OA8524-10" => array(
                 "title" => "Interlocking Slatwall Panel: 10 Feet",
                 "cut" => "10'",
                 "price" => 64.48,
-                "classes" => "cut-ten"
+                "classes" => "cut-ten",
+                "alloy" => "6063-T5"
             )
         ),
         "img" => $base_url."img/products/fixturing/slatwall-panel-aside.png",
         "img_alt" => "Interlocking Slatwall Panel"
     );
     $panels .= newPanel($OA8524);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "five" => array(
+                "name" => "cut-five",
+                "title" => "5'",
+                "group" => "cut"
+            ),
+            "eight" => array(
+                "name" => "cut-eight",
+                "title" => "8'",
+                "group" => "cut"
+            ),
+            "ten" => array(
+                "name" => "cut-ten",
+                "title" => "10'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "mill" => array(
+                "name" => "fixed",
+                "title" => "Mil Finish",
+                "group" => "finish"
+            )   
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Slatwall Systems</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -150,51 +202,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Slatwall System<span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-five" name="cut-length" value="cut-five"/>
-                                       <label for="cut-five"><span></span>5'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-eight" name="cut-length" value="cut-eight"/>
-                                       <label for="cut-eight"><span></span>8'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-ten" name="cut-length" value="cut-ten"/>
-                                       <label for="cut-ten"><span></span>10'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="mill" name="finish" value="fixed" checked/>
-                                       <label for="mill"><span></span>Mill Finish</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -308,7 +319,7 @@
                     </div>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

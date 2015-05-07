@@ -18,14 +18,13 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>SKU</th>
-                                  <th>Material Size</th>
-                                  <th>Ticket Size</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th>Ticket Size</th>
+                                    <th>Material Size</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -35,36 +34,19 @@
                 </div> ';
         return $panel;
     }
-  function newModel($alteration){
-      $row = '';
-      foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$item.'</td>
-                  <td>'.$value["ticket"].'"</th>
-                  <td>'.$value["material"].'"</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+    function newModel($alteration){
+        global $base_url;
+        $row = '';
+        foreach($alteration as $item => $value){
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-cut">'.$value["ticket"].'"</td>
+                    <td class="item-cut">'.$value["material"].'"</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
-      }
-      return $row;
+        }
+        return $row;
     }
 
     $panels = '';
@@ -109,7 +91,7 @@
             "OA7898" => array(
                 "title" => "CONCAVE PRICE TAG MOLDING",
                 "price" => 9.06,
-                "classes" => "ticket-one-nine-sixtyfour material-one-quarter",
+                "classes" => "ticket-one-nine-sixtyfour material-one-one-quarter",
                 "ticket" => "1-9/64",	    
                 "material" => "1-1/4"
             )
@@ -126,7 +108,7 @@
             "OA7898" => array(
                 "title" => "UNIVERSAL PRICE TAG MOLDING",
                 "price" => 21.78,
-                "classes" => "ticket-all material-three",
+                "classes" => "ticket-all material-three-twentyfive-fortyone",
                 "ticket" => "All Of the Above ",	    
                 "material" => "3-25/41"
             )
@@ -135,6 +117,121 @@
         "img_alt" => "UNIVERSAL PRICE TAG MOLDING"
     );
     $panels .= newPanel($universal);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "six" => array(
+                "name" => "fixed",
+                "title" => "6'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "polished" => array(
+                "name" => "fixed",
+                "title" => "Mechanical Polished",
+                "group" => "finish"
+            )   
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $ticket = array( 
+        "title" => "Ticket Size",
+        "options" => array(
+            "five-eight" => array(
+                "name" => "ticket-five-eight",
+                "title" => '5/8"',
+                "group" => "ticket"
+            ),
+            "seven-eight" => array(
+                "name" => "ticket-seven-eight",
+                "title" => '7/8"',
+                "group" => "ticket"
+            ),
+            "one-seven-sixtyfour" => array(
+                "name" => "ticket-one-seven-sixtyfour",
+                "title" => '1-7/64"',
+                "group" => "ticket"
+            ),
+            "one-nine-sixtyfour" => array(
+                "name" => "ticket-one-nine-sixtyfour",
+                "title" => '1-9/64"',
+                "group" => "ticket"
+            ),
+            "all" => array(
+                "name" => "ticket-all",
+                "title" => 'All of the Above',
+                "group" => "ticket"
+            ),
+        )
+    );
+    $material = array( 
+        "title" => "Material Size",
+        "options" => array(
+            "three-quarter" => array(
+                "name" => "material-three-quarter",
+                "title" => '3/4"',
+                "group" => "material"
+            ),
+            "seven-eight" => array(
+                "name" => "material-one-one-eight",
+                "title" => '1-1/8"',
+                "group" => "material"
+            ),
+            "one-one-quarter" => array(
+                "name" => "material-one-one-quarter",
+                "title" => '1-1/4"',
+                "group" => "material"
+            ),
+            "one-fifteen-thirtytwo" => array(
+                "name" => "material-one-fifteen-thirtytwo",
+                "title" => '1-15/32"',
+                "group" => "material"
+            ),
+            "three-twentyfive-fortyone" => array(
+                "name" => "material-three-twentyfive-fortyone",
+                "title" => '3-25/41"',
+                "group" => "material"
+            ),
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($ticket);
+    $options .= newFilter($material);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Price Tag Moldings</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -179,93 +276,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Price Tag Moldings <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-six"><span></span>6'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="polished" name="finish" value="fixed" checked/>
-                                       <label for="polished"><span></span>Mechanical Polished</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Ticket Size</span>
-                               <form id="ticket-size">
-                                   <div class="filter-option">
-                                       <input type="radio" id="ticket-five-eight" name="tickets" value="ticket-five-eight"/>
-                                       <label for="ticket-five-eight"><span></span>5/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="ticket-seven-eight" name="tickets" value="ticket-seven-eight"/>
-                                       <label for="ticket-seven-eight"><span></span>7/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="ticket-one-seven-sixtyfour" name="tickets" value="ticket-one-seven-sixtyfour"/>
-                                       <label for="ticket-one-seven-sixtyfour"><span></span>1-7/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="ticket-one-nine-sixtyfour" name="tickets" value="ticket-one-nine-sixtyfour"/>
-                                       <label for="ticket-one-nine-sixtyfour"><span></span>1-9/64"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="ticket-all" name="tickets" value="ticket-all"/>
-                                       <label for="ticket-all"><span></span>All of the Above</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Material Size</span>
-                               <form id="material-size">
-                                   <div class="filter-option">
-                                       <input type="radio" id="material-three-quarter" name="material" value="material-three-quarter"/>
-                                       <label for="material-three-quarter"><span></span>3/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="material-one-one-eight" name="material" value="material-one-one-eight"/>
-                                       <label for="material-one-one-eight"><span></span>1-1/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="material-one-quarter" name="material" value="material-one-quarter"/>
-                                       <label for="material-one-quarter"><span></span>1-1/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="material-one-fifteen-thirtytwo" name="material" value="material-one-fifteen-thirtytwo"/>
-                                       <label for="material-one-fifteen-thirtytwo"><span></span>1-15/32"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="material-three" name="material" value="material-three"/>
-                                       <label for="material-three"><span></span>3-25/41"</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -308,7 +322,7 @@
                     <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

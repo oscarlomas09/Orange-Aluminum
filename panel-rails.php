@@ -308,7 +308,7 @@
     $options .= newFilter($alloy);
     $options .= newFilter($offset);
     $options .= newFilter($drop);
-    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Angles Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/clips/diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Clips Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/clips/diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>

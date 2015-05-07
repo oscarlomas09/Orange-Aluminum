@@ -21,8 +21,9 @@
                               <thead>
                                 <tr>
                                   <th>SKU</th>
-                                  <th>Cut Length</th>
-                                  <th>Each</th>
+                                  <th>Cut</th>
+                                  <th class="text-center">Price</th>
+                                  <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -34,37 +35,19 @@
                 </div> ';
         return $panel;
     }
-  function newModel($alteration){
-      $row = '';
-      foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <td>'.$item.'</td>
-                  <td>'.$value["cut"].'</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+    function newModel($alteration){
+        global $base_url;
+        $row = '';
+        foreach($alteration as $item => $value){
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-cut">'.$value["cut"].'"</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
-      }
-      return $row;
+        }
+        return $row;
     }
-
     $panels = '';
     $OA7389 = array( 
         "Description" => 'EZ Slatwall Systems : Aluminum Stackable Track to be Used as the Main Joining Extrusion to Build the Height and Add the T Slot Functionality. EZ Slatwall System Track is Used in Between the 1/8” Material to Desired Height. This Piece is the Section in which the Wall Panel System’s Height is Grown and Determined. Designed to be Fastened with Screws to the Wall, Stacked Atop a Panel with Top Tab Fastened to a Wall and Repeated Until your Desired Height is reached. This Section is to be Used in Conjunction with the EZ Slatwall System Trim OA7587 and 1/8” Thick Panels (OA125P, Not included).',
@@ -131,6 +114,64 @@
         "img_alt" => "EZ Slatwall Trim"
     );
     $panels .= newPanel($OA7589);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "four" => array(
+                "name" => "cut-four",
+                "title" => "4'",
+                "group" => "cut"
+            ),
+            "eight" => array(
+                "name" => "cut-eight",
+                "title" => "8'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "mill" => array(
+                "name" => "fixed",
+                "title" => "Mil Finish",
+                "group" => "finish"
+            )   
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">EZ Slatwall</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -176,47 +217,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>EZ Slatwall System <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-four" name="cut-length" value="cut-four"/>
-                                       <label for="cut-four"><span></span>4'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-eight" name="cut-length"  value="cut-eight"/>
-                                       <label for="cut-eight"><span></span>8'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-mill" name="clips-finish" value="fixed" checked/>
-                                       <label for="clips-mill"><span></span>Mill Finish</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clips-alloy" name="clips-alloy" value="fixed" checked/>
-                                       <label for="clips-alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -265,7 +269,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

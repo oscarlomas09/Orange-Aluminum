@@ -1,3 +1,57 @@
+<?php
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "eight" => array(
+                "name" => "fixed",
+                "title" => "8'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "mill" => array(
+                "name" => "fixed",
+                "title" => "Mil Finish",
+                "group" => "finish"
+            )   
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Slatwall Systems</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -41,43 +95,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Snap Frames <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-eight" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-eight"><span></span>8'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="fixed" checked/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -138,37 +159,20 @@
                                   <thead>
                                     <tr>
                                       <th>SKU</th>
-                                      <th>Cut Length</th>
-                                      <th>Finish</th>
-                                      <th>Each</th>
+                                      <th>Cut</th>
+                                      <th class="text-center hidden-xs">Finish</th>
+                                      <th class="text-center">Price</th>
+                                      <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA9069" class="accordion-togglee">
-                                      <th scope="row">OA9069</td>
+                                    <tr class="filter-row">
+                                      <td class="item-sku" data-name="OA9069"><a href="<?php echo BASE_URL;?>product.php?sku=oa9069">OA9069</a></td>
                                       <td>8'</td>
-                                      <td>Clear Anodized</td>
-                                      <td>$12.86</td>
+                                      <td class="text-center hidden-cs">Clear Anodized</td>
+                                      <td class="text-center">$12.86</td>
+                                      <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA9069" style="padding:8px 13px;">
-                                                <h4 class="text-center">Snap Frame:Cover</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA9069-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>          
                                   </tbody>
                                 </table>
                             </div>
@@ -194,37 +198,20 @@
                                   <thead>
                                     <tr>
                                       <th>SKU</th>
-                                      <th>Cut Length</th>
-                                      <th>Finish</th>
-                                      <th>Each</th>
+                                      <th>Cut</th>
+                                      <th class="text-center hidden-xs">Finish</th>
+                                      <th class="text-center">Price</th>
+                                      <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr data-toggle="collapse" data-target="#collapse-OA9055" class="accordion-togglee">
-                                      <th scope="row">OA9055</td>
+                                    <tr class="filter-row">
+                                      <td class="item-sku" data-name="OA9055"><a href="<?php echo BASE_URL;?>product.php?sku=OA9055">OA9055</a></td>
                                       <td>8'</td>
-                                      <td>Clear Anodized</td>
-                                      <td>$14.72</td>
+                                      <td class="text-center hidden-cs">Clear Anodized</td>
+                                      <td class="text-center">$14.72</td>
+                                      <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="4" class="hiddenRow">
-                                            <div class="accordion-body collapse" id="collapse-OA9055" style="padding:8px 13px;">
-                                                <h4 class="text-center">Snap Frame:Base</h4>
-                                                <form style="width:100%;margin:0px auto;">
-                                                   <a href="#" class="product-link">
-                                                       Product View<span class="glyphicon glyphicon-share"></span>
-                                                    </a>
-                                                    <div class="add-cart clearfix">                         
-                                                      <label class="sr-only">Quantity</label>    
-                                                      <input type="number" id="OA9055-qty" min="0" value="1">
-                                                      <button type="submit">
-                                                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                                      </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>          
                                   </tbody>
                                 </table>
                             </div>

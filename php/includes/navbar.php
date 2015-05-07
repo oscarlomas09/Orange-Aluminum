@@ -29,7 +29,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Extruding and Storefront</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fixturing and Storefront</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/ez-slatwall-system.php"><span class="icon-ez"></span>EZ Slatwall System</a></li>
                     <li><a href="<?php echo BASE_URL; ?>fixturing-and-storefront/price-tag-moldings.php"><span class="icon-price-tag"></span>Price Tag Molding</a></li>
