@@ -1,5 +1,6 @@
 <?php
     $base_url = "http://localhost/Orange-Aluminum/";
+    global $base_url;
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -9,22 +10,21 @@
                     </div>
                     <div class="panel-default container-fluid">
                         <div class="row">
-                           <div class="col-xs-12 col-md-2">
-                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
-                            </div>
                             <div class="col-xs-12 col-md-10 visible-md visible-lg">
                               <p>'.$product["Description"].'</p>
+                            </div>
+                           <div class="col-xs-12 col-md-2">
+                                <img class="img-tall" alt="'.$product["img_alt"].'" src="'.$product["img"].'"/>
                             </div>
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>SKU</th>
-                                  <th>Finish</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th class="text-center">Finish</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -34,35 +34,18 @@
                 </div> ';
         return $panel;
     }
-  function newModel($alteration){
-      $row = '';
-      foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$item.'</td>
-                  <td>'.$value["finish"].'</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+    function newModel($alteration){
+        global $base_url;
+        $row = '';
+        foreach($alteration as $item => $value){
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-finish text-center">'.$value["finish"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
-      }
-      return $row;
+        }
+        return $row;
     }
 
     $panels = '';
@@ -75,19 +58,19 @@
                 "title" => "Round Closet Rod: Gold Anodized",
                 "finish" => "Gold Anodized",
                 "price" => 11.58,
-                "classes" => "gold"
+                "classes" => "finish-gold"
             ),
             "OA7749-OB" => array(
                 "title" => "Round Closet Rod: Bronze",
                 "finish" => "Oil-Rubbed Bronze",
                 "price" => 11.58,
-                "classes" => "bronze"
+                "classes" => "finish-bronze"
             ),
             "OA7749-CA" => array(
                 "title" => "Round Closet Rod: Clear Anodized",
                 "finish" => "Clear Anodized",
                 "price" => 11.58,
-                "classes" => "clear"
+                "classes" => "finish-clear"
             )
         ),
         "img" => $base_url."img/products/cabinet/closet-round-aside.png",
@@ -103,25 +86,88 @@
                 "title" => "Oval Closet Rod: Gold Anodized",
                 "finish" => "Gold Anodized",
                 "price" => 15.42,
-                "classes" => "gold"
+                "classes" => "finish-gold"
             ),
             "OA8443-OB" => array(
                 "title" => "Oval Closet Rod: Bronze",
                 "finish" => "Oil-Rubbed Bronze",
                 "price" => 15.42,
-                "classes" => "bronze"
+                "classes" => "finish-bronze"
             ),
             "OA8443-CA" => array(
                 "title" => "Oval Closet Rod: Clear Anodized",
                 "finish" => "Clear Anodized",
                 "price" => 15.42,
-                "classes" => "clear"
+                "classes" => "finish-clear"
             )
         ),
         "img" => $base_url."img/products/cabinet/closet-oval-aside.png",
         "img_alt" => "Oval Closet Rod"
     );
     $panels .= newPanel($oval);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "six" => array(
+                "name" => "fixed",
+                "title" => "6'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "clear" => array(
+                "name" => "finish-clear",
+                "title" => "Clear Anodized",
+                "group" => "finish"
+            ),
+            "gold" => array(
+                "name" => "finish-gold",
+                "title" => "Gold Anodized",
+                "group" => "finish"
+            ),    
+            "oil" => array(
+                "name" => "finish-bronze",
+                "title" => "Oil-Rubbed Bronze",
+                "group" => "finish"
+            )        
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Closet Rods Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -167,48 +213,7 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Closet Rods <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-six"><span></span>6'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="gold" name="finish" value="gold"/>
-                                       <label for="gold"><span></span>Gold Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="bronze" name="finish" value="bronze"/>
-                                       <label for="bronze"><span></span>Oil-Rubbed Bronze</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
                     <div class="panel panel-primary">
@@ -258,7 +263,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>  
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

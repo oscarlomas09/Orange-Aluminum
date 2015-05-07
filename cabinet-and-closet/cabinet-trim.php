@@ -1,5 +1,6 @@
 <?php
     $base_url = "http://localhost/Orange-Aluminum/";
+    global $base_url;
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -18,14 +19,13 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>SKU</th>
-                                  <th>Finish</th>
-                                  <th>Fits</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th>Fits</th>
+                                    <th class="hidden-xs text-center">Finish</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -36,40 +36,23 @@
         return $panel;
     }
     function newModel($alteration){
-      $row = '';
-      foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$item.'</td>
-                  <td>'.$value["finish"].'</td>
-                  <td>'.$value["fits"].'"</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+        global $base_url;
+        $row = '';
+        foreach($alteration as $item => $value){
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-fits">'.$value["fits"].'"</td>
+                    <td class="item-finish hidden-xs text-center">'.$value["finish"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
-      }
-      return $row;
+        }
+        return $row;
     }
 
     $panels = '';
 
-    $rails = array( 
+    $shelf = array( 
         "Description" => '• For push fit on material withthicknesses of 3/4” and 1”.<br>
 • Ideal for correcting and preventing sagging shelves in garage cabinets, pantries, and closets.<br>
 • Popularly used in combination with OA6920 Pressure Fit Continuous Pull',
@@ -107,9 +90,9 @@
         "img" => $base_url."img/products/cabinet/shelf-aside.png",
         "img_alt" => "Shelf Stiffener"
     );
-    $panels .= newPanel($rails);
+    $panels .= newPanel($shelf);
 
-    $rails = array( 
+    $continuous = array( 
         "Description" => '• For push fit on material with thickness of 3/4”. Ideal for both vertical and horizontal applications, to run entire length of door or drawer.<br>
 • Popularly used in combination with OA5479 Pressure Fit Shelf Stiffener.<br>
 • Available in 3/4” (.750”) Width; 1-27/32” Tall (1.837”)<br>
@@ -141,7 +124,7 @@
         "img" => $base_url."img/products/cabinet/pull-aside.png",
         "img_alt" => "Continuous Pullr"
     );
-    $panels .= newPanel($rails);
+    $panels .= newPanel($continuous);
 
     //Filters
     $cuts = array( 
@@ -185,7 +168,7 @@
         )
     );
     $fits = array( 
-        "title" => "Wall Thickness",
+        "title" => "Fits",
         "options" => array(
             "fits-three-quarter" => array(
                 "name" => "fits-three-quarter",
@@ -220,7 +203,7 @@
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
     $options .= newFilter($fits);
-    $filter = '<div class="filter"><h3 class="title">Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Trim Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -269,7 +252,7 @@
                     <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -316,7 +299,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>          
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

@@ -1,5 +1,6 @@
 <?php
     $base_url = "http://localhost/Orange-Aluminum/";
+    global $base_url;
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -18,15 +19,14 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>SKU</th>
-                                  <th>Cut</th>
-                                  <th>Finish</th>
-                                  <th>Fits</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th class="text-center">Fits</th>
+                                    <th class="text-center hidden-xs">Cut</th>
+                                    <th class="text-center hidden-xs">Finish</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -37,33 +37,16 @@
         return $panel;
     }
   function newModel($alteration){
+      global $base_url;
       $row = '';
       foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$item.'</td>
-                  <td>'.$value["cut"].'</td>
-                  <td>'.$value["finish"].'</td>
-                  <td>'.$value["fits"].'"</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-dimensions text-center">'.$value["fits"].'"</td>
+                    <td class="item-cut text-center hidden-xs">'.$value["cut"].'</td>
+                    <td class="item-finish text-center hidden-xs">'.$value["finish"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
       }
       return $row;
@@ -83,7 +66,7 @@
                 "fits" => "3/4",
                 "cut" => "6'",
                 "price" => 17.40,
-                "classes" => "clear fits-three-quarter cut-six"
+                "classes" => "finish-clear fits-three-quarter cut-six"
             ),
             "OA5048" => array(
                 "title" => "Drawer Pull",
@@ -91,7 +74,7 @@
                 "fits" => "13/16",
                 "cut" => "6'",
                 "price" => 17.46,
-                "classes" => "clear fits-thirteen-sixteen cut-six"
+                "classes" => "finish-clear fits-thirteen-sixteen cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/drawer-pull.png",
@@ -112,7 +95,7 @@
                 "fits" => "3/4",
                 "cut" => "6'",
                 "price" => 17.82,
-                "classes" => "clear fits-three-quarter cut-six"
+                "classes" => "finish-clear fits-three-quarter cut-six"
             ),
             "OA5089" => array(
                 "title" => "Panel Drawer Pull",
@@ -120,7 +103,7 @@
                 "fits" => "13/16",
                 "cut" => "6'",
                 "price" => 18.42,
-                "classes" => "clear fits-thirteen-sixteen cut-six"
+                "classes" => "finish-clear fits-thirteen-sixteen cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/panel-pull.png",
@@ -141,7 +124,7 @@
                 "fits" => "3/4",
                 "cut" => "6'",
                 "price" => 18.98,
-                "classes" => "clear fits-three-quarter cut-six"
+                "classes" => "finish-clear fits-three-quarter cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/panel-pull.png",
@@ -162,7 +145,7 @@
                 "fits" => "3/4",
                 "cut" => "8'",
                 "price" => 20.13,
-                "classes" => "clear fits-three-quarter cut-eight"
+                "classes" => "finish-clear fits-three-quarter cut-eight"
             ),
             "OA6920-BP" => array(
                 "title" => "Continuous Pull",
@@ -170,7 +153,7 @@
                 "fits" => "3/4",
                 "cut" => "8'",
                 "price" => 22.13,
-                "classes" => "black fits-three-quarter cut-eight"
+                "classes" => "finish-black fits-three-quarter cut-eight"
             ),
             "OA6920-WP" => array(
                 "title" => "Continuous Pull",
@@ -178,7 +161,7 @@
                 "fits" => "3/4",
                 "cut" => "8'",
                 "price" => 22.13,
-                "classes" => "white fits-three-quarter cut-eight"
+                "classes" => "finish-white fits-three-quarter cut-eight"
             )
         ),
         "img" => $base_url."img/products/cabinet/pull-aside.png",
@@ -194,10 +177,10 @@
             "OA7935" => array(
                 "title" => "Top Handle",
                 "finish" => "Clear Anodized",
-                "fits" => "7/8",
+                "fits" => "5/8",
                 "cut" => "6'",
                 "price" => 18.01,
-                "classes" => "clear fits-seven-eight cut-six"
+                "classes" => "finish-clear fits-five-eight cut-six"
             ),
             "OA5085" => array(
                 "title" => "Top Handle",
@@ -205,7 +188,7 @@
                 "fits" => "3/4",
                 "cut" => "6'",
                 "price" => 18.01,
-                "classes" => "clear fits-three-quarter cut-six"
+                "classes" => "finish-clear fits-three-quarter cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/top-handle.png",
@@ -227,7 +210,7 @@
                 "fits" => "Variable ",
                 "cut" => "Clips",
                 "price" => 9.30,
-                "classes" => "clear fits-variable cut-clips"
+                "classes" => "finish-clear fits-variable cut-clips"
             ),
             "OA5088-6" => array(
                 "title" => "Angle Bulb Pull",
@@ -235,7 +218,7 @@
                 "fits" => "Variable ",
                 "cut" => "6'",
                 "price" => 9.96,
-                "classes" => "clear fits-variable cut-six"
+                "classes" => "finish-clear fits-variable cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/angle-bulb-pull.png",
@@ -255,7 +238,7 @@
                 "fits" => "Variable ",
                 "cut" => "6'",
                 "price" => 12.26,
-                "classes" => "clear fits-seven-variable cut-six"
+                "classes" => "finish-clear fits-seven-variable cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/bulb-pull.png",
@@ -276,7 +259,7 @@
                 "fits" => "7/8",
                 "cut" => "6'",
                 "price" => 14.72,
-                "classes" => "clear fits-seven-eight cut-six"
+                "classes" => "finish-clear fits-seven-eight cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/mortise-pull.png",
@@ -296,13 +279,117 @@
                 "fits" => "Variable ",
                 "cut" => "6'",
                 "price" => 13.79,
-                "classes" => "clear fits-variable cut-six"
+                "classes" => "finish-clear fits-variable cut-six"
             )
         ),
         "img" => $base_url."img/products/cabinet/san-andreas-pull.png",
         "img_alt" => "San Andreas Pull"
     );
     $panels .= newPanel($san);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(    
+            "clips" => array(
+                "name" => "cut-clips",
+                "title" => "Clips",
+                "group" => "cut"
+            ),    
+            "six" => array(
+                "name" => "cut-six",
+                "title" => "6'",
+                "group" => "cut"
+            ),    
+            "eight" => array(
+                "name" => "cut-eight",
+                "title" => "8'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "clear" => array(
+                "name" => "finish-clear",
+                "title" => "Clear Anodized",
+                "group" => "finish"
+            ),
+            "gold" => array(
+                "name" => "finish-black",
+                "title" => "Black Poweder Coat",
+                "group" => "finish"
+            ),    
+            "oil" => array(
+                "name" => "finish-white",
+                "title" => "White Powder Coat",
+                "group" => "finish"
+            )        
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $fits = array( 
+        "title" => "Fits",
+        "options" => array(
+            "fits-five-eight" => array(
+                "name" => "fits-five-eight",
+                "title" => '5/8"',
+                "group" => "fits"
+            ),
+            "fits-three-quarter" => array(
+                "name" => "fits-three-quarter",
+                "title" => '3/4"',
+                "group" => "fits"
+            ),
+            "fits-thirteen-sixteen" => array(
+                "name" => "fits-thirteen-sixteen",
+                "title" => '13/16"',
+                "group" => "fits"
+            ),
+            "fits-seven-eight" => array(
+                "name" => "fits-seven-eight",
+                "title" => '7/8"',
+                "group" => "fits"
+            ),
+            "fits-variable" => array(
+                "name" => "fits-variable",
+                "title" => 'Variable',
+                "group" => "fits"
+            ),
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($fits);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Pulls & Handles</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -348,84 +435,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Pulls and Handles<span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-clips" name="cut-length" value="cut-clips"/>
-                                       <label for="cut-clips"><span></span>Clips</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="cut-six"/>
-                                       <label for="cut-six"><span></span>6'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-eight" name="cut-length" value="cut-eight"/>
-                                       <label for="cut-eight"><span></span>8'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="black" name="finish" value="black"/>
-                                       <label for="black"><span></span>Black Powder Coat</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="white" name="finish" value="white"/>
-                                       <label for="white"><span></span>White Powder Coat</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="ilter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Fits</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-five-eight" name="fits" value="fits-five-eight"/>
-                                       <label for="fits-five-eight"><span></span>5/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-three-quarter" name="fits" value="fits-three-quarter"/>
-                                       <label for="fits-three-quarter"><span></span>3/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-thirteen-sixteen" name="fits" value="fits-thirteen-sixteen"/>
-                                       <label for="fits-thirteen-sixteen"><span></span>13/16"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-seven-eight" name="fits" value="fits-seven-eight"/>
-                                       <label for="fits-seven-eight"><span></span>7/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-variable" name="fits" value="fits-variable"/>
-                                       <label for="fits-variable"><span></span>Variable</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -472,7 +485,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>          
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

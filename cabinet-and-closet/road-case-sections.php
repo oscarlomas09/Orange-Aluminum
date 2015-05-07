@@ -1,5 +1,6 @@
 <?php
     $base_url = "http://localhost/Orange-Aluminum/";
+    global $base_url;
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -18,14 +19,13 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>SKU</th>
-                                  <th>Cut</th>
-                                  <th>Fits</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th class="text-center">Fits</th>
+                                    <th class="text-center hidden-xs">Cut</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -36,32 +36,15 @@
         return $panel;
     }
   function newModel($alteration){
+      global $base_url;
       $row = '';
       foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$item.'</td>
-                  <td>'.$value["cut"].'</td>
-                  <td>'.$value["fits"].'"</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-dimensions text-center">'.$value["fits"].'"</td>
+                    <td class="item-cut text-center hidden-xs">'.$value["cut"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
       }
       return $row;
@@ -147,6 +130,80 @@
         "img_alt" => "Double Angle Edge"
     );
     $panels .= newPanel($double);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "six" => array(
+                "name" => "fixed",
+                "title" => "6'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(
+            "mill" => array(
+                "name" => "fixed",
+                "title" => "Mil Finish",
+                "group" => "finish"
+            )   
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $fits = array( 
+        "title" => "Fits",
+        "options" => array(
+            "fits-quarter" => array(
+                "name" => "fits-quarter",
+                "title" => '1/4"',
+                "group" => "fits"
+            ),
+            "fits-three-eight" => array(
+                "name" => "fits-three-eight",
+                "title" => '3/8"',
+                "group" => "fits"
+            ),
+            "fits-half" => array(
+                "name" => "fits-half",
+                "title" => '1/2"',
+                "group" => "fits"
+            )
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($fits);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Road Cases</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -192,60 +249,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>Road Case Sections <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-six" name="cut-length" value="fixed" checked/>
-                                       <label for="cut-six"><span></span>6'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="mill" name="finish" value="fixed" checked/>
-                                       <label for="mill"><span></span>Mill Finish</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-type">
-                               <span class="filter-title">Fits</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-quarter" name="fits" value="fits-quarter"/>
-                                       <label for="fits-quarter"><span></span>1/4"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-eight" name="fits" value="fits-three-eight"/>
-                                       <label for="fits-eight"><span></span>3/8"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="fits-half" name="fits" value="fits-half"/>
-                                       <label for="fits-half"><span></span>1/2"</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -290,7 +297,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>         
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>

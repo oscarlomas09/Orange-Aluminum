@@ -1,5 +1,6 @@
 <?php
     $base_url = "http://localhost/Orange-Aluminum/";
+    global $base_url;
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -18,14 +19,13 @@
                         </div>
                         <div class="row">
                             <table class="table table-hover" style="width:100%;">
-                              <thead>
-                                <tr>
-                                  <th>Finish</th>
-                                  <th>Width x Thickness</th>
-                                  <th>SKU</th>
-                                  <th>Each</th>
-                                </tr>
-                              </thead>
+                              <thead><tr>
+                                    <th>SKU</th>
+                                    <th>Width x Thickness</th>
+                                    <th class="hidden-xs text-center">Finish</th>
+                                    <th class="hidden-xs text-center">Price</th>
+                                    <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
+                              </tr></thead>
                               <tbody>
                                     '.$alterations.'
                               </tbody>
@@ -36,32 +36,15 @@
         return $panel;
     }
   function newModel($alteration){
+      global $base_url;
       $row = '';
       foreach($alteration as $item => $value){
-        $row .= '<tr data-toggle="collapse" data-target="#collapse-'.$item.'" class="accordion-toggle '.$value["classes"].'">
-                  <th scope="row">'.$value["finish"].'</td>
-                  <td>'.$value["width"].'" x '.$value["thickness"].'"</td>
-                  <td>'.$item.'</td>
-                  <td>$'.number_format($value["price"], 2, '.', '').'</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordion-body collapse" id="collapse-'.$item.'" style="padding:8px 13px;">
-                            <h4 class="text-">'.$value["title"].'</h4>
-                            <form style="width:100%;margin:0px auto;">
-                               <a href="product.php?p_id='.$item.'" class="product-link">
-                                   Product View<span class="glyphicon glyphicon-share"></span>
-                                </a>
-                                <div class="add-cart ">                         
-                                  <label class="sr-only">Quantity</label>    
-                                  <input type="number" id="'.$item.'-qty" min="0" value="1">
-                                  <button type="submit">
-                                      <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </td>
+        $row .= '<tr class="filter-row '.$value["classes"].'">
+                    <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
+                    <td class="item-dimensions">'.$value["width"].'" x '.$value["thickness"].'"</td>
+                    <td class="item-finish hidden-xs text-center">'.$value["finish"].'</td>
+                    <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
+                    <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
       }
       return $row;
@@ -80,7 +63,7 @@
                 "width" => "1/2",
                 "thickness" => "1/8",
                 "price" => 6.86,
-                "classes" => "black width-half cut-eight"
+                "classes" => "finish-black width-half cut-eight"
             ),
             "OA2126-8B" => array(
                 "title" => "Pendaflex File Hanging Rails",
@@ -89,7 +72,7 @@
                 "width" => "3/4",
                 "thickness" => "1/8",
                 "price" => 9.46,
-                "classes" => "black width-three-quarter cut-eight"
+                "classes" => "finish-black width-three-quarter cut-eight"
             ),
             "OA1058-8" => array(
                 "title" => "Pendaflex File Hanging Rails",
@@ -98,7 +81,7 @@
                 "width" => "1/2",
                 "thickness" => "1/8",
                 "price" => 4.80,
-                "classes" => "mill width-half cut-eight"
+                "classes" => "finish-mill width-half cut-eight"
             ),
             "OA2126-8" => array(
                 "title" => "Pendaflex File Hanging Rails",
@@ -107,7 +90,7 @@
                 "width" => "3/4",
                 "thickness" => "1/8",
                 "price" => 7.46,
-                "classes" => "mill width-three-quarter cut-eight"
+                "classes" => "finish-mill width-three-quarter cut-eight"
             ),
             "OA1058-8" => array(
                 "title" => "Pendaflex File Hanging Rails",
@@ -116,7 +99,7 @@
                 "width" => "1/2",
                 "thickness" => "1/8",
                 "price" => 4.80,
-                "classes" => "mill width-half cut-eight"
+                "classes" => "finish-mill width-half cut-eight"
             ),
             "OA1058-12A" => array(
                 "title" => "Pendaflex File Hanging Rails",
@@ -125,7 +108,7 @@
                 "width" => "1/2",
                 "thickness" => "1/8",
                 "price" => 13.72,
-                "classes" => "clear width-thalf cut-twelve"
+                "classes" => "finish-clear width-thalf cut-twelve"
             ),
             "OA2126-12A" => array(
                 "title" => "Pendaflex File Hanging Rails",
@@ -134,7 +117,7 @@
                 "width" => "3/4",
                 "thickness" => "1/8",
                 "price" => 18.92,
-                "classes" => "clear width-three-quarter cut-twelve"
+                "classes" => "finish-clear width-three-quarter cut-twelve"
             )
         ),
         "img" => $base_url."img/products/cabinet/hanging-rail-aside.png",
@@ -154,13 +137,108 @@
                 "width" => "1/2",
                 "thickness" => "1/8",
                 "price" => 6.86,
-                "classes" => "mill width-half cut-eight"
+                "classes" => "finish-mill width-half cut-eight"
             )
         ),
         "img" => $base_url."img/products/cabinet/press-rail-aside.png",
         "img_alt" => "Press Fit File Rail"
     );
     $panels .= newPanel($press);
+
+    //filters
+    $cuts = array( 
+        "title" => "Cut Length",
+        "options" => array(      
+            "eight" => array(
+                "name" => "cut-eight",
+                "title" => "8'",
+                "group" => "cut"
+            ),
+            "twelve" => array(
+                "name" => "cut-twelve",
+                "title" => "12'",
+                "group" => "cut"
+            )
+        )
+    );
+    $finish = array( 
+        "title" => "Finish",
+        "options" => array(   
+            "mill" => array(
+                "name" => "finish-mill",
+                "title" => "Mill Finish",
+                "group" => "finish"
+            ) ,
+            "clear" => array(
+                "name" => "finish-clear",
+                "title" => "Clear Anodized",
+                "group" => "finish"
+            ),
+            "gold" => array(
+                "name" => "finish-black",
+                "title" => "Black Anodized",
+                "group" => "finish"
+            )  
+        )
+    );
+    $alloy = array( 
+        "title" => "Alloy & Temper",
+        "options" => array(
+            "alloy" => array(
+                "name" => "fixed",
+                "title" => "6063-T5",
+                "group" => "alloy"
+            ),
+        )
+    );
+    $width = array( 
+        "title" => "Width",
+        "options" => array(
+            "width-half" => array(
+                "name" => "width-half",
+                "title" => '1/2"',
+                "group" => "width"
+            ),
+            "width-three-quarter" => array(
+                "name" => "width-three-quarter",
+                "title" => '3/4"',
+                "group" => "width"
+            ),
+        )
+    );
+    $height = array( 
+        "title" => "Height",
+        "options" => array(
+            "height-one-eight" => array(
+                "name" => "fixed",
+                "title" => '1/8"',
+                "group" => "width"
+            )
+        )
+    );
+
+    
+    $options = "";
+    function newFilter($arr){
+        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
+        $filter_group = $arr["options"];
+        $filter_count = count($filter_group);
+        foreach($filter_group as $item => $value){
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $filter .= '<li class="visible">
+                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
+                    <label for="'.$value["name"].'">'.$value["title"].'</label>
+                </li>';
+        }
+        $filter .= "</ul>";
+        return $filter;
+    }
+    $options .= newFilter($cuts);
+    $options .= newFilter($finish);
+    $options .= newFilter($alloy);
+    $options .= newFilter($width);
+    $options .= newFilter($height);
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Rails Filter</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 
 <!doctype html>
@@ -206,79 +284,10 @@
             <div id="filter-btn" class="visible-xs" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters"><span class="glyphicon glyphicon-tasks"></span> Filter</div>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <div class="filter clearfix" id="filters">
-                        <h3>File Hanging Rails <span class="filter-close glyphicon glyphicon-remove visible-xs" data-toggle="collapse" data-target="#filters"></span></h3>
-                        <section class="filter-content">
-                            <div class="cut filter-type">
-                               <span class="filter-title">Cut Length</span>
-                               <form id="clips-cut-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-eight" name="cut-length" value="cut-eight"/>
-                                       <label for="cut-eight"><span></span>8'</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="cut-twelve" name="cut-length" value="cut-twelve"/>
-                                       <label for="cut-twelve"><span></span>12'</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="finish filter-type">
-                               <span class="filter-title">Finish</span>
-                               <form id="clips-finish-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="clear" name="finish" value="clear"/>
-                                       <label for="clear"><span></span>Clear Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="black" name="finish" value="black"/>
-                                       <label for="black"><span></span>Black Anodized</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="mill" name="finish" value="mill"/>
-                                       <label for="mill"><span></span>Mill Finish</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="alloy filter-type">
-                               <span class="filter-title">Alloy & Temper</span>
-                               <form id="clips-alloy-form">
-                                   <div class="filter-option">
-                                       <input type="radio" id="alloy" name="alloy" value="fixed" checked/>
-                                       <label for="alloy"><span></span>6063-T5</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="filter-section">
-                               <span class="filter-title">Width</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="width-half" name="width" value="width-half"/>
-                                       <label for="width-half"><span></span>1/2"</label>
-                                   </div>
-                                   <div class="filter-option">
-                                       <input type="radio" id="width-three-quarter" name="width" value="width-three-quarter"/>
-                                       <label for="width-three-quarter"><span></span>3/4"</label>
-                                   </div>
-                               </form>
-                            </div>
-                            <div class="filter-section">
-                               <span class="filter-title">Thickness</span>
-                               <form>
-                                   <div class="filter-option">
-                                       <input type="radio" id="thickness-eight" name="thickness" value="fixed" checked/>
-                                       <label for="thickness-eight"><span></span>1/8"</label>
-                                   </div>
-                                   <div class="filter-option">&nbsp;</div>
-                               </form>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="reset-btn" class="text-center clearfix">Reset Filters</div>
-                        </section>
-                    </div>
+                    <?php echo $filter; ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary hidden-xs">
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Info</h3>
                         </div>
@@ -325,7 +334,7 @@
                    <?php echo $panels; ?>
                 </div>
         </main>
-        
+        <?php include("../php/includes/cart.php"); ?>          
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>
