@@ -262,7 +262,7 @@
         )
     );
     $drop = array( 
-        "title" => "Drop (A)",
+        "title" => "Drop (B)",
         "options" => array(
             "three-eight" => array(
                 "name" => "drop-three-eight",

@@ -43,7 +43,7 @@
         $row .= '<tr class="filter-row '.$value["classes"].'">
                     <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
                     <td class="item-cut">'.$value["cut"].'</td>
-                    <td class="item-price hidden-xs text-center">'.$value["alloy"].'</td>
+                    <td class="item-alloy hidden-xs text-center">'.$value["alloy"].'</td>
                     <td class="item-price text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
                     <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
