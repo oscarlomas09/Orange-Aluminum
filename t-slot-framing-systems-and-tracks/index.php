@@ -28,7 +28,7 @@
                             <h2>T Slot Framing Systems and Tracks</h2>
                             <hr>
                             <a href="quad-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/t-slot/quad-tracks.jpg" alt="Quad Tracks" class="img-thumbnail">
+                                <img src="<?php echo BASE_URL;?>img/products/t-slot/quad-track.jpg" alt="Quad Tracks" class="img-thumbnail">
                                 <span>T Slot Framing: Quad Tracks</span>
                             </a>
                             <a href="t-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
