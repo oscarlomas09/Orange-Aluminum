@@ -40,8 +40,8 @@
         foreach($alteration as $item => $value){
         $row .= '<tr class="filter-row '.$value["classes"].'">
                     <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
-                    <td class="item-cut">'.$value["ticket"].'"</td>
-                    <td class="item-cut">'.$value["material"].'"</td>
+                    <td class="item-ticket">'.$value["ticket"].'"</td>
+                    <td class="item-material">'.$value["material"].'"</td>
                     <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
                     <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';

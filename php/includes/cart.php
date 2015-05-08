@@ -1,6 +1,6 @@
 <div id="add-product">
     <div id="cart-object">
-        <input type="hidden" id="add-sku" value="" />
+        <input type="hidden" id="cart-sku" value="" />
         <input type="hidden" id="add-qty" value="0" />
         <span>0</span>
     </div>

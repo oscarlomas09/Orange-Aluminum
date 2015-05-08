@@ -43,7 +43,7 @@
         $row .= '<tr class="filter-row '.$value["classes"].'">
                     <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
                     <td class="item-cut">'.$value["cut"].'</td>
-                    <td class="item-price hidden-xs text-center">'.$value["alloy"].'</td>
+                    <td class="item-alloy hidden-xs text-center">'.$value["alloy"].'</td>
                     <td class="item-price text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>
                     <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
                 </tr>';
@@ -52,51 +52,67 @@
     }
 
     $panels = '';
-    $OA8524 = array( 
-        "Description" => 'Interlocking Aluminum Slatwall Panel, Stack it as high as you want! These self mating aluminum slatwall strips are perfect for your cubicle millwork projects or retail spaces alike... The material comes mill finish... ready for you to paint or keep mill. Section allows your functional slatwall spacing to be fixed at exactly 1.610” (1-5/8”.) <br>
-• Available in 5 and 10 foot Lengths <br>
-• 1-5/8” (1.610”) On Center Slats <br>
-• Mill Finish, Ready for Paint <br>
-• 6063-T5 Aluminum',
-        "Title" => "Interlocking Slatwall Panel",
+    $OA7150 = array( 
+        "Description" => 'Specialty "T" Track allows you to slide in 1/4"-20 hex head bolts to mount, position, and hang clamps and fixtures. To Reposition Clamps and Fixtures, Loosen the Bolt and Slide to New Position. Ideal for Positioning Jigs, Stops, and Hold-Downs on Table Saws. Multiple Lengths Available.
+Custom Lengths Available for Larger Orders Don\'t see your size? We may still have it... Call us NOW 877-464-2181!!!',
+        "Title" => "T Track",
         "Models" => array(
-            "OA8524" => array(
-                "title" => "Interlocking Slatwall Panel: 5 Feet",
-                "cut" => "5'",
-                "price" => 32.24,
-                "classes" => "cut-five",
+            "OA7150-18" => array(
+                "title" => "T Track: 18-inches",
+                "cut" => '18"',
+                "price" => 4.13,
+                "classes" => "cut-eighteen",
                 "alloy" => "6063-T5"
             ),
-            "OA8524-10" => array(
-                "title" => "Interlocking Slatwall Panel: 10 Feet",
-                "cut" => "10'",
-                "price" => 64.48,
-                "classes" => "cut-ten",
+            "OA7150-24" => array(
+                "title" => "T Track: 24-inches",
+                "cut" => '24"',
+                "price" => 4.82,
+                "classes" => "cut-twentyfour",
+                "alloy" => "6063-T5"
+            ),
+            "OA7150-36" => array(
+                "title" => "T Track: 36-inches",
+                "cut" => '36"',
+                "price" => 6.34,
+                "classes" => "cut-thirtysix",
+                "alloy" => "6063-T5"
+            ),
+            "OA7150-48" => array(
+                "title" => "T Track: 48-inches",
+                "cut" => '48"',
+                "price" => 7.83,
+                "classes" => "cut-fortyeight",
                 "alloy" => "6063-T5"
             )
         ),
-        "img" => $base_url."img/products/fixturing/slatwall-panel-aside.png",
-        "img_alt" => "Interlocking Slatwall Panel"
+        "img" => $base_url."img/products/t-slot/t-track-aside.png",
+        "img_alt" => "T-Track"
     );
-    $panels .= newPanel($OA8524);
+    $panels .= newPanel($OA7150);
 
     //filters
     $cuts = array( 
         "title" => "Cut Length",
         "options" => array(      
-            "five" => array(
-                "name" => "cut-five",
-                "title" => "5'",
+            "eighteen" => array(
+                "name" => "cut-eighteen",
+                "title" => '18"',
                 "group" => "cut"
             ),
-            "eight" => array(
-                "name" => "cut-eight",
-                "title" => "8'",
+            "twentyfour" => array(
+                "name" => "cut-twentyfour",
+                "title" => '24"',
                 "group" => "cut"
             ),
-            "ten" => array(
-                "name" => "cut-ten",
-                "title" => "10'",
+            "thirtysix" => array(
+                "name" => "cut-thirtysix",
+                "title" => '36"',
+                "group" => "cut"
+            ),
+            "fortyeight" => array(
+                "name" => "cut-fortyeight",
+                "title" => '48"',
                 "group" => "cut"
             )
         )
@@ -141,7 +157,7 @@
     $options .= newFilter($cuts);
     $options .= newFilter($finish);
     $options .= newFilter($alloy);
-    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Slatwall Systems</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">T Tracks</h3>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -149,7 +165,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
-        <title>Slatwall Systems</title>
+        <title>T Tracks</title>
         <meta name="description" content="">
         <?php include("../php/includes/header-files.php"); ?>
     </head>
@@ -162,12 +178,12 @@
         <?php include("../php/includes/mobile-navigation.php"); ?>
         
         <!-- Content Just for this Page -->
-        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/slatwall.jpg" alt="Slatwall Systems"></div>
+        <div class="jumbotron"><img src="<?php echo BASE_URL;?>img/jumbotron/t-track.jpg" alt="T Tracks"></div>
         <main class="container-fluid common-container">           
             <ol class="breadcrumb">
               <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-              <li><a href="index.php">Fixturing and Storefront</a></li>
-              <li>Slatwall Systems</li>
+              <li><a href="index.php">T-Slot Framing Systems and Tracks </a></li>
+              <li>T Tracks</li>
             </ol><!-- Modal Window for Tolerance Table-->
             <div class="modal fade" id="toleranceModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -206,11 +222,11 @@
                                         <tr>
                                             <td><b>Finish</b></td>
                                             <td style="width:75%;">
-                                                <a data-toggle="tooltip" title="The natural/raw appearance of the aluminum as it is extruded. No secondary process, may show heavy production lines.">Mill Finish</a></td>
+                                                <a data-toggle="tooltip" title="Clear Anodized Finish, Per MIL-A-8625F. Electrochemical process that is corrosion resistant and protects the material from oxidizing">Clear Anodized</a></td>
                                         </tr>
                                         <tr>
                                             <td><b>Cut Length</b></td>
-                                            <td style="width:75%;">8' Cut Lengths</td>
+                                            <td style="width:75%;">Available 18", 24", 36" and 48"</td>
                                         </tr>
                                         <tr>
                                             <td><b>Tolerance</b></td>
@@ -222,6 +238,12 @@
                                             <td><b>MET</b></td>
                                             <td style="width:75%;">
                                                 <a data-toggle="tooltip" title="ASTM is the American Society for Testing and Materials.">ASTM</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>FAB</b></td>
+                                            <td style="width:75%;">
+                                                Punched and Countersunk Holes 3” on Center to Accommodate #8 Pan Head Screws
                                             </td>
                                         </tr>
                                     </table>

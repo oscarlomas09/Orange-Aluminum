@@ -18,7 +18,7 @@
         <div class="common-container container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
-                    <a class="btn btn-warning" href="index.php"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
+                    <a class="btn btn-warning" href="<?php echo BASE_URL;?>"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
                     <h2>Contact Us</h2><hr>
                     <form>
                         <table style="width:100%;" class="form-panel">
@@ -32,7 +32,7 @@
                                         <select name="inquiry" id="inquiry" class="required-entry validate-select">
                                             <option value="general_inquiries">General Inquiries</option>
                                             <option value="order_inquiries">Order Inquiries</option>
-                                            < value="distribution_inquiries">Distribution Inquiries</option>
+                                            <option value="distribution_inquiries">Distribution Inquiries</option>
                                             <option value="custom_profile_inquiry">Custom Profile Inquiry</option>
                                             <option value="volume_discounts">Volume Discounts</option>
                                             <option value="samplecatalog_request">Sample/Catalog Request</option>

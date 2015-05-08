@@ -29,11 +29,11 @@
     </ul>
     <ul id="clips-menu" class="second-level" role="menu">
         <li class="mobile-back"><a href="#"><b>Return </b></a><span class="glyphicon glyphicon-share-alt"></span></li>
-        <li><a href="<?php echo BASE_URL; ?>panel-rails.php"><span class="icon-clip-one"></span>Style 1</a></li>
-        <li><a href="<?php echo BASE_URL; ?>panel-rails.php"><span class="icon-clip-two"></span>Style 2</a></li>
-        <li><a href="<?php echo BASE_URL; ?>panel-rails.php"><span class="icon-clip-hd"></span>HD Panel Rail</a></li>
-        <li><a href="<?php echo BASE_URL; ?>panel-rails.php"><span class="icon-clip-xl"></span>XL Panel Rail</a></li>
-        <li><a href="<?php echo BASE_URL; ?>panel-rails.php"><span class="icon-z-hanger"></span>Z-Hanger</a></li>
+        <li><a href="<?php echo BASE_URL; ?>panel-rails.php#OA5337"><span class="icon-clip-one"></span>Style 1</a></li>
+        <li><a href="<?php echo BASE_URL; ?>panel-rails.php#OA5403"><span class="icon-clip-two"></span>Style 2</a></li>
+        <li><a href="<?php echo BASE_URL; ?>panel-rails.php#OA8142"><span class="icon-clip-hd"></span>HD Panel Rail</a></li>
+        <li><a href="<?php echo BASE_URL; ?>panel-rails.php#OA7919"><span class="icon-clip-xl"></span>XL Panel Rail</a></li>
+        <li><a href="<?php echo BASE_URL; ?>panel-rails.php#OA9548"><span class="icon-z-hanger"></span>Z-Hanger</a></li>
     </ul>
     <ul id="fixturing-menu" class="second-level" role="menu">
         <li class="mobile-back"><a href="#"><b>Return </b></a><span class="glyphicon glyphicon-share-alt"></span></li>

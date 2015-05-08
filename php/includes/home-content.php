@@ -95,17 +95,17 @@
                     <div class="navigation-large hidden-xs">
                         <hr>
                         <p>                        
-                            <a href="<?php echo BASE_URL; ?>panel-rails.php">Style 1</a><span class="divider">|</span>
-                            <a href="<?php echo BASE_URL; ?>panel-rails.php">Style 2</a><span class="divider">|</span>
-                            <a href="<?php echo BASE_URL; ?>panel-rails.php">HD Panel Rail</a><span class="divider">|</span>
-                            <a href="<?php echo BASE_URL; ?>panel-rails.php">XL Panel Rail</a><span class="divider">|</span>
-                            <a href="<?php echo BASE_URL; ?>panel-rails.php">Z-Hanger</a>
+                            <a href="<?php echo BASE_URL; ?>panel-rails.php#OA5337">Style 1</a><span class="divider">|</span>
+                            <a href="<?php echo BASE_URL; ?>panel-rails.php#OA5403">Style 2</a><span class="divider">|</span>
+                            <a href="<?php echo BASE_URL; ?>panel-rails.php#OA9548">Z-Hanger</a><span class="divider">|</span>
+                            <a href="<?php echo BASE_URL; ?>panel-rails.php#OA8142">HD Panel Rail</a><span class="divider">|</span>
+                            <a href="<?php echo BASE_URL; ?>panel-rails.php#OA7919">XL Panel Rail</a>
                         </p>
-                        <a href="<?php echo BASE_URL; ?>panel-rails.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/style-1.jpg" alt="Style 1" class="img-thumbnail"></a>
-                        <a href="<?php echo BASE_URL; ?>panel-rails.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/style-2.jpg" alt="Style 2" class="img-thumbnail"></a>
-                        <a href="<?php echo BASE_URL; ?>panel-rails.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/z-hanger.jpg" alt="Z Hanger" class="img-thumbnail"></a>
-                        <a href="<?php echo BASE_URL; ?>panel-rails.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/hd.jpg" alt="HD Clip" class="img-thumbnail"></a>
-                        <a href="<?php echo BASE_URL; ?>panel-rails.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/xl.jpg" alt="XL Clups" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>panel-rails.php#OA5337" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/style-1.jpg" alt="Style 1" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>panel-rails.php#OA5403" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/style-2.jpg" alt="Style 2" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>panel-rails.php#OA9548" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/z-hanger.jpg" alt="Z Hanger" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>panel-rails.php#OA8142" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/hd.jpg" alt="HD Clip" class="img-thumbnail"></a>
+                        <a href="<?php echo BASE_URL; ?>panel-rails.php#OA7919" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/xl.jpg" alt="XL Clups" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
                         <div class="filter">

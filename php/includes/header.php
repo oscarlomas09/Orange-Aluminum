@@ -14,7 +14,7 @@
             <div class="long-header">
                 <div class="nav navbar-tabs navbar-right">
                     <div class="nav-tab" id="chat-btn"><a><span class="glyphicon glyphicon-comment"></span>Live Chat</a></div>
-                    <div class="nav-tab"><a href="<?php echo BASE_URL; ?>account/login/"><span class="glyphicon glyphicon-user"></span>Log-In</a></div>
+                    <div class="nav-tab login"><span style="color:white;text-transform:uppercase;"><span class="glyphicon glyphicon-user"></span>  Log-In</span></div>
                 </div>
                 <div class="clearfix"></div><br>   
                 <form class="search-form navbar-right" role="search">
@@ -52,7 +52,7 @@
         </div>
     </nav>
     <div id="user-options" class="nav-links clearfix collapse">
-        <a href="<?php echo BASE_URL; ?>account/login/"><span class="glyphicon glyphicon-user"></span>Log-In</a>
+        <a href="" class="login"><span class="glyphicon glyphicon-user"></span>  Log-In</a>
         <a href=""><span class="glyphicon glyphicon-earphone"></span>(877) 464-2181</a>
         <a href="<?php echo BASE_URL; ?>contact.php"><span class="glyphicon glyphicon-envelope"></span>Contact Us</a>
     </div>
@@ -61,6 +61,21 @@
         <button type="" class="btn">Find</button>
     </form>
 </header>
+
+<!-- Login Popover -->
+<div id="login-popover" style="display:none;position:absolute;top: -9999px;">
+    <div class="container" style="width:100% !important;">
+        <form id="login-form">
+            <label for="login-email">Email:</label><br>
+            <input id="login-email" type="email" placeholder="Email"/> <br>
+            <label for="login-password">Password:</label><br>
+            <input id="login-password" type="password" placeholder="password"/> <br>
+            <a href="<?php echo BASE_URL; ?>account/forgotpassword/" class="text-center" style="display:block;">Forgot Password?</a>
+            <button id="login-btn">Log In</button>
+            <a href="<?php echo BASE_URL; ?>account/create/" class="btn btn-warning">Create Account</a>
+        </form>
+    </div>
+</div>
 
 <!-- Shopping Cart Popover -->
 <div id="cart-popover" style="display:none;position:absolute;top: -9999px;">
@@ -81,4 +96,3 @@
         </div>
     </div>
 </div>
-

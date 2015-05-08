@@ -39,11 +39,11 @@
         $cut = "";
         $row = '';
         foreach($alteration as $item => $value){
-        if($value["cut"] != $cut){
-            $row .= '<tr class="filter-fixed filter-row"><td colspan="5"><b>'.$value["cut"].' Cut Length</b></td></tr>';
-            $cut = $value["cut"];
-        }
-        $row .= '<tr class="filter-row '.$value["classes"].'">
+            if($value["cut"] != $cut){
+                $row .= '<tr class="filter-fixed filter-row"><td colspan="5"><b>'.$value["cut"].' Cut Length</b></td></tr>';
+                $cut = $value["cut"];
+            }
+            $row .= '<tr class="filter-row '.$value["classes"].'">
                     <td class="item-sku" data-name="'.$item.'"><a href="'.$base_url.'product.php">'.$item.'</a></td>
                     <td class="item-dimensions">'.$value["covers"].'"</td>
                     <td class="item-price hidden-xs text-center" data-price="'.$value["price"].'">$'.number_format($value["price"], 2, '.', '').'</td>

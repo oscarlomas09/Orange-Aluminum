@@ -4,7 +4,7 @@
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models, $product["offset"], $product["drop"]);
-        $panel = '<div class="panel panel-default">
+        $panel = '<div class="panel panel-default" id="'.$product["id"].'">
                     <div class="panel-heading">
                         <h3 class="panel-title">'.$product["Title"].'</h3>
                     </div>
@@ -54,6 +54,7 @@
     $OA5337 = array( 
         "Description" => 'Mill Finish Aluminum Panel Rails and Clips, Style 1, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for  Wall Panels, Partitions, and Signs. Lift-off Clearance of 5/8" Required for Installation and Removal. Overall Height when Mounted is 3-1/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.) ',
         "Title" => "Panel Rail and Clip Style 1",
+        "id" => "OA5337",
         "Models" => array(
             "OA5337-CB" => array(
                 "title" => "Panel Rail and Clip, Style 1: Bag of 20",
@@ -77,12 +78,14 @@
         "img" => $base_url."img/products/clips/style-1-aside.png",
         "img_alt" => "Panel Rails and Clips: Style 1",
         "offset" => "3/16",	    
-        "drop" => "5/8");
+        "drop" => "5/8"
+    );
     $panels .= newPanel($OA5337);
     
     $OA5403 = array( 
         "Description" => 'Mill Finish Aluminum Panel Rails and Clips, Style 2, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off clearance of 3/8" Required for Installation and Removal. Overall Height when Mounted is 2-3/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.)',
         "Title" => "Panel Rail and Clip Style 2",
+        "id" => "OA5403",
         "Models" => array(
             "OA5403-CB" => array(
                 "title" => "Panel Rail and Clip, Style 2: Bag of 20",
@@ -112,6 +115,7 @@
     $OA9548 = array( 
         "Description" => 'Infamous Z Hanger for Mirrors and Picture Frames, this Z hanger style is lighter then our other Panel Rails and Clips providing less in strength but more in savings. Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off Clearance of 45/64" (.704") is Required for Installation and Removal. Overall Height when Mounted is 1-3/4".',
         "Title" => "Z Hanger",
+        "id" => "OA9548",
         "Models" => array(
             "OA9548-6" => array(
                 "title" => "Z Hanger: Light Duty",    
@@ -135,6 +139,7 @@
     $OA8142 = array( 
         "Description" => 'Mill Finish Aluminum Panel Rails and Clips, MEDIUM to HEAVY DUTY Z CLIP APPLICATION, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off clearance of 7/16" Required for Installation and Removal. Overall Height when Mounted is 3-1/16" and offset from wall is 1/4"',
         "Title" => "HD Panel Rail and Clip",
+        "id" => "OA8142",
         "Models" => array(
             "OA8142-CB" => array(
                 "title" => "HD Panel Rail and Clips: Bag of 10",    
@@ -164,6 +169,7 @@
     $OA7919 = array( 
         "Description" => 'Overkill? Perhaps, but what project doesn’t need a little overkill?The biggest, baddest clip to ever leave our R&D Department, the XL Style 4 Clip was designed to wedge two buildings together in order to create the most secure lock imaginable. Comes unpunched. Lift-off clearance of 3/4” required for installation and removal.Overall height when mounted is 4.00” And offset from wall is 3/8”.Remember, though, with great power comes great responsibility."',
         "Title" => "XL Panel Rail and Clip",
+        "id" => "OA7919",
         "Models" => array(
             "OA7919-CB" => array(
                 "title" => "XL Panel Rail and Clips: Bag of 10",    
@@ -262,7 +268,7 @@
         )
     );
     $drop = array( 
-        "title" => "Drop (A)",
+        "title" => "Drop (B)",
         "options" => array(
             "three-eight" => array(
                 "name" => "drop-three-eight",

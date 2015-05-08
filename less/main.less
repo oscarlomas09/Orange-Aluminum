@@ -62,7 +62,7 @@ header .navbar-right{
 .navbar-tabs{
     position: relative;
     margin-top: -3px;
-    z-index: 0;
+    z-index: 1001;
 }
 .nav-tab{
     background-color: @dark-blue;
@@ -157,6 +157,55 @@ header .navbar-right{
     }
 }
 
+#login-form{
+    input{
+        width: 100%;
+        padding: 8px 13px;
+        border: 1px solid @gray-lighter;
+        color: @charcoal;
+        border-radius: 3px;
+        margin-bottom: 3px;
+    }
+    a{
+        text-decoration: underline;
+    }
+    
+    .btn{
+        display: block;
+        margin: 3px auto;
+        width: 100%;
+        text-decoration: none;
+        font-weight: bold;
+        text-shadow: 0px 1px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+    }
+}
+#login-btn{
+    display: block;
+    width: 100%;
+    padding: 8px 13px;
+    border: none;
+    margin: 5px auto;
+    background-color: @green;
+    text-align: center;
+    border-top: 0px solid transparent;
+    border-bottom: 3px solid darken(@green, 10%);
+    font-weight:bold;
+    color: white !important;
+    outline: none !important;
+    border-radius: 3px;
+    
+    &:active{
+          border-top-width:2px;
+          border-bottom-width: 1px;
+     }
+    &:hover{
+        color: white;
+        border-top-width:1px;
+        border-bottom-width: 2px;
+    }
+}
+
 //Navbar
 .navbar-nav{
     margin-top: 3px;
@@ -226,7 +275,7 @@ header .navbar-right{
     box-shadow: inset 0px 2px 3px rgba(0,0,0,0.3);
     margin-top: 5px;
     
-    a{
+    > a{
         float: left;
         display: inline-block;
         text-align: center;
@@ -268,7 +317,7 @@ header .navbar-right{
     .navbar-brand .title h2{  
         display: block;
     }
-    #user-options a{
+    #user-options > a{
         font-size: 1em;
     }
 }
@@ -482,7 +531,7 @@ header .navbar-right{
     }
 }
 #navbar > .navbar-collapse{
-    background-color: @charcoal;
+    background-color: @gray-dark;
     padding: 0;
 }
 .nav > li{
@@ -1001,7 +1050,7 @@ footer{
     
     .side-navigation{
         list-style: none;
-        background-color: #333333;
+        background-color: @gray-dark;
         border-radius: 3px;
         overflow: hidden;
         padding: 0;
