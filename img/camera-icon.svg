@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="360px" height="360px" viewBox="0 0 360 360" enable-background="new 0 0 360 360" xml:space="preserve">
+<pattern  y="360" width="216" height="216" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_1" viewBox="1 -217 216 216" overflow="visible">
+	<g>
+		<polygon fill="none" points="1,-1 217,-1 217,-217 1,-217 		"/>
+		<image overflow="visible" width="900" height="900" xlink:href="aluminum.jpg"  transform="matrix(0.24 0 0 0.24 1 -217)">
+		</image>
+	</g>
+</pattern>
+<g>
+	<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_1" patternTransform="matrix(2.5 0 0 2.5 11248.501 11757.999)">
+	</pattern>
+	<path fill="url(#SVGID_1_)" d="M324,90h-43.2c-5.94,0-12.341-4.608-14.216-10.246l-11.167-33.512
+		C253.534,40.608,247.14,36,241.2,36H118.8c-5.94,0-12.341,4.608-14.216,10.246L93.416,79.758C91.534,85.392,85.14,90,79.2,90H36
+		c-19.8,0-36,16.2-36,36v162c0,19.8,16.2,36,36,36h288c19.8,0,36-16.2,36-36V126C360,106.2,343.8,90,324,90z M180,288
+		c-49.705,0-90-40.295-90-90c0-49.702,40.295-90,90-90c49.698,0,90,40.298,90,90C270,247.705,229.698,288,180,288z M311.4,151.175
+		c-6.955,0-12.6-5.638-12.6-12.6c0-6.955,5.645-12.6,12.6-12.6c6.962,0,12.6,5.645,12.6,12.6
+		C324,145.537,318.359,151.175,311.4,151.175z"/>
+	<pattern  id="SVGID_2_" xlink:href="#New_Pattern_Swatch_1" patternTransform="matrix(1.25 0 0 1.25 1933.85 2186.6997)">
+	</pattern>
+	<path fill="url(#SVGID_2_)" d="M180,144c-29.826,0-54,24.185-54,54c0,29.826,24.174,54,54,54c29.819,0,54-24.174,54-54
+		C234,168.185,209.819,144,180,144z"/>
+</g>
+</svg>
