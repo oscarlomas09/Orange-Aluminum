@@ -1,4 +1,6 @@
 <?php
+    include("../php/helper.php");
+    $base_url = getBaseUrl();
     //filters
     $cuts = array( 
         "title" => "Cut Length",
@@ -218,6 +220,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </main>
         
         <?php include("../php/includes/chat.php"); ?>

@@ -1,5 +1,6 @@
 <?php 
-    $base_url = "http://localhost/Orange-Aluminum/";
+    include("../php/helper.php");
+    $base_url = getBaseUrl();
     $row = 0;
     $wall_thickness = "";
     $name = "Angle";
@@ -250,6 +251,7 @@
                     </div>
                    <?php echo $mill_panel; ?>
                 </div>
+            </div>
         </main>
         <?php include("../php/includes/cart.php"); ?>        
         <?php include("../php/includes/chat.php"); ?>

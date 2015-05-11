@@ -1,5 +1,6 @@
 <?php
-    $base_url = "http://localhost/Orange-Aluminum/";
+    include("../php/helper.php");
+    $base_url = getBaseUrl();
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -253,6 +254,7 @@ Custom Lengths Available for Larger Orders Don\'t see your size? We may still ha
                     </div>
                     <?php echo $panels; ?>
                 </div>
+            </div>
         </main>
         <?php include("../php/includes/cart.php"); ?>
         <?php include("../php/includes/chat.php"); ?>

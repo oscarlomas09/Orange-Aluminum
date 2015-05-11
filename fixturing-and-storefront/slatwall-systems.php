@@ -1,5 +1,6 @@
 <?php
-    $base_url = "http://localhost/Orange-Aluminum/";
+    include("../php/helper.php");
+    $base_url = getBaseUrl();
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
@@ -317,7 +318,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+        </div></div>
         </main>
         <?php include("../php/includes/cart.php"); ?>
         <?php include("../php/includes/chat.php"); ?>
