@@ -1,3 +1,4 @@
+<?php include("../php/helper.php"); ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -17,10 +18,10 @@
            <h1 style="color:#999999;"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Your Shopping Cart</h1>
             <div class="row">
                 <div class="col-xs-12 col-sm-9">
-                    <div class="btn btn-warning" style="float:left;">
-                        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Shopping
+                    <div class="btn btn-warning" style="float:left;max-width:48%;overflow:hidden;">
+                        <a href="<?php echo BASE_URL; ?>" style="color:white;"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Shopping</a>
                     </div>
-                    <div class="btn btn-warning" style="float:right;">
+                    <div class="btn btn-warning" style="float:right;max-width:48%;overflow:hidden;">
                         Secure Checkout&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>
                     </div>
                     <div class="clearfix"></div><br>
@@ -34,44 +35,7 @@
                             <th class="total-col">Total</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="remove-col"><span class="glyphicon glyphicon-remove"></span></td>
-                                <td class="img-col">
-                                    <img src="../img/products/clips/5337_6.jpg"/>
-                                </td>
-                                <td class="info-col">
-                                    <h3>Aluminum Rods</h3>
-                                    <span class="info-option">SKU OA9300</span>
-                                </td>
-                                <td class="qty-col">
-                                    <input type="number" min="1" max="9999" value="3" max="9999" />
-                                </td>
-                                <td class="price-col">
-                                    <span>$9.00</span>
-                                </td>
-                                <td class="total-col">
-                                    <span class="total">$27.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="remove-col"><span class="glyphicon glyphicon-remove"></span></td>
-                                <td class="img-col">
-                                    <img src="../img/products/clips/5337_6.jpg"/>
-                                </td>
-                                <td class="info-col">
-                                    <h3>Aluminum Rods</h3>
-                                    <span class="info-option">SKU OA9300</span>
-                                </td>
-                                <td class="qty-col">
-                                    <input type="number" min="1" max="9999" value="3" max="9999" />
-                                </td>
-                                <td class="price-col">
-                                    <span>$9.00</span>
-                                </td>
-                                <td class="total-col">
-                                    <span class="total">$27.00</span>
-                                </td>
-                            </tr>
+                            <tr><td colspan="6"><h3>No Items in Your Cart</h3></td></tr>
                         </tbody>
                     </table>
                     <div class="coupon-container">
@@ -79,8 +43,8 @@
                         <button id="apply-coupon" class="btn btn-press">Apply</button>
                     </div>
                     <div class="btn-container">
-                        <button id="update" class="btn btn-press"><span class="glyphicon glyphicon-refresh"> </span> Update</button> 
-                        <button id="clear" class="btn btn-press"><span class="glyphicon glyphicon-trash"> </span> Clear Cart</button>   
+                        <button id="update-cart" class="btn btn-press"><span class="glyphicon glyphicon-refresh"> </span> Update</button> 
+                        <button id="clear-cart" class="btn btn-press"><span class="glyphicon glyphicon-trash"> </span> Clear Cart</button>   
                     </div>
                     <div class="clearfix"></div>
                     <div class="shipping-container">
@@ -195,5 +159,76 @@
         <?php include("../php/includes/chat.php"); ?>
         <?php include("../php/includes/footer.php"); ?>
         <?php include("../php/includes/script-js.php"); ?>
+        
+        <script>      
+            function updateCart(){    
+                $(".qty-col input").each(function(){
+                    $(this).trigger("change");
+                });
+                var tax_rate = 0.09;
+                var subtotal = 0,
+                    total = 0,
+                    tax = 0,
+                    shipping = 0;
+                $(".product").each(function(){
+                    var price = parseFloat($(this).find(".total").data("price"));
+                    var qty = parseInt($(this).find(".qty-col input").val());
+                    subtotal += price * qty;
+                });
+                tax = subtotal*tax_rate;
+                shipping = parseFloat($("#shipping-fee").data("value"));
+                total = subtotal + tax + shipping;
+                $("#subtotal").text("$"+subtotal.toFixed(2)).data("value",subtotal.toFixed(2));
+                $("#tax").text("$"+tax.toFixed(2)).data("value", tax.toFixed(2));
+                $("#grand-total").text("$"+total.toFixed(2)).data("value",total.toFixed(2));
+            }
+            function cartRow(){
+                cart_row = "";
+                for(var i=0; i< cart_items.length; i++){
+                    cart_row += '<tr class="product"><td class="remove-col"><span class="glyphicon glyphicon-remove"></span></td><td class="img-col"><img src="../img/products/clips/5337_6.jpg"/></td><td class="info-col"><h3>'+cart_items[i].title+'</h3><span class="info-sku" data-sku="'+cart_items[i].sku+'">SKU: '+cart_items[i].sku+'</span></td><td class="qty-col"><input type="number" min="1" max="9999" value="'+cart_items[i].quantity+'" max="9999" /></td><td class="price-col"><span>$'+parseFloat(cart_items[i].price).toFixed(2)+'</span></td><td class="total-col"><span class="total" data-price="'+(parseFloat(cart_items[i].price)).toFixed(2)+'">$'+(parseInt(cart_items[i].quantity) * parseFloat(cart_items[i].price)).toFixed(2)+'</span></td></tr>';
+                }            
+                $("#cart-table tbody").empty();
+                $("#cart-table tbody").html(cart_row);
+            }
+            if(cart_items.length > 0){
+                cartRow();
+            }
+            //update subtotal price per item
+            $(document).on("change",".qty-col input", function(){
+                var $parent_row = $(this).closest("tr"),
+                    qty = parseInt($(this).val()),
+                    price = parseFloat($parent_row.find(".total").data("price")),
+                    total = parseFloat(qty * price).toFixed(2);
+                $parent_row.find(".total").text("$" + total).data(total); 
+            }).on("blur",".qty-col input", function(){
+                var $parent_row = $(this).closest("tr"),
+                    qty = parseInt($(this).val());
+                    sku = $parent_row.find(".info-sku").data("sku");
+                updateItem(sku, qty);
+                updateCart();
+            });
+            
+            $(document).on("click",".remove-col", function(){
+                var sku = $(this).siblings(".info-col").children(".info-sku").data("sku");
+                $(this).closest("tr").remove(); 
+                removeItem(sku);
+                if(cart_items.length > 0){
+                    cartRow();
+                }
+                else{
+                    location.reload();
+                }
+            });
+
+            $("#clear-cart").click(function(){
+                window.localStorage.clear();
+                location.reload();
+            });
+            $("#update-cart").click(function(){
+                updateCart();
+            });
+            updateCart();
+        </script>
+        
     </body>
 </html>

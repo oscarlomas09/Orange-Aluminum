@@ -22,8 +22,8 @@
             $sku = $data[0];
             $cut = $data[1];
             $dimensions = $data[5].' x '.$data[6];
-            $classes = $data[7];
-            $price = $data[8];
+            $price = $data[7];
+            $classes = "classes";
             
             //skip the first row
             if($row < 1){

@@ -3,6 +3,7 @@
 <!-- Include all compiled plugins (below), or  individual files as needed -->
 <script src="<?php echo BASE_URL; ?>js/vendor/bootstrap.min.js"></script>
 <script src="<?php echo BASE_URL; ?>js/main.js"></script>
+<script src="<?php echo BASE_URL; ?>js/cart.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

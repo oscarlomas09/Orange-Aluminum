@@ -68,7 +68,7 @@
                         <a href="<?php echo BASE_URL;?>bar-stock/z-bars.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL;?>/img/products/bars/z-bar.jpg" alt="Z-Bar" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>
@@ -108,7 +108,7 @@
                         <a href="<?php echo BASE_URL; ?>panel-rails.php#OA7919" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/clips/xl.jpg" alt="XL Clups" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>
@@ -141,7 +141,7 @@
                         <a href="<?php echo BASE_URL; ?>fixturing-and-storefront/snap-frames.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>                                
@@ -170,7 +170,7 @@
                         <a href="<?php echo BASE_URL; ?>caps-corners-coves-and-dividers/j-cap.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/dividers/j-cap.jpg" alt="J-Cap" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>                                
@@ -203,7 +203,7 @@
                         <a href="<?php echo BASE_URL; ?>cabinet-and-closet/road-case-sections.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/cabinet/case.jpg" alt="Road Case Sections" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>                                
@@ -239,7 +239,7 @@
                         <a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/trims/tee-molding.jpg" alt="Tee Moulding" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>                                
@@ -267,7 +267,7 @@
                         <a href="<?php echo BASE_URL; ?>t-slot-framing-systems-and-tracks/t-tracks.php" class="col-xs-4 col-sm-2"><img src="<?php echo BASE_URL; ?>img/products/t-slot/t-track.jpg" alt="T-Tracks" class="img-thumbnail"></a>
                     </div>
                     <div class="navigation-small visible-xs">
-                        <div class="filter">
+                        <div class="filter filter-home">
                             <h3 class="title"> </h3>
                             <h4 class="filter-name active">Categories</h4>
                             <ul>                                

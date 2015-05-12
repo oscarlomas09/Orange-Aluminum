@@ -10,6 +10,8 @@ var n = this,
    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
  };
 
+var base_url = $("#base_url").val();
+
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -38,13 +40,13 @@ function collapsable(){
         $(".filter").children(".filter-name").each(function(){
             collapseFilters($(this), true);            
         });
-        $(".filter").collapse("hide");
+        $(".filter").not('.filter-home').collapse("hide");
     }
     else{
         $(".filter").children(".filter-name").each(function(){
             collapseFilters($(this), false);            
         });
-        $(".filter").collapse("show");
+        $(".filter").not('.filter-home').collapse("show");
     }
 }
 
@@ -53,7 +55,6 @@ function mobileMenu(){
     if($("#mobile-navbar").hasClass("mobile-visible")){
         $("#mobile-navbar-screen").css({zIndex:0, opacity:0, left:"-110%"});
         $("#mobile-navbar").css("left","-110%").removeClass("mobile-visible");
-        $(".second-level").css({left:"-100%"});
     }
     else{
         $("#mobile-navbar-screen").css({zIndex:1000, opacity:0.5, left: 0});
@@ -72,32 +73,15 @@ $(window).resize(function(e){
 $(".mobile-menu-close").click(function(){
     mobileMenu();
 });
-//show a second level of the mobile navigation depending on the tab clicked
-$(".mobile-li").click(function(){
-    $(".second-level").css({left:"-100%"});
-    var target_menu = $(this).data("target");
-    $("#"+target_menu).css({left:0});
-});
-//hide second level mobile navigation when the "Return" tab is clicked
-$(".mobile-back").click(function(){
-    $(".second-level").css({left:"-100%"});
-});
-
 
 //Shopping Cart Items Popover
-var cart_empty = false; //is the shopping cart empty? Default to Yes
-var cart_popover = "Your Cart Is Empty"; //initiate popover element
-var cart_html = false;
-//if the cart is not epmty
-if(!cart_empty){
-    cart_popover = $("#cart-popover").html(); //get the template html of the popoverh
-    cart_html = true; //set the popover html value to true to insert html
-}
+cart_popover = $("#cart-popover").html(); //get the template html of the popoverh
+
 
 $('.shopping-cart').popover({
     title: "Recently Added Items",
     trigger: "click",
-    html: cart_html,
+    html: true,
     content: cart_popover,
     placement:'bottom'
 });
@@ -171,6 +155,7 @@ $('input[type=radio]').change(function() { //when the user selects a filter opti
         }
     });
 });
+$("#reset-btn").trigger("click"); //initialize reset to make sure everything is unchecked
 //Filter Reset Button
 $("#reset-btn").click(function(){
     //reset every filter option to not-checked
@@ -222,89 +207,6 @@ $(".filter a").click(function(e){
         e.preventDefault();
     }
 });
-
-// Shopping 
-
-// Storing the wanted items
-var cart_items = {
-  'items': [],
-};
-
-
-$(".cart-col").click(function(){
-    var $product = $(this).parent("tr"); //get the parent row
-    
-    var name = $product.children(".item-sku").data("name") + ": " + $product.children(".item-dimensions").text();  //format the title of this cart item
-    $(".cart-title").text(name); //update the name of the cart item
-    $(".cart-amount .price").text($product.children(".item-price").text()); //update the price value for this item
-    $(".cart-amount .price").data("price",$product.children(".item-price").data("price")); //set the data-price attribute to this price
-    $(".cart-amount .total").text("("+ $product.children(".item-price").text() + " TOTAL)"); //update the total price
-    $("#cart-sku").val($product.children(".item-sku").text()); //get the sku
-    $("#cart-qty input").val(1); //set the default value for the quantity to 1
-    
-    //show the Add Product container
-    $("#add-product").show(); //first show the transparent screen
-    //wait 200ms and then slide the add item form from the left
-     setTimeout(function(){
-     	$("#add-product .cart-product").css("left", "50%");          
-     },200);
-});
-//when the quantity is changed
-$("#cart-qty").on('change', 'input', function() {
-     var total_amount =($(".cart-amount .price").data("price")*$(this).val()).formatMoney(2, '.', ','); 
-     $(".cart-amount .total").text("($"+ total_amount + " TOTAL)");
-});
-//After the user decides on an amount for the item, then add it but in a fancy way
-$("#add-item").click(function(){    
-    //get the information about this item
-    var sku = $("#cart-sku").val();
-    var qty = $("#cart-qty input").val();
-    $('#cart-object').children("span").text(qty); //get the quantity
-    var new_amount = parseInt($(".shopping-cart .amount").data("amount")) + parseInt(qty); //add previous amount plus this new amount
-    $(".shopping-cart .amount").data("amount",new_amount); 
-    $(".shopping-cart .amount").text(new_amount); //set the new amount
-    
-    //This portion handles that animation of the cart. It is not necessary, but it adds animation and fancyness
-    var cart_qty = document.getElementById("cart-qty"),
-    elemRect = cart_qty.getBoundingClientRect(), //get the position of the quantiti input in the add product element
-    shoppingCart = $(".shopping-cart:visible")[0],
-    shoppingRect = shoppingCart.getBoundingClientRect(); //get the position of the cart icon in the header
-    $('#cart-object span').animate({width:55, height: 55},100); //animate the size of the quantity circle
-    //animate the position of this quantity circle to the position of the cart icon in the header
-    $('#cart-object').css({
-        top: elemRect.top+ "px",
-        left: (elemRect.left + (cart_qty.offsetWidth/2)) + "px"
-    }).show().delay(300).animate({
-        top: shoppingRect.top,
-        left: shoppingRect.left + (shoppingCart.offsetWidth/2)
-    },300).fadeOut("fast");
-    
-    updateCart(sku, qty);
-    
-    //After the animation is complete, just hide everything so that the user could continue shopping
-    setTimeout(function(){
-        $("#add-product .cart-product").css("left", "-100%");
-        $("#add-product").fadeOut();    
-        $('#cart-object span').css({width:0, height: 0}); 
-    },1000);
-});
-//close the add cart form
-$(".shopping-close").click(function(){
-    $("#add-product .cart-product").css("left", "-100%");
-    $("#add-product").fadeOut();    
-    $('#cart-object span').css({width:0, height: 0});     
-});
-
-function updateCart(sku, qty){    
-    var restoredSession = JSON.parse(localStorage.getItem('cart'));
-    cart_items = restoredSession;
-    cart_items.items.push({ 'sku': sku, 'quantity': qty }); //add the sku and quantity of this item to the shopping cart (local storage)
-    
-    localStorage.setItem('cart', JSON.stringify(cart_items));
-    // JSON.stringify() and saved in localStorage in JSON object again
-    console.log(cart_items);
-}
-
 
 //Cookie Handling
 function createCookie(name,value,days) {

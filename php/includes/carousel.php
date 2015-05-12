@@ -52,15 +52,15 @@
         <div class="col-xs-12">
             <button class="icon-btn btn-press clearfix mobile-menu-close">
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
-                <strong>Navigate</strong>
+                <strong>Product Index</strong>
             </button>
         </div> 
         <div class="col-xs-12">
-            <button class="icon-btn btn-press clearfix">
-                <span class="glyphicon glyphicon-camera"></span>
-                <strong>Get a Quote</strong>
-            </button>
-        </div>  
+            <a href="<?php echo BASE_URL; ?>contact.php"><button class="icon-btn btn-press clearfix">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <strong>Contact Us</strong>
+            </button></a>
+        </div> 
         <div class="col-xs-12">
             <div id="camera-btn">
                 <button class="metal radial"><span class="glyphicon glyphicon-camera"></span></button>

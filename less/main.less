@@ -279,11 +279,12 @@ header .navbar-right{
         float: left;
         display: inline-block;
         text-align: center;
-        width: 33.33%;
+        width: 50%;
         margin: 0;
         padding: 8px 0px;
         border-left: 1px solid @gray-light;
-        font-size: x-small;
+        font-size: normal;
+        color: @dark-blue;
     }
 }
 
@@ -731,6 +732,7 @@ header .navbar-right{
 
 //******************************     FOOTER     *********************************//
 footer{
+    position: relative;
     background-color: @gray-dark;
     color: white;
     margin-top: 8px;
@@ -739,6 +741,7 @@ footer{
     
     .container{
         text-align: center;
+        background-color: transparent !important;
     }
     
     h4{
@@ -1287,6 +1290,24 @@ footer{
 //******************************   END PRODUCT PAGE   *********************************//
 
 //******************************     SHOPPING CART AND CHECKOUT     *********************************//
+#cart-items{
+    position: relative;
+    max-height: 233px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
+    z-index: 0;
+}
+#white-blur{
+    position: relative;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -5px 8px 3px white;
+    margin-top: -2px;
+    display: none;
+    z-index: 1;
+}
 #cart-table{
     width:100%;
     table-layout: fixed;
@@ -1346,18 +1367,19 @@ footer{
     width:100px;
 }
 .info-col{
+    width:50%;
     text-align: left !important;
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding-left: 8px;
-    
     h3{
+        font-size: small;
         margin:0;
         color: @charcoal;
     }
     
-    .info-option{
+    .info-sku{
         font-size:small;
         padding-left: 5px;
         color: @main-gray;
@@ -1391,14 +1413,14 @@ footer{
     width: 34%;
     float:right;
 }
-#clear{
+#clear-cart{
     width: 48%;
     background-color: @main-gray;
     border-bottom-color: darken(@main-gray, 10%);
     margin-right: 8px;
     float: left;
 }
-#update{
+#update-cart{
     width: 48%;
     background-color: @dark-blue;
     border-bottom-color: darken(@dark-blue, 5%);
@@ -1470,6 +1492,9 @@ footer{
     }
 }
 @media (min-width: 520px) {
+    .info-col h3{
+        font-size: 1em;
+    }
     .total-col, .img-col{
         display:table-cell;
     }
@@ -1504,7 +1529,7 @@ footer{
             padding: 5px 3px;
         }
     }
-    #update, #clear, #checkout-btn{
+    #update-cart, #clear-cart, #checkout-btn{
         width: auto;
         float:right;
     }
