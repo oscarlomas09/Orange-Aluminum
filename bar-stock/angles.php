@@ -1,35 +1,35 @@
 <?php 
     include("../php/helper.php");
     $base_url = getBaseUrl();
-    $file = "../docs/angles_mill.csv";
+    $group = "angle";
+    $filters = array(
+        "cut" => array( 
+            "title" => "Cut Length",
+            "options" => array()
+        ),
+        "finish" => array( 
+            "title" => "Finish",
+            "options" => array()
+        ),
+        "wall" => array( 
+            "title" => "Wall Thickness",
+            "options" => array()
+        ),
+        "leg-a" => array( 
+            "title" => "Leg A",
+            "options" => array()
+        ),
+        "leg-b" => array( 
+            "title" => "Leg B",
+            "options" => array()
+        )
+    );
 
-    function newPanel($file, $name){      
-        global $base_url;
+    function newPanel($file, $name, $group){      
+        global $base_url, $filters;
         $row = 0;
         $headings = array();
         $products = array();
-        $filters = array(
-            "cut" => array( 
-                "title" => "Cut Length",
-                "options" => array()
-            ),
-            "finish" => array( 
-                "title" => "Finish",
-                "options" => array()
-            ),
-            "wall" => array( 
-                "title" => "Wall Thickness",
-                "options" => array()
-            ),
-            "leg-a" => array( 
-                "title" => "Leg A",
-                "options" => array()
-            ),
-            "leg-b" => array( 
-                "title" => "Leg B",
-                "options" => array()
-            )
-        );
         $wall_thickness = "";
         
         if (($handle = fopen($file, "r")) !== FALSE) {
@@ -77,13 +77,13 @@
             $classes = "";
             $i = 0;
             foreach($value as $category){
-                if($headings[$i] == "alloy"){
+                if($headings[$i] == "alloy" || $headings[$i] == "name"){
                     //$classes .= $headings[$i]."-".$category." ";
                 }
-                else if($headings[$i] == "finish" || $headings[$i] == "group"){
-                    $classes .= $headings[$i]."-".strtolower($category)." ";
+                else if($headings[$i] == "finish"){
+                    $classes .= $headings[$i]."-".strtolower(strtok($category," "))." ";
                 }
-                else if($headings[$i] != "sku" && $headings[$i] != "price"&& $headings[$i] != "category"){
+                else if($headings[$i] != "sku" && $headings[$i] != "price"){
                     $classes .= $headings[$i]."-".num2text($category)." ";
                 }
                 
@@ -102,8 +102,8 @@
                 else if($headings[$i] == "wall"){
                     $wall = $category;
                 }
-                else if($headings[$i] == "category"){
-                    $name = $category;
+                else if($headings[$i] == "name"){
+                    $product_name = $category;
                 }
                 
                 //add filters
@@ -119,7 +119,7 @@
                 $wall_thickness = $wall;
             }
             $panel .= '<tr class="filter-row '.rtrim($classes, " ").'">
-                <td class="item-sku" data-name="'.$name.'"><a href="'.$base_url.'product.php">'.$key.'</a></td>
+                <td class="item-sku" data-name=\''.$product_name.'\'><a href="'.$base_url.'product.php?sku='.$key.'">'.$key.'</a></td>
                 <td class="item-dimensions">'.$leg_a.' x '.$leg_b.'</td>
                 <td class="hidden-xs hidden-sm text-center">'.$cut.'</td>
                 <td class="item-price hidden-xs hidden-sm text-center" data-price="'.$price.'">$'.number_format($price, 2, '.', '').'</td>
@@ -128,29 +128,34 @@
         }
         $panel .= '</tbody></table></div></div></div>';
         
-        //create Filters
-        $filter_option = '';
-        foreach($filters as $key => $value){
-            $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';
-            $options = $value["options"];
-            $filter_count = count($options);            
-            foreach($options as $filter){
-                $lonely = $filter_count == 1 ? "checked" : "";
-                $filter_option .= '<li class="visible">
-                    <input id="'.$key."-".num2text($filter).'" name="'.$key.'" type="radio" value="'.$key."-".num2text($filter).'" '.$lonely.'>
-                    <label for="'.$key."-".num2text($filter).'">'.$filter.'</label>
-                </li>';
-            }
-            $filter_option .= "</ul>";
-        }
-        $filter = '<div class="filter collapse" id="filters"><h3 class="title">'.$name.' Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/angle-diagram.png" alt="Diagram"/>'.$filter_option.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
-        //end creating filters 
-        
-        return [$panel, $filter];
+        return $panel;
     }
-    $panels = newPanel($file, "Angles: Mill Finish");
-    $mill_panel = $panels[0];
-    $filter = $panels[1];
+    $mill_panel = newPanel("../docs/angles_mill.csv", "Angles: Mill Finish", $group);
+    $clear_panel = newPanel("../docs/angles_clear.csv", "Angles: Clear Anodized", $group);
+        
+    //create Filters
+    $filter_option = '';
+    foreach($filters as $key => $value){
+        $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';
+        $options = $value["options"];
+        $filter_count = count($options);            
+        foreach($options as $filter){
+            if($key == "finish"){
+                $option = $key."-".strtolower(strtok($filter," "));
+            }
+            else{
+                $option = $key."-".num2text($filter);
+            }
+            $lonely = $filter_count == 1 ? "checked" : "";
+            $fixed = $filter_count == 1 ? "fixed" : $option;
+            $filter_option .= '<li class="visible">
+                <input id="'.$fixed.'" name="'.$key.'" type="radio" value="'.$fixed.'" '.$lonely.'>
+                <label for="'.$fixed.'">'.$filter.'</label>
+            </li>';
+        }
+        $filter_option .= "</ul>";
+    }
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">'.ucfirst($group).' Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/'.strtolower($group).'-diagram.png" alt="Diagram"/>'.$filter_option.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -249,6 +254,7 @@
                         </div>
                     </div>
                    <?php echo $mill_panel; ?>
+                   <?php echo $clear_panel; ?>
                 </div>
             </div>
         </main>

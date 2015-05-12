@@ -1,162 +1,165 @@
 <?php 
     include("../php/helper.php");
     $base_url = getBaseUrl();
-    $row = 0;
-    $wall_thickness = "";
-    $name = "Channel";
-    $mill_panel = '<div class="panel panel-default panel-fluid">
-    <div class="panel-heading">
-        <h3 class="panel-title">Channels: Mill Finish</h3>
-    </div>
-    <div class="panel-default container-fluid">
-        <div class="row"><table class="table table-hover" style="width:100%;margin-bottom:0;">';
+    $group = "channel";
+    $filters = array(
+        "cut" => array( 
+            "title" => "Cut Length",
+            "options" => array()
+        ),
+        "finish" => array( 
+            "title" => "Finish",
+            "options" => array()
+        ),
+        "wall" => array( 
+            "title" => "Wall Thickness",
+            "options" => array()
+        ),
+        "fits" => array( 
+            "title" => "Fits",
+            "options" => array()
+        ),
+        "width" => array( 
+            "title" => "Width",
+            "options" => array()
+        ),
+        "height" => array( 
+            "title" => "Height",
+            "options" => array()
+        )
+    );
 
-    if (($handle = fopen("../docs/angles.csv", "r")) !== FALSE) {
-        /***** CSV FILE STRUCTURE *******/
-        /*
-             0  |  1  |    2   |   3   |   4  |   5   |   6   |    7    |   8
-            SKU | Cut | Finish | Alloy | Wall | Leg A | Leg B | Classes | Price
-        */
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $num = count($data);
-            $sku = $data[0];
-            $cut = $data[1];
-            $dimensions = $data[5].' x '.$data[6];
-            $price = $data[7];
-            $classes = "classes";
-            
-            //skip the first row
-            if($row < 1){
-                $mill_panel .= '<thead><tr>
-                    <th>'.$sku.'</th>
-                    <th>'.$dimensions.'</th>
-                    <th class="hidden-xs hidden-sm text-center">'.$cut.'</th>
-                    <th class="hidden-xs hidden-sm text-center">'.$price.'</th>
+    function newPanel($file, $name, $group){      
+        global $base_url, $filters;
+        $row = 0;
+        $headings = array();
+        $products = array();
+        $wall_thickness = "";
+        
+        if (($handle = fopen($file, "r")) !== FALSE) {
+            /***** CSV FILE STRUCTURE *******/
+            /*
+                 0  |  1  |    2   |   3   |   4  |   5   |   6    |    8   |   9   |  10
+                SKU | Cut | Finish | Alloy | Wall | Width | Height |  Fits  | Price |  Name
+            */
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $sku = $data[0];
+
+                //add this heading title to the products array as an index
+                if($row < 1){
+                    for($i = 0; $i <= count($data); $i++){
+                        $heading = isset($data[$i]) ? str_replace(" ", "-",strtolower($data[$i])) : null;
+                        array_push($headings, $heading);
+                    }
+                    $row++;
+                    continue;
+                } 
+                $i = 0;
+                //add the values of this product for each corresponding category
+                foreach($headings as $type){
+                    if($type == "sku"){continue;}
+                    $products[''.$sku.''][''.$type.''] = $data[$i];
+                    $i++;
+                }
+            }
+
+            fclose($handle);
+        }
+        $panel = '<div class="panel panel-default panel-fluid">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">'.$name.'</h3>
+                    </div>
+                    <div class="panel-default container-fluid">
+                    <div class="row"><table class="table table-hover" style="width:100%;margin-bottom:0;"><thead><tr>
+                    <th>SKU</th>
+                    <th>Width x Height</th>
+                    <th class="text-center">Fits</th>
+                    <th class="hidden-xs hidden-sm text-center">Price</th>
                     <th class="text-center"><span class="glyphicon glyphicon-plus"></span></th>
-                </tr></thead>';
-                $row++;
-                continue;
+                </tr></thead><tbody>';
+        foreach($products as $key => $value){
+            $classes = "";
+            $i = 0;
+            foreach($value as $category){
+                if($headings[$i] == "alloy" || $headings[$i] == "name" || $headings[$i] == "price"){
+                    //$classes .= $headings[$i]."-".$category." ";
+                }
+                else if($headings[$i] == "finish"){
+                    $classes .= $headings[$i]."-".strtolower(strtok($category," "))." ";
+                }
+                else if($headings[$i] != "sku" && $headings[$i] != "price"){
+                    $classes .= $headings[$i]."-".num2text($category)." ";
+                }
+                
+                if($headings[$i] == "price"){
+                    $price = floatval($category);
+                }
+                else if($headings[$i] == "width"){
+                    $width = $category;
+                }
+                else if($headings[$i] == "height"){
+                    $height = $category;
+                }
+                else if($headings[$i] == "fits"){
+                    $fits = $category;
+                }
+                else if($headings[$i] == "wall"){
+                    $wall = $category;
+                }
+                else if($headings[$i] == "name"){
+                    $product_name = $category;
+                }
+                
+                //add filters
+                if(array_key_exists($headings[$i], $filters)){ //check if this is one of the desired filters
+                    if(!in_array($category,$filters[$headings[$i]]["options"])){
+                        array_push($filters[$headings[$i]]["options"],$category);
+                    }
+                }
+                $i++;
             }
-            
-            if($data[4] != $wall_thickness){
-                $mill_panel .= '<tr class="filter-fixed filter-row"><td colspan="5"><b>'.$data[4].' Wall Thickness</b></td></tr>';
-                $wall_thickness = $data[4];
+            if($wall != $wall_thickness){
+                $panel .= '<tr class="filter-fixed filter-row"><td colspan="5"><b>'.$wall.' Wall Thickness</b></td></tr>';
+                $wall_thickness = $wall;
             }
-            $mill_panel .= '<tr class="filter-row '.$classes.'">
-                <td class="item-sku" data-name="'.$name.'"><a href="'.$base_url.'product.php">'.$sku.'</a></td>
-                <td class="item-dimensions">'.$dimensions.'</td>
-                <td class="hidden-xs hidden-sm text-center">'.$cut.'</td>
+            $panel .= '<tr class="filter-row '.rtrim($classes, " ").'">
+                <td class="item-sku" data-name=\''.$product_name.'\'><a href="'.$base_url.'product.php?sku='.$key.'">'.$key.'</a></td>
+                <td class="item-dimensions">'.$width.' x '.$height.'</td>
+                <td class="text-center">'.$fits.'</td>
                 <td class="item-price hidden-xs hidden-sm text-center" data-price="'.$price.'">$'.number_format($price, 2, '.', '').'</td>
                 <td class="cart-col"><span class="glyphicon glyphicon-shopping-cart"></span></td>
             </tr>';
-            $row++;  
         }
-        fclose($handle);
+        $panel .= '</tbody></table></div></div></div>';
+        
+        return $panel;
     }
-    $mill_panel .= '</table></div></div></div>';
-
-    $cuts = array( 
-        "title" => "Cut Length",
-        "options" => array(
-            "three" => array(
-                "name" => "cut-three",
-                "title" => "3'",
-                "group" => "cut"
-            ),            
-            "six" => array(
-                "name" => "cut-six",
-                "title" => "6'",
-                "group" => "cut"
-            ),            
-            "eight" => array(
-                "name" => "cut-eight",
-                "title" => "8'",
-                "group" => "cut"
-            ),            
-            "twelve" => array(
-                "name" => "cut-twelve",
-                "title" => "12'",
-                "group" => "cut"
-            )
-        )
-    );
-    $finish = array( 
-        "title" => "Finish",
-        "options" => array(
-            "mill" => array(
-                "name" => "finish-mill",
-                "title" => "Mill Finish",
-                "group" => "finish"
-            ),            
-            "clear" => array(
-                "name" => "finish-clear",
-                "title" => "Clear Anodized",
-                "group" => "finish"
-            )
-        )
-    );
-    $alloy = array( 
-        "title" => "Alloy & Temper",
-        "options" => array(
-            "alloy" => array(
-                "name" => "fixed",
-                "title" => "6063-T5",
-                "group" => "alloy"
-            ),
-        )
-    );
-    $wall = array( 
-        "title" => "Wall Thickness",
-        "options" => array(
-            "one-sixteen" => array(
-                "name" => "wall-one-sixteen",
-                "title" => '1/16"',
-                "group" => "wall"
-            ),
-            "three-thirtytwo" => array(
-                "name" => "wall-three-thirtytwo",
-                "title" => '3/32"',
-                "group" => "wall"
-            ),
-            "one-eight" => array(
-                "name" => "wall-one-eight",
-                "title" => '1/8"',
-                "group" => "wall"
-            ),
-            "three-three-sixteen" => array(
-                "name" => "wall-three-sixteen",
-                "title" => '3/16"',
-                "group" => "wall"
-            ),
-            "three-quarter" => array(
-                "name" => "wall-quarter",
-                "title" => '1/4"',
-                "group" => "wall"
-            )
-        )
-    );
-
-    
-    $options = "";
-    function newFilter($arr){
-        $filter = '<h4 class="filter-name active">'.$arr["title"].'</h4><ul>';    
-        $filter_group = $arr["options"];
-        $filter_count = count($filter_group);
-        foreach($filter_group as $item => $value){
+    $mill_panel = newPanel("../docs/channels_mill.csv", "Channels: Mill Finish", $group);
+    $clear_panel = newPanel("../docs/channels_clear.csv", "Channels: Clear Anodized Finish", $group);
+        
+    //create Filters
+    $filter_option = '';
+    foreach($filters as $key => $value){
+        $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';
+        $options = $value["options"];
+        $filter_count = count($options);            
+        foreach($options as $filter){
+            if($key == "finish"){
+                $option = $key."-".strtolower(strtok($filter," "));
+            }
+            else{
+                $option = $key."-".num2text($filter);
+            }
             $lonely = $filter_count == 1 ? "checked" : "";
-            $filter .= '<li class="visible">
-                    <input id="'.$value["name"].'" name="'.$value["group"].'" type="radio" value="'.$value["name"].'" '.$lonely.'>
-                    <label for="'.$value["name"].'">'.$value["title"].'</label>
-                </li>';
+            $fixed = $filter_count == 1 ? "fixed" : $option;
+            $filter_option .= '<li class="visible">
+                <input id="'.$fixed.'" name="'.$key.'" type="radio" value="'.$fixed.'" '.$lonely.'>
+                <label for="'.$fixed.'">'.$filter.'</label>
+            </li>';
         }
-        $filter .= "</ul>";
-        return $filter;
+        $filter_option .= "</ul>";
     }
-    $options .= newFilter($cuts);
-    $options .= newFilter($finish);
-    $options .= newFilter($alloy);
-    $options .= newFilter($wall);
-    $filter = '<div class="filter collapse" id="filters"><h3 class="title">Channels Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/channel-diagram.png" alt="Diagram"/>'.$options.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
+    $filter = '<div class="filter collapse" id="filters"><h3 class="title">'.ucfirst($group).' Filter</h3><img class="hidden-xs" src="'.$base_url.'img/products/bars/'.strtolower($group).'-diagram.png" alt="Diagram"/>'.$filter_option.'<div class="clearfix"></div><div id="reset-btn" class="text-center clearfix">Reset Filters</div></div>';
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -254,6 +257,7 @@
                         </div>
                     </div>
                    <?php echo $mill_panel; ?>
+                   <?php echo $clear_panel; ?>
                 </div></div>
         </main>
         <?php include("../php/includes/cart.php"); ?>        

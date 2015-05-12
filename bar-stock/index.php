@@ -1,4 +1,4 @@
-<?php echo 
+<?php 
     include("../php/helper.php");
     $base_url = getBaseUrl();
 ?>
