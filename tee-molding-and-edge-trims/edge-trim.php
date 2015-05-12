@@ -5,7 +5,7 @@
     function newPanel($product){
         $models = $product["Models"];
         $alterations = newModel($models);
-        $panel = '<div class="panel panel-default">
+        $panel = '<div class="panel panel-default panel-fluid" style="margin:0.8%;">
                     <div class="panel-heading">
                         <h3 class="panel-title">'.$product["Title"].'</h3>
                     </div>
@@ -67,7 +67,7 @@
                 "covers" => "1/2",
                 "price" => 6.36,
                 "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-half finish-brite alloy-6463"
+                "classes" => "cut-three covers-half finish-brite alloy-6063"
             ),
             "OA7428-3" => array(
                 "title" => "Edge Trim",
@@ -75,7 +75,7 @@
                 "covers" => "3/4",
                 "price" => 7.03,
                 "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-three-quarter finish-brite alloy-6463"
+                "classes" => "cut-three covers-three-quarter finish-brite alloy-6063"
             ),
             "OA7432-3" => array(
                 "title" => "Edge Trim",
@@ -83,7 +83,7 @@
                 "covers" => "7/8",
                 "price" => 7.54,
                 "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-seven-eight finish-brite alloy-6463"
+                "classes" => "cut-three covers-seven-eight finish-brite alloy-6063"
             ),
             "OA7430-3" => array(
                 "title" => "Edge Trim",
@@ -91,7 +91,7 @@
                 "covers" => "1-1/16",
                 "price" => 8.36,
                 "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-one-one-sixteen finish-brite alloy-6463"
+                "classes" => "cut-three covers-one-one-sixteen finish-brite alloy-6063"
             ),
             "OA7431-3" => array(
                 "title" => "Edge Trim",
@@ -99,7 +99,7 @@
                 "covers" => "1-1/4",
                 "price" => 8.93,
                 "finish" => "Brite-Dip Finish",
-                "classes" => "cut-three covers-one-one-quarter finish-brite alloy-6463"
+                "classes" => "cut-three covers-one-one-quarter finish-brite alloy-6063"
             ),
             "OA7429-6" => array(
                 "title" => "Edge Trim",
@@ -107,7 +107,79 @@
                 "covers" => "1/2",
                 "price" => 11.13,
                 "finish" => "Brite-Dip Finish",
-                "classes" => "cut-six covers-half finish-brite alloy-6463"
+                "classes" => "cut-six covers-half finish-brite alloy-6063"
+            ),
+            "OA7428-6" => array(
+                "title" => "Edge Trim",
+                "cut" => "6'",
+                "covers" => "3/4",
+                "price" => 12.31,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-three-quarter finish-brite alloy-6063"
+            ),
+            "OA7432-6" => array(
+                "title" => "Edge Trim",
+                "cut" => "6'",
+                "covers" => "7/8",
+                "price" => 13.19,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-seven-eight finish-brite alloy-6063"
+            ),
+            "OA7430-6" => array(
+                "title" => "Edge Trim",
+                "cut" => "6'",
+                "covers" => "1-1/16",
+                "price" => 14.63,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-one-one-sixteen finish-brite alloy-6063"
+            ),
+            "OA7429-6" => array(
+                "title" => "Edge Trim",
+                "cut" => "6'",
+                "covers" => "1-1/4",
+                "price" => 15.63,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-one-one-quarter finish-brite alloy-6063"
+            ),
+            "OA9538-6" => array(
+                "title" => "Edge Trim",
+                "cut" => "6'",
+                "covers" => "1-5/8",
+                "price" => 22.95,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-one-five-eight finish-clear alloy-6063"
+            ),
+            "OA7429-12" => array(
+                "title" => "Edge Trim",
+                "cut" => "12'",
+                "covers" => "1/2",
+                "price" => 22.26,
+                "finish" => "Clear Anodized Finish",
+                "classes" => "cut-twleve covers-half finish-clear alloy-6063"
+            ),
+            "OA7428-12" => array(
+                "title" => "Edge Trim",
+                "cut" => "12'",
+                "covers" => "3/4",
+                "price" => 24.63,
+                "finish" => "Clear Anodized Finish",
+                "classes" => "cut-twleve covers-three-quarter finish-clear alloy-6063"
+            ),
+            "OA7432-12" => array(
+                "title" => "Edge Trim",
+                "cut" => "12'",
+                "covers" => "7/8",
+                "price" => 26.38,
+                "finish" => "Clear Anodized Finish",
+                "classes" => "cut-twleve covers-seven-eight finish-clear alloy-6063"
+            ),
+            "OA9538-12" => array(
+                "title" => "Edge Trim",
+                "cut" => "12'",
+                "covers" => "1-5/8",
+                "price" => 34.99,
+                "finish" => "Clear Anodized Finish",
+                "classes" => "cut-twleve covers-one-five-eight finish-clear alloy-6063"
             )
         ),
         "img" => $base_url."img/products/trims/edge-trim-aside.png",
@@ -115,6 +187,221 @@
     );
     $panels .= newPanel($edge);
 
+    $heavy = array( 
+        "Description" => 'Brite-Dip and Clear Anodized Aluminum Edge Molding, also Known as Overlapping Face Molding',
+        "Title" => "Edge Trim Heavy Lip",
+        "Models" => array(
+            "OA7433-3" => array(
+                "title" => "Edge Trim Heavy Lip",
+                "cut" => "3'",
+                "covers" => "13/16",
+                "price" => 8.22,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-thirteen-sixteen finish-brite alloy-6063"
+            ),
+            "OA7434-3" => array(
+                "title" => "Edge Trim Heavy Lip",
+                "cut" => "3'",
+                "covers" => "1-1/2",
+                "price" => 8.99,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-one-one-half finish-brite alloy-6063"
+            ),
+            "OA7432-3" => array(
+                "title" => "Edge Trim",
+                "cut" => "3'",
+                "covers" => "7/8",
+                "price" => 7.54,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-seven-eight finish-brite alloy-6063"
+            ),
+            "OA7433-6" => array(
+                "title" => "Edge Trim Heavy Lip",
+                "cut" => "6'",
+                "covers" => "13/16",
+                "price" => 14.39,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-thirteen-sixteen finish-brite alloy-6063"
+            ),
+            "OA7434-6" => array(
+                "title" => "Edge Trim Heavy Lip",
+                "cut" => "6'",
+                "covers" => "1-1/2",
+                "price" => 15.73,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-one-one-half finish-brite alloy-6063"
+            ),
+            "OA9538-12" => array(
+                "title" => "Edge Trim Heavy Lip",
+                "cut" => "12'",
+                "covers" => "13/16",
+                "price" => 28.72,
+                "finish" => "Mechanically Polished",
+                "classes" => "cut-twleve covers-thirteen-sixteen finish-polished alloy-6063"
+            )
+        ),
+        "img" => $base_url."img/products/trims/heavy-lip-aside.png",
+        "img_alt" => "Edge Trim"
+    );
+    $panels .= newPanel($heavy);
+
+    $grooved = array( 
+        "Description" => 'Brite-Dip and Clear Anodized Aluminum Edge Molding, also Known as Overlapping Face Molding',
+        "Title" => "Grooved Edge Trim",
+        "Models" => array(
+            "OA7435-3" => array(
+                "title" => "Grooved Edge Trim",
+                "cut" => "3'",
+                "covers" => "2",
+                "price" => 10.14,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-two finish-brite alloy-6063"
+            ),
+            "OA7435-6" => array(
+                "title" => "Grooved Edge Trim",
+                "cut" => "6'",
+                "covers" => "2",
+                "price" => 17.74,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-two finish-brite alloy-6063"
+            ),
+            "OA7435-12" => array(
+                "title" => "Grooved Edge Trim",
+                "cut" => "12'",
+                "covers" => "2",
+                "price" => 35.58,
+                "finish" => "Mechanically Polished",
+                "classes" => "cut-twelve covers-two finish-polished alloy-6063"
+            )
+        ),
+        "img" => $base_url."img/products/trims/grooved-aside.png",
+        "img_alt" => "Edge Trim"
+    );
+    $panels .= newPanel($grooved);
+
+    $round = array( 
+        "Description" => 'Brite-Dip and Clear Anodized Aluminum Edge Molding, also Known as Overlapping Face Molding',
+        "Title" => "Round Edge Trim",
+        "Models" => array(
+            "OA7426-3" => array(
+                "title" => "Round Edge Trim",
+                "cut" => "3'",
+                "covers" => "3/4",
+                "price" => 9.95,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-three-quarter finish-brite alloy-6063"
+            ),
+            "OA7427-3" => array(
+                "title" => "Round Edge Trim",
+                "cut" => "3'",
+                "covers" => "63/64",
+                "price" => 13.80,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-sixtythree-sixtyfour finish-brite alloy-6063"
+            ),
+            "OA7426-6" => array(
+                "title" => "Round Edge Trim",
+                "cut" => "6'",
+                "covers" => "3/4",
+                "price" => 17.42,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-three-quarter finish-brite alloy-6063"
+            ),
+            "OA7427-6" => array(
+                "title" => "Round Edge Trim",
+                "cut" => "6'",
+                "covers" => "63/64",
+                "price" => 24.15,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-sixtythree-sixtyfour finish-brite alloy-6063"
+            )
+        ),
+        "img" => $base_url."img/products/trims/grooved-aside.png",
+        "img_alt" => "Edge Trim"
+    );
+    $panels .= newPanel($round);
+
+    $rounded = array( 
+        "Description" => 'Brite-Dip and Clear Anodized Aluminum Edge Molding, also Known as Overlapping Face Molding',
+        "Title" => "Rounded Edge Trim",
+        "Models" => array(
+            "OA7436-3" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "3'",
+                "covers" => "3/8",
+                "price" => 9.85,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-three-eight finish-brite alloy-6063"
+            ),
+            "OA7437-3" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "3'",
+                "covers" => "1/2",
+                "price" => 10.73,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-half finish-brite alloy-6063"
+            ),
+            "OA7438-3" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "3'",
+                "covers" => "3/4",
+                "price" => 10.88,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-three-quarter finish-brite alloy-6063"
+            ),
+            "OA7439-3" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "3'",
+                "covers" => "1",
+                "price" => 13.02,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-three covers-one finish-brite alloy-6063"
+            ),
+            "OA7436-6" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "6'",
+                "covers" => "3/8",
+                "price" => 17.23,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-three-eight finish-brite alloy-6063"
+            ),
+            "OA7437-6" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "6'",
+                "covers" => "1/2",
+                "price" => 18.77,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-half finish-brite alloy-6063"
+            ),
+            "OA7438-6" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "6'",
+                "covers" => "3/4",
+                "price" => 19.04,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-three-quarter finish-brite alloy-6063"
+            ),
+            "OA7439-6" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "6'",
+                "covers" => "1",
+                "price" => 22.79,
+                "finish" => "Brite-Dip Finish",
+                "classes" => "cut-six covers-one finish-brite alloy-6063"
+            ),
+            "OA7438-12" => array(
+                "title" => "Rounded Edge Trim",
+                "cut" => "12'",
+                "covers" => "3/4",
+                "price" => 38.16,
+                "finish" => "Clear Anodized",
+                "classes" => "cut-twelve covers-three-quarter finish-clear alloy-6063"
+            )
+        ),
+        "img" => $base_url."img/products/trims/grooved-aside.png",
+        "img_alt" => "Edge Trim"
+    );
+    $panels .= newPanel($rounded);
     //Filters
     $cuts = array( 
         "title" => "Cut Length",
@@ -159,9 +446,9 @@
     $alloy = array( 
         "title" => "Alloy & Temper",
         "options" => array(
-            "alloy-6463" => array(
-                "name" => "alloy-6463",
-                "title" => "6463-T5",
+            "alloy-6063" => array(
+                "name" => "alloy-6063",
+                "title" => "6063-T5",
                 "group" => "alloy"
             ),
             "alloy-6063" => array(
@@ -318,7 +605,7 @@
                                             <td><b>Alloy</b></td>
                                             <td style="width:75%;">
                                                 <a data-toggle="tooltip" title="Ultra-Corrosive Resistant Architectural Grade Alloy">(CA) 6063-T5</a><br>
-                                                <a data-toggle="tooltip" title="Considered a Brite-Dip alloy, specially engineered for brite anodize finishes">(BD) 6463-T5</a>
+                                                <a data-toggle="tooltip" title="Considered a Brite-Dip alloy, specially engineered for brite anodize finishes">(BD) 6063-T5</a>
                                             </td>
                                         </tr>
                                         <tr>
