@@ -9,7 +9,7 @@ $(".cart-col").click(function(){
     
     var $product = $(this).parent("tr"); //get the parent row
     
-    var name = $product.children(".item-sku").data("name") + ": " + $product.children(".item-dimensions").text();  //format the title of this cart item
+    var name = $product.children(".item-sku").data("name");  //format the title of this cart item
     var price = $product.children(".item-price").text();
     $(".cart-title").text(name); //update the name of the cart item
     $(".cart-amount .price").text($product.children(".item-price").text()); //update the price value for this item

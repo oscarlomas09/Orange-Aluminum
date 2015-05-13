@@ -151,7 +151,7 @@ $('input[type=radio]').change(function() { //when the user selects a filter opti
     //if the parent container isn't showing any elements, then hide it
     $('.panel-default').each(function(){
         if($(this).find(".filter-row").length == $(this).find(".filter-hidden").length){
-            $(this).hide();
+            //$(this).hide();
         }
     });
 });
