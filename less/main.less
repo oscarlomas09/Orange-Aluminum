@@ -888,6 +888,11 @@ footer{
     transition-timing-function: linear;
     background-color: #FEFEFE;
     list-style: none;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 144px;
     padding: 0;
     margin: 0;
 }
@@ -1143,6 +1148,10 @@ footer{
 .panel-fluid{
     display: inline-block;
     width: 98%;
+    margin: 0
+}
+.panel-fluid:last-child{
+    margin-left: 0;
 }
 .filter-fixed{
     background-color: @gray-lighter;
@@ -1151,6 +1160,9 @@ footer{
 @media (min-width: 768px) {
     .panel-fluid{
         width: 48%;
+    }
+    .panel-fluid:last-child{
+        margin-left: 2%;
     }
     .filter-table{
         display: none;
