@@ -21,38 +21,42 @@
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
                     <a class="btn btn-warning" href="<?php echo BASE_URL;?>"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
                     <h2>Create an Account</h2><hr>
-                    <form>
-                       <table>
-                           <thead><th colspan="4"><h3 class="good"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Personal Information&nbsp;&nbsp;</h3></th></thead>
-                           <tbody>
-                               <tr>
-                                   <td style="text-align:right;"><label for="create-name">First Name:<small style="color:red;">*</small></label></td>
-                                   <td style="width:30%;padding:21px 8px;"><input id="create-name" type="text" placeholder="First Name" required//></td>
-                                   <td style="text-align:right;"><label for="create-last">Last Name:<small style="color:red;">*</small></label></td>
-                                   <td style="width:30%;padding:21px 8px;"><input id="create-last" type="text" placeholder="Last Name" required//></td>
-                               </tr>
-                               <tr>
-                                   <td style="text-align:right;"><label for="create-email">Email:</label><small style="color:red;">*</small></td>
-                                   <td style="width:30%;padding:21px 8px;"><input id="create-email" type="email" placeholder="Email" required/></td>
-                                   <td></td>
-                                   <td></td>
-                               </tr>
-                           </tbody> 
-                       </table>
-                       <table>
-                           <thead><th colspan="4"><h3 class="good"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;Login Information&nbsp;&nbsp;</h3></th></thead>
-                           <tbody>
-                               <tr>
-                                   <td style="text-align:right;"><label for="create-password">Password:<small style="color:red;">*</small></label></td>
-                                   <td style="width:30%;padding:21px 8px;"><input id="create-password" type="password" placeholder="" required//></td>
-                                   <td style="text-align:right;"><label for="create-confirm">Confirm:<small style="color:red;">*</small></label></td>
-                                   <td style="width:30%;padding:21px 8px;"><input id="create-confirm" type="password" placeholder="" required//></td>
-                               </tr>
-                           </tbody> 
-                       </table>
-                        <div style="text-align:right;"><small style="color:red;">*Required Fields</small></div>
-                        <button type="submit" class="btn btn-warning" style="font-size:1.2em;float:right;">Submit</button>
+                    <form class="form-horizontal register_form">
+                      <h3 class="good"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Personal Information&nbsp;&nbsp;</h3>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">First Name:<small style="color:red;">*</small></label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="registerFirstName" placeholder="First Name" required>
+                        </div>
+                      </div>                     
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Last Name:<small style="color:red;">*</small></label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="registerLastName" placeholder="Last Name" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Email:<small style="color:red;">*</small></label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="registerEmail" placeholder="Email" required>
+                        </div>
+                      </div>
+                      <h3 class="good"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;Login Information&nbsp;&nbsp;</h3>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Password:<small style="color:red;">*</small></label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="registerPassword" placeholder="Password" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Confirm:<small style="color:red;">*</small></label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="conformPassword" placeholder="Password" required>
+                        </div>
+                      </div>
                     </form>
+                    <div style="text-align:right;"><small style="color:red;">*Required Fields</small></div>
+                    <button type="submit" class="btn btn-warning" style="font-size:1.2em;float:right;">Submit</button>
                 </div>
                 <div class="hidden-xs col-sm-3">
                     <?php include("../../php/includes/side-content.php"); ?>
