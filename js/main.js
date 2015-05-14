@@ -208,6 +208,13 @@ $(".filter a").click(function(e){
     }
 });
 
+function showProgress(time, maxProgress){
+    $("#processing").show();
+    $("#processing").find(".progress-bar").css({width: "0"}).animate({width: maxProgress+"%"}, time, function(){
+        $("#processing").delay(800).fadeOut("slow");
+    });
+}
+
 //Cookie Handling
 function createCookie(name,value,days) {
     if (days) {

@@ -25,6 +25,22 @@ $(".cart-col").click(function(){
      	$("#add-product .cart-product").css("left", "50%");          
      },200);
 });
+$("#product-add").click(function(){    
+    $(".login, .shopping-cart").popover("hide"); //hide the login and shopping cart popover
+    
+    var title = $("#product-title").text();  //format the title of this cart item
+    var price = $("#product-price").data("price");
+    var qty = $("#product-qty").val();
+    var sku = $(this).data("sku");
+    showProgress(1000, 100);
+    setTimeout(function(){
+        addItem(sku, qty, price, title); //add the sku and quantity to the local storage
+        updateQty();
+        //Reset Values
+        $("#successful-add").fadeIn(300).delay(800).fadeOut(500);
+        $("#product-qty").val(1);
+    }, 1500); //YOU DONT HAVE TO CREATE A TIMEOUT!!!!!
+});
 //when the quantity is changed
 $("#cart-qty").on('change', 'input', function() {
      var total_amount =($(".cart-amount .price").data("price")*$(this).val()).formatMoney(2, '.', ','); 
@@ -39,9 +55,9 @@ $("#add-item").click(function(){
     var title = $(".cart-title").text();
     var price = $(".cart-amount .total").data("price");
     
-    $('#cart-object').children("span").text(qty); //get the quantity
-    var new_amount = parseInt($(".shopping-cart .amount").data("amount")) + parseInt(qty); //add previous amount plus this new amount
+    $('#cart-object').children("span").text(qty); //get the quantity new amount
     /*
+    var new_amount = parseInt($(".shopping-cart .amount").data("amount")) + parseInt(qty); //add previous amount plus this
     $(".shopping-cart .amount").data("amount",new_amount); 
     $(".shopping-cart .amount").text(new_amount); //set the new amount*/
     
@@ -62,10 +78,10 @@ $("#add-item").click(function(){
         $("#add-product .cart-product").css("left", "-100%");
         $("#add-product").fadeOut();    
         $('#cart-object span').css({width:0, height: 0}); 
+        addItem(sku, qty, price, title); //add the sku and quantity to the local storage
         updateQty();        
     }).fadeOut("fast");
     
-    addItem(sku, qty, price, title); //add the sku and quantity to the local storage
 });
 //close the add cart form
 $(".shopping-close").click(function(){

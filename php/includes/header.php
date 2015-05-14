@@ -60,6 +60,12 @@
         <button type="" class="btn">Find</button>
     </form>
 </header>
+<!-- Progress Bar -->
+<div class="progress" id="processing">
+  <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+    <span class="sr-only">100% Complete</span>
+  </div>
+</div>
 
 <!-- Login Popover -->
 <div id="login-popover" style="display:none;position:absolute;top: -9999px;">

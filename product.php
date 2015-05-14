@@ -1,4 +1,69 @@
-<?php include("php/helper.php"); ?>
+<?php 
+    include("php/helper.php"); 
+    $file = "docs/products.csv";
+    if(isset($_GET['sku'])) {
+        $sku = $_GET['sku'];
+    }
+    else{
+        $sku = "";
+    }
+    //defaults
+    $title = "Not Found";
+    $description = '';
+    $overview = '';
+    $price = 0;
+    $img = "img/products/not_found.jpg";
+    $cart = '';
+    $stock = '';
+    $row = 0;
+    if (($handle = fopen($file, "r")) !== FALSE) {
+        /***** CSV FILE STRUCTURE *******/
+        /*
+             0  |      1      |   2  |   3   |          4        |   5  
+            SKU | Description | Name | Price | Short Description | Image
+        */
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            //add this heading title to the products array as an index
+            if($row < 1){
+                $row++;
+                continue;
+            } 
+            $i = 0;
+            $row++;
+            
+            //check if the SKUs match
+            if($sku == $data[0]){
+                $description = $data[1];
+                $title = $data[2];
+                $price = $data[3];
+                $overview = $data[4];
+                $img = "http://www.orangealuminum.com/".$data[5];
+                $cart = '<div class="add-cart" style="float:none;">                         
+                      <label class="sr-only">Quantity</label>    
+                      <input type="number" id="product-qty" min="0" value="1">
+                      <button type="submit" id="product-add" data-sku="'.$sku.'">
+                          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                      </button>   
+                   </div>
+                    <div class="clearfix"></div><br>
+                   <h4 id="successful-add" class="good" style="display:none;">Product Added!</h4>
+                   <button class="btn btn-default">Customize</button>
+                   <button class="btn btn-default">+ Wishlist</button>
+                   <br><br>
+                   <h4>Share This Item</h4>
+                   <a class="share-link"><span class="icon-facebook"></span></a>
+                   <a class="share-link"><span class="icon-twitter"></span></a>
+                   <a class="share-link"><span class="icon-pinterest"></span></a>
+                   <a class="share-link"><span class="glyphicon glyphicon-envelope"></span></a>';
+                $stock = "In Stock";
+            }
+            else{
+                continue;   //product not found
+            }
+        }
+        fclose($handle);
+    }
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -19,21 +84,21 @@
         <div id="product-container" class="container-fluid common-container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
-                    <img class="product-img" src="img/products/clips/5337_6.jpg" alt="Product Image"/><br>
+                    <img class="product-img" src="<?php echo $img; ?>" alt="Product Image"/><br>
                 </div>
                 <div class="col-xs-12 col-sm-1">
-                    <img class="product-img tiny-img" src="img/products/clips/5337_6.jpg" alt="Product Thumbnail"/><br>
+                    <img class="product-img tiny-img" src="<?php echo $img; ?>" alt="Product Thumbnail"/><br>
                 </div>
                 <div class="col-xs-12 col-sm-5">
-                    <h2 class="product-title">Panel Rail and Clip, Style 1</h2>
-                    <h4 class="product-sku">SKU: OA5337</h4>
-                    <h4 class="product-price"><strong>$9.06</strong></h4>
+                    <h2 id="product-title"><?php echo $title; ?></h2>
+                    <h4 id="product-sku">SKU: <?php echo $sku; ?></h4>
+                    <h4 id="product-price" data-price="<?php echo $price; ?>"><strong>$<?php echo number_format(floatval($price), 2, '.', ''); ?></strong></h4>
                     <p class="delivery">Want it Thursday, April 30? Order within <span class="good">19 hrs 06 min</span> and choose Same Day Delivery at checkout!</p>
-                    <h5 id="product-stock" class="good">In Stock</h5>
+                    <h5 id="product-stock" class="good"><?php echo $stock; ?></h5>
                     <br>
-                    <div class="options">
+                    <!-- <div class="options">
                         <h4 class="option-title">Cut Length</h4>
-                        <form>
+                        <>
                            <div class="filter-option">
                                <input type="radio" id="cut-clips" name="cut" value="cut-clips"/>
                                <label for="cut-clips"><span></span>Clips (20pcs)</label>
@@ -47,54 +112,25 @@
                                <label for="cut-twelve"><span></span>12' + ($9.36)</label>
                            </div>
                        </form>
-                       <br>
-                       <div class="add-cart" style="float:none;">                         
-                          <label class="sr-only">Quantity</label>    
-                          <input type="number" id="'.$item.'-qty" min="0" value="1">
-                          <button type="submit">
-                              <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-                          </button>
-                       </div>
-                        <div class="clearfix"></div><br>
-                       <button class="btn btn-default">Customize</button>
-                       <button class="btn btn-default">+ Wishlist</button>
-                       <br><br>
-                       <h4>Share This Item</h4>
-                       <a class="share-link"><span class="icon-facebook"></span></a>
-                       <a class="share-link"><span class="icon-twitter"></span></a>
-                       <a class="share-link"><span class="icon-pinterest"></span></a>
-                       <a class="share-link"><span class="glyphicon glyphicon-envelope"></span></a>
-                    </div>
+                    </div> -->
+                    <br>
+                   <?php echo $cart; ?>                   
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 hidden-xs">
                     <h3>Product Description</h3><hr>
-                    <p>Mill Finish Aluminum Panel Rails and Clips, Style 1, Panel Rails and Clips are Designed for Two of the Sections to Wedge Together, Securely Locking Panels in Place. Ideal for Hanging Wall Panels, Partitions, and Signs. Lift-off Clearance of 5/8" Required for Installation and Removal. Overall Height when Mounted is 3-1/8" (Style 1 Has Less Offset and Larger Lift-Off Than Style 2 with Larger Offset and Smaller Lift-Off.)</p>
-                    <ul>
-                        <li>3/16" Offset x 5/8" Drop (.175" x .625")</li>
-                        <li>Available in 1.5" Clips, 6 Foot and 12 Foot Cut Lengths</li>
-                        <li>Mill Finish, Per American Society for Testing and Materials (ASTM)</li>
-                        <li>6063 Ultra-Corrosive Resistant Architectural Grade Alloy, T5 Temper</li>
-                        <li>Rails Punched 8" OC for #8 Screws; Clips are Punched with 2 holes</li>
-                    </ul>
+                    <p><?php echo $description; ?></p>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <h3>Quick Overview</h3><hr>
-                    <p>Ideal for hanging wall panels, signs, artwork, cabinets & more.</p>
-                    <ul>
-                        <li>3/16" Offset x 5/8" Drop (.175" x .625")</li>
-                        <li>Available in 1.5" Clips, 6 Foot and 12 Foot Cut Lengths</li>
-                        <li>Mill Finish</li>
-                        <li>6063-T5</li>
-                        <li>Available Punched 8" On Center</li>
-                    </ul>
+                    <p><?php echo $overview; ?></p>
                 </div>
             </div>
             <div class="row">
                 <img src="img/charity.jpg" />
             </div>
-        </div>
+        </div> 
         <?php include("php/includes/chat.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         <?php include("php/includes/script-js.php"); ?>

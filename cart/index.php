@@ -221,10 +221,14 @@
             });
 
             $("#clear-cart").click(function(){
-                window.localStorage.clear();
-                location.reload();
+                showProgress(500, 100);
+                setTimeout(function(){
+                    window.localStorage.clear();
+                    location.reload();
+                }, 800);
             });
             $("#update-cart").click(function(){
+                showProgress(100, 100);
                 updateCart();
             });
             updateCart();
