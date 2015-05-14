@@ -22,7 +22,7 @@
                         <a href="<?php echo BASE_URL; ?>" style="color:white;"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Shopping</a>
                     </div>
                     <div class="btn btn-warning" style="float:right;max-width:48%;overflow:hidden;">
-                        Secure Checkout&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>
+                        <a href="<?php echo BASE_URL; ?>checkout" style="color:white;">Secure Checkout&nbsp;<span class="glyphicon glyphicon-arrow-right"></span></a>
                     </div>
                     <div class="clearfix"></div><br>
                     <table id="cart-table">
@@ -150,7 +150,7 @@
                             <tr><td><h3>Grand Total:</h3></td><td><h3 id="grand-total" data-value="54.69">$54.69</h3></td></tr>
                         </table>
                         <div class="clearfix"></div>
-                        <button id="checkout-btn" class="btn btn-press btn-lg">Proceed to Checkout   <span class="glyphicon glyphicon-arrow-right"></span></button>
+                        <a href="<?php echo BASE_URL; ?>checkout"><button id="checkout-btn" class="btn btn-press btn-lg">Proceed to Checkout   <span class="glyphicon glyphicon-arrow-right"></span></button></a>
                     </div>
                 </div>
                 <div class="hidden-xs col-sm-3"><?php include("../php/includes/side-content.php") ?></div>
@@ -232,7 +232,6 @@
                 updateCart();
             });
             updateCart();
-        </script>
-        
+        </script>        
     </body>
 </html>
