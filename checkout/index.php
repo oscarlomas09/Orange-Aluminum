@@ -144,7 +144,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-4 checkout-col">
                     <h3>Shipping</h3>                  
                     <input type="checkbox" id="shippingRadio" data-toggle="collapse" data-target="#shippingAddress" aria-expanded="false" aria-controls="shippingAddress"/>
-                    <label for="createRadio">Ship to different address</label>
+                    <label for="shippingRadio">Ship to different address</label>
                     <form id="shippingAddress" class="collapse">          
                       <div class="form-group form-fluid">
                         <label for="shipping_firstName">First Name:</label>
@@ -259,7 +259,32 @@
                     <form id="paymentMethod">
                         <input type="radio" id="credit" name="payment" checked/>
                         <label for="credit">Credit Card</label><br>
-                        <input type="radio" id="check" name="payment" checked/>
+                        <div id="credit-container">
+                          <table>
+                            <thead>
+                              <th colspan="2">Payment Details</th>
+                              <th class="last-col" id="cart-type" style="text-align:right;font-size:2.5em;"><span class="icon-visa"></span></th>
+                            </thead>
+                            <tbody>
+                              <tr><td colspan="3">Card Number</td></tr>
+                              <tr><td colspan="3"><input type="number" id="card-number" /></td></tr>
+                              <tr>
+                                <td colspan="2">Expiration</td>
+                                <td class="last-col text-center">CSV</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <select><option>01 - January</option></select>
+                                </td>
+                                <td>
+                                  <select><option>2015</option></select>
+                                </td>
+                                <td class="last-col"><input type="number" id="csv" /></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <input type="radio" id="check" name="payment"/>
                         <label for="check">Check / Money order</label><br>
                     </form>
                 </div>
