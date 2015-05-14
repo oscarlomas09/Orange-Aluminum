@@ -140,6 +140,13 @@
     $schedule_panel = newPanel("../docs/round_tube_schedule.csv", "Schedule 40 Pipes", $group, true);
         
     //create Filters
+
+    //sort filters
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["wall"]["options"], "cmp");
+    usort($filters["id-in"]["options"], "cmp");
+    usort($filters["od-in"]["options"], "cmp");
+
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';

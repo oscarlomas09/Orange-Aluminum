@@ -135,10 +135,16 @@
         
     //create Filters
     $filter_option = '';
+    //reorder arrays
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["leg-a"]["options"], "cmp");
+    usort($filters["leg-b"]["options"], "cmp");
+    usort($filters["wall"]["options"], "cmp");
+
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';
         $options = $value["options"];
-        $filter_count = count($options);            
+        $filter_count = count($options);    
         foreach($options as $filter){
             if($key == "finish"){
                 $option = $key."-".strtolower(strtok($filter," "));

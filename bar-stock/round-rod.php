@@ -123,6 +123,12 @@
     $solid_rod = newPanel("../docs/round_rods.csv", "Solid Rods", $group);
         
     //create Filters
+
+    //sort filters
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["diameter-mm"]["options"], "cmp");
+    usort($filters["diameter-in"]["options"], "cmp");
+
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';

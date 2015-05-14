@@ -143,6 +143,13 @@
     $hollow_panel = newPanel("../docs/hex_hollow.csv", "Hollow Hex Bars", $group, true);
         
     //create Filters
+    
+    //sort filters
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["wall"]["options"], "cmp");
+    usort($filters["od-mm"]["options"], "cmp");
+    usort($filters["od-in"]["options"], "cmp");
+    
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';
