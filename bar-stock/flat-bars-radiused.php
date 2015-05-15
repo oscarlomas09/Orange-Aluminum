@@ -134,6 +134,12 @@
     $mill_panel = newPanel("../docs/flatbar_radiused.csv", "Radiused Flat Bar", $group);
         
     //create Filters
+
+    //reorder arrays
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["width-in"]["options"], "cmp");
+    usort($filters["thickness-in"]["options"], "cmp");
+
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';

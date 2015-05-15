@@ -117,6 +117,13 @@
     $h_connectors = newPanel("../docs/h_connector.csv", "H Connectors", $group);
         
     //create Filters
+
+    //reorder arrays
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["width"]["options"], "cmp");
+    usort($filters["height"]["options"], "cmp");
+
+
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';

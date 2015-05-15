@@ -128,6 +128,13 @@
     $t_sections = newPanel("../docs/t_sections.csv", "T Sections", $group);
         
     //create Filters
+
+    //sort filters
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["wall"]["options"], "cmp");
+    usort($filters["width"]["options"], "cmp");
+    usort($filters["height"]["options"], "cmp");
+
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';

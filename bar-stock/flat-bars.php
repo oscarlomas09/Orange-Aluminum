@@ -149,6 +149,14 @@
     $imperial_panel = newPanel("../docs/flatbar_imperial.csv", "Imperial Flat Bars", $group, "imperial");
         
     //create Filters
+
+    //reorder arrays
+    usort($filters["cut"]["options"], "cmp");
+    usort($filters["width-mm"]["options"], "cmp");
+    usort($filters["width-in"]["options"], "cmp");
+    usort($filters["thickness-mm"]["options"], "cmp");
+    usort($filters["thickness-in"]["options"], "cmp");
+
     $filter_option = '';
     foreach($filters as $key => $value){
         $filter_option .= '<h4 class="filter-name active">'.$value["title"].'</h4><ul>';

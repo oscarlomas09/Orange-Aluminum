@@ -137,4 +137,48 @@
         }
         return rtrim($text, "-");
     }
+    function cmp($a, $b){
+        $a = fraction2decimal($a);
+        $b = fraction2decimal($b);
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a < $b) ? -1 : 1;
+    }
+
+    function fraction2decimal($fraction){
+        $fraction = str_replace('"', "", $fraction);
+        $fraction = str_replace(' ', "", $fraction);
+        $fraction = str_replace('mm', "", $fraction);
+        $fraction = str_replace('in', "", $fraction);
+        
+        if(substr_count($fraction, '-') > 0){
+            $arr = preg_split("/[\s,-]+/", $fraction);
+            if(count($arr) > 1){
+                $first_num = intval($arr[0]);
+                for($k = 0; $k < count($arr); $k++){
+                   $remainder_arr = explode("/", $arr[1]);
+                   $remainder = floatval($remainder_arr[0])/floatval($remainder_arr[1]);
+                   $decimal = $first_num + $remainder;                    
+                }
+            }
+            else{
+               $decimal = $first_num;  
+            }
+        }
+        else{
+            $remainder_arr = explode("/", $fraction);
+            $remainder = 0;
+            if(count($remainder_arr) > 1){
+                for($k = 0; $k < count($remainder_arr); $k++){
+                   $remainder = floatval($remainder_arr[0])/floatval($remainder_arr[1]);
+                   $decimal = $remainder;                    
+                }
+            }
+            else{
+               $decimal = $remainder_arr[0];  
+            }
+        }
+        return floatval($decimal);
+    }
 ?>
