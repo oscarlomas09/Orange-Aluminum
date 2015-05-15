@@ -59,12 +59,12 @@
         </div>
         <div class="row hidden-xs" id="lower-footer">
             <div class="col-lg-5">
-                <span>Newsletter Sign-Up</span><br>
-                <form class="form-inline">
+                <span id="newsletter-label">Newsletter Sign-Up</span><br>
+                <form id="newsletter-form" class="form-inline">
                     <div class="form-group">
                         <label class="sr-only" for="newsletter-input">Newsletter Email</label>
-                        <input type="email" class="form-control" id="newsletter-input" placeholder="Email">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <input type="email" class="form-control" id="newsletter-input" name="newsletter_email" placeholder="Email" required>
+                        <input type="submit" class="btn btn-success" value="Submit">
                     </div>
                 </form>
             </div>

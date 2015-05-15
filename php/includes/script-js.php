@@ -2,7 +2,9 @@
 <script>window.jQuery || document.write('<script src="<?php echo BASE_URL; ?>js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <!-- Include all compiled plugins (below), or  individual files as needed -->
 <script src="<?php echo BASE_URL; ?>js/vendor/bootstrap.min.js"></script>
+<script src="<?php echo BASE_URL; ?>js/vendor/webshim-1.15.7.min.js"></script>
 <script src="<?php echo BASE_URL; ?>js/main.js"></script>
+<script src="<?php echo BASE_URL; ?>js/forms.js"></script>
 <script src="<?php echo BASE_URL; ?>js/cart.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

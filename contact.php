@@ -20,13 +20,13 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
                     <a class="btn btn-warning" href="<?php echo BASE_URL;?>"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
-                    <h2>Contact Us</h2><hr>
-                    <form>
-                        <table style="width:100%;" class="form-panel">
-                            <thead><th colspan="2">Contact Information</th></thead>
-                        </table>
-                        <div class="container-fluid form-panel">
-                            <div class="row">
+                    <h2 id="contact-feedback">Contact Us</h2><hr>
+                    <table style="width:100%;" class="form-panel">
+                        <thead><th colspan="2">Contact Information</th></thead>
+                    </table>
+                    <div class="container-fluid form-panel">
+                        <div class="row">
+                            <form id="contact-form">
                                 <div class="col-xs-12 col-sm-6">
                                     <div>
                                         <label>Inquiry*</label><br>
@@ -41,35 +41,37 @@
                                     </div>
                                     <div>
                                         <label>First Name</label><br>
-                                        <input type="text"/>
+                                        <input type="text" name="first_name"/>
                                     </div>
                                     <div>
                                         <label>Last Name</label><br>
-                                        <input type="text"/>
+                                        <input type="text" name="last_name"/>
                                     </div>
                                     <div>
                                         <label>Business Name</label><br>
-                                        <input type="text"/>
+                                        <input type="text" name="business_name"/>
                                     </div>
                                     <div>
                                         <label>Email*</label><br>
-                                        <input type="email" required/>
+                                        <input type="email" name="contact_email" required />
                                     </div>
                                     <div>
                                         <label>Telephone</label><br>
-                                        <input type="tel"/>
+                                        <input type="tel" name="telephone"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">                                    
                                     <div>
                                         <label>Comments</label><br>
-                                        <textarea rows="8"></textarea>
+                                        <textarea rows="8" name="comments" style="resize:vertical;width:100%;max-height:300px;"></textarea>
                                     </div>
                                 </div>
-                            </div>
-                        </div><br>
-                        <button type="submit" class="btn btn-warning" style="font-size:1.2em;float:right;">Submit</button>
-                    </form>
+                                <div class="col-xs-12"> 
+                                    <input type="submit" value="Submit" class="btn btn-warning" style="font-size:1.2em;float:right;"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div><br>
                 </div>
                 <div class="hidden-xs col-sm-3">
                     <?php include("php/includes/side-content.php"); ?>
