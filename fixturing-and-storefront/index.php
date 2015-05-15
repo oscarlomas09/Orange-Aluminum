@@ -28,21 +28,33 @@
                             </ol>
                             <h2>Fixturing and Storefront</h2>
                             <hr>
-                            <a href="ez-slatwall-system.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/ez-slatwall.jpg" alt="EZ Slatwall" class="img-thumbnail">
-                                <span>EZ Slatwall System</span>
+                            <a href="<?php echo BASE_URL;?>fixturing-and-storefront/ez-slatwall-system.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/fixturing/ez-slatwall.jpg" alt="EZ Slatwall"/>
+                                   <div class="icon"><h1><span class="icon-ez"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">EZ Slatwall System</h5>
                             </a>
-                            <a href="price-tag-moldings.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/price-tag.jpg" alt="Price Tag Molding" class="img-thumbnail">
-                                <span>Price Tag Moldings</span>
+                            <a href="<?php echo BASE_URL;?>fixturing-and-storefront/price-tag-moldings.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/fixturing/price-tag.jpg" alt="Price Tag Molding"/>
+                                   <div class="icon"><h1><span class="icon-price-tag"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Price Tag Moldings</h5>
                             </a>
-                            <a href="slatwall-systems.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/slatwall.jpg" alt="Slatwall Systems" class="img-thumbnail">
-                                <span>Slatwall Systems</span>
+                            <a href="<?php echo BASE_URL;?>fixturing-and-storefront/slatwall-systems.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/fixturing/slatwall.jpg" alt="Slatwall Systems"/>
+                                   <div class="icon"><h1><span class="icon-slatwall"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Slatwall Systems</h5>
                             </a>
-                            <a href="snap-frames.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames" class="img-thumbnail">
-                                <span>Snap Frames</span>
+                            <a href="<?php echo BASE_URL;?>fixturing-and-storefront/snap-frames.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/fixturing/snap-frame.jpg" alt="Snap Frames"/>
+                                   <div class="icon"><h1><span class="icon-snap-frame"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Snap Frames</h5>
                             </a>
                         </div><br>
                     </div>

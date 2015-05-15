@@ -1117,6 +1117,65 @@ footer{
         text-shadow: 1px 1px 0px darken(@orange, 8%);  
     }
 }
+.product-img{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;    
+    
+    img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s;
+        z-index: 0;
+    }
+    .icon{
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: top 0.3s;
+        z-index: 1;
+    }
+    h1{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        color: white;
+        text-align: center;
+        font-size: 2em;
+        transition: all 0.3s;
+        transition-delay: 0s;
+        background-color: @orange;
+        overflow: hidden;
+        display: table;
+        
+        span{
+            display: table-cell;
+            vertical-align: middle;
+            line-height: normal;
+        }
+    }
+}
+.product-img:hover,.product-img:focus, .product-img:active{
+    .icon{        
+        top:0;
+    }
+    h1{
+        transition: all 0.8s;
+        transition-delay: 0.5s;
+        font-size: 3em;
+        text-shadow: 1px 1px 1px darken(@orange, 8%), 2px 2px 1px darken(@orange, 8%), 3px 3px 1px darken(@orange, 8%), 4px 4px 1px darken(@orange, 8%), 5px 5px 1px darken(@orange, 8%), 6px 6px 1px darken(@orange, 8%), 7px 7px 1px darken(@orange, 8%), 8px 8px 1px darken(@orange, 8%), 9px 9px 1px darken(@orange, 8%), 10px 10px 1px darken(@orange, 8%), 11px 11px 1px darken(@orange, 8%), 12px 12px 1px darken(@orange, 8%), 13px 13px 1px darken(@orange, 8%), 14px 14px 1px darken(@orange, 8%), 15px 15px 1px darken(@orange, 8%), 16px 16px 1px darken(@orange, 8%), 17px 17px 1px darken(@orange, 8%), 18px 18px 1px darken(@orange, 8%), 19px 19px 1px darken(@orange, 8%), 20px 20px 1px darken(@orange, 8%), 21px 21px 1px darken(@orange, 8%), 22px 22px 1px darken(@orange, 8%), 23px 23px 1px darken(@orange, 8%), 24px 24px 1px darken(@orange, 8%), 25px 25px 1px darken(@orange, 8%), 26px 26px 1px darken(@orange, 8%), 27px 27px 1px darken(@orange, 8%), 28px 28px 1px darken(@orange, 8%), 29px 29px 1px darken(@orange, 8%), 30px 30px 1px darken(@orange, 8%), 31px 31px 1px darken(@orange, 8%), 32px 32px 1px darken(@orange, 8%), 33px 33px 1px darken(@orange, 8%), 34px 34px 1px darken(@orange, 8%), 35px 35px 1px darken(@orange, 8%), 36px 36px 1px darken(@orange, 8%), 37px 37px 1px darken(@orange, 8%), 38px 38px 1px darken(@orange, 8%), 39px 39px 1px darken(@orange, 8%), 40px 40px 1px darken(@orange, 8%), 41px 41px 1px darken(@orange, 8%), 42px 42px 1px darken(@orange, 8%), 43px 43px 1px darken(@orange, 8%), 44px 44px 1px darken(@orange, 8%), 45px 45px 1px darken(@orange, 8%), 46px 46px 1px darken(@orange, 8%), 47px 47px 1px darken(@orange, 8%), 48px 48px 1px darken(@orange, 8%), 49px 49px 1px darken(@orange, 8%), 50px 50px 1px darken(@orange, 8%), 51px 51px 1px darken(@orange, 8%), 52px 52px 1px darken(@orange, 8%), 53px 53px 1px darken(@orange, 8%), 54px 54px 1px darken(@orange, 8%), 55px 55px 1px darken(@orange, 8%), 56px 56px 1px darken(@orange, 8%), 57px 57px 1px darken(@orange, 8%), 58px 58px 1px darken(@orange, 8%), 59px 59px 1px darken(@orange, 8%), 60px 60px 1px darken(@orange, 8%), 61px 61px 1px darken(@orange, 8%), 62px 62px 1px darken(@orange, 8%), 63px 63px 1px darken(@orange, 8%), 64px 64px 1px darken(@orange, 8%), 65px 65px 1px darken(@orange, 8%), 66px 66px 1px darken(@orange, 8%), 67px 67px 1px darken(@orange, 8%), 68px 68px 1px darken(@orange, 8%), 69px 69px 1px darken(@orange, 8%), 70px 70px 1px darken(@orange, 8%), 71px 71px 1px darken(@orange, 8%), 72px 72px 1px darken(@orange, 8%), 73px 73px 1px darken(@orange, 8%), 74px 74px 1px darken(@orange, 8%), 75px 75px 1px darken(@orange, 8%), 76px 76px 1px darken(@orange, 8%), 77px 77px 1px darken(@orange, 8%), 78px 78px 1px darken(@orange, 8%), 79px 79px 1px darken(@orange, 8%), 80px 80px 1px darken(@orange, 8%), 81px 81px 1px darken(@orange, 8%), 82px 82px 1px darken(@orange, 8%), 83px 83px 1px darken(@orange, 8%), 84px 84px 1px darken(@orange, 8%), 85px 85px 1px darken(@orange, 8%), 86px 86px 1px darken(@orange, 8%), 87px 87px 1px darken(@orange, 8%), 88px 88px 1px darken(@orange, 8%), 89px 89px 1px darken(@orange, 8%), 90px 90px 1px darken(@orange, 8%), 91px 91px 1px darken(@orange, 8%), 92px 92px 1px darken(@orange, 8%), 93px 93px 1px darken(@orange, 8%), 94px 94px 1px darken(@orange, 8%), 95px 95px 1px darken(@orange, 8%), 96px 96px 1px darken(@orange, 8%), 97px 97px 1px darken(@orange, 8%), 98px 98px 1px darken(@orange, 8%), 99px 99px 1px darken(@orange, 8%), 100px 100px 1px darken(@orange, 8%),  0px 0px 1px rgba(0,0,0,0.3);
+    }
+}
 .common-container{
     max-width: 1200px;
     padding: 8px;
@@ -1232,6 +1291,16 @@ footer{
     }
     .filter-table{
         display: none;
+    }
+    .product-img{
+        h1{
+            font-size: 3em;
+        }
+    }
+    .product-img:hover, .product-img:active, .product-img:focus{
+        h1{
+            font-size: 5em;
+        }
     }
 }
 .img-tall{

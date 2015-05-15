@@ -28,29 +28,47 @@
                             </ol>
                             <h2>Cabinet, Case and Closet</h2>
                             <hr>
-                            <a href="closet-rods.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/cabinet/closet.jpg" alt="Closet" class="img-thumbnail">
-                                <span>Closet Rods</span>
+                            <a href="<?php echo BASE_URL; ?>cabinet-and-closet/closet-rods.php" class="col-xs-6 col-sm-3 col-md-2">                                 
+                                <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/cabinet/closet.jpg" alt="Closet">
+                                    <div class="icon"><h1><span class="icon-closet"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Closet Rods</h5>
                             </a>
-                            <a href="door-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/cabinet/tracks.jpg" alt="Door Tracks" class="img-thumbnail">
-                                <span>Door Tracks</span>
+                            <a href="<?php echo BASE_URL; ?>cabinet-and-closet/door-tracks.php" class="col-xs-6 col-sm-3 col-md-2">                               
+                                <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/cabinet/tracks.jpg" alt="Door Tracks" />
+                                    <div class="icon"><h1><span class="icon-tracks"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Door Tracks</h5>
                             </a>
-                            <a href="file-hanging-rail.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/cabinet/rails.jpg" alt="File Hanging Rails" class="img-thumbnail">
-                                <span>File Hanging Rails</span>
+                            <a href="<?php echo BASE_URL; ?>cabinet-and-closet/file-hanging-rail.php" class="col-xs-6 col-sm-3 col-md-2">        
+                                <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/cabinet/rails.jpg" alt="File Hanging Rails"/>
+                                   <div class="icon"><h1><span class="icon-rails"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">File Hanging Rails</h5>
                             </a>
-                            <a href="cabinet-trim.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/cabinet/cabinet-trim.jpg" alt="Garage Cabinet Trim" class="img-thumbnail">
-                                <span>Garage Cabinet Trim</span>
+                            <a href="<?php echo BASE_URL; ?>cabinet-and-closet/cabinet-trim.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/cabinet/cabinet-trim.jpg" alt="Cabinet Trims"/>
+                                   <div class="icon"><h1><span class="icon-cabinet"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Garage Cabinet Trims</h5>
                             </a>
-                            <a href="pulls-and-handles.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/cabinet/pulls.jpg" alt="Pulls and Handles" class="img-thumbnail">
-                                <span>Pulls and Handles</span>
+                            <a href="<?php echo BASE_URL; ?>cabinet-and-closet/pulls-and-handles.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/cabinet/pulls.jpg" alt="Pulls and Handles"/>
+                                   <div class="icon"><h1><span class="icon-pulls"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Pulls and Handles</h5>
                             </a>
-                            <a href="road-case-sections.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/cabinet/case.jpg" alt="Road Case Sections" class="img-thumbnail">
-                                <span>Road Case Sections</span>
+                            <a href="<?php echo BASE_URL; ?>cabinet-and-closet/road-case-sections.php" class="col-xs-6 col-sm-3 col-md-2">
+                                <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/cabinet/case.jpg" alt="Road Case Sections"/>
+                                   <div class="icon"><h1><span class="icon-case"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Road Case Sections</h5>
                             </a>
                         </div><br>
                     </div>

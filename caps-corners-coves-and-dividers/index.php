@@ -28,17 +28,26 @@
                             </ol>
                             <h2>Caps, Corners, Coves, and </h2>
                             <hr>
-                            <a href="corners.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/dividers/corners.jpg" alt="Corners" class="img-thumbnail">
-                                <span>Corners</span>
+                            <a href="<?php echo BASE_URL;?>caps-corners-coves-and-dividers/corners.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/dividers/corners.jpg" alt="Closet"/>
+                                   <div class="icon"><h1><span class="icon-corners"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Corners</h5>
                             </a>
-                            <a href="divider-bar.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/dividers/divider.jpg" alt="Divider Bars" class="img-thumbnail">
-                                <span>Divider Bar</span>
+                            <a href="<?php echo BASE_URL;?>caps-corners-coves-and-dividers/divider-bar.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/dividers/divider.jpg" alt="Divider Bars"/>
+                                   <div class="icon"><h1><span class="icon-divider"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Divider Bars</h5>
                             </a>
-                            <a href="j-cap.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/dividers/j-cap.jpg" alt="J-Cap Edge Trim" class="img-thumbnail">
-                                <span>J Cap Edge Trim</span>
+                            <a href="<?php echo BASE_URL;?>caps-corners-coves-and-dividers/j-cap.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/dividers/j-cap.jpg" alt="J-Cap Edge Trim"/>
+                                   <div class="icon"><h1><span class="icon-j-cap"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">J Cap Edge Trim</h5>
                             </a>
                         </div><br>
                     </div>

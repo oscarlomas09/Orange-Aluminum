@@ -28,13 +28,19 @@
                             </ol>
                             <h2>T Slot Framing Systems and Tracks</h2>
                             <hr>
-                            <a href="quad-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/t-slot/quad-track.jpg" alt="Quad Tracks" class="img-thumbnail">
-                                <span>T Slot Framing: Quad Tracks</span>
+                           <a href="<?php echo BASE_URL;?>t-slot-framing-systems-and-tracks/quad-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/t-slot/quad-track.jpg" alt="Quad Tracks"/>
+                                   <div class="icon"><h1><span class="icon-quad"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">T Slot Framing: Quad Tracks</h5>
                             </a>
-                            <a href="t-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/t-slot/t-track.jpg" alt="T-Tracks" class="img-thumbnail">
-                                <span>T-Tracks</span>
+                            <a href="<?php echo BASE_URL;?>t-slot-framing-systems-and-tracks/t-tracks.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/t-slot/t-track.jpg" alt="T Tracks"/>
+                                   <div class="icon"><h1><span class="icon-t-track"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">T-Tracks</h5>
                             </a>
                         </div><br>
                     </div>

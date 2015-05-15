@@ -64,9 +64,18 @@ function mobileMenu(){
 
 //perform design and functionality changes depending on the screen size
 collapsable();
+//resize all the product image thumbnails
+$(".product-img").each(function(){
+    $(this).height($(this).width());
+});
+
 $(window).resize(function(e){
     collapsable(); 
     $(".login").popover("hide"); //hide the login popover
+    //resize all the product image thumbnails
+    $(".product-img").each(function(){
+        $(this).height($(this).width());
+    });
 });
 
 //show or hide mobile menu on click

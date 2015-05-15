@@ -27,14 +27,20 @@
                               <li>Tee Molding and Edge Trims</li>
                             </ol>
                             <h2>Tee Molding and Edge Trims</h2>
-                            <hr>
-                            <a href="edge-trim.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/trims/edge-trim.jpg" alt="Edge Trims" class="img-thumbnail">
-                                <span>Edge Trims</span>
-                            </a>
-                            <a href="tee-moulding.php" class="col-xs-6 col-sm-3 col-md-2">
-                                <img src="<?php echo BASE_URL;?>img/products/trims/tee-molding.jpg" alt="Tee Moulding" class="img-thumbnail">
-                                <span>Tee Moulding</span>
+                            <hr>                            
+                            <a href="<?php echo BASE_URL;?>tee-molding-and-edge-trims/edge-trim.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/trims/edge-trim.jpg" alt="Edge Trims"/>
+                                   <div class="icon"><h1><span class="icon-trim"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Edge Trims</h5>
+                            </a>                                                       
+                            <a href="<?php echo BASE_URL;?>tee-molding-and-edge-trims/tee-moulding.php" class="col-xs-6 col-sm-3 col-md-2">
+                               <div class="product-img">
+                                   <img src="<?php echo BASE_URL;?>img/products/trims/tee-molding.jpg" alt="Tee Moulding"/>
+                                   <div class="icon"><h1><span class="icon-trim-grooved"></span></h1></div>
+                                </div>
+                                <h5 class="text-center">Tee Moulding</h5>
                             </a>
                         </div><br>
                     </div>

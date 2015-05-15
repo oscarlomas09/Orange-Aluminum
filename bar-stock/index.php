@@ -32,54 +32,90 @@
                             <h2>Bar Stock</h2>
                             <p>Standard Aluminum profiles: 6061 structural alloy to 6063 architectural grade, from mill to clear anodized finishes.</p>
                             <hr>
-                            <a href="<?php echo BASE_URL;?>bar-stock/angles.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/angles.jpg" alt="Angles" class="img-thumbnail">
-                                <span>Angles</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/channels.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/channels.jpg" alt="Channels" class="img-thumbnail">
-                                <span>Channels</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/flat-bars.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/flat.jpg" alt="Flat Bars" class="img-thumbnail">
-                                <span>Flat Bars</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/flat-bars-radiused.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/flat-radiused.jpg" alt="Flat Bars: Radiused" class="img-thumbnail">
-                                <span>Radiused</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/h-sections.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/h-bar.jpg" alt="H-Sections" class="img-thumbnail">
-                                <span>H Sections</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/half-rounds.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/half-round.jpg" alt="Half Rounds" class="img-thumbnail">
-                                <span>Half Rounds</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/hex-bars.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/hex.jpg" alt="Hex Bars" class="img-thumbnail">
-                                <span>Hex Bars</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/square-tubes.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/square.jpg" alt="Square Tubes" class="img-thumbnail">
-                                <span>Square Tubes</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/round-rod.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/rod.jpg" alt="Round Rods" class="img-thumbnail">
-                                <span>Round Rod</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/round-tube.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/tube.jpg" alt="Round Tubes" class="img-thumbnail">
-                                <span>Round Tubes</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/tee-bars.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/tee.jpg" alt="Tee Bars" class="img-thumbnail">
-                                <span>Tee Bars</span>
-                            </a>
-                            <a href="<?php echo BASE_URL;?>bar-stock/z-bars.php" class="col-xs-4 col-sm-2">
-                                <img src="<?php echo BASE_URL;?>/img/products/bars/z-bar.jpg" alt="Z-Bar" class="img-thumbnail">
-                                <span>Z-Bars</span>
-                            </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/angles.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/angles.png" />
+                                <div class="icon"><h1><span class="icon-angle"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Angles</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/channels.php" class="col-xs-4 col-sm-2">   
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/channels.png" />
+                                <div class="icon"><h1><span class="icon-channel"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Channels</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/flat-bars.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/flat.png" />
+                                <div class="icon"><h1><span class="icon-flat" style="width:100%;position:absolute;top:50%;margin-top:-1em;"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Flat Bars</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/flat-bars-radiused.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/radiused.png" />
+                                <div class="icon"><h1><span class="icon-flat-radiused" style="width:100%;position:absolute;top:50%;margin-top:-1em;"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Radiused Bars</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/h-sections.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/h-section.png" />
+                                <div class="icon"><h1><span class="icon-h-section"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">H Sections</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/half-rounds.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/half.png" />
+                                <div class="icon"><h1><span class="icon-half-round" style="width:100%;position:absolute;top:50%;margin-top:-0.75em;"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Half Rounds</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/hex-bars.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/hex.png" />
+                                <div class="icon"><h1><span class="icon-hex"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Hex Bars</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/square-tubes.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/square.png" />
+                                <div class="icon"><h1><span class="icon-square-hollow"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Square Tubes</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/round-rod.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/rod.png" />
+                                <div class="icon"><h1><span class="icon-round-rod"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Round Rods</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/round-tube.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/tube.png" />
+                                <div class="icon"><h1><span class="icon-round-tube"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Round Tubes</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/tee-bars.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/tee.png" />
+                                <div class="icon"><h1><span class="icon-tee-bar"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Tee Bars</h5>
+                        </a>
+                        <a href="<?php echo BASE_URL;?>bar-stock/z-bars.php" class="col-xs-4 col-sm-2">
+                            <div class="product-img">
+                                <img src="<?php echo BASE_URL;?>/img/flat/z-bar.png" />
+                                <div class="icon"><h1><span class="icon-z-bar"></span></h1></div>
+                            </div>
+                            <h5 class="text-center">Z Bars</h5>
+                        </a>
                         </div><br>
                     </div>
                 </div>
