@@ -98,6 +98,17 @@ $("#card_number").keyup(function(e){
             break;
     }
 });
+
+$('input[name="payment"]:radio').change(function(){
+    if($(this).val() == "credit"){
+        $("#credit-container").collapse("show");
+    }
+    else{
+        $("#credit-container").collapse("hide");
+    }
+});          
+
+
 //checkout
 $feedback = $("#feedback_txt");
 var billingValid = false,
@@ -117,6 +128,8 @@ $("#billingAddress, #shippingAddress, #creditForm").submit(function(e){
     e.preventDefault();
     return false;
 });
+
+$modal = $("#checkout-modal");
 $("#checkout-btn").click(function(e){    
     $("#billingAddress").find('input[type="submit"]').trigger("click");
     var billingForm = $("#billingAddress").serialize();
@@ -160,9 +173,12 @@ $("#checkout-btn").click(function(e){
     var credit_info = "";
     if($("#credit").is(":checked")){
         payment = "credit";
-        $("#creditSubmit").trigger("click");
-        credit_info = $("#creditForm").serialize();        
+        $("#creditSubmit").trigger("click");       
     }
+    else{
+        creditValid = true;
+    }
+    credit_info = $("#creditForm").serialize(); 
     
     if(!creditValid){
         return;
@@ -209,17 +225,31 @@ $("#checkout-btn").click(function(e){
           $("#processing").find(".progress-bar").animate({width: "100%"}, 500, function(){  //progress bar
               $("#processing").delay(300).fadeOut("fast");             
           });   
+        
+          $modal.find("p").text(data["response"]);  
           //the form was processed 
           if(data["status"] == "good"){     
-            $feedback.removeClass().addClass("good").text(data["response"]);      
+            $feedback.removeClass().addClass("good").text(data["response"]);  
+            $modal.find("h3").text("Success!");                
+            $modal.find(".icon").removeClass("success error").addClass("success");  
+            $modal.find(".icon").html('<span class="glyphicon glyphicon-ok-circle"></span>');  
           }
           else{ 
             $feedback.removeClass().addClass("bad").text(data["response"]);      
+            $modal.find("h3").text("Error");  
+            $modal.find(".icon").removeClass("success error").addClass("error");  
+            $modal.find(".icon").html('<span class="glyphicon glyphicon-remove-circle"></span>');  
           }    
           $("html, body").animate({ scrollTop: 0 }, "fast"); //scroll to top
+          $modal.fadeIn("fast");
       },
       error: function(xhr, ajaxOptions, thrownError){
-            alert(xhr.responseText);
+            console.log(xhr.responseText);
       }
     });
+});
+$(".close-checkout").click(function(){
+    //empty the cart and redirect to the home page
+    localStorage.removeItem('cart');
+    location.href = base_url;
 });

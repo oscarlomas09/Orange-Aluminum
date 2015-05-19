@@ -14,6 +14,20 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <?php include("../php/includes/header.php"); ?>
+        <div id="checkout-modal">
+          <div class="screen"></div>
+          <div id="modal-content">
+            <div id="close-checkout">
+              <span class="glyphicon glyphicon-remove-circle close-checkout"></span>
+            </div>
+            <div class="icon"><span class="glyphicon glyphicon-record"></span></div>
+            <div id="checkout-msg">
+              <h3>Processing...</h3>
+              <p>Processing your order...</p>
+              <div class="close-checkout"><span class="glyphicon glyphicon-remove-circle"></span> Close</div>
+            </div>
+          </div>
+        </div>
         <div class="common-container container-fluid">
             <h2 id="feedback_txt">PLACE ORDER NOW</h2>            
             <p>Please fill in the fields below and click Place Order to complete your purchase!</p>
@@ -260,9 +274,9 @@
                     
                     <h3>Payment Method</h3>
                     <form id="creditForm">
-                        <input type="radio" id="credit" name="payment" checked/>
+                        <input type="radio" id="credit" name="payment" value="credit" checked />
                         <label for="credit">Credit Card</label><br>
-                        <div id="credit-container">
+                        <div id="credit-container" class="collapse in">
                           <table>
                             <thead>
                               <th colspan="2">Payment Details</th>
@@ -314,7 +328,7 @@
                             </tbody>
                           </table>
                         </div>
-                        <input type="radio" id="check" name="payment"/>
+                        <input type="radio" id="check" name="payment" value="check" />
                         <label for="check">Check / Money order</label><br>
                         <input type="submit" value="submit" id="creditSubmit" style="width:0px;height:0px;display:none;"/>
                     </form>
@@ -329,12 +343,16 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2" style="text-align:right;"><h4>Subtotal</h4></td>
-                                <td class="price-col"><b id="subtotal" data-value="0">$0.00</b></td>
+                                <td colspan="2" style="text-align:right;padding:2px 3px;"><h5>Subtotal</h5></td>
+                                <td class="price-col" style="padding:2px 3px;"><b id="subtotal" data-value="0">$0.00</b></td>
                             </tr>   
                             <tr>
-                                <td colspan="2" style="text-align:right;"><h4>Shipping & Handling</h4></td>
-                                <td class="price-col"><b id="shipping" data-value="0">$0.00</b></td>
+                                <td colspan="2" style="text-align:right;padding:2px 3px;"><h5>Tax</h5></td>
+                                <td class="price-col" style="padding:2px 3px;"><b id="tax" data-value="0">$0.00</b></td>
+                            </tr> 
+                            <tr>
+                                <td colspan="2" style="text-align:right;padding:2px 3px;"><h5>Shipping & Handling</h5></td>
+                                <td class="price-col" style="padding:2px 3px;"><b id="shipping" data-value="0">$0.00</b></td>
                             </tr>  
                             <tr>
                                 <th colspan="2" style="text-align:right;"><h4>Grand Total</h4></th>

@@ -149,8 +149,16 @@ function checkout(){
     $coupon = trim($_POST["coupon"]);
     
     //parse the products as a JSON object
-    $products = trim($_POST["products"]);
+    $products = json_decode(trim($_POST["products"]));
+    /*
+        foreach($products as $product){
+            $sku = $product["sku"];
+            $total = intval($product["quantity"])*floatval($product["price"]);
+        }
+    */
     
+    $response["status"] = "good";
+    $response["response"] = "Your Order Was Processed!";
     echo json_encode($response);
     exit();
 }
