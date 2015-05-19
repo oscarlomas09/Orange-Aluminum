@@ -1,4 +1,27 @@
 <?php 
+    if(isset($_COOKIE["timezone"])){
+        $timezone = $_COOKIE["timezone"];
+        $timezone_name = timezone_name_from_abbr(null, tz_offset_to_name($timezone), true);
+        date_default_timezone_set($timezone_name);
+    }
+    else{
+        date_default_timezone_set('America/Los_Angeles');
+    }
+      
+    function tz_offset_to_name($offset){
+        $offset *= 3600; // convert hour offset to seconds
+        $abbrarray = timezone_abbreviations_list();
+        foreach ($abbrarray as $abbr){
+            foreach ($abbr as $city){
+                if ($city['offset'] == $offset){
+                        return $city['timezone_id'];
+                }
+            }
+        }
+
+        return false;
+    }
+
     function getBaseUrl(){
         // output: /myproject/index.php
         $currentPath = $_SERVER['PHP_SELF']; 
@@ -180,5 +203,18 @@
             }
         }
         return floatval($decimal);
+    }
+    function seconds2human($seconds) {
+        //do not need seconds
+        //$s = $seconds%60;
+
+        $m = floor(($seconds%3600)/60);
+        $h = floor(($seconds%86400)/3600);
+        $d = floor(($seconds%2592000)/86400);
+
+        //do not need months
+        //$M = floor($seconds/2592000);
+
+        return $d > 0 ? $d.' days '.$h.' hrs '.$m.' min' : $h.' hrs '.$m.' min';
     }
 ?>

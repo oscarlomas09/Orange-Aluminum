@@ -16,6 +16,18 @@
     $cart = '';
     $stock = '';
     $row = 0;
+    
+    $today = time();
+    //check if today is Friday, Saturday or Sunday
+    if(date("N") >= 5){
+        $tomorrow = strtotime(date("Y-m-d 12:00",strtotime("next Monday"))); //next day delivery would be the following monday
+    }
+    else{
+        $tomorrow = strtotime(date("Y-m-d 12:00",strtotime('tomorrow')));
+    }
+    $diff = $tomorrow - $today;
+    $same_day = "";
+
     if (($handle = fopen($file, "r")) !== FALSE) {
         /***** CSV FILE STRUCTURE *******/
         /*
@@ -56,6 +68,7 @@
                    <a class="share-link"><span class="icon-pinterest"></span></a>
                    <a class="share-link"><span class="glyphicon glyphicon-envelope"></span></a>';
                 $stock = "In Stock";
+                $same_day = 'Want it by '. date('l, F j', $tomorrow). '? Order within <span class="good">' .seconds2human($diff) .'</span> and choose Same Day Delivery at checkout!';
             }
             else{
                 continue;   //product not found
@@ -93,7 +106,7 @@
                     <h2 id="product-title"><?php echo $title; ?></h2>
                     <h4 id="product-sku">SKU: <?php echo $sku; ?></h4>
                     <h4 id="product-price" data-price="<?php echo $price; ?>"><strong>$<?php echo number_format(floatval($price), 2, '.', ''); ?></strong></h4>
-                    <p class="delivery">Want it Thursday, April 30? Order within <span class="good">19 hrs 06 min</span> and choose Same Day Delivery at checkout!</p>
+                    <p class="delivery"><?php echo $same_day; ?></p>
                     <h5 id="product-stock" class="good"><?php echo $stock; ?></h5>
                     <br>
                     <!-- <div class="options">

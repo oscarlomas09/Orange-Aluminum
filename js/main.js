@@ -224,6 +224,10 @@ function showProgress(time, maxProgress){
     });
 }
 
+//get timezone
+var visitortime = new Date();
+var visitortimezone = 0 - visitortime.getTimezoneOffset();
+
 //Cookie Handling
 function createCookie(name,value,days) {
     if (days) {
@@ -245,13 +249,13 @@ function readCookie(name) {
     }
     return null;
 }
-
 function eraseCookie(name) {
     createCookie(name,"",-1);
 }
-
-createCookie('ppkcookie','testcookie',7);
-
+/*
 var x = readCookie('ppkcookie')
 if (x) {
 }
+*/
+eraseCookie("timezone");
+createCookie('timezone',visitortimezone,7);
