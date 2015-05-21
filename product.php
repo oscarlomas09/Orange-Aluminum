@@ -18,12 +18,18 @@
     $row = 0;
     
     $today = time();
-    //check if today is Friday, Saturday or Sunday
-    if(date("N") >= 5){
-        $tomorrow = strtotime(date("Y-m-d 12:00",strtotime("next Monday"))); //next day delivery would be the following monday
+    //Before 12PM
+    if(date('G') <= 12){
+       $tomorrow =  strtotime(date("Y-m-d 12:00"));
     }
-    else{
-        $tomorrow = strtotime(date("Y-m-d 12:00",strtotime('tomorrow')));
+    else{        
+        //check if today is Friday, Saturday or Sunday
+        if(date("N") >= 5){
+            $tomorrow = strtotime(date("Y-m-d 12:00",strtotime("next Monday"))); //next day delivery would be the following monday
+        }
+        else{
+            $tomorrow = strtotime(date("Y-m-d 12:00",strtotime('tomorrow')));
+        }
     }
     $diff = $tomorrow - $today;
     $same_day = "";
