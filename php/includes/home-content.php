@@ -32,6 +32,10 @@
                 <li><a href="<?php echo BASE_URL; ?>tee-molding-and-edge-trims/tee-moulding.php"><span class="icon-trim-grooved"></span>Tee Moulding</a></li>
                 <li><a href="<?php echo BASE_URL; ?>bar-stock/z-bars.php"><span class="icon-z-bar"></span>Z Bars</a></li>
             </ul>
+            <br>
+            <img src="<?php echo BASE_URL;?>/img/catalog.jpg" /><br><br>
+            <img src="<?php echo BASE_URL;?>/img/made-in-america.png" /><br><br>
+            <img src="<?php echo BASE_URL;?>/img/recyclable.png" style="width:auto;"/>
         </aside>
         <div class="col-sm-12 col-md-9">
             <div class="container-fluid">

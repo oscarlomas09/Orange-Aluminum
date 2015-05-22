@@ -10,7 +10,7 @@
         <h3 class="side-panel-title">Need Help?</h3>
         <div class="side-panel-content">
             <p>Chat online with one of our friendly customer service representatives.</p>
-            <button class="btn btn-warning" style="display:block;margin:auto;">CHAT NOW</button><br>
+            <button class="btn btn-warning chat" style="display:block;margin:auto;">CHAT NOW</button><br>
             <strong style="display:block;">(877)464-2181</strong>
             <p>If you have any questions about your order, please <a>Contact Us</a></p>
         </div>
