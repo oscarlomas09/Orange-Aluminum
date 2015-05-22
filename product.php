@@ -65,7 +65,7 @@
                    </div>
                     <div class="clearfix"></div><br>
                    <h4 id="successful-add" class="good" style="display:none;">Product Added!</h4>
-                   <button class="btn btn-default">Customize</button>
+                   <button class="btn btn-default" data-toggle="modal" data-target="#quote-modal">Customize</button>
                    <button class="btn btn-default">+ Wishlist</button>
                    <br><br>
                    <h4>Share This Item</h4>
@@ -149,9 +149,13 @@
             <div class="row">
                 <img src="img/charity.jpg" />
             </div>
+            <?php include("php/includes/quote.php"); ?>
         </div> 
         <?php include("php/includes/chat.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         <?php include("php/includes/script-js.php"); ?>
+        <script>
+            $("#custom-quote").remove();
+        </script>
     </body>
 </html>
