@@ -200,7 +200,8 @@
             </table>
             <div class="row">
                 <aside class="col-xs-12 col-sm-3">
-                    <?php echo $filter; ?>
+                    <?php echo $filter; ?><br>
+                    <?php include("../php/includes/quote.php"); ?>
                 </aside>
                 <div class="col-xs-12 col-sm-9">
                     <div class="panel panel-primary hidden-xs">
