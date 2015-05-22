@@ -7,6 +7,7 @@
     <head>
         <title>Extrusion Experts</title>
         <meta name="description" content="">
+        <?php include("php/includes/header-files.php"); ?>
     </head>
     <body>
         <!--[if lt IE 8]>
