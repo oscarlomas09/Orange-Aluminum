@@ -4,7 +4,7 @@
         <input type="hidden" id="add-qty" value="0" />
         <span>0</span>
     </div>
-     <div id="product-screen"></div>
+     <div id="product-screen" class="shopping-close"></div>
      <div class="cart-product">
           <span class="shopping-close glyphicon glyphicon-remove-circle"></span>
           <h3 class="cart-title">Aluminum Bars</h3>

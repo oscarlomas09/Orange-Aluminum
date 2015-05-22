@@ -129,14 +129,60 @@ $("#billingAddress, #shippingAddress, #creditForm").submit(function(e){
     return false;
 });
 
+//iOS had problems submitting the form by triggering the click functionality of the submit buttons. This would perform one last check on all the forms
+function lastValidation(sameAsBilling, payment){    
+    var invalid_fields = 0;
+    $( ':input[required]', "#billingAddress").each(function (){
+        //check if this required field is empty
+        if (!$.trim($(this).val())){
+            invalid_fields++;
+            $(this).css("outline", "2px solid red");
+        }
+    });
+    //if the shipping address is not the same as the billing address
+    if(!sameAsBilling){
+        $( ':input[required]', "#shippingAddress").each(function (){
+            //check if this required field is empty
+            if (!$.trim($(this).val())){
+                invalid_fields++;
+                $(this).css("outline", "2px solid red");
+            }
+        });
+    }
+    //if the payment method is credit
+    if(payment == "credit"){
+        $( ':input[required]', "#creditForm").each(function (){
+            //check if this required field is empty
+            if (!$.trim($(this).val())){
+                invalid_fields++;
+                $(this).css("outline", "2px solid red");
+            }
+        });
+    }
+    
+    return invalid_fields > 0 ? false : true;
+}
+
 $modal = $("#checkout-modal");
-$("#checkout-btn").click(function(e){    
+$("#checkout-btn").click(function(e){   
+    //make sure the shopping cart is not empty
+    var products = null;
+    if (localStorage.getItem('cart') !== null) {
+       products = localStorage.getItem('cart');
+    }
+    else{
+        alert("Shopping Cart Empty...");
+        return;
+    }
+    
     $("#billingAddress").find('input[type="submit"]').trigger("click");
     var billingForm = $("#billingAddress").serialize();
     
+    //billing form was completed
     if(!billingValid){
         return;
     }
+    
     //make sure the passowords match
     var password = "";
     var createAccount = false;
@@ -162,15 +208,21 @@ $("#checkout-btn").click(function(e){
     if($("#shippingRadio").is(":checked")){
         sameAsBilling = false;
         $("#shippingAddress").find('input[type="submit"]').trigger("click")
-        shippingForm = $("#shippingAddress").serialize();        
-        
-        if(!shippingValid){
-            return;
-        }        
+        shippingForm = $("#shippingAddress").serialize();      
+    }
+    else{
+        shippingValid = true;
+    }
+    
+    //shipping form was completed
+    if(!shippingValid){
+        return;
     }
     
     var payment = "check";
     var credit_info = "";
+    
+    //the are not paying by check or money order
     if($("#credit").is(":checked")){
         payment = "credit";
         $("#creditSubmit").trigger("click");       
@@ -178,14 +230,18 @@ $("#checkout-btn").click(function(e){
     else{
         creditValid = true;
     }
-    credit_info = $("#creditForm").serialize(); 
+    credit_info = $("#creditForm").serialize(); //get the values for this form    
     
+    //credit form was filled out
     if(!creditValid){
         return;
     }    
     
+    
     var coupon = $("#coupon").val(); //get the coupon code
     var comments = $("#comments").val(); //get comments
+    
+    //get the totals
     var subtotal = $('#subtotal').data("value");
     var shipping = $('#shipping').data("value");
     var total = $('#grand-total').data("value");
@@ -196,12 +252,13 @@ $("#checkout-btn").click(function(e){
        newsletter = "yes";
     }
     
+    lastValidation(sameAsBilling, payment); //Perform one last form validation
+    
+    //Terms of Service
     if(!$("#terms").is(":checked")){
        alert("Please Agree to Our Terms");
         return;
-    }
-    
-    var products = localStorage.getItem('cart');
+    }  
     
     //everything is 
     var url = base_url+"php/forms.php";

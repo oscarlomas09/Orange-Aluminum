@@ -30,7 +30,17 @@ $("#product-add").click(function(){
     
     var title = $("#product-title").text();  //format the title of this cart item
     var price = $("#product-price").data("price");
+    
+    //make sure the quantity is greater than 0
     var qty = $("#product-qty").val();
+    if(qty <= 0){
+        $("#product-qty").css("border","1px solid red");
+        return;
+    }
+    else{
+        $("#product-qty").css("border","none");        
+    }
+    
     var sku = $(this).data("sku");
     showProgress(1000, 100);
     setTimeout(function(){
@@ -54,6 +64,15 @@ $("#add-item").click(function(){
     var qty = $("#cart-qty input").val();
     var title = $(".cart-title").text();
     var price = $(".cart-amount .total").data("price");
+    
+    //make sure quantity is greater than 0
+    if(qty <= 0){
+        $("#cart-qty input").css("border","1px solid red");
+        return;
+    }
+    else{
+        $("#cart-qty input").css("border","none");        
+    }
     
     $('#cart-object').children("span").text(qty); //get the quantity new amount
     /*

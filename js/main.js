@@ -109,7 +109,7 @@ $(".login").click(function(e){
 });
 //Live Chat Form
 var $chat = $("#chat"); //cache the chat element
-$("#chat-header, #chat-btn").click(function(e){
+$("#chat-header, #chat-btn, .chat").click(function(e){
     //if the chat form is hidden then animate it in
     if($chat.hasClass("chat-hidden")){
         $chat.animate({bottom: 0}, 500).removeClass("chat-hidden");

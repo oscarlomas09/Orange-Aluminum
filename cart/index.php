@@ -231,6 +231,7 @@
                 showProgress(100, 100);
                 updateCart();
             });
+            $('.shopping-cart').popover('destroy'); //remove the shopping cart popover
             updateCart();
         </script>        
     </body>

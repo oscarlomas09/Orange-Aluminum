@@ -15,7 +15,7 @@
         <![endif]-->
         <?php include("../php/includes/header.php"); ?>
         <div id="checkout-modal">
-          <div class="screen"></div>
+          <div class="screen close-checkout"></div>
           <div id="modal-content">
             <div id="close-checkout">
               <span class="glyphicon glyphicon-remove-circle close-checkout"></span>
@@ -407,10 +407,24 @@
                 $("#cart-table .product").remove();
                 $("#cart-table tbody").prepend(cart_row);
             }
+            //check if there are items in the shopping cart
             if(cart_items.length > 0){
                 cartRow();
             }
+            else{
+                $("#feedback_txt").removeClass().text("There Are No Items on Your Cart");      
+                $("#checkout-modal").find("h3").text("Sorry");  
+                $("#checkout-modal").find("p").text("There Are No Items on Your Cart");  
+                $("#checkout-modal").find(".icon").removeClass("success error");  
+                $("#checkout-modal").find(".icon").html('');  
+                $("#checkout-modal").fadeIn();  
+            }
+            
+            $('.shopping-cart').popover('destroy'); //remove the shopping cart popover
+            
             updateCart();
+            
+            
         </script>    
     </body>
 </html>

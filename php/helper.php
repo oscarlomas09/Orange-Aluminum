@@ -3,6 +3,9 @@
         $timezone = $_COOKIE["timezone"];
         $timezone_name = timezone_name_from_abbr(null, tz_offset_to_name($timezone), true);
         date_default_timezone_set($timezone_name);
+        
+        //uncomment if default timezone works
+        date_default_timezone_set('America/Los_Angeles');        
     }
     else{
         date_default_timezone_set('America/Los_Angeles');
