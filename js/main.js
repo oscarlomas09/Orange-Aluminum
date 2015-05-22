@@ -224,6 +224,38 @@ function showProgress(time, maxProgress){
     });
 }
 
+//customize form
+$("#customize-form").submit(function(e){
+    var url = base_url+"php/forms.php";
+    //php will look for this variable to see what function to execute
+    var data = {
+      "action": "custom"
+    };
+    data = $(this).serialize() + "&" + $.param(data); //get all values ready to send
+    //make the ajax call
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: url, //Relative or absolute path to response.php file
+      data: data,
+      beforeSend: function(){
+            $("#processing").show();
+            $("#processing").find(".progress-bar").css({width: "0"}).animate({width: "30%"}, 300);    //progress bar            
+      },
+      success: function(data) {
+          //progress bar   
+          $("#processing").find(".progress-bar").animate({width: "100%"}, 500, function(){
+              $("#feedback").addClass(data["status"]).text(data["response"]);       
+              $("#processing").delay(300).fadeOut("fast");
+          });        
+      },
+      error: function(xhr, ajaxOptions, thrownError){
+            alert(xhr.responseText);
+      }
+    });
+    return false;
+});
+
 //get timezone
 var visitortime = new Date();
 var visitortimezone = 0 - visitortime.getTimezoneOffset();

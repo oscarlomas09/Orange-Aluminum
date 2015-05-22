@@ -5,17 +5,17 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="quote-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="quote-modal" tabindex="-1" role="dialog" aria-labelledby="feedback" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Get A Custom Quote</h4>
+        <h4 class="modal-title" id="feedback">Get A Custom Quote</h4>
       </div>
       <div class="modal-body">
           <div class="container-fluid form-panel">
             <div class="row">
-                <form id="contact-form">
+                <form id="customize-form" enctype="multipart/form-data">
                     <div class="col-xs-12 col-sm-6">
                         <div>
                             <label>First Name</label><br>
@@ -57,7 +57,7 @@
                     <div class="col-xs-12 col-sm-6">  
                         <div>
                             <label>Order Quantity</label><br>
-                            <input type="text" name="qty"/>
+                            <input type="text" name="order-qty"/>
                         </div>   
                         <div>
                             <label>Timeframe</label><br>

@@ -6,6 +6,8 @@ if (is_ajax()) {
        case "newsletter": newsletter();break;
        case "contact": contact();break; 
        case "checkout": checkout();break;
+       case "advanced_search": advancedSearch();break;
+       case "custom": customQuote();break;
     }
   }
 }
@@ -15,33 +17,53 @@ function is_ajax() {
     return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
 
-function newsletter(){
+function advancedSearch(){
     $response = array(
         "status" => "bad",
         "response" => "Something Went Wrong",
         "error" => "Error Code:"
     );
-    $email = trim($_POST["newsletter_email"]); //YOU SHOULD DO OTHER CHECKS AND CLEANUPS OF THIS POST VARIABLE, TO PREVENT ATTACKS
+    //YOU SHOULD DO OTHER CHECKS AND CLEANUPS OF THIS POST VARIABLE, TO PREVENT ATTACKS
+    $name = trim($_POST["name"]); 
+    $description = trim($_POST["description"]); 
+    $sku = trim($_POST["sku"]); 
+    $price_to = trim($_POST["price_to"]); 
+    $price_from = trim($_POST["price_from"]); 
     
-    //get the newsletter email
-    if ($email == ""){
-        $response["error"] = "Blank Email Address";
+    if(isset($_POST["cut_length"])){
+        $cut = $_POST["cut_length"];
+        foreach ($cut as $option){
+            //echo $option;
+        }
     }
-    else{
-        //CHECK IF EMAIL IS ALREADY IN DATABASE
-        //if($email in $database){
-        //  $response["error"] = "This Email Address is Already Taken";
-        //}
-        //else{
-        //  INSERT EMAIL TO DATABASE
-        //}
-        $response["status"] = "good";
-        $response["response"] = "Thank You for Subscribing!";
+    
+    if(isset($_POST["finish"])){
+        $finish = $_POST["finish"];
+        foreach ($finish as $option){
+            //echo $option;
+        }
     }
+    
+    if(isset($_POST["alloy_temper"])){
+        $alloy = $_POST["alloy_temper"];
+        foreach ($alloy as $option){
+            //echo $option;
+        }
+    }
+    
+    if(isset($_POST["length"])){
+        $length = $_POST["length"];
+        foreach ($length as $option){
+            //echo $option;
+        }  
+    }
+    
+    $response["status"] = "good"; 
+    $response["response"] = "These Results Were Found";
+    
     echo json_encode($response);
     exit();
 }
-
 function contact(){
     $response = array(
         "status" => "bad",
@@ -68,6 +90,62 @@ function contact(){
         //INSERT ALL VALUES TO A DATABASE OF USE PHP EMAIL FUNCTIONS
         $response["status"] = "good"; 
         $response["response"] = "Thank You for Contacting Us!";
+    }
+    echo json_encode($response);
+    exit();
+}
+function customQuote(){
+    $response = array(
+        "status" => "bad",
+        "response" => "Something Went Wrong",
+        "error" => "Error Code:"
+    );
+    //YOU SHOULD DO OTHER CHECKS AND CLEANUPS OF THIS POST VARIABLE, TO PREVENT ATTACKS
+    $email = trim($_POST["contact_email"]); 
+    $first_name = trim($_POST["first_name"]); 
+    $last_name = trim($_POST["last_name"]); 
+    $business_name = trim($_POST["business_name"]); 
+    $tel = trim($_POST["telephone"]); 
+    $sku = trim($_POST["sku"]); 
+    $finish = trim($_POST["finish"]); 
+    $fabrication = trim($_POST["fab"]); 
+    $cut = trim($_POST["cut"]); 
+    $qty = trim($_POST["order-qty"]); 
+    $timeframe = trim($_POST["timeframe"]); 
+    $notes = trim($_POST["notes"]); 
+    
+    //get the newsletter email
+    if ($email == ""){
+        $response["error"] = "Blank Email Address";
+    }
+    else{                
+        $response["status"] = "good"; 
+        $response["response"] = "Thank You for Your Interest!";
+        
+        //***********REVISE THIS CODE****************//
+        
+        if(isset($_POST["attachments"])){
+            if($_FILES['attachments']['name']){
+               //if no errors...
+               if(!$_FILES['attachments']['error']){
+                    //now is the time to modify the future file name and validate the file
+                    $new_file_name = strtolower($_FILES['attachments']['tmp_name']); //rename file
+                    if($_FILES['attachments']['size'] > (1024000)){ //can't be larger than 1 MB{
+                        $valid_file = false;
+                        $response["status"] = "bad"; 
+                        $response["response"] = "File Size Too Large.";
+                    }
+
+                    //if the file has passed the test
+                    if($valid_file){
+                        //move it to where we want it to be
+                        move_uploaded_file($_FILES['attachments']['tmp_name'], 'uploads/'.$new_file_name);
+                    }
+                }
+            }
+        }
+        
+         //***********REVISE THIS CODE****************//
     }
     echo json_encode($response);
     exit();
@@ -159,6 +237,32 @@ function checkout(){
     
     $response["status"] = "good";
     $response["response"] = "Your Order Was Processed!";
+    echo json_encode($response);
+    exit();
+}
+function newsletter(){
+    $response = array(
+        "status" => "bad",
+        "response" => "Something Went Wrong",
+        "error" => "Error Code:"
+    );
+    $email = trim($_POST["newsletter_email"]); //YOU SHOULD DO OTHER CHECKS AND CLEANUPS OF THIS POST VARIABLE, TO PREVENT ATTACKS
+    
+    //get the newsletter email
+    if ($email == ""){
+        $response["error"] = "Blank Email Address";
+    }
+    else{
+        //CHECK IF EMAIL IS ALREADY IN DATABASE
+        //if($email in $database){
+        //  $response["error"] = "This Email Address is Already Taken";
+        //}
+        //else{
+        //  INSERT EMAIL TO DATABASE
+        //}
+        $response["status"] = "good";
+        $response["response"] = "Thank You for Subscribing!";
+    }
     echo json_encode($response);
     exit();
 }

@@ -20,26 +20,26 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-9" style="font-size:1.2em;">
                     <a class="btn btn-warning" href="<?php echo BASE_URL;?>"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>Back to Shopping</a><br><br>
-                    <h2 id="contact-feedback">Advanced Search</h2><hr>
+                    <h2 id="feedback">Advanced Search</h2><hr>
                     <div class="container-fluid form-panel">
                         <div class="row">
                             <form id="search-form">
                                 <table>
                                     <tr>
                                         <td><label for="search_name">Name</label></td>
-                                        <td><input type="text" id="search_name"/></td>
+                                        <td><input type="text" id="search_name" name="name"/></td>
                                     </tr>
                                     <tr>
                                         <td><label for="search_description">Description</label></td>
-                                        <td><input type="text" id="search_description"/></td>
+                                        <td><input type="text" id="search_description" name="description"/></td>
                                     </tr>
                                     <tr>
                                         <td><label for="search_sku">SKU</label></td>
-                                        <td><input type="text" id="search_sku"/></td>
+                                        <td><input type="text" id="search_sku" name="sku"/></td>
                                     </tr>
                                     <tr>
                                         <td><label for="search_price">Price</label></td>
-                                        <td><input type="text" id="search_price_from"/>&nbsp; &#45; &nbsp; <input type="text" id="search_price_to"/> (USD)</td>
+                                        <td><input type="text" id="search_price_from" name="price_from"/>&nbsp; &#45; &nbsp; <input type="text" id="search_price_to" name="price_to"/> (USD)</td>
                                     </tr>
                                     <tr>
                                         <td><label for="search_cut">Cut Length</label></td>
@@ -134,5 +134,38 @@
         <?php include("php/includes/chat.php"); ?>
         <?php include("php/includes/footer.php"); ?>
         <?php include("php/includes/script-js.php"); ?>
+        <script>
+            //search form
+            $("#search-form").submit(function(e){
+                var url = base_url+"php/forms.php";
+                //php will look for this variable to see what function to execute
+                var data = {
+                  "action": "advanced_search"
+                };
+                data = $(this).serialize() + "&" + $.param(data); //get all values ready to send
+                //make the ajax call
+                $.ajax({
+                  type: "POST",
+                  dataType: "json",
+                  url: url, //Relative or absolute path to response.php file
+                  data: data,
+                  beforeSend: function(){
+                        $("#processing").show();
+                        $("#processing").find(".progress-bar").css({width: "0"}).animate({width: "30%"}, 300);    //progress bar            
+                  },
+                  success: function(data) {
+                      //progress bar   
+                      $("#processing").find(".progress-bar").animate({width: "100%"}, 500, function(){
+                          $("#feedback").text(data["response"]);       
+                          $("#processing").delay(300).fadeOut("fast");
+                      });        
+                  },
+                  error: function(xhr, ajaxOptions, thrownError){
+                        //$("#response").html(xhr.responseText);
+                  }
+                });
+                return false;
+            });
+        </script>
     </body>
 </html>
